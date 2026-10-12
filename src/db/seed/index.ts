@@ -55,7 +55,7 @@ export async function seedDatabase(db: Db, now = new Date()) {
     await insertAll(trx, "cities", d.cities.map(M.cityToRow));
     await insertAll(trx, "areas", d.areas.map(M.areaToRow));
     await insertAll(trx, "categories", d.categories.map(M.categoryToRow));
-    await insertAll(trx, "journeyTemplates", d.templates.map(M.templateToRow));
+    await insertAll(trx, "journeyTemplates", d.templates.map((t, i) => M.templateToRow(t, i)));
     await insertAll(trx, "users", d.users.map(M.userToRow));
     await insertAll(trx, "userSaved", d.users.flatMap((u) => u.saved.map((itemId) => ({ userId: u.id, itemId, createdAt: u.createdAt }))));
     await insertAll(trx, "userFollowing", d.users.flatMap((u) => (u.following ?? []).map((hostId) => ({ userId: u.id, hostId, createdAt: u.createdAt }))));

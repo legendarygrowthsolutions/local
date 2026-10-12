@@ -23,7 +23,7 @@ export const PhoneSchema = z
   .string()
   .regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit Indian mobile number");
 
-export const OtpSendSchema = z.object({ phone: PhoneSchema });
+export const OtpSendSchema = z.object({ phone: PhoneSchema, channel: z.enum(["sms", "whatsapp"]).default("sms") });
 export const OtpVerifySchema = z.object({
   phone: PhoneSchema,
   code: z.string().regex(/^\d{6}$/, "Enter the 6-digit code"),

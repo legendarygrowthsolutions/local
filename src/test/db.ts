@@ -15,7 +15,8 @@ import { repo } from "@/repositories";
  */
 export function setupTestDb(now = new Date()) {
   const dir = mkdtempSync(join(tmpdir(), "local-test-"));
-  process.env.DATABASE_URL = "file:" + join(dir, "test.db");
+  // TEST_DB=postgres runs the same suite on in-process Postgres (PGlite) instead of SQLite.
+  process.env.DATABASE_URL = process.env.TEST_DB === "postgres" ? "pglite:memory" : "file:" + join(dir, "test.db");
   process.env.OTP_PROVIDER ??= "dev";
   beforeAll(async () => {
     await migrateToLatest(rootDb());

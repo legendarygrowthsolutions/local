@@ -17,7 +17,7 @@ const hashCode = (phone: string, code: string) => hmac(config.authSecret(), `${p
  * Send a one-time code. Codes are random, stored only as an HMAC, expire in 5 minutes and allow
  * 5 guesses. Sends are limited per number (resend cooldown, 5 per hour) and per client IP.
  */
-export async function sendOtp(phone: string, ip: string, now = new Date()) {
+export async function sendOtp(phone: string, ip: string, now = new Date(), channel: "sms" | "whatsapp" = "sms") {
   const provider = config.otpProvider();
   if (provider === "none") throw new ServiceError(503, "otp_unavailable", "Login by SMS isn't available right now. Please try again later.");
   const prev = await repo.otps.get(phone);
@@ -32,8 +32,8 @@ export async function sendOtp(phone: string, ip: string, now = new Date()) {
   const code = randomDigits(6);
   await repo.otps.put(phone, { codeHash: hashCode(phone, code), expiresAt: new Date(now.getTime() + OTP_TTL_MS).toISOString(), attempts: 0, sentAt: now.toISOString() });
   // Development delivery: the code is logged and returned so the login screen can show it.
-  if (provider === "dev") console.info(`[otp] ${phone.slice(0, 2)}******${phone.slice(-2)} → ${code}`);
-  return { sent: true, resendInSec: RESEND_SEC, channel: "sms" as const, ...(provider === "dev" ? { devCode: code } : {}) };
+  if (provider === "dev") console.info(`[otp] ${channel} ${phone.slice(0, 2)}******${phone.slice(-2)} → ${code}`);
+  return { sent: true, resendInSec: RESEND_SEC, channel, ...(provider === "dev" ? { devCode: code } : {}) };
 }
 
 export async function verifyOtp(phone: string, code: string, ip: string, now = new Date()): Promise<{ user: User; isNew: boolean }> {

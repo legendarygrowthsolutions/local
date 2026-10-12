@@ -122,6 +122,8 @@ export interface Repository {
     countCouponUses(userId: string, couponCode: string, exceptId?: string): Promise<number>;
     /** Whether the user has any settled booking (requested / confirmed / checked in / refunded), excluding `exceptId`. */
     hasSettledBooking(userId: string, exceptId?: string): Promise<boolean>;
+    /** Expire this user's unpaid holds on a listing or venue (they're starting over). */
+    releaseHolds(userId: string, targetId: string): Promise<void>;
     /** Unpaid holds that are still running for this user (abuse guard). */
     countLiveHolds(userId: string): Promise<number>;
     /** Active (held / pending / confirmed / checked-in) quantities, keyed by ticketTypeId and sessionId. */

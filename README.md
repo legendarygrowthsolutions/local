@@ -8,6 +8,7 @@ Everything to do in your city: events, workshops, meetups, exhibitions, competit
 npm install
 npm run dev          # http://localhost:3000 — creates and seeds ./data/local.db on first run
 npm test             # unit + backend integration tests (each file gets its own temp SQLite database)
+npm run test:postgres  # the same suite on Postgres (in-process PGlite), to keep the SQL portable
 npm run e2e          # production build + Playwright: golden paths, axe a11y, 360/412/1440px layouts
 npm run typecheck
 ```
@@ -31,7 +32,7 @@ npm run fixtures     # regenerate the seed fixtures in src/db/seed/fixtures (det
 | `mysql://…` | MySQL (`npm i mysql2`) |
 | `libsql://…` + `DATABASE_AUTH_TOKEN` | Turso (`npm i @libsql/kysely-libsql`) |
 
-Seeded events are anchored to the day you seed, so run `npm run db:reset` to bring the demo data back around today.
+The server applies pending migrations itself when it starts (`src/instrumentation.ts`; set `DB_AUTO_MIGRATE=0` to run them yourself). Seeding is always a deliberate step. Seeded events are anchored to the day you seed, so run `npm run db:reset` to bring the demo data back around today.
 
 ## Trying it
 
@@ -84,6 +85,6 @@ Set `AUTH_SECRET`, a production `DATABASE_URL` and `TRUSTED_IP_HEADER` (if you'r
 
 ## Quality bar
 
-- **Backend integration tests** (`src/**/*.test.ts`, Vitest, real SQLite): repository round-trips for every entity, auth (cooldowns, lockout, single use, rate limits), booking rules and concurrency (parallel holds never oversell), payments, coupons, cancellations, host roles and money stripping, check-in, moderation, discovery, uploads.
+- **Backend integration tests** (`src/**/*.test.ts`, Vitest, on real SQLite and again on Postgres via PGlite): repository round-trips for every entity, auth (cooldowns, lockout, single use, rate limits), booking rules and concurrency (parallel holds never oversell), payments, coupons, cancellations, host roles and money stripping, check-in, moderation, discovery, uploads.
 - **E2E** (`tests/e2e`, Playwright, production build on a fresh database): ticket booking with login at checkout (a wrong code, then the right one), onboarding, coupon, a failed and then a successful payment; court slot booking and cancellation; free RSVP; host apply → superadmin approval → wizard listing → moderation → live; owner/manager money split; discovery.
 - **Accessibility:** axe (WCAG 2.1 AA) on public, user, host and admin pages at 360, 412 and 1440 px. No serious or critical issues, and no sideways scrolling.

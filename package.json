@@ -18,7 +18,7 @@
     "db:ensure": "tsx scripts/db.ts ensure",
     "db:schema": "tsx scripts/db.ts schema",
     "predev": "npm run db:ensure",
-    "prestart": "npm run db:ensure"
+    "test:postgres": "TEST_DB=postgres vitest run"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
+    "@electric-sql/pglite": "^0.5.9",
     "@playwright/test": "^1.64.0",
     "@tailwindcss/turbopack": "^4",
     "@types/better-sqlite3": "^9.6.0",

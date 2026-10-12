@@ -170,10 +170,12 @@ export const sqlRepository: Repository = {
   },
 
   templates: {
-    list: () => cached("templates", async () => (await db().selectFrom("journeyTemplates").selectAll().orderBy("id").execute()).map(M.templateFromRow)),
+    list: () => cached("templates", async () => (await db().selectFrom("journeyTemplates").selectAll().orderBy("sort").orderBy("id").execute()).map(M.templateFromRow)),
     byId: async (id) => (await sqlRepository.templates.list()).find((t) => t.id === id) ?? null,
     insert: async (t) => {
-      await db().insertInto("journeyTemplates").values(M.templateToRow(t)).execute();
+      // New templates go to the end of the list.
+      const last = await db().selectFrom("journeyTemplates").select((eb) => eb.fn.max("sort").as("m")).executeTakeFirst();
+      await db().insertInto("journeyTemplates").values(M.templateToRow(t, Number(last?.m ?? -1) + 1)).execute();
       invalidate("templates");
       return t;
     },
@@ -454,6 +456,15 @@ export const sqlRepository: Repository = {
       let q = db().selectFrom("bookings").select("id").where("userId", "=", userId).where("status", "in", [...SETTLED, "refunded"]);
       if (exceptId) q = q.where("id", "!=", exceptId);
       return !!(await q.limit(1).executeTakeFirst());
+    },
+    releaseHolds: async (userId, targetId) => {
+      await db()
+        .updateTable("bookings")
+        .set({ status: "expired" })
+        .where("userId", "=", userId)
+        .where("status", "in", [...HOLDING])
+        .where((eb) => eb.or([eb("listingId", "=", targetId), eb("venueId", "=", targetId)]))
+        .execute();
     },
     countLiveHolds: async (userId) => {
       const r = await db()

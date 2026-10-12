@@ -183,7 +183,7 @@ export async function listHostListings(ctx: HostContext, now = new Date()): Prom
     const finite = lt.filter((t) => t.qty < 9999);
     const capacity = tpl.bookingMode === "none" ? 0 : finite.length ? finite.reduce((s, t) => s + t.qty, 0) : ls.reduce((s, x) => s + x.capacity, 0);
     const soldSeeded = finite.reduce((s, t) => s + t.sold, 0);
-    const soldReal = lb.filter((b) => !b.seeded).reduce((s, b) => s + b.items.reduce((a, i) => a + i.qty, 0), 0);
+    const soldReal = lb.reduce((s, b) => s + b.items.reduce((a, i) => a + i.qty, 0), 0);
     const soldUnlimited = lb.reduce((s, b) => s + b.items.reduce((a, i) => a + i.qty, 0), 0);
     const sold = finite.length ? soldSeeded + soldReal : soldUnlimited;
     const next = ls.find((s) => new Date(s.endsAt) > now) ?? ls[ls.length - 1];
@@ -451,7 +451,7 @@ async function saveVenue(ctx: HostContext, input: VenueInput, submit: boolean, i
   }));
   if (existing) {
     const removed = oldRes.filter((r) => !resources.some((x) => x.id === r.id)).map((r) => r.id);
-    const future = (await repo.bookings.listForTargets([], [venueId])).filter((b) => !b.seeded && ["confirmed", "held", "pending_payment"].includes(b.status) && new Date(b.endsAt) > new Date());
+    const future = (await repo.bookings.listForTargets([], [venueId])).filter((b) => ["confirmed", "requested", "checked_in", "held", "pending_payment"].includes(b.status) && new Date(b.endsAt) > new Date());
     if (future.some((b) => b.items.some((i) => i.resourceId && removed.includes(i.resourceId)))) throw conflict("A court you removed has upcoming bookings.", "has_bookings");
   }
   const peak = [

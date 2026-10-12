@@ -10,7 +10,7 @@ export interface AreasTable { id: string; cityId: string; slug: string; name: st
 export interface CategoriesTable { id: string; slug: string; name: string; singular: string; parentId: string | null; icon: string; sort: number; blurb: string | null }
 export interface JourneyTemplatesTable {
   id: string; name: string; description: string; allowedCategories: Json; bookingMode: string; schedule: string; pricing: string;
-  ticketScope: string | null; steps: Json; rules: Json; fees: Json; cancellation: Json; ctaLabel: string; active: Bool;
+  ticketScope: string | null; steps: Json; rules: Json; fees: Json; cancellation: Json; ctaLabel: string; sort: number; active: Bool;
 }
 export interface UsersTable {
   id: string; phone: string; name: string | null; gender: string | null; dob: string | null; cityId: string | null; interests: Json;

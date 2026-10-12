@@ -36,6 +36,8 @@ export async function holdBooking(userId: string, req: HoldRequest, now = new Da
 }
 
 async function holdOnce(userId: string, req: HoldRequest, now: Date): Promise<Booking> {
+  // A new hold for the same listing/venue replaces any earlier unpaid one (e.g. Back from review).
+  await repo.bookings.releaseHolds(userId, req.targetId);
   if ((await repo.bookings.countLiveHolds(userId)) >= MAX_LIVE_HOLDS)
     throw conflict("You have several unpaid bookings in progress. Finish or let them expire first.", "too_many_holds");
   const code = "LCL" + randomCode(6);

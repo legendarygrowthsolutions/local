@@ -343,6 +343,7 @@ Data model: `host_members(id, host_id, user_id, role[owner|manager], invited_by,
 
 ### Implementation notes
 - **Phase 2 open items (need accounts/keys):** an SMS provider for OTP (`OTP_PROVIDER`; dev mode shows the code on screen) and a payment gateway (`PAYMENT_PROVIDER`; the test gateway runs outside production). Production refuses to send codes or take payments until these are configured, rather than faking them.
+- Seeded demo data (events and other players' court bookings) is anchored to the seed date; as a local DB ages, later days look empty. `npm run db:reset` re-anchors it.
 - **Product decision to confirm:** edits to a *live* listing go live immediately without re-moderation (the security review flagged bait-and-switch risk). Alternative: queue a pending revision for admin approval while the current version stays live.
 - **Cache Components is off** (`next.config.ts`). Pages render per request against the database (inventory changes constantly). Cities, areas, categories and templates are cached in-process for 30 s and invalidated on writes.
 - Booking route is `/book/{e|v}/{id}?step=select|details|review` (one page; steps live in the URL so the back button works), then `/book/pay/{bookingId}` and `/book/done/{bookingId}`.

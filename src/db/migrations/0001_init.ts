@@ -66,6 +66,7 @@ export async function up(db: Db) {
     .addColumn("fees", "text", (c) => c.notNull())
     .addColumn("cancellation", "text", (c) => c.notNull())
     .addColumn("cta_label", txt, (c) => c.notNull())
+    .addColumn("sort", "integer", (c) => c.notNull().defaultTo(0))
     .addColumn("active", "integer", (c) => c.notNull().defaultTo(1))
     .execute();
 

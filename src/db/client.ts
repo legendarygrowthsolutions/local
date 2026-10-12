@@ -1,7 +1,7 @@
 import { AsyncLocalStorage } from "node:async_hooks";
 import { mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import { CamelCasePlugin, HandleEmptyInListsPlugin, Kysely, MysqlDialect, PostgresDialect, SqliteDialect, replaceWithNoncontingentExpression, type Dialect, type Transaction } from "kysely";
+import { CamelCasePlugin, HandleEmptyInListsPlugin, Kysely, MysqlDialect, PGliteDialect, PostgresDialect, SqliteDialect, replaceWithNoncontingentExpression, type Dialect, type Transaction } from "kysely";
 import type { Database } from "./tables";
 
 export type Db = Kysely<Database>;
@@ -13,6 +13,7 @@ export type DialectName = "sqlite" | "postgres" | "mysql";
  *   postgres://… / postgresql://…  → Postgres via `pg` (install it)
  *   mysql://…                      → MySQL via `mysql2` (install it)
  *   libsql://… (Turso)             → via `@libsql/kysely-libsql` (install it)
+ *   pglite:memory | pglite:./dir   → in-process Postgres (WASM) — used to run the test suite on Postgres
  * Services never see the dialect; repositories only use portable query-builder SQL.
  */
 export function databaseUrl() {
@@ -20,21 +21,31 @@ export function databaseUrl() {
 }
 
 export function dialectName(url = databaseUrl()): DialectName {
-  if (/^postgres(ql)?:\/\//.test(url)) return "postgres";
+  if (/^postgres(ql)?:\/\//.test(url) || url.startsWith("pglite:")) return "postgres";
   if (url.startsWith("mysql://")) return "mysql";
   return "sqlite"; // file: paths and libsql:// both speak SQLite
 }
 
 // Optional drivers are loaded at runtime only when configured, so bundlers don't try to resolve them.
-const load = (m: string) => (new Function("m", "return import(m)") as (m: string) => Promise<Record<string, unknown>>)(m);
+const load = (m: string) => import(/* webpackIgnore: true */ /* turbopackIgnore: true */ /* @vite-ignore */ m) as Promise<Record<string, unknown>>;
 
 function sqliteFile(url: string) {
   if (url === ":memory:" || url === "file::memory:") return ":memory:";
-  return resolve(process.cwd(), url.replace(/^file:/, ""));
+  // The database file lives outside the app bundle, so keep it out of output tracing.
+  return resolve(/* turbopackIgnore: true */ process.cwd(), url.replace(/^file:/, ""));
 }
 
 function makeDialect(url: string): Dialect {
   const kind = dialectName(url);
+  if (url.startsWith("pglite:")) {
+    const where = url.slice("pglite:".length);
+    return new PGliteDialect({
+      pglite: async () => {
+        const { PGlite } = (await load("@electric-sql/pglite")) as { PGlite: new (dir?: string) => never };
+        return new PGlite(where === "memory" ? undefined : where);
+      },
+    });
+  }
   if (kind === "postgres") {
     return new PostgresDialect({
       pool: async () => {

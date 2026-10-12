@@ -48,7 +48,7 @@ export const categoryFromRow = (r: T.CategoriesTable): Category => {
 };
 
 // ---------- journey templates ----------
-export const templateToRow = (t: JourneyTemplate): T.JourneyTemplatesTable => ({
+export const templateToRow = (t: JourneyTemplate, sort = 0): T.JourneyTemplatesTable => ({
   id: t.id,
   name: t.name,
   description: t.description,
@@ -62,6 +62,7 @@ export const templateToRow = (t: JourneyTemplate): T.JourneyTemplatesTable => ({
   fees: j(t.fees),
   cancellation: j(t.cancellation),
   ctaLabel: t.ctaLabel,
+  sort,
   active: b(t.active),
 });
 export const templateFromRow = (r: T.JourneyTemplatesTable): JourneyTemplate => ({
@@ -80,7 +81,11 @@ export const templateFromRow = (r: T.JourneyTemplatesTable): JourneyTemplate => 
   ctaLabel: r.ctaLabel,
   active: isTrue(r.active),
 });
-export const templatePatch = (p: Partial<JourneyTemplate>) => pick(templateToRow({ ...EMPTY_TEMPLATE, ...p }), p);
+export const templatePatch = (p: Partial<JourneyTemplate>) => {
+  const row = pick(templateToRow({ ...EMPTY_TEMPLATE, ...p }), p);
+  delete (row as { sort?: number }).sort;
+  return row;
+};
 const EMPTY_TEMPLATE = {
   id: "", name: "", description: "", allowedCategories: [], bookingMode: "none", schedule: "single", pricing: "free", ticketScope: null, steps: [],
   rules: {}, fees: {}, cancellation: {}, ctaLabel: "", active: false,

@@ -33,6 +33,7 @@ export function LoginFlow() {
   const [timer, setTimer] = useState(0);
   // Only present when the server delivers OTPs in development mode (no SMS provider).
   const [devCode, setDevCode] = useState<string | null>(null);
+  const [channel, setChannel] = useState<"sms" | "whatsapp">("sms");
   const send = useSendOtp();
   const verify = useVerifyOtp();
 
@@ -42,13 +43,14 @@ export function LoginFlow() {
     return () => clearTimeout(t);
   }, [timer]);
 
-  const submitPhone = (e?: React.FormEvent) => {
+  const submitPhone = (e?: React.FormEvent, via: "sms" | "whatsapp" = "sms") => {
     e?.preventDefault();
     const parsed = PhoneSchema.safeParse(phone);
     if (!parsed.success) return setPhoneError(parsed.error.issues[0].message);
     setPhoneError(null);
-    send.mutate(phone, {
+    send.mutate({ phone, channel: via }, {
       onSuccess: (r) => {
+        setChannel(r.channel);
         setStep("otp");
         setCode("");
         setTimer(r.resendInSec);
@@ -161,7 +163,7 @@ export function LoginFlow() {
             <div className="flex flex-col gap-2">
               <h1 className="font-display text-[32px] font-extrabold leading-tight">Enter the code</h1>
               <p className="text-[15px] text-muted">
-                Sent via SMS to{" "}
+                Sent via {channel === "whatsapp" ? "WhatsApp" : "SMS"} to{" "}
                 <strong className="text-ink">
                   +91 {phone.slice(0, 5)} {phone.slice(5)}
                 </strong>{" "}
@@ -190,7 +192,7 @@ export function LoginFlow() {
                     Resend code
                   </button>
                 )}
-                <button type="button" disabled={timer > 0} onClick={() => submitPhone()} className="font-semibold text-brand disabled:text-subtle">
+                <button type="button" disabled={timer > 0} onClick={() => submitPhone(undefined, "whatsapp")} className="font-semibold text-brand disabled:text-subtle">
                   Get code on WhatsApp
                 </button>
               </div>

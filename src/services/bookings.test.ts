@@ -90,10 +90,11 @@ describe("holdBooking — ticketed listings", () => {
     expect(await err(holdBooking(u.id, ticketed(draft.listing.id, [{ ticketTypeId: draft.tickets[0].id, qty: 1 }])))).toMatchObject({ status: 404 });
   });
 
-  it("caps live holds per user at 4", async () => {
+  it("caps live holds per user at 4 (across different listings)", async () => {
     const u = await makeUser();
-    const { listing, tickets } = await makeListing();
-    for (let i = 0; i < 4; i++) await holdBooking(u.id, ticketed(listing.id, [{ ticketTypeId: tickets[0].id, qty: 1 }]));
+    const made = await Promise.all(Array.from({ length: 5 }, () => makeListing()));
+    for (const { listing, tickets } of made.slice(0, 4)) await holdBooking(u.id, ticketed(listing.id, [{ ticketTypeId: tickets[0].id, qty: 1 }]));
+    const { listing, tickets } = made[4];
     expect(await err(holdBooking(u.id, ticketed(listing.id, [{ ticketTypeId: tickets[0].id, qty: 1 }])))).toMatchObject({ status: 409, code: "too_many_holds" });
   });
 
@@ -306,5 +307,31 @@ describe("cancelBooking", () => {
     mine = await listMyBookings(u.id);
     expect(mine.upcoming).toEqual([]);
     expect(mine.cancelled.map((b) => b.id)).toEqual([booking.id]);
+  });
+});
+
+describe("starting over (Back from review)", () => {
+  it("a new hold on the same listing replaces the earlier one, so coupons and the hold cap don't lock people out", async () => {
+    const u = await makeUser();
+    const { listing, tickets } = await makeListing({ tickets: [{ price: 500, qty: 10 }] });
+    const ids: string[] = [];
+    for (let i = 0; i < 6; i++) {
+      const b = await holdBooking(u.id, ticketed(listing.id, [{ ticketTypeId: tickets[0].id, qty: 1 }]));
+      await applyCoupon(u.id, b.id, "FIRST100");
+      ids.push(b.id);
+    }
+    const statuses = await Promise.all(ids.map(async (id) => (await repo.bookings.byId(id))!.status));
+    expect(statuses.slice(0, -1).every((s) => s === "expired")).toBe(true);
+    expect(statuses.at(-1)).toBe("held");
+    // Released seats are back in stock.
+    expect((await loadInventory([listing])).get(listing.id)!.tickets[0].remaining).toBe(9);
+  });
+
+  it("a failed new hold keeps the earlier one (the release rolls back)", async () => {
+    const u = await makeUser();
+    const { listing, tickets } = await makeListing({ tickets: [{ price: 500, qty: 2 }] });
+    const first = await holdBooking(u.id, ticketed(listing.id, [{ ticketTypeId: tickets[0].id, qty: 1 }]));
+    expect(await err(holdBooking(u.id, ticketed(listing.id, [{ ticketTypeId: tickets[0].id, qty: 50 }])))).toMatchObject({ status: 400 });
+    expect((await repo.bookings.byId(first.id))!.status).toBe("held");
   });
 });

@@ -66,7 +66,10 @@ export function useAvailability(venueId: string, sport?: string, date?: string) 
 }
 
 export function useSendOtp() {
-  return useMutation({ mutationFn: (phone: string) => api<{ sent: boolean; resendInSec: number; devCode?: string }>("/api/auth/otp/send", { body: { phone } }) });
+  return useMutation({
+    mutationFn: (v: { phone: string; channel?: "sms" | "whatsapp" }) =>
+      api<{ sent: boolean; resendInSec: number; channel: "sms" | "whatsapp"; devCode?: string }>("/api/auth/otp/send", { body: { phone: v.phone, channel: v.channel ?? "sms" } }),
+  });
 }
 
 export function useVerifyOtp() {

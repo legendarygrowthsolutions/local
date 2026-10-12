@@ -294,3 +294,21 @@ describe("views", () => {
     expect((await hostDashboard(ctx)).week.views).toBe(before + 2);
   });
 });
+
+describe("review regressions", () => {
+  it("sold counts include seeded sales (no '0 / N' for demo events)", async () => {
+    const ctx = await ctxFor("u_host");
+    const rows = await listHostListings(ctx);
+    const row = rows.find((r) => r.id === "l_mumbai_05")!;
+    const bookings = await repo.bookings.listForTargets(["l_mumbai_05"], []);
+    const active = bookings.filter((b) => ["confirmed", "checked_in", "requested", "held", "pending_payment"].includes(b.status));
+    expect(active.length).toBeGreaterThan(0);
+    expect(row.sold).toBeGreaterThan(0);
+  });
+
+  it("journey templates keep their curated order", async () => {
+    const ids = (await repo.templates.list()).map((t) => t.id);
+    expect(ids.indexOf("tpl_ticket_single")).toBeLessThan(ids.indexOf("tpl_ticket_multi"));
+    expect(ids.indexOf("tpl_ticket_single")).toBeLessThan(ids.indexOf("tpl_recurring"));
+  });
+});
