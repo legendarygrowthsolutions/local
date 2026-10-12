@@ -15,5 +15,6 @@ export default defineConfig({
     // Integration suites seed a real SQLite database per file.
     testTimeout: 20_000,
     hookTimeout: 60_000,
+    setupFiles: ["src/test/setup-env.ts"],
   },
 });

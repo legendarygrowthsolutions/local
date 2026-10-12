@@ -199,3 +199,19 @@ describe("configuration", () => {
     process.env.RAZORPAY_WEBHOOK_SECRET = HOOK;
   });
 });
+
+describe("DEV=1", () => {
+  it("uses the simulated gateway instead of Razorpay", async () => {
+    const { config } = await import("@/lib/config");
+    expect(config.paymentProvider()).toBe("razorpay");
+    process.env.DEV = "1";
+    try {
+      expect(config.paymentProvider()).toBe("test");
+      const { u, b } = await heldBooking();
+      expect((await payBooking(u.id, b.id, { method: "upi", outcome: "success" })).outcome).toBe("success");
+      expect(gw.calls).toEqual([]); // nothing went to Razorpay
+    } finally {
+      delete process.env.DEV;
+    }
+  });
+});

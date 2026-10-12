@@ -9,8 +9,15 @@ export const fixtures = {
   venues: fx("venues") as { id: string; slug: string; cityId: string; name: string }[],
 };
 
+const sessions = fx("sessions") as { listingId: string; startsAt: string }[];
+const anchor = (fx("meta") as { anchor: string }).anchor;
+// Seeding shifts the fixture anchor to today, so "starts on or after anchor + 1 day" means "tomorrow
+// or later": the listing can't have ended by the time the suite runs, whatever the time of day.
+const tomorrow = new Date(Date.parse(anchor) + 86_400_000).toISOString().slice(0, 10);
+const upcoming = (id: string) => sessions.some((s) => s.listingId === id) && sessions.filter((s) => s.listingId === id).every((s) => s.startsAt.slice(0, 10) >= tomorrow);
+
 export function listingFor(templateId: string, city = "c_mumbai", n = 0) {
-  return fixtures.listings.filter((l) => l.cityId === city && l.templateId === templateId)[n];
+  return fixtures.listings.filter((l) => l.cityId === city && l.templateId === templateId && upcoming(l.id))[n];
 }
 
 /**

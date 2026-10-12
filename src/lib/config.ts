@@ -1,4 +1,5 @@
 import "server-only";
+import { devServices } from "./dev-mode";
 
 const isProd = process.env.NODE_ENV === "production";
 let warned = false;
@@ -26,6 +27,7 @@ export const config = {
    * failure), allowed by default outside production only. A real gateway plugs in here.
    */
   paymentProvider(): "test" | "razorpay" | "none" {
+    if (devServices()) return "test";
     const p = process.env.PAYMENT_PROVIDER ?? (isProd ? "none" : "test");
     if (p === "razorpay") {
       if (process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET && process.env.RAZORPAY_WEBHOOK_SECRET) return "razorpay";

@@ -28,8 +28,8 @@ export default defineConfig({
     reuseExistingServer: false,
     env: {
       DATABASE_URL: "file:./data/e2e.db",
-      OTP_PROVIDER: "dev",
-      PAYMENT_PROVIDER: "test",
+      // Dummy SMS (code shown on screen) + simulated payment gateway on a production build.
+      DEV: "1",
       AUTH_SECRET: "e2e-only-secret-not-for-production-0123456789",
       COOKIE_SECURE: "0",
       // The suite signs the same demo accounts in many times from one machine.

@@ -107,3 +107,16 @@ describe("over real HTTP (local stub servers)", () => {
     }
   });
 });
+
+describe("DEV=1", () => {
+  it("forces the dummy SMS service even when a real provider is configured", () => {
+    Object.assign(process.env, { OTP_PROVIDER: "twilio", TWILIO_ACCOUNT_SID: "AC1", TWILIO_AUTH_TOKEN: "tok", TWILIO_FROM: "+15550001111" });
+    expect(smsProvider()).toBe("twilio");
+    process.env.DEV = "1";
+    try {
+      expect(smsProvider()).toBe("dev");
+    } finally {
+      delete process.env.DEV;
+    }
+  });
+});

@@ -1,5 +1,6 @@
 import "server-only";
 import { ServiceError } from "@/services/errors";
+import { devServices } from "@/lib/dev-mode";
 
 export type OtpChannel = "sms" | "whatsapp";
 export type SmsProvider = "dev" | "msg91" | "twilio" | "none";
@@ -80,6 +81,7 @@ async function twilio(phone: string, code: string, channel: OtpChannel): Promise
 /** Which provider is configured. A provider missing its credentials counts as none (and is logged once). */
 let warned = false;
 export function smsProvider(): SmsProvider {
+  if (devServices()) return "dev";
   const isProd = process.env.NODE_ENV === "production";
   const p = process.env.OTP_PROVIDER ?? (isProd ? "none" : "dev");
   const missing = (keys: string[]) => keys.filter((k) => !process.env[k]);

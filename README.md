@@ -85,6 +85,10 @@ services/* ──► repositories (interface) ──► sql/ (Kysely) ──► 
 - **Uploads:** images and documents are checked by their magic bytes. Listing photos are served from `/media/{id}` with immutable caching. KYC documents are private: only the uploader, owners of that host and superadmins can open them.
 - **Headers:** CSP, frame blocking, nosniff, a strict referrer policy, a Permissions-Policy and HSTS in production.
 
+### Dummy services (`DEV=1`)
+
+Set `DEV=1` to run the whole app without any provider accounts: login codes are shown on screen instead of sent by SMS, and payments go through the simulated gateway (success or failure on demand). It overrides `OTP_PROVIDER` and `PAYMENT_PROVIDER`, works on production builds (the E2E suite runs this way), and logs a warning when it's on. Turn it off before real users arrive, because with it on anyone can sign in as anyone.
+
 ### Going live
 
 1. Set `AUTH_SECRET`, a production `DATABASE_URL`, and `TRUSTED_IP_HEADER` if you're behind a proxy.
