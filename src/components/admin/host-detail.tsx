@@ -80,7 +80,13 @@ export function HostDetail({ host }: { host: Row }) {
                 <FileText className="size-4 shrink-0 text-muted" aria-hidden />
                 <span className="min-w-0 flex-1">
                   <span className="block">{DOC[d.kind]}</span>
-                  <span className="block truncate text-xs text-muted">{d.fileName}</span>
+                  {d.mediaId ? (
+                    <a href={`/api/documents/${d.mediaId}`} target="_blank" rel="noopener" className="block truncate text-xs font-semibold text-brand underline-offset-2 hover:underline">
+                      {d.fileName}
+                    </a>
+                  ) : (
+                    <span className="block truncate text-xs text-muted">{d.fileName}</span>
+                  )}
                 </span>
                 {d.status === "uploaded" ? (
                   <span className="flex items-center gap-1">
@@ -101,7 +107,7 @@ export function HostDetail({ host }: { host: Row }) {
             ))}
           </ul>
         )}
-        <p className="text-xs text-subtle">Prototype: documents are file names only. Verifying PAN and bank proof marks KYC verified and unlocks paid ticketing.</p>
+        <p className="text-xs text-subtle">Open each file to check it. Verifying PAN and bank proof marks KYC verified and unlocks paid ticketing.</p>
       </div>
 
       {host.instagram && (

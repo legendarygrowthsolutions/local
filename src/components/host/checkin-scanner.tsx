@@ -3,13 +3,25 @@
 import { AnimatePresence, m } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
-import { CircleAlert, CircleCheck, Clock, FlaskConical, ScanLine } from "lucide-react";
+import { Camera, CameraOff, CircleAlert, CircleCheck, Clock, FlaskConical, ScanLine } from "lucide-react";
 import { useCheckIn, type CheckInResult } from "@/lib/api/host-hooks";
 import { api } from "@/lib/api/client";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { formatRange } from "@/lib/time";
 import { cn } from "@/lib/utils";
+import { bookingCodeFromQr, useQrCamera, type CameraState } from "./use-qr-camera";
+
+const IS_DEV = process.env.NODE_ENV !== "production";
+
+const CAMERA_HINT: Record<CameraState, string> = {
+  idle: "Point the camera at the QR code on the guest's ticket",
+  starting: "Starting the camera…",
+  scanning: "Looking for a QR code…",
+  unsupported: "This browser can't scan QR codes. Type the booking code below instead.",
+  denied: "Camera access is blocked. Allow it in your browser settings, or type the code below.",
+  error: "Couldn't start the camera. Type the booking code below instead.",
+};
 
 const TONE: Record<CheckInResult["result"], { cls: string; icon: typeof CircleCheck; title: string }> = {
   ok: { cls: "border-free/30 bg-free-tint text-free", icon: CircleCheck, title: "Checked in" },
@@ -36,6 +48,14 @@ export function CheckInScanner() {
     });
   };
 
+  const { videoRef, state: cameraState, start: startCamera, stop: stopCamera } = useQrCamera((value) => {
+    const c = bookingCodeFromQr(value);
+    if (c) run(c);
+    else toast.error("That QR code isn't a local. ticket");
+  });
+  const live = cameraState === "scanning" || cameraState === "starting";
+
+  // Development only: check in the next booking due today without a camera.
   const simulate = async () => {
     setScanning(true);
     try {
@@ -50,13 +70,14 @@ export function CheckInScanner() {
   return (
     <div className="flex flex-col gap-5">
       <div className="relative aspect-square overflow-hidden rounded-[28px] bg-feature">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(91,46,255,.35),transparent_55%)]" aria-hidden />
+        <video ref={videoRef} muted playsInline className={cn("absolute inset-0 size-full object-cover transition-opacity", live ? "opacity-100" : "opacity-0")} aria-hidden />
+        {!live && <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(127,208,214,.25),transparent_55%)]" aria-hidden />}
         <div className="absolute inset-[18%] rounded-3xl" aria-hidden>
           {["left-0 top-0 border-l-4 border-t-4 rounded-tl-3xl", "right-0 top-0 border-r-4 border-t-4 rounded-tr-3xl", "left-0 bottom-0 border-l-4 border-b-4 rounded-bl-3xl", "right-0 bottom-0 border-r-4 border-b-4 rounded-br-3xl"].map((c) => (
             <span key={c} className={cn("absolute size-12 border-white", c)} />
           ))}
           <AnimatePresence>
-            {scanning && (
+            {(scanning || cameraState === "scanning") && (
               <m.span
                 initial={{ top: "5%", opacity: 0 }}
                 animate={{ top: ["5%", "92%", "5%"], opacity: 1 }}
@@ -68,12 +89,27 @@ export function CheckInScanner() {
           </AnimatePresence>
         </div>
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 p-5 text-center text-white">
-          <p className="text-sm text-feature-muted">{scanning ? "Looking for a QR code…" : "Camera scanning arrives in phase 2"}</p>
-          <Button variant="onDark" onClick={simulate} loading={scanning} disabled={checkIn.isPending}>
-            <FlaskConical className="size-4" /> Simulate a scan
-          </Button>
+          <p className="text-sm text-feature-muted [text-shadow:0_1px_4px_rgba(0,0,0,.5)]" aria-live="polite">
+            {scanning ? "Looking for a QR code…" : CAMERA_HINT[cameraState]}
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {live ? (
+              <Button variant="onDark" onClick={stopCamera}>
+                <CameraOff className="size-4" /> Stop camera
+              </Button>
+            ) : (
+              <Button variant="onDark" onClick={startCamera} disabled={cameraState === "unsupported"}>
+                <Camera className="size-4" /> Scan with camera
+              </Button>
+            )}
+            {IS_DEV && !live && (
+              <Button variant="onDark" onClick={simulate} loading={scanning} disabled={checkIn.isPending}>
+                <FlaskConical className="size-4" /> Simulate a scan
+              </Button>
+            )}
+          </div>
         </div>
-        <ScanLine className="absolute left-1/2 top-1/2 size-14 -translate-x-1/2 -translate-y-1/2 text-white/15" aria-hidden />
+        {!live && <ScanLine className="absolute left-1/2 top-1/2 size-14 -translate-x-1/2 -translate-y-1/2 text-white/15" aria-hidden />}
       </div>
 
       <form

@@ -6,6 +6,8 @@ export const SessionSchema = z.object({
   startsAt: z.string(), // ISO with +05:30
   endsAt: z.string(),
   capacity: z.number(),
+  /** Seats sold outside this system (e.g. on another channel); bookings are counted separately. */
+  sold: z.number().optional(),
   label: z.string(),
 });
 export type Session = z.infer<typeof SessionSchema>;

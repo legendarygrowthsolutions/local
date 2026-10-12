@@ -11,7 +11,7 @@ export function Avatar({ name, src, className }: { name: string | null | undefin
   return (
     <span className={cn("grid flex-none place-items-center overflow-hidden rounded-full bg-brand font-bold text-white", className)} aria-hidden>
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element -- data URL from the mock store
+        // eslint-disable-next-line @next/next/no-img-element -- tiny avatar: a stored /media URL or a just-picked data URL
         <img src={src} alt="" className="size-full object-cover" />
       ) : (
         initials(name)
@@ -20,7 +20,7 @@ export function Avatar({ name, src, className }: { name: string | null | undefin
   );
 }
 
-/** Downscale a picked photo to a square JPEG data URL (phase 1 stores it inline). */
+/** Downscale a picked photo to a small square JPEG before upload. */
 export async function fileToAvatar(file: File, size = 256): Promise<string> {
   const bmp = await createImageBitmap(file);
   const side = Math.min(bmp.width, bmp.height);

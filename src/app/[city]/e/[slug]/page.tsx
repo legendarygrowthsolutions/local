@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { cache } from "react";
+import { trackView } from "@/services/views";
 import Link from "next/link";
 import { CalendarDays, MapPin, Repeat } from "lucide-react";
 import { getListingDetail } from "@/services/discover";
@@ -17,9 +19,11 @@ import { cn } from "@/lib/utils";
 
 type Params = Promise<{ city: string; slug: string }>;
 
+// Shared by generateMetadata and the page, so the data loads once per request.
+const loadDetail = cache((city: string, slug: string) => or404(getListingDetail(city, slug)));
 async function load(params: Params) {
   const { city, slug } = await params;
-  return or404(getListingDetail(city, slug));
+  return loadDetail(city, slug);
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
@@ -35,6 +39,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 export default async function EventPage({ params }: { params: Params }) {
   const d = await load(params);
+  await trackView(d.listing.id);
   const { listing, template, sessions, card } = d;
   const first = sessions[0];
   const f = fromISO(first.startsAt);

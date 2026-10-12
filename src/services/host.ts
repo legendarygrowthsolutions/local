@@ -1,4 +1,6 @@
 import "server-only";
+import { storeDocument, storeImages } from "./media";
+import { newId } from "@/lib/crypto";
 import type {
   Booking, EventListingInput, Host, HostApplicationInput, HostMember, JourneyTemplate, Listing, ListingInput, Resource,
   Session, SlotRule, TicketType, User, Venue, VenueInput,
@@ -7,7 +9,6 @@ import { repo } from "@/repositories";
 import { generateSlots } from "@/lib/slots/engine";
 import { addDays, formatDate, formatMins, formatWhen, fromISO, istParts, toISO, todayIST } from "@/lib/time";
 import { ServiceError, badRequest, conflict, notFound } from "./errors";
-import { hash01 } from "@/mocks/occupancy";
 
 // ---------------------------------------------------------------------------
 // Context & roles (PLAN §11.1). Money is stripped here, server-side, for managers.
@@ -49,7 +50,7 @@ export function assertOwner(ctx: HostContext) {
 }
 const money = (ctx: HostContext, v: number) => (ctx.isOwner ? Math.round(v * 100) / 100 : null);
 
-const rid = (p: string) => `${p}_${Math.random().toString(36).slice(2, 10)}`;
+const rid = newId;
 const slugify = (s: string) => s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 const COUNTED: Booking["status"][] = ["confirmed", "checked_in", "requested"];
 
@@ -60,7 +61,18 @@ const COUNTED: Booking["status"][] = ["confirmed", "checked_in", "requested"];
 export async function applyAsHost(user: User, input: HostApplicationInput) {
   const existing = await memberships(user.id);
   const mine = existing.find((x) => x.member.role === "owner");
-  const docs = input.documents.map((d) => ({ id: rid("doc"), kind: d.kind, fileName: d.fileName, status: "uploaded" as const }));
+  // Each document is a new private upload, or a file kept from this host's previous submission.
+  const previous = mine?.host.documents ?? [];
+  const docs = [];
+  for (const d of input.documents) {
+    if (d.data) {
+      docs.push({ id: rid("doc"), kind: d.kind, fileName: d.fileName, mediaId: await storeDocument(user.id, d.data), status: "uploaded" as const });
+      continue;
+    }
+    const kept = d.mediaId ? previous.find((p) => p.mediaId === d.mediaId) : undefined;
+    if (!kept) throw badRequest(`Please upload your ${d.fileName ? "document" : d.kind} again`);
+    docs.push({ ...kept, kind: d.kind });
+  }
   const fields = {
     type: input.type,
     brandName: input.brandName,
@@ -246,13 +258,13 @@ export async function hostDashboard(ctx: HostContext, now = new Date()) {
   const thisWeek = made(ago7, t);
   const lastWeek = made(ago14, ago7);
   const sales = (list: typeof counted) => list.reduce((s, b) => s + b.price.subtotal - b.price.discount, 0);
-  // Phase 1: views are simulated per live listing per day; phase 2 reads them from an analytics events table.
-  const live = [...listings.filter((l) => l.status === "live").map((l) => l.id), ...venues.filter((v) => v.status === "live").map((v) => v.id)];
-  const viewsFor = (fromDay: number, toDay: number) =>
-    live.reduce((s, id) => s + Array.from({ length: toDay - fromDay }, (_, i) => Math.floor(60 + hash01(`${id}:${addDays(today, -(fromDay + i))}`) * 220)).reduce((a, b) => a + b, 0), 0);
+  // Detail-page views, counted per listing per IST day.
+  const viewed = [...listings.map((l) => l.id), ...venues.map((v) => v.id)];
   const pct = (cur: number, prev: number) => (prev > 0 ? Math.round(((cur - prev) / prev) * 100) : null);
-  const views = viewsFor(0, 7);
-  const viewsPrev = viewsFor(7, 14);
+  const [views, viewsPrev] = await Promise.all([
+    repo.views.totals(viewed, addDays(today, -6), today),
+    repo.views.totals(viewed, addDays(today, -13), addDays(today, -7)),
+  ]);
   return {
     week: {
       bookings: thisWeek.length,
@@ -356,7 +368,7 @@ async function assertNoOrphans(listingId: string, keepSessions: string[], keepTi
 
 function nextStatus<T extends string>(current: T | null, submit: boolean): "draft" | "review" | "live" {
   // rejected → review on resubmit; the admin's note is cleared below
-  if (current === "live") return "live"; // prototype: edits to live listings apply immediately
+  if (current === "live") return "live"; // edits to live listings apply immediately (product decision; see PLAN.md)
   return submit ? "review" : "draft";
 }
 
@@ -386,7 +398,7 @@ async function saveEvent(ctx: HostContext, input: EventListingInput, submit: boo
     title: input.title,
     summary: input.summary,
     description: input.description,
-    media: input.media,
+    media: await storeImages(ctx.user.id, input.media),
     venueName: input.venueName,
     address: input.address,
     lat: existing?.lat ?? area.lat + (Math.random() - 0.5) * 0.01,
@@ -468,7 +480,7 @@ async function saveVenue(ctx: HostContext, input: VenueInput, submit: boolean, i
     name: input.name,
     summary: input.summary,
     description: input.description,
-    media: input.media,
+    media: await storeImages(ctx.user.id, input.media),
     address: input.address,
     lat: existing?.lat ?? area.lat,
     lng: existing?.lng ?? area.lng,
@@ -605,7 +617,7 @@ export async function hostBookings(
 
 export async function checkIn(ctx: HostContext, code: string, now = new Date()) {
   assertApproved(ctx);
-  const b = await repo.bookings.byCode(code.replace(/^LOCAL:/i, ""));
+  const b = await repo.bookings.byCode(code.trim().replace(/^LOCAL:/i, ""));
   const { listings, venues } = await targets(ctx);
   if (!b || !(listings.some((l) => l.id === b.listingId) || venues.some((v) => v.id === b.venueId))) throw notFound("No booking with that code for your listings");
   const row = () => bookingRow(ctx, b, now);
@@ -757,6 +769,7 @@ export async function listTeam(ctx: HostContext) {
 }
 
 export async function inviteMember(ctx: HostContext, phone: string, name?: string) {
+  assertApproved(ctx);
   assertOwner(ctx);
   const team = await repo.members.listByHost(ctx.host.id);
   if (team.some((m) => m.phone === phone)) throw conflict("That number is already on your team");
@@ -784,6 +797,7 @@ export async function removeMember(ctx: HostContext, memberId: string) {
 }
 
 export async function updateHostProfile(ctx: HostContext, patch: Partial<Pick<Host, "brandName" | "bio" | "instagram" | "email">>) {
+  assertApproved(ctx);
   assertOwner(ctx);
   return repo.hosts.update(ctx.host.id, { ...patch, email: patch.email === "" ? null : patch.email ?? ctx.host.email });
 }

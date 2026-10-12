@@ -4,11 +4,31 @@ import type {
 import type { Coupon } from "@/lib/pricing";
 import type { TakenRange } from "@/lib/slots/engine";
 
+export interface OtpRecord {
+  codeHash: string;
+  expiresAt: string;
+  attempts: number;
+  sentAt: string;
+}
+
+export interface PaymentRecord {
+  id: string;
+  bookingId: string;
+  provider: string;
+  method: string;
+  status: "success" | "failed";
+  amount: number; // rupees
+  ref: string;
+  createdAt: string;
+}
+
 /**
- * Data access boundary. Phase 1: `mock/` (fixtures + in-memory store).
- * Phase 2: `db/` (Drizzle + Turso) implements the same interface; services and UI don't change.
+ * Data access boundary, implemented by `sql/` (Kysely; SQLite locally, any SQL database in
+ * production). Services depend only on this interface.
  */
 export interface Repository {
+  /** Run `fn` atomically; repository calls made inside join the transaction. */
+  transaction<T>(fn: () => Promise<T>): Promise<T>;
   cities: {
     /** Active cities only (public). */
     list(): Promise<City[]>;
@@ -39,6 +59,8 @@ export interface Repository {
   };
   hosts: {
     byId(id: string): Promise<Host | null>;
+    /** The host whose verification documents include this upload. */
+    hostIdForDocumentMedia(mediaId: string): Promise<string | null>;
     list(): Promise<Host[]>;
     insert(h: Host): Promise<Host>;
     update(id: string, patch: Partial<Host>): Promise<Host | null>;
@@ -88,6 +110,20 @@ export interface Repository {
     listForTargets(listingIds: string[], venueIds: string[]): Promise<Booking[]>;
     byCode(code: string): Promise<Booking | null>;
     listAll(): Promise<Booking[]>;
+    /** Bookings created at or after `sinceIso`, newest first. */
+    listCreatedSince(sinceIso: string): Promise<Booking[]>;
+    /** Count of bookings by start day (YYYY-MM-DD, IST) in the given statuses. */
+    countStartingOn(ymd: string, statuses: Booking["status"][]): Promise<number>;
+    /** Booking count per user, excluding the given statuses. */
+    countByUser(excludeStatuses: Booking["status"][]): Promise<Map<string, number>>;
+    /** Filtered, paged search (newest first). `q` matches code, title, venue, attendee and customer name/phone. */
+    search(opts: { q?: string; statuses?: Booking["status"][]; excludeStatuses?: Booking["status"][]; cityId?: string; offset: number; limit: number }): Promise<{ total: number; items: Booking[] }>;
+    /** This user's bookings that used `couponCode` and count as redemptions (held, paid or attended), excluding `exceptId`. */
+    countCouponUses(userId: string, couponCode: string, exceptId?: string): Promise<number>;
+    /** Whether the user has any settled booking (requested / confirmed / checked in / refunded), excluding `exceptId`. */
+    hasSettledBooking(userId: string, exceptId?: string): Promise<boolean>;
+    /** Unpaid holds that are still running for this user (abuse guard). */
+    countLiveHolds(userId: string): Promise<number>;
     /** Active (held / pending / confirmed / checked-in) quantities, keyed by ticketTypeId and sessionId. */
     activeQuantities(listingIds: string[]): Promise<{ byTicket: Map<string, number>; bySession: Map<string, number> }>;
     insert(b: Booking): Promise<Booking>;
@@ -95,16 +131,46 @@ export interface Repository {
   };
   users: {
     list(): Promise<User[]>;
+    count(): Promise<number>;
     byId(id: string): Promise<User | null>;
     byPhone(phone: string): Promise<User | null>;
     insert(u: User): Promise<User>;
     update(id: string, patch: Partial<User>): Promise<User | null>;
   };
   otps: {
-    put(phone: string, code: string, ttlMs: number): Promise<void>;
-    take(phone: string): Promise<{ code: string; expiresAt: number } | null>;
+    get(phone: string): Promise<OtpRecord | null>;
+    put(phone: string, rec: OtpRecord): Promise<void>;
+    /** Atomically use up one attempt if fewer than `max` were used; false when none are left. */
+    reserveAttempt(phone: string, max: number): Promise<boolean>;
+    remove(phone: string): Promise<void>;
+  };
+  authSessions: {
+    create(s: { id: string; userId: string; createdAt: string; expiresAt: string }): Promise<void>;
+    /** Session row if it exists and hasn't expired. */
+    get(id: string, nowIso: string): Promise<{ userId: string; expiresAt: string } | null>;
+    touch(id: string, expiresAt: string): Promise<void>;
+    remove(id: string): Promise<void>;
+    removeForUser(userId: string): Promise<void>;
+  };
+  rateLimits: {
+    /** Count one hit against `key` in a fixed window; returns the count so far and when the window resets. */
+    hit(key: string, windowMs: number, now: Date): Promise<{ count: number; resetAt: string }>;
+  };
+  payments: {
+    insert(p: PaymentRecord): Promise<void>;
+    listByBooking(bookingId: string): Promise<PaymentRecord[]>;
+  };
+  views: {
+    record(targetId: string, day: string): Promise<void>;
+    /** Total views per target for days in [fromDay, toDay] (YYYY-MM-DD, inclusive). */
+    totals(targetIds: string[], fromDay: string, toDay: string): Promise<number>;
   };
   coupons: {
     byCode(code: string): Promise<Coupon | null>;
+  };
+  media: {
+    insert(m: { id: string; ownerId: string; contentType: string; data: Buffer; createdAt: string; private?: boolean }): Promise<void>;
+    get(id: string): Promise<{ contentType: string; data: Buffer; private: boolean; ownerId: string } | null>;
+    exists(id: string): Promise<boolean>;
   };
 }

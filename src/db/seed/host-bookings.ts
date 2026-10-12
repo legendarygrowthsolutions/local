@@ -2,7 +2,7 @@ import type { Booking, JourneyTemplate } from "@/contracts";
 import { computePrice } from "@/lib/pricing";
 import { addDays, formatMins, fromISO, istParts, toISO } from "@/lib/time";
 import { hash01, seededTaken } from "./occupancy";
-import type { MockDb } from "./store";
+import type { SeedData } from "./data";
 
 const NAMES = [
   "Aditya Rao", "Sneha Patil", "Vikram Singh", "Pooja Shah", "Rahul Nair", "Ishita Gupta", "Karan Malhotra", "Divya Menon",
@@ -11,11 +11,11 @@ const NAMES = [
 ];
 
 /**
- * Real-looking booking rows for hosts that have console users, so dashboards, booking lists,
- * check-in and payouts have data. They mirror inventory that fixtures already count as sold
- * (ticket "sold", seeded session occupancy, seeded court occupancy), hence `seeded: true`.
+ * Seed booking rows: ticket sales for demo hosts' events (moved out of the fixtures' baseline "sold"
+ * counts by the seeder) and other players' court bookings. Flagged `seeded` so UIs can tell them apart;
+ * they count towards inventory like any real booking.
  */
-export function seedHostBookings(db: MockDb, now = new Date()) {
+export function seedBookings(db: SeedData, now = new Date()) {
   const hostIds = new Set(db.hostMembers.map((m) => m.hostId));
   const out: Booking[] = [];
   const tpl = (id: string) => db.templates.find((t) => t.id === id) as JourneyTemplate;
@@ -94,13 +94,15 @@ export function seedHostBookings(db: MockDb, now = new Date()) {
     }
   }
 
-  // Courts: mirror seeded occupancy from 7 days ago to 6 days ahead
+  // Courts: other players' bookings across the bookable window (plus a week of history for
+  // demo hosts, so their dashboards, check-ins and payouts have data).
   const nowMins = istParts(now).mins;
-  for (const v of db.venues.filter((x) => hostIds.has(x.hostId))) {
+  for (const v of db.venues) {
+    const history = hostIds.has(v.hostId) ? -7 : 0;
     const t = tpl(v.templateId);
     for (const r of db.resources.filter((x) => x.venueId === v.id)) {
       const rule = db.slotRules.find((x) => x.resourceId === r.id)!;
-      for (let d = -7; d <= 6; d++) {
+      for (let d = history; d < rule.advanceDays; d++) {
         const date = addDays(today, d);
         for (const rng of seededTaken(r.id, date, rule.openMins, rule.closeMins)) {
           const key = `${r.id}|${date}|${rng.startMins}`;

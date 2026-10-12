@@ -32,7 +32,7 @@ export function SiteFooter({ cities, categories }: { cities: City[]; categories:
           <Link href="/legal#privacy" className={link}>
             Privacy
           </Link>
-          <p className="mt-4 text-xs text-subtle">© {new Date().getFullYear()} local. · Prototype with sample data</p>
+          <p className="mt-4 text-xs text-subtle">© {new Date().getFullYear()} local.</p>
         </div>
       </div>
     </footer>

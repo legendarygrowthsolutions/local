@@ -57,6 +57,8 @@ export const HostSchema = z.object({
       id: z.string(),
       kind: z.enum(["pan", "bank", "gst", "id_proof"]),
       fileName: z.string(),
+      /** Private upload; viewable by the host's owners and superadmins only. */
+      mediaId: z.string().nullable().optional(),
       status: z.enum(["uploaded", "verified", "rejected"]),
     }),
   ),

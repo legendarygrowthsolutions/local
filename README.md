@@ -1,58 +1,89 @@
-# local. — phase 1 (UI on mock APIs)
+# local.
 
-Everything to do in your city: events, workshops, meetups, exhibitions, competitions and sports courts. See [PLAN.md](PLAN.md) for the full plan.
+Everything to do in your city: events, workshops, meetups, exhibitions, competitions and sports courts. See [PLAN.md](PLAN.md) for the product plan.
 
 ## Run
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
-npm test           # unit tests: slot engine, pricing, journey template rules
-npm run e2e        # production build + Playwright: golden paths, axe a11y scans, 360/412/1440px layout checks
+npm run dev          # http://localhost:3000 — creates and seeds ./data/local.db on first run
+npm test             # unit + backend integration tests (each file gets its own temp SQLite database)
+npm run e2e          # production build + Playwright: golden paths, axe a11y, 360/412/1440px layouts
 npm run typecheck
-npm run fixtures   # regenerate src/mocks/fixtures/*.json (deterministic)
 ```
+
+### Database
+
+The backend is plain SQL through [Kysely](https://kysely.dev), so it runs on any SQL database. Locally it's a SQLite file; point `DATABASE_URL` elsewhere and nothing else changes (see [.env.example](.env.example)).
+
+```bash
+npm run db:migrate   # apply pending migrations
+npm run db:seed      # seed the demo dataset (only into an empty database)
+npm run db:reset     # wipe, migrate and seed again (dates re-anchor to today)
+npm run db:schema    # regenerate db/schema.sql, a readable snapshot of the schema
+npm run fixtures     # regenerate the seed fixtures in src/db/seed/fixtures (deterministic)
+```
+
+| `DATABASE_URL` | Driver |
+|---|---|
+| `file:./data/local.db` (default) | SQLite (`better-sqlite3`, bundled) |
+| `postgres://…` | Postgres (`npm i pg`) |
+| `mysql://…` | MySQL (`npm i mysql2`) |
+| `libsql://…` + `DATABASE_AUTH_TOKEN` | Turso (`npm i @libsql/kysely-libsql`) |
+
+Seeded events are anchored to the day you seed, so run `npm run db:reset` to bring the demo data back around today.
 
 ## Trying it
 
-- **Login:** any 10-digit mobile starting 6–9, then any 6-digit OTP. `000000` shows the wrong-code state.
-  - Demo user with existing bookings: `9876543210`. A new number walks you through profile setup.
+- **Login:** any 10-digit mobile starting 6–9. In development no SMS is sent: the code is shown on the login screen (tap it to sign in) and printed in the server log.
+  - Demo user with bookings: `9876543210`. A new number walks you through profile setup.
 - **Host console** (`/host`):
   - `9000000002`: owner of Tidewater Collective (events)
   - `9000000003`: owner of Smash Arena (5 court venues, team, payouts)
   - `9000000004`: manager at Smash Arena (no revenue, payouts, team or settings)
-  - Any other number can apply at `/host/apply`; the superadmin approves it.
-- **Superadmin** (`/admin`): `9000000001`. Host approvals and document checks (KYC), listing moderation and featuring, journey templates, categories, cities and areas, bookings and refunds, users.
-- **Payments** are a dummy gateway: "Pay" succeeds, "Simulate failure" exercises the failure path (your hold is kept).
-- **Coupons:** `LOCAL10` (10% up to ₹200), `FIRST100` (₹100 off).
-- **Error states:** add `?mock_error=1` to any `/api/*` call, or set a `mock_error=1` cookie to make every API call fail.
-- Mock data lives in memory on the dev server; restart it (or regenerate fixtures) to reset bookings.
+  - Any other number can apply at `/host/apply` (with real PAN / bank document uploads); the superadmin reviews it.
+- **Superadmin** (`/admin`): `9000000001`.
+- **Payments** run on the built-in test gateway: "Pay" succeeds and "Simulate failure" exercises the failure path (your hold is kept). Every attempt is recorded in `payments`.
+- **Coupons:** `LOCAL10` (10% up to ₹200), `FIRST100` (₹100 off your first booking, once per account, orders from ₹200).
+- **Check-in:** `/host/checkin` scans ticket QR codes with the camera (Chrome / Edge / Android) or takes the code typed in.
 
 ## Architecture
 
 ```
 UI ──► server components call services/* directly (SSR, SEO)
    └─► client components call /api/* route handlers ──► services/*
-services/* ──► repositories (interface) ──► mock/ (fixtures + in-memory store)   ← phase 2: Drizzle + Turso
+services/* ──► repositories (interface) ──► sql/ (Kysely) ──► SQLite | Postgres | MySQL | Turso
 ```
 
 | Path | What |
 |---|---|
-| `src/contracts` | zod schemas + DTO types — the API spec for phase 2 |
-| `src/repositories` | data-access interface; `mock/` implementation |
-| `src/services` | business logic (discovery, inventory, availability, bookings, auth) |
-| `src/mocks` | fixtures, in-memory store (dates auto-shift to "today"), latency |
-| `src/lib/slots` | slot engine (generation, peak pricing, tap-to-extend, validation) — unit tested |
-| `src/lib/pricing` | convenience fee + GST, coupons — unit tested |
+| `src/db/migrations` | schema, written once with Kysely's schema builder so it runs on every dialect |
+| `src/db/client.ts` | picks the dialect from `DATABASE_URL`; `withTransaction()` for atomic sections |
+| `src/db/seed` | fixtures + seeder (demo hosts' sales, other players' court bookings, two weeks of views) |
+| `src/db/mappers.ts` | row ↔ domain: money in integer paise, booleans 0/1, JSON in TEXT, instants in UTC |
+| `src/repositories` | data-access interface and its SQL implementation |
+| `src/services` | business logic: discovery, inventory, availability, bookings, auth, host, admin, media |
+| `src/contracts` | zod schemas + DTO types shared by forms, API and services |
+| `src/lib/slots`, `src/lib/pricing`, `src/lib/journey-rules.ts` | slot engine, fees and coupons, journey template rules (unit tested) |
 | `src/features/booking` | journey engine: screens are built from the listing's journey template |
 | `src/features/host-wizard` | listing wizard for events (all templates) and court venues |
-| `src/services/admin.ts` | superadmin: approvals, KYC, moderation, curation, templates, catalog, refunds, roles |
-| `src/lib/journey-rules.ts` | validation that keeps every journey template runnable (unit tested against all seed templates) |
-| `src/services/host.ts` | host context, roles (money stripped server-side for managers), listings, bookings, check-in, court schedule, payouts, team |
-| `src/app` | routes: `/{city}`, `/{city}/{category}[/{sub}]`, `/{city}/e/{slug}`, `/{city}/v/{slug}`, `/{city}/search`, `/book/{e|v}/{id}?step=`, `/book/pay/{id}`, `/book/done/{id}`, `/me/*`, `/login`, `/onboarding`, `/city`, `/host/apply`, `/host`, `/host/listings[/new|/{id}/edit]`, `/host/bookings`, `/host/checkin`, `/host/slots`, `/host/payouts`, `/host/team`, `/host/settings`, `/admin`, `/admin/{hosts,listings,templates,categories,cities,bookings,users}` |
 
-## Quality bar (M7)
+### Security
 
-- **E2E** (`tests/e2e`, Playwright, against a production build with mock latency off): ticket booking with login at checkout, onboarding, coupon and a failed-then-successful payment; court slot booking + cancellation; free RSVP; host apply → superadmin approval → wizard listing → moderation → live; owner/manager money split; discovery (card tap, search, city fallback).
-- **Accessibility**: axe (WCAG 2.1 AA) on every public page and the signed-in user, host and admin areas, at 360px, 412px and 1440px — no serious or critical issues, no sideways scrolling.
-- **Lighthouse** (mobile, simulated throttling): performance 95–99, accessibility / best practices / SEO 100 on home, category and detail pages; desktop 100 across the board; CLS 0. With real DevTools throttling the home page LCP is 1.6 s.
+- **Sessions:** random 256-bit token in an httpOnly, SameSite=Lax cookie (Secure in production). Only its SHA-256 is stored; logout deletes it.
+- **Login codes:** random 6 digits, stored as an HMAC (`AUTH_SECRET`), 5-minute expiry, single use, 5 attempts reserved atomically. Sends are limited per number (30 s cooldown, 5 per hour), per IP and globally; verifies per IP.
+- **Requests:** every mutating API call must come from our own origin (CSRF); bodies are size-capped and validated with zod; errors never leak internals.
+- **Access:** every route and page checks its role. Bookings are owner-only, host data is scoped to the host, managers never receive money fields, and admin pages verify the role themselves.
+- **Inventory:** holds re-check availability inside a transaction, so concurrent buyers can't oversell. Each account can have at most 4 unpaid holds, one free place per date, and coupons are re-validated at payment.
+- **Uploads:** images and documents are checked by their magic bytes. Listing photos are served from `/media/{id}` with immutable caching. KYC documents are private: only the uploader, owners of that host and superadmins can open them.
+- **Headers:** CSP, frame blocking, nosniff, a strict referrer policy, a Permissions-Policy and HSTS in production.
+
+### Going live
+
+Set `AUTH_SECRET`, a production `DATABASE_URL` and `TRUSTED_IP_HEADER` (if you're behind a proxy). Then plug in an SMS provider (`src/services/auth.ts`, `sendOtp`) and a payment gateway (`src/services/bookings.ts`, `payBooking`). Until you do, production refuses to send codes or take payments rather than faking them.
+
+## Quality bar
+
+- **Backend integration tests** (`src/**/*.test.ts`, Vitest, real SQLite): repository round-trips for every entity, auth (cooldowns, lockout, single use, rate limits), booking rules and concurrency (parallel holds never oversell), payments, coupons, cancellations, host roles and money stripping, check-in, moderation, discovery, uploads.
+- **E2E** (`tests/e2e`, Playwright, production build on a fresh database): ticket booking with login at checkout (a wrong code, then the right one), onboarding, coupon, a failed and then a successful payment; court slot booking and cancellation; free RSVP; host apply → superadmin approval → wizard listing → moderation → live; owner/manager money split; discovery.
+- **Accessibility:** axe (WCAG 2.1 AA) on public, user, host and admin pages at 360, 412 and 1440 px. No serious or critical issues, and no sideways scrolling.

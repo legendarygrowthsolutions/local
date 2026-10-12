@@ -1,7 +1,7 @@
 "use client";
 
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { AvailabilityPayload, Booking, City, HoldRequest, ListingCard, Paginated, PayRequest, ProfileInput } from "@/contracts";
+import type { AvailabilityPayload, Booking, City, HoldRequest, PayRequest, ProfileInput } from "@/contracts";
 import type { PublicUser } from "@/services/users";
 import type { BookingView } from "@/services/bookings";
 import type { SearchResult } from "@/services/discover";
@@ -66,7 +66,7 @@ export function useAvailability(venueId: string, sport?: string, date?: string) 
 }
 
 export function useSendOtp() {
-  return useMutation({ mutationFn: (phone: string) => api<{ sent: boolean; resendInSec: number }>("/api/auth/otp/send", { body: { phone } }) });
+  return useMutation({ mutationFn: (phone: string) => api<{ sent: boolean; resendInSec: number; devCode?: string }>("/api/auth/otp/send", { body: { phone } }) });
 }
 
 export function useVerifyOtp() {

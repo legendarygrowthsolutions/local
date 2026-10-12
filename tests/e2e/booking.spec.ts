@@ -18,8 +18,13 @@ test.describe("user golden paths", () => {
     // OTP login as a brand-new user
     await expect(page).toHaveURL(/\/login/);
     await page.getByPlaceholder("98765 43210").fill(uniquePhone());
+    const sent = page.waitForResponse((r) => r.url().endsWith("/api/auth/otp/send"));
     await page.getByRole("button", { name: "Get OTP" }).click();
-    await page.getByLabel("Digit 1").fill("482913");
+    const { devCode } = (await (await sent).json()) as { devCode: string };
+    // A wrong code shows the error state; then the development-mode code button signs in.
+    await page.getByLabel("Digit 1").fill(devCode === "000000" ? "111111" : "000000");
+    await expect(page.getByText("That code didn't match")).toBeVisible();
+    await page.getByRole("button", { name: /^Use code/ }).click();
 
     // Profile
     await expect(page).toHaveURL(/\/onboarding/);
@@ -80,12 +85,19 @@ test.describe("user golden paths", () => {
     await expect(page.getByText("Refunded").first()).toBeVisible();
   });
 
-  test("free RSVP confirms without payment", async ({ page }) => {
-    await login(page, "9876543210");
+  test("free RSVP confirms without payment, once per person", async ({ page }) => {
+    await login(page, uniquePhone());
+    await page.request.patch("/api/me", { data: { name: "RSVP Tester", gender: "na", dob: "1994-05-05" } });
     const rsvp = listingFor("tpl_rsvp", "c_nagpur");
-    await page.goto(`/book/e/${rsvp.id}`);
-    await page.getByRole("button", { name: /^continue$/i }).last().click();
-    await page.getByRole("button", { name: /confirm rsvp/i }).last().click();
+    const book = async () => {
+      await page.goto(`/book/e/${rsvp.id}`);
+      await page.getByRole("button", { name: /^continue$/i }).last().click();
+      await page.getByRole("button", { name: /confirm rsvp/i }).last().click();
+    };
+    await book();
     await expect(page.getByRole("heading", { name: /You.re in!|Request sent!/ })).toBeVisible();
+    // A second free place for the same date is refused.
+    await book();
+    await expect(page.getByText("You already have a place for this date")).toBeVisible();
   });
 });

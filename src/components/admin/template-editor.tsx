@@ -22,7 +22,7 @@ const STEP_INFO: Record<StepType, { label: string; hint: string }> = {
   team_details: { label: "Team details", hint: "Captain + team questions" },
   attendee_form: { label: "Attendee form", hint: "Name, phone, host questions" },
   review: { label: "Review", hint: "Hold timer, fees, coupon" },
-  payment: { label: "Payment", hint: "Gateway (dummy in phase 1)" },
+  payment: { label: "Payment", hint: "Payment gateway" },
   confirmation: { label: "Confirmation", hint: "Ticket with QR" },
 };
 const ALL_STEPS = Object.keys(STEP_INFO) as StepType[];

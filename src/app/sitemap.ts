@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 import { allIndexablePaths } from "@/services/discover";
 import { abs } from "@/lib/seo";
 
-// Listings change as hosts publish; refresh hourly rather than freezing at build time.
-export const revalidate = 3600;
+// Built from the database on request (builds don't need a database); it's one cheap query.
+export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const paths = await allIndexablePaths();

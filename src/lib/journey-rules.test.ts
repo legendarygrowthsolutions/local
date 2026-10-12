@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import templates from "@/mocks/fixtures/templates.json";
+import templates from "@/db/seed/fixtures/templates.json";
 import type { JourneyTemplate } from "@/contracts";
 import { templateErrors } from "./journey-rules";
 

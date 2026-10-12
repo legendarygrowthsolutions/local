@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/guards";
 import { getSessionUser } from "@/lib/session";
 import { adminUsers } from "@/services/admin";
 import { AdminPage } from "@/components/admin/page-bits";
@@ -7,6 +8,7 @@ import { formatDate, fromISO } from "@/lib/time";
 export const metadata = { title: "Users" };
 
 export default async function UsersPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
+  await requireAdminPage();
   const { q } = await searchParams;
   const [users, me] = await Promise.all([adminUsers(q), getSessionUser()]);
   return (

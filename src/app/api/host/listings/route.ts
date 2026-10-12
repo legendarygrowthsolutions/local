@@ -7,6 +7,6 @@ export const GET = route(async () => ({ items: await listHostListings(await requ
 
 export const POST = route(async (req) => {
   const ctx = await requireHostApi();
-  const { input, submit } = await body(req, SaveListingSchema);
+  const { input, submit } = await body(req, SaveListingSchema, 4 * 1024 * 1024);
   return saveListing(ctx, input, submit);
 });

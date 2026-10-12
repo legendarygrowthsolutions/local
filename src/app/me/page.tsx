@@ -1,7 +1,8 @@
+import { requireUserPage } from "@/lib/guards";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, ShieldCheck } from "lucide-react";
-import { getCityCookie, getSessionUser } from "@/lib/session";
+import { getCityCookie } from "@/lib/session";
 import { repo } from "@/repositories";
 import { LogoutButton } from "@/components/auth/logout-button";
 import { Avatar } from "@/components/ui/avatar";
@@ -13,7 +14,7 @@ const item = "flex min-h-[54px] items-center gap-3 border-b border-line px-4 tex
 
 /** Wireframe 16 */
 export default async function MePage() {
-  const user = (await getSessionUser())!;
+  const user = await requireUserPage("/me");
   const citySlug = await getCityCookie();
   const city = citySlug ? await repo.cities.bySlug(citySlug) : null;
   const cats = await repo.categories.list();

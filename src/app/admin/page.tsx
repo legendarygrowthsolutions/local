@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/guards";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { adminOverview } from "@/services/admin";
@@ -11,6 +12,7 @@ import { cn } from "@/lib/utils";
 export const metadata = { title: "Overview" };
 
 export default async function AdminOverviewPage() {
+  await requireAdminPage();
   const o = await adminOverview();
   const queues = [
     { href: "/admin/hosts?tab=pending", label: "Host applications", value: o.queues.applications, sub: `${o.queues.changes} waiting on the applicant` },

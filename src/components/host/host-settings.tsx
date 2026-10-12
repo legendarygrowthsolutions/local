@@ -14,7 +14,7 @@ const input = "h-12 w-full rounded-xl border border-line-strong bg-surface px-3.
 export function HostSettings({
   host,
 }: {
-  host: { brandName: string; bio: string; instagram: string; email: string; kycStatus: string; gstin: string | null; documents: { kind: string; fileName: string; status: string }[] };
+  host: { brandName: string; bio: string; instagram: string; email: string; kycStatus: string; gstin: string | null; documents: { kind: string; fileName: string; status: string; mediaId?: string | null }[] };
 }) {
   const [v, setV] = useState({ brandName: host.brandName, bio: host.bio, instagram: host.instagram, email: host.email });
   const save = useUpdateHostProfile();
@@ -67,14 +67,20 @@ export function HostSettings({
               <li key={d.kind} className="flex items-center gap-3 rounded-xl border border-line px-3 py-2.5 text-sm">
                 <FileText className="size-4 text-muted" />
                 <span className="flex-1">
-                  <b>{DOC_LABEL[d.kind] ?? d.kind}</b> · <span className="text-muted">{d.fileName}</span>
+                  <b>{DOC_LABEL[d.kind] ?? d.kind}</b> · {d.mediaId ? (
+                    <a href={`/api/documents/${d.mediaId}`} target="_blank" rel="noopener" className="font-semibold text-brand underline-offset-2 hover:underline">
+                      {d.fileName}
+                    </a>
+                  ) : (
+                    <span className="text-muted">{d.fileName}</span>
+                  )}
                 </span>
                 <span className={cn("font-semibold", d.status === "verified" ? "text-free" : d.status === "rejected" ? "text-danger" : "text-warn")}>{d.status === "uploaded" ? "In review" : d.status[0].toUpperCase() + d.status.slice(1)}</span>
               </li>
             ))}
           </ul>
         ) : (
-          <p className="rounded-xl bg-field p-3 text-sm">No documents yet. Re-uploading documents arrives with real storage in phase 2.</p>
+          <p className="rounded-xl bg-field p-3 text-sm">No documents yet. To add verification documents, resubmit your application from Host on local.</p>
         )}
         {host.gstin && <p className="text-sm text-muted">GSTIN {host.gstin}</p>}
       </section>

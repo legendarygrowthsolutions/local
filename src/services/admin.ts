@@ -1,9 +1,10 @@
 import "server-only";
+import { BookingStatusSchema } from "@/contracts";
 import type {
   Booking, Category, CategoryInput, City, CityInput, Host, JourneyTemplate, Listing, TemplateInput, User, Venue,
 } from "@/contracts";
 import { repo } from "@/repositories";
-import { addDays, formatDate, formatWhen, fromISO, istParts } from "@/lib/time";
+import { addDays, formatDate, formatWhen, istParts } from "@/lib/time";
 import { ServiceError, badRequest, conflict, notFound } from "./errors";
 
 export const forbidden = () => new ServiceError(403, "forbidden", "Superadmins only");
@@ -14,24 +15,27 @@ export function assertAdmin(u: User | null): asserts u is User {
 const COUNTED: Booking["status"][] = ["confirmed", "checked_in", "requested"];
 const r2 = (n: number) => Math.round(n * 100) / 100;
 const slugify = (s: string) => s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-const rid = (p: string) => `${p}_${Math.random().toString(36).slice(2, 10)}`;
 
 // ---------------------------------------------------------------------------
 // Overview
 // ---------------------------------------------------------------------------
 
+/** SQL narrows by created date with a day of margin (stored offsets vary); exact filtering happens here. */
+const createdSince = (now: Date, days: number) => repo.bookings.listCreatedSince(new Date(now.getTime() - (days + 1) * 86_400_000).toISOString());
+
 export async function adminOverview(now = new Date()) {
-  const [hosts, listings, venues, bookings, users, cities] = await Promise.all([
-    repo.hosts.list(),
-    repo.listings.listAll(),
-    repo.venues.listAll(),
-    repo.bookings.listAll(),
-    repo.users.list(),
-    repo.cities.listAll(),
-  ]);
   const t = now.getTime();
   const ago30 = t - 30 * 86_400_000;
   const today = istParts(now).ymd;
+  const [hosts, listings, venues, bookings, users, cities, bookingsToday] = await Promise.all([
+    repo.hosts.list(),
+    repo.listings.listAll(),
+    repo.venues.listAll(),
+    createdSince(now, 30),
+    repo.users.count(),
+    repo.cities.listAll(),
+    repo.bookings.countStartingOn(today, COUNTED),
+  ]);
   const counted = bookings.filter((b) => COUNTED.includes(b.status));
   const last30 = counted.filter((b) => new Date(b.createdAt).getTime() > ago30);
   const byCity = cities.map((c) => {
@@ -43,10 +47,10 @@ export async function adminOverview(now = new Date()) {
       gmv30: r2(last30.reduce((s, b) => s + b.price.subtotal - b.price.discount, 0)),
       fees30: r2(last30.reduce((s, b) => s + b.price.convenienceFee, 0)),
       bookings30: last30.length,
-      bookingsToday: counted.filter((b) => fromISO(b.startsAt).ymd === today).length,
+      bookingsToday,
       liveListings: listings.filter((l) => l.status === "live").length + venues.filter((v) => v.status === "live").length,
       approvedHosts: hosts.filter((h) => h.status === "approved").length,
-      users: users.length,
+      users,
     },
     queues: {
       applications: hosts.filter((h) => h.status === "pending").length,
@@ -445,33 +449,36 @@ export async function deleteArea(id: string) {
 // Bookings & refunds
 // ---------------------------------------------------------------------------
 
+const UNPAID: Booking["status"][] = ["held", "pending_payment", "expired", "failed"];
+
 export async function adminBookings(opts: { q?: string; status?: string; cityId?: string; page?: number }) {
-  const [all, users, cities] = await Promise.all([repo.bookings.listAll(), repo.users.list(), repo.cities.listAll()]);
-  const q = opts.q?.trim().toLowerCase();
-  const rows = all
-    .filter((b) => !["held", "pending_payment", "expired", "failed"].includes(b.status))
-    .filter((b) => !opts.status || b.status === opts.status)
-    .filter((b) => !opts.cityId || b.cityId === opts.cityId)
-    .filter((b) => {
-      if (!q) return true;
-      const u = users.find((x) => x.id === b.userId);
-      return [b.code, b.title, b.venueName, b.attendee?.name, b.attendee?.phone, u?.phone, u?.name].some((x) => x?.toLowerCase().includes(q));
-    })
-    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
-  const page = Math.max(1, opts.page ?? 1);
   const size = 40;
+  const page = Math.max(1, Math.floor(opts.page ?? 1));
+  const status = BookingStatusSchema.safeParse(opts.status);
+  const [{ total, items }, cities] = await Promise.all([
+    repo.bookings.search({
+      q: opts.q?.slice(0, 80),
+      statuses: status.success ? [status.data] : undefined,
+      excludeStatuses: UNPAID,
+      cityId: opts.cityId || undefined,
+      offset: (page - 1) * size,
+      limit: size,
+    }),
+    repo.cities.listAll(),
+  ]);
+  const users = new Map((await Promise.all([...new Set(items.map((b) => b.userId))].map((id) => repo.users.byId(id)))).filter((u) => !!u).map((u) => [u!.id, u!]));
   return {
-    total: rows.length,
+    total,
     page,
-    pages: Math.max(1, Math.ceil(rows.length / size)),
+    pages: Math.max(1, Math.ceil(total / size)),
     cities: cities.map((c) => ({ id: c.id, name: c.name })),
-    items: rows.slice((page - 1) * size, page * size).map((b) => ({
+    items: items.map((b) => ({
       id: b.id,
       code: b.code,
       title: b.title,
       venueName: b.venueName,
-      customer: b.attendee?.name ?? users.find((u) => u.id === b.userId)?.name ?? "Guest",
-      phone: b.attendee?.phone ?? users.find((u) => u.id === b.userId)?.phone ?? "",
+      customer: b.attendee?.name ?? users.get(b.userId)?.name ?? "Guest",
+      phone: b.attendee?.phone ?? users.get(b.userId)?.phone ?? "",
       city: cities.find((c) => c.id === b.cityId)?.name ?? "",
       startsAt: b.startsAt,
       createdAt: b.createdAt,
@@ -501,7 +508,7 @@ export async function adminRefund(id: string, refundPct: 0 | 50 | 100) {
 // ---------------------------------------------------------------------------
 
 export async function adminUsers(q?: string) {
-  const [users, bookings, cities] = await Promise.all([repo.users.list(), repo.bookings.listAll(), repo.cities.listAll()]);
+  const [users, counts, cities] = await Promise.all([repo.users.list(), repo.bookings.countByUser(UNPAID), repo.cities.listAll()]);
   const needle = q?.trim().toLowerCase();
   const rows = await Promise.all(
     users
@@ -516,7 +523,7 @@ export async function adminUsers(q?: string) {
           role: u.role,
           city: cities.find((c) => c.id === u.cityId)?.name ?? "—",
           createdAt: u.createdAt,
-          bookings: bookings.filter((b) => b.userId === u.id && !["held", "pending_payment", "expired", "failed"].includes(b.status)).length,
+          bookings: counts.get(u.id) ?? 0,
           hostRoles: ms.map((m, i) => `${hosts[i]?.brandName ?? "?"} (${m.role})`),
         };
       }),
@@ -538,11 +545,12 @@ export async function setUserRole(actor: User, id: string, role: "user" | "admin
 const PAYOUT_COUNTED: Booking["status"][] = ["confirmed", "checked_in", "requested", "refunded", "cancelled"];
 
 export async function adminPayouts(now = new Date()) {
+  // Two weekly cycles back from this Monday, plus margin.
   const [hosts, listings, venues, bookings, templates, cities] = await Promise.all([
     repo.hosts.list(),
     repo.listings.listAll(),
     repo.venues.listAll(),
-    repo.bookings.listAll(),
+    createdSince(now, 15),
     repo.templates.list(),
     repo.cities.list(),
   ]);

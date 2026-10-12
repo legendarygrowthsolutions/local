@@ -1,7 +1,7 @@
+import { requireUserPage } from "@/lib/guards";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Heart } from "lucide-react";
-import { getSessionUser } from "@/lib/session";
 import { getSavedCards } from "@/services/discover";
 import { ListingCard } from "@/components/listing/listing-card";
 import { EmptyState } from "@/components/ui/states";
@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = { title: "Saved" };
 
 export default async function SavedPage() {
-  const user = (await getSessionUser())!;
+  const user = await requireUserPage("/me/saved");
   const cards = await getSavedCards(user.saved);
   return (
     <main className="mx-auto flex max-w-[1240px] flex-col gap-5 px-4 pt-6 md:px-8 md:pt-10 lg:mx-0 lg:max-w-none lg:px-0 lg:pt-0">

@@ -1,6 +1,6 @@
 import "server-only";
 import type { Area, Category, JourneyTemplate, Listing, ListingCard, Resource, SlotRule, Venue } from "@/contracts";
-import { hash01 } from "@/mocks/occupancy";
+import { hash01 } from "@/lib/hash";
 import { formatINR } from "@/lib/pricing";
 import { dateBadge, formatDate, formatDay, formatMins, formatWhen, fromISO, istParts } from "@/lib/time";
 import type { ListingInventory } from "./inventory";

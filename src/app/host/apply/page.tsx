@@ -39,7 +39,7 @@ export default async function HostApply({ searchParams }: { searchParams: Promis
       <ApplyLayout>
         <ApplyForm
           cities={cities.map((c) => ({ id: c.id, name: c.name }))}
-          defaults={{ contactName: user.name, cityId: user.cityId ?? cities[0].id, ...(owned ? { brandName: owned.brandName, type: owned.type, bio: owned.bio, instagram: owned.instagram ?? "", email: owned.email ?? "", cityId: owned.cityId, wantsPaid: owned.wantsPaid, gstin: owned.gstin ?? "" } : {}) }}
+          defaults={{ contactName: user.name, cityId: user.cityId ?? cities[0].id, ...(owned ? { brandName: owned.brandName, type: owned.type, bio: owned.bio, instagram: owned.instagram ?? "", email: owned.email ?? "", cityId: owned.cityId, wantsPaid: owned.wantsPaid, gstin: owned.gstin ?? "", documents: owned.documents.filter((d) => d.mediaId && d.status !== "rejected").map((d) => ({ kind: d.kind, fileName: d.fileName, mediaId: d.mediaId! })) } : {}) }}
           phone={user.phone}
         />
       </ApplyLayout>
@@ -72,7 +72,9 @@ export default async function HostApply({ searchParams }: { searchParams: Promis
       <Button asChild size="lg" block>
         <Link href={user ? "/onboarding?next=/host/apply" : "/login?next=/host/apply"}>Log in to apply</Link>
       </Button>
-      <p className="text-center text-xs text-subtle">Prototype: owner demo 90000 00002 (events) or 90000 00003 (courts); manager demo 90000 00004.</p>
+      {process.env.NODE_ENV !== "production" && (
+        <p className="text-center text-xs text-subtle">Development: demo owners 90000 00002 (events) and 90000 00003 (courts); manager 90000 00004.</p>
+      )}
     </Shell>
   );
 }

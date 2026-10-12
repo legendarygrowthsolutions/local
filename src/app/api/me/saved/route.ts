@@ -4,6 +4,6 @@ import { toggleSaved } from "@/services/users";
 
 export const POST = route(async (req) => {
   const u = await requireUser();
-  const { id } = await body(req, z.object({ id: z.string() }));
+  const { id } = await body(req, z.object({ id: z.string().min(1).max(60) }));
   return toggleSaved(u.id, id);
 });

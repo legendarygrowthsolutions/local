@@ -170,7 +170,7 @@ export function DummyGateway({ initial }: { initial: BookingView }) {
             {pay.error && <p className="text-center text-sm text-danger">{pay.error.message}</p>}
           </>
         )}
-        <p className="text-center text-xs text-muted">Mock gateway — no money moves. Swappable for Razorpay / Cashfree in phase 2.</p>
+        <p className="text-center text-xs text-muted">Test mode — no money moves.</p>
       </div>
     </main>
   );

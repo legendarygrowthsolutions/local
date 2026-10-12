@@ -1,0 +1,26 @@
+[
+ {
+  "id": "cp_1",
+  "code": "LOCAL10",
+  "type": "pct",
+  "value": 10,
+  "maxDiscount": 200,
+  "description": "10% off, up to ₹200",
+  "perUserLimit": null,
+  "firstBookingOnly": false,
+  "minSubtotal": 0,
+  "validUntil": null
+ },
+ {
+  "id": "cp_2",
+  "code": "FIRST100",
+  "type": "flat",
+  "value": 100,
+  "maxDiscount": 100,
+  "description": "₹100 off your first booking",
+  "perUserLimit": 1,
+  "firstBookingOnly": true,
+  "minSubtotal": 200,
+  "validUntil": null
+ }
+]

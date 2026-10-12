@@ -61,7 +61,7 @@ export default async function PayoutsPage() {
           </table>
         </div>
       </Panel>
-      <p className="text-xs text-subtle">Prototype figures computed from mock bookings. Real settlements arrive with the payment gateway in phase 2.</p>
+      <p className="text-xs text-subtle">Figures are computed from confirmed bookings, net of refunds. Payouts settle weekly to your verified bank account.</p>
     </div>
   );
 }

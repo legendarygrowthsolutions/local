@@ -1,7 +1,6 @@
 import "server-only";
 import type { Listing, Session, TicketType } from "@/contracts";
 import { repo } from "@/repositories";
-import { hash01 } from "@/mocks/occupancy";
 
 export const UNLIMITED = 9999;
 
@@ -11,7 +10,7 @@ export interface ListingInventory {
   tickets: (TicketType & { remaining: number })[];
 }
 
-/** Remaining seats per session and per ticket type, after fixtures' "sold" and live bookings. */
+/** Remaining seats per session and per ticket type, after externally-sold counts and live bookings/holds. */
 export async function loadInventory(listings: Listing[], now = new Date()): Promise<Map<string, ListingInventory>> {
   const ids = listings.map((l) => l.id);
   const [sessions, tickets, active] = await Promise.all([
@@ -39,8 +38,7 @@ export async function loadInventory(listings: Listing[], now = new Date()): Prom
             .filter((t) => !t.isPass && (t.sessionId === null || t.sessionId === s.id))
             .reduce((sum, t) => sum + t.remaining, 0);
         } else {
-          const seeded = Math.floor(hash01(s.id) * s.capacity * 0.9);
-          remaining = Math.max(0, s.capacity - seeded - (active.bySession.get(s.id) ?? 0));
+          remaining = Math.max(0, s.capacity - (s.sold ?? 0) - (active.bySession.get(s.id) ?? 0));
         }
         return { ...s, remaining };
       });

@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/guards";
 import Link from "next/link";
 import { adminBookings } from "@/services/admin";
 import { AdminPage } from "@/components/admin/page-bits";
@@ -19,6 +20,7 @@ const STATUSES = [
 ];
 
 export default async function AdminBookingsPage({ searchParams }: { searchParams: Promise<{ q?: string; status?: string; city?: string; page?: string }> }) {
+  await requireAdminPage();
   const sp = await searchParams;
   const data = await adminBookings({ q: sp.q, status: sp.status || undefined, cityId: sp.city || undefined, page: Number(sp.page ?? 1) });
   const qs = (p: number) => {

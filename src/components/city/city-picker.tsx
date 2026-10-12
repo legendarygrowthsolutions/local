@@ -1,5 +1,7 @@
 "use client";
 
+import { safeNext } from "@/components/auth/login-flow";
+
 import { m } from "motion/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -29,7 +31,8 @@ export function CityPicker({ current, onPicked, compact }: { current?: string; o
   const go = (c: City) => {
     rememberCity(c.slug);
     onPicked?.(c);
-    router.push(next && next.startsWith("/") ? next.replace(/^\/[^/]+/, `/${c.slug}`) : `/${c.slug}`);
+    const safe = safeNext(next, "");
+    router.push(safe ? safe.replace(/^\/[^/]+/, `/${c.slug}`) : `/${c.slug}`);
   };
   const choose = (c: City) => (compact ? go(c) : (setPicked(c.slug), setQ("")));
 

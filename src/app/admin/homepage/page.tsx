@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/guards";
 import Link from "next/link";
 import { homepageCuration } from "@/services/admin";
 import { getCities } from "@/services/catalog";
@@ -7,6 +8,7 @@ import { HomepageCuration } from "@/components/admin/homepage-curation";
 export const metadata = { title: "Homepage & banners" };
 
 export default async function HomepagePage({ searchParams }: { searchParams: Promise<{ city?: string }> }) {
+  await requireAdminPage();
   const { city: slug } = await searchParams;
   const cities = await getCities();
   const city = cities.find((c) => c.slug === slug) ?? cities[0];

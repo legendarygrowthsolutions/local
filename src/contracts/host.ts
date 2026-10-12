@@ -32,9 +32,22 @@ export const HostApplicationSchema = z
     expectedPerMonth: z.enum(["1–2", "3–5", "6–10", "10+"]),
     wantsPaid: z.boolean(),
     gstin: z.string().trim().max(15),
-    documents: z.array(z.object({ kind: z.enum(["pan", "bank", "gst", "id_proof"]), fileName: z.string() })),
+    documents: z
+      .array(
+        z.object({
+          kind: z.enum(["pan", "bank", "gst", "id_proof"]),
+          fileName: z.string().trim().min(1).max(120),
+          /** New upload as a data URL (PDF, JPEG, PNG or WebP). */
+          data: z.string().max(3_000_000).optional(),
+          /** Keep a file uploaded with an earlier submission. */
+          mediaId: z.string().max(60).optional(),
+        }),
+      )
+      .max(4),
   })
   .superRefine((v, ctx) => {
+    if (new Set(v.documents.map((d) => d.kind)).size !== v.documents.length)
+      ctx.addIssue({ code: "custom", path: ["documents"], message: "Upload one file per document" });
     if (v.wantsPaid) {
       for (const k of ["pan", "bank"] as const)
         if (!v.documents.some((d) => d.kind === k))
@@ -95,11 +108,11 @@ export const EventListingInputSchema = z.object({
   areaId: z.string().min(1, "Choose an area"),
   venueName: z.string().trim().min(2, "Where is it happening?").max(80),
   address: z.string().trim().min(8, "Add the full address").max(200),
-  media: z.array(z.string()).max(4),
+  media: z.array(z.string().max(900_000)).max(4),
   templateId: z.string().min(1, "Choose how people book"),
-  sessions: z.array(SessionInputSchema).min(1, "Add at least one date"),
-  tickets: z.array(TicketInputSchema),
-  thingsToKnow: z.array(z.string().trim().min(1)).max(10),
+  sessions: z.array(SessionInputSchema).min(1, "Add at least one date").max(60, "Up to 60 dates per listing"),
+  tickets: z.array(TicketInputSchema).max(20, "Up to 20 ticket types"),
+  thingsToKnow: z.array(z.string().trim().min(1).max(160)).max(10),
   formFields: z.array(FormFieldSchema).max(6),
   externalUrl: z.string().trim().max(200).nullable(),
 });
@@ -124,10 +137,10 @@ export const VenueInputSchema = z.object({
   description: z.string().trim().min(40, "Describe the venue (40+ characters)").max(3000),
   areaId: z.string().min(1, "Choose an area"),
   address: z.string().trim().min(8, "Add the full address").max(200),
-  media: z.array(z.string()).max(4),
-  amenities: z.array(z.string()),
+  media: z.array(z.string().max(900_000)).max(4),
+  amenities: z.array(z.string().max(40)).max(30),
   templateId: z.enum(["tpl_court_60", "tpl_court_30"]),
-  courts: z.array(CourtInputSchema).min(1, "Add at least one court"),
+  courts: z.array(CourtInputSchema).min(1, "Add at least one court").max(30, "Up to 30 courts per venue"),
   openMins: z.number().int().min(0).max(1440),
   closeMins: z.number().int().min(0).max(1440),
   advanceDays: z.number().int().min(1).max(60),
@@ -135,7 +148,7 @@ export const VenueInputSchema = z.object({
   bufferMins: z.number().int().min(0).max(60),
   peakWeekdayEvenings: z.boolean(),
   peakWeekends: z.boolean(),
-  thingsToKnow: z.array(z.string().trim().min(1)).max(10),
+  thingsToKnow: z.array(z.string().trim().min(1).max(160)).max(10),
 });
 export type VenueInput = z.infer<typeof VenueInputSchema>;
 

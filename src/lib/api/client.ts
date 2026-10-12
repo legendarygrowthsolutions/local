@@ -8,7 +8,7 @@ export class ApiError extends Error {
   }
 }
 
-/** Typed fetch for the mock API (client components only). */
+/** Typed fetch for the JSON API (client components only). */
 export async function api<T>(path: string, init: { method?: string; body?: unknown; signal?: AbortSignal } = {}): Promise<T> {
   let res: Response;
   try {

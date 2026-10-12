@@ -18,7 +18,7 @@ const SECTIONS = [
     id: "terms",
     title: "Terms of use",
     body: [
-      "local. is a phase 1 prototype. Listings, hosts and bookings are sample data and no real payments are taken.",
+      "Payments currently run in test mode: no real money is charged or refunded.",
       "The final terms will be published before launch, covering bookings, cancellations, host obligations and acceptable use.",
     ],
   },

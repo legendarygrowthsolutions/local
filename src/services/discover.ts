@@ -1,4 +1,5 @@
 import "server-only";
+import { isPublic } from "./visibility";
 import type { CardKind, City, HomePayload, HomeRail, ListingCard, ListingDetail, Paginated, User, VenueDetail } from "@/contracts";
 import { repo } from "@/repositories";
 import { addDays, fromISO, todayIST, weekdayOf } from "@/lib/time";
@@ -262,7 +263,7 @@ export async function getListingDetail(citySlug: string, slug: string, now = new
 
 export async function getListingDetailById(id: string, now = new Date()): Promise<ListingDetail> {
   const listing = await repo.listings.byId(id);
-  if (!listing) throw notFound("Listing not found");
+  if (!listing || !(await isPublic(listing))) throw notFound("Listing not found");
   const city = (await repo.cities.byId(listing.cityId))!;
   return buildListingDetail(city, id, now);
 }
@@ -306,7 +307,7 @@ export async function getVenueDetail(citySlug: string, slug: string, now = new D
 
 export async function getVenueDetailById(id: string, now = new Date()): Promise<VenueDetail> {
   const venue = await repo.venues.byId(id);
-  if (!venue) throw notFound("Venue not found");
+  if (!venue || !(await isPublic(venue))) throw notFound("Venue not found");
   const city = (await repo.cities.byId(venue.cityId))!;
   return buildVenueDetail(city, id, now);
 }

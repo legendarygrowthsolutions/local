@@ -1,7 +1,8 @@
 import "server-only";
 import type { User } from "@/contracts";
 import { repo } from "@/repositories";
-import { notFound } from "./errors";
+import { badRequest, notFound } from "./errors";
+import { storeImage } from "./media";
 
 /** Booking updates always go by SMS; these are the extras. */
 export const DEFAULT_NOTIFICATIONS = { whatsapp: true, email: true, offers: false };
@@ -14,6 +15,8 @@ export function toPublicUser(u: User): PublicUser {
 }
 
 export async function updateMe(id: string, patch: Partial<Pick<User, "name" | "gender" | "dob" | "cityId" | "interests" | "avatar" | "notifications">>) {
+  if (patch.avatar) patch = { ...patch, avatar: await storeImage(id, patch.avatar) };
+  if (patch.cityId && !(await repo.cities.byId(patch.cityId))) throw badRequest("Unknown city");
   const u = await repo.users.update(id, patch);
   if (!u) throw notFound("User not found");
   return toPublicUser(u);
@@ -22,7 +25,13 @@ export async function updateMe(id: string, patch: Partial<Pick<User, "name" | "g
 export async function toggleSaved(id: string, itemId: string) {
   const u = await repo.users.byId(id);
   if (!u) throw notFound("User not found");
-  const saved = u.saved.includes(itemId) ? u.saved.filter((x) => x !== itemId) : [...u.saved, itemId];
+  const removing = u.saved.includes(itemId);
+  if (!removing) {
+    if (u.saved.length >= 500) throw badRequest("Your saved list is full. Remove a few first.");
+    const [l, v] = await Promise.all([repo.listings.byId(itemId), repo.venues.byId(itemId)]);
+    if (!l && !v) throw notFound("Nothing to save");
+  }
+  const saved = removing ? u.saved.filter((x) => x !== itemId) : [...u.saved, itemId];
   await repo.users.update(id, { saved });
   return { saved, isSaved: saved.includes(itemId) };
 }

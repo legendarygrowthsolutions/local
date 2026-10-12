@@ -1,3 +1,4 @@
+import { requireUserPage } from "@/lib/guards";
 import type { Metadata } from "next";
 import { MyBookings } from "@/components/booking/my-bookings";
 import { getCityCookie } from "@/lib/session";
@@ -6,6 +7,7 @@ import { getCity } from "@/services/catalog";
 export const metadata: Metadata = { title: "My bookings" };
 
 export default async function Page() {
+  await requireUserPage("/me/bookings");
   const slug = await getCityCookie();
   const city = slug ? await getCity(slug) : null;
   return (

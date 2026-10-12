@@ -1,5 +1,5 @@
 // Deterministic fixture generator for the phase 1 mock API.
-// Run: npm run fixtures   (writes src/mocks/fixtures/*.json)
+// Run: npm run fixtures   (writes src/db/seed/fixtures/*.json)
 // All dates are written relative to ANCHOR; the mock store shifts them to "today" at load,
 // so the prototype never goes stale.
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -7,7 +7,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ANCHOR = "2026-10-11";
-const OUT = join(dirname(fileURLToPath(import.meta.url)), "../src/mocks/fixtures");
+const OUT = join(dirname(fileURLToPath(import.meta.url)), "../src/db/seed/fixtures");
 
 // ---------- utils ----------
 function mulberry32(a) {
@@ -537,8 +537,8 @@ pb.items[0].startsAt = pb.startsAt; pb.items[0].endsAt = pb.endsAt;
 }
 
 const coupons = [
-  { id: "cp_1", code: "LOCAL10", type: "pct", value: 10, maxDiscount: 200, description: "10% off, up to ₹200" },
-  { id: "cp_2", code: "FIRST100", type: "flat", value: 100, maxDiscount: 100, description: "₹100 off your first booking" },
+  { id: "cp_1", code: "LOCAL10", type: "pct", value: 10, maxDiscount: 200, description: "10% off, up to ₹200", perUserLimit: null, firstBookingOnly: false, minSubtotal: 0, validUntil: null },
+  { id: "cp_2", code: "FIRST100", type: "flat", value: 100, maxDiscount: 100, description: "₹100 off your first booking", perUserLimit: 1, firstBookingOnly: true, minSubtotal: 200, validUntil: null },
 ];
 
 // ---------- write ----------

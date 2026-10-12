@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const PORT = 3100;
+const PORT = 3200;
 
 /** Golden paths + accessibility, against a production build (`npm run e2e`). */
 export default defineConfig({
@@ -22,10 +22,19 @@ export default defineConfig({
     { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
   ],
   webServer: {
-    command: `next start -p ${PORT}`,
+    // A fresh, seeded database for every run.
+    command: `tsx scripts/db.ts reset && next start -p ${PORT}`,
     port: PORT,
     reuseExistingServer: false,
-    env: { MOCK_LATENCY: "off" },
-    timeout: 60_000,
+    env: {
+      DATABASE_URL: "file:./data/e2e.db",
+      OTP_PROVIDER: "dev",
+      PAYMENT_PROVIDER: "test",
+      AUTH_SECRET: "e2e-only-secret-not-for-production-0123456789",
+      COOKIE_SECURE: "0",
+      // The suite signs the same demo accounts in many times from one machine.
+      RATE_LIMIT_SCALE: "100",
+    },
+    timeout: 90_000,
   },
 });

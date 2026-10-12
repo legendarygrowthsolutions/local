@@ -9,6 +9,8 @@ import { HostApplicationSchema, type HostApplicationInput } from "@/contracts";
 import { useApplyHost } from "@/lib/api/host-hooks";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
+import { imageToDataUrl } from "@/features/host-wizard/fields";
 
 const TYPES = [
   { id: "organiser", label: "Events & shows", body: "Gigs, comedy, festivals" },
@@ -25,6 +27,21 @@ const DOCS = [
 ] as const;
 
 const input = "h-[50px] w-full rounded-[14px] border-[1.5px] border-line-strong bg-surface px-3.5 text-[15px] outline-none focus:border-brand focus:shadow-[0_0_0_4px_var(--color-tint)]";
+
+/** PDFs go up as-is (≤ 2 MB); photos of documents are downscaled first. */
+async function documentToDataUrl(file: File): Promise<string> {
+  if (file.type === "application/pdf") {
+    if (file.size > 2 * 1024 * 1024) throw new Error("PDFs must be under 2 MB");
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(String(r.result));
+      r.onerror = () => reject(new Error("Couldn't read that file"));
+      r.readAsDataURL(file);
+    });
+  }
+  if (!file.type.startsWith("image/")) throw new Error("Upload a PDF, JPG or PNG");
+  return imageToDataUrl(file, 1800);
+}
 
 export function ApplyForm({ cities, defaults, phone }: { cities: { id: string; name: string }[]; defaults: Partial<HostApplicationInput>; phone: string }) {
   const router = useRouter();
@@ -239,9 +256,16 @@ export function ApplyForm({ cities, defaults, phone }: { cities: { id: string; n
                                 type="file"
                                 accept=".pdf,image/*"
                                 className="sr-only"
-                                onChange={(e) => {
+                                onChange={async (e) => {
                                   const f = e.target.files?.[0];
-                                  if (f) set({ documents: [...v.documents, { kind: d.kind, fileName: f.name }] });
+                                  e.target.value = "";
+                                  if (!f) return;
+                                  try {
+                                    const data = await documentToDataUrl(f);
+                                    setV((x) => ({ ...x, documents: [...x.documents.filter((y) => y.kind !== d.kind), { kind: d.kind, fileName: f.name.slice(0, 120), data }] }));
+                                  } catch (err) {
+                                    toast.error((err as Error).message);
+                                  }
                                 }}
                               />
                             </label>
@@ -250,7 +274,7 @@ export function ApplyForm({ cities, defaults, phone }: { cities: { id: string; n
                       );
                     })}
                     {errors.documents && <p className="text-sm text-danger">{errors.documents}</p>}
-                    <p className="text-xs text-subtle">Prototype: files aren&apos;t uploaded anywhere — only the file name is recorded.</p>
+                    <p className="text-xs text-subtle">Files are stored privately and only seen by our verification team.</p>
                   </div>
                   <Field label="GSTIN (if registered)" error={errors.gstin}>
                     <input className={cn(input, "uppercase")} value={v.gstin} onChange={(e) => set({ gstin: e.target.value.toUpperCase() })} placeholder="27ABCDE1234F1Z5" maxLength={15} />

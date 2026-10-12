@@ -35,11 +35,11 @@ export const PriceBreakdownSchema = z.object({
 export type PriceBreakdown = z.infer<typeof PriceBreakdownSchema>;
 
 export const AttendeeSchema = z.object({
-  name: z.string(),
-  phone: z.string(),
+  name: z.string().trim().max(80),
+  phone: z.string().regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit mobile number"),
   /** Where e-tickets go (optional; SMS/WhatsApp always use the phone) */
-  email: z.string().email("Enter a valid email").or(z.literal("")).optional(),
-  answers: z.record(z.string(), z.string()),
+  email: z.string().max(120).email("Enter a valid email").or(z.literal("")).optional(),
+  answers: z.record(z.string().max(40), z.string().max(300)).refine((a) => Object.keys(a).length <= 12, "Too many answers"),
 });
 
 export const BookingSchema = z.object({
@@ -71,21 +71,22 @@ export type Booking = z.infer<typeof BookingSchema>;
 /** Request body for POST /api/bookings/hold */
 export const HoldRequestSchema = z.object({
   kind: z.enum(["listing", "venue"]),
-  targetId: z.string(),
-  sessionId: z.string().nullable().optional(),
+  targetId: z.string().max(60),
+  sessionId: z.string().max(60).nullable().optional(),
   tickets: z
-    .array(z.object({ ticketTypeId: z.string(), qty: z.number().int().min(1) }))
+    .array(z.object({ ticketTypeId: z.string().max(60), qty: z.number().int().min(1).max(50) }))
+    .max(20)
     .optional(),
   slots: z
     .object({
-      resourceId: z.string(),
-      date: z.string(), // YYYY-MM-DD
+      resourceId: z.string().max(60),
+      date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
       startMins: z.number().int(),
       endMins: z.number().int(),
     })
     .optional(),
   attendee: AttendeeSchema.optional(),
-  couponCode: z.string().optional(),
+  couponCode: z.string().max(30).optional(),
 });
 export type HoldRequest = z.infer<typeof HoldRequestSchema>;
 

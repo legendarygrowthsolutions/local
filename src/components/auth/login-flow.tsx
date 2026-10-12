@@ -11,8 +11,15 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import { OtpInput } from "./otp-input";
 
+/** Only same-site paths: rejects `//host`, `/\\host` and anything that parses to another origin. */
 export function safeNext(next: string | null, fallback = "/") {
-  return next && next.startsWith("/") && !next.startsWith("//") ? next : fallback;
+  if (!next || !next.startsWith("/") || next.startsWith("//") || next.includes("\\")) return fallback;
+  try {
+    const u = new URL(next, "https://local.invalid");
+    return u.origin === "https://local.invalid" ? u.pathname + u.search + u.hash : fallback;
+  } catch {
+    return fallback;
+  }
 }
 
 export function LoginFlow() {
@@ -24,6 +31,8 @@ export function LoginFlow() {
   const [phoneError, setPhoneError] = useState<string | null>(null);
   const [code, setCode] = useState("");
   const [timer, setTimer] = useState(0);
+  // Only present when the server delivers OTPs in development mode (no SMS provider).
+  const [devCode, setDevCode] = useState<string | null>(null);
   const send = useSendOtp();
   const verify = useVerifyOtp();
 
@@ -43,6 +52,7 @@ export function LoginFlow() {
         setStep("otp");
         setCode("");
         setTimer(r.resendInSec);
+        setDevCode(r.devCode ?? null);
       },
     });
   };
@@ -165,9 +175,9 @@ export function LoginFlow() {
               <m.div animate={verify.isError ? { x: [0, -8, 8, -6, 6, 0] } : {}} transition={{ duration: 0.35 }}>
                 <OtpInput value={code} onChange={setCode} onComplete={submitCode} invalid={verify.isError} disabled={verify.isPending} />
               </m.div>
-              {verify.error && (
+              {(verify.error ?? send.error) && (
                 <p className="text-sm text-danger" role="alert">
-                  {verify.error.message}
+                  {(verify.error ?? send.error)!.message}
                 </p>
               )}
               <div className="flex items-center justify-between text-[13px] text-muted">
@@ -187,7 +197,20 @@ export function LoginFlow() {
             </div>
             <div className="flex items-start gap-2.5 rounded-[14px] bg-field p-3.5 text-[13px] leading-[1.45] text-ink-2">
               <Info className="mt-px size-[18px] flex-none" strokeWidth={1.8} aria-hidden />
-              <span>Phase 1 prototype: the mock auth API accepts any 6-digit code (000000 shows the error state). OTP auto-reads on Android (Web OTP API).</span>
+              {devCode ? (
+                <span>
+                  Development mode: no SMS is sent. Your code is{" "}
+                  <button type="button" onClick={() => {
+                      setCode(devCode);
+                      submitCode(devCode);
+                    }} className="font-mono font-bold tracking-widest text-brand underline-offset-2 hover:underline" aria-label={`Use code ${devCode.split("").join(" ")}`}>
+                    {devCode}
+                  </button>
+                  .
+                </span>
+              ) : (
+                <span>The code expires in 5 minutes. On Android it fills in automatically.</span>
+              )}
             </div>
             <Button size="lg" block loading={verify.isPending} disabled={code.length !== 6} onClick={() => submitCode()} className="mt-auto font-bold">
               Verify &amp; continue

@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/guards";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { listTemplates } from "@/services/admin";
@@ -13,6 +14,7 @@ const MODE: Record<string, string> = { none: "Info only", rsvp: "RSVP", ticketed
 const SCHEDULE: Record<string, string> = { single: "single day", multi_day: "multi-day", recurring: "weekly", date_range: "date range", open_hours: "open hours" };
 
 export default async function TemplatesPage({ searchParams }: { searchParams: Promise<{ id?: string }> }) {
+  await requireAdminPage();
   const { id } = await searchParams;
   const [templates, cats] = await Promise.all([listTemplates(), getTopCategories()]);
   const isNew = id === "new";

@@ -15,7 +15,7 @@
 | **Cities (v1)** | Mumbai, Pune, Nagpur. The cities list comes from the API, so adding a city needs no code change. |
 | **Interfaces** | **User** (open signup) · **Host/Vendor** (needs approval) · **Superadmin** |
 | **Phase 1** | UI only, with every screen reading from mock APIs (no hardcoded data), a dummy payment flow and seeded fixture data |
-| **Phase 2** | Turso + Drizzle backend, real OTP, real payment gateway, KYC and payouts |
+| **Phase 2** | SQL backend (any SQL database; SQLite locally), real OTP and sessions, KYC document uploads, media storage. Still needed: an SMS provider and a payment gateway (accounts and keys) |
 
 ### Personas
 - **User**: browses by city, books tickets or courts, and manages bookings.
@@ -40,14 +40,14 @@
 | Dates | **date-fns** (+ `date-fns-tz`, Asia/Kolkata) | Slot maths |
 | Icons | **lucide-react** | Consistent stroke icons |
 | QR | `qrcode.react` | Ticket QR |
-| DB (phase 2) | **Turso (libSQL) + Drizzle ORM** | The schema is drafted in §8 so the mock fixtures match it 1:1 |
+| DB | **Kysely** query builder over any SQL database (SQLite locally; Postgres, MySQL or Turso by URL) | Portable schema and queries, typed, no ORM lock-in (decision 2026-10-12: stay database-agnostic) |
 | Testing | Vitest (slot engine, pricing) + Playwright (golden booking flows) | |
 
 ---
 
-## 3. "No hardcoded data": the mock API architecture
+## 3. "No hardcoded data": the service architecture
 
-Every screen gets its data through **one service layer**. In Phase 1 that layer is backed by JSON fixtures. In Phase 2 we swap in a Drizzle/Turso implementation and the UI does not change.
+Every screen gets its data through **one service layer**. Phase 1 backed it with JSON fixtures in memory; phase 2 (done 2026-10-12) swapped in a SQL implementation (`src/repositories/sql`) with no UI changes. The fixtures are now seed data (`src/db/seed`). The rest of this section describes the phase 1 design and is kept for history.
 
 ```
 UI (server + client components)
@@ -220,7 +220,9 @@ Upcoming / Past / Cancelled bookings, booking detail (QR, cancel per policy), sa
 
 ---
 
-## 8. Data model (draft; Turso schema in Phase 2, fixtures in Phase 1)
+## 8. Data model (original draft)
+
+> The implemented schema lives in `src/db/migrations` (readable snapshot: `db/schema.sql`). It follows this draft, plus: `listing_sessions.sold`, `host_documents.media_id`, coupon rules, `payments`, `auth_sessions`, `otp_codes`, `rate_limits`, `listing_views` and `media`.
 
 ```
 cities(id, slug, name, state, lat, lng, active)
@@ -337,8 +339,12 @@ Data model: `host_members(id, host_id, user_id, role[owner|manager], invited_by,
 | Design alignment | ✅ 2026-10-12: all 22 screens rebuilt to the wireframe canvas. New to support them: profile photo, follow a host, notification preferences, attendee email + editable details on review, search kind tabs and price range, per-sport venue picker, poster date chips, week-over-week host KPIs, booking-journey cards in the listing editor (slot booking converts a listing into a venue), admin Payouts & fees and Homepage & banners, a help/terms/privacy page |
 | UI QA pass | ✅ 2026-10-12: every route checked at 390 px and 1440 px for all roles (no crashes or sideways scroll). Fixed: city sheet on desktop (now a centred dialog; every `Sheet` is a drawer on phones and a dialog from 768 px up); desktop layouts for host apply (split pitch panel + form), login (art + sign-in card), city picker and onboarding (centred card); leftover violet in disabled buttons and decorative art; a stray 404 to the venue-availability API on event bookings. Nagpur's city tile is orange (Orange City). Account area (`/me/*`) gets a desktop sidebar (identity, sections, host link, log out) with pages filling the content column; booking detail is two columns. Booking summary shows a "from ₹X" hint until something is picked, instead of "Free" |
 
+| Phase 2 backend | ✅ 2026-10-12: Kysely over any SQL database (SQLite file locally; Postgres / MySQL / Turso by `DATABASE_URL`). Portable migration (`src/db/migrations`), seeder, `db:*` scripts and a `db/schema.sql` snapshot. Real auth: random OTPs stored as HMACs with atomic attempt limits, cooldowns and rate limits, plus DB sessions holding only token hashes. CSRF origin check, body caps, security headers, per-page role guards. Transactional holds (no overselling under concurrency), an unpaid-hold cap, one free place per person per date, coupon rules re-checked at payment, and a `payments` ledger. Media store for listing photos and avatars (served immutable from `/media/{id}`). Private KYC document uploads that admins can open. Real camera QR check-in (BarcodeDetector). Real listing-view analytics. Admin search and paging in SQL. 115 backend integration tests plus the E2E suite |
+
 ### Implementation notes
-- **Cache Components is off for phase 1** (`next.config.ts`). The mock store is mutable and time-based, so pages render per request. Revisit when Turso lands.
+- **Phase 2 open items (need accounts/keys):** an SMS provider for OTP (`OTP_PROVIDER`; dev mode shows the code on screen) and a payment gateway (`PAYMENT_PROVIDER`; the test gateway runs outside production). Production refuses to send codes or take payments until these are configured, rather than faking them.
+- **Product decision to confirm:** edits to a *live* listing go live immediately without re-moderation (the security review flagged bait-and-switch risk). Alternative: queue a pending revision for admin approval while the current version stays live.
+- **Cache Components is off** (`next.config.ts`). Pages render per request against the database (inventory changes constantly). Cities, areas, categories and templates are cached in-process for 30 s and invalidated on writes.
 - Booking route is `/book/{e|v}/{id}?step=select|details|review` (one page; steps live in the URL so the back button works), then `/book/pay/{bookingId}` and `/book/done/{bookingId}`.
 - A failed dummy payment keeps the hold (`pending_payment`) so the user can retry until the timer runs out.
 - Fixture dates are stored relative to an anchor day and shifted to "today" when the store loads, so the prototype never goes stale.

@@ -4,5 +4,5 @@ import { applyAsHost } from "@/services/host";
 
 export const POST = route(async (req) => {
   const u = await requireUser();
-  return { host: await applyAsHost(u, await body(req, HostApplicationSchema)) };
+  return { host: await applyAsHost(u, await body(req, HostApplicationSchema, 10 * 1024 * 1024)) };
 });

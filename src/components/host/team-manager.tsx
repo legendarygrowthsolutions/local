@@ -37,7 +37,7 @@ export function TeamManager({ initial }: { initial: HostMember[] }) {
       { phone, name: name || undefined },
       {
         onSuccess: () => {
-          toast.success("Invite sent by SMS (prototype)");
+          toast.success("Invite saved. They join your team when they log in with that number.");
           setPhone("");
           setName("");
         },

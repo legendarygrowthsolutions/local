@@ -7,6 +7,6 @@ export const GET = route<{ id: string }>(async (_req, { params }) => getListingI
 
 export const PUT = route<{ id: string }>(async (req, { params }) => {
   const ctx = await requireHostApi();
-  const { input, submit } = await body(req, SaveListingSchema);
+  const { input, submit } = await body(req, SaveListingSchema, 4 * 1024 * 1024);
   return saveListing(ctx, input, submit, (await params).id);
 });

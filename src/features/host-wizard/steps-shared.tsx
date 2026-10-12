@@ -48,7 +48,7 @@ export function MediaPicker({ media, onChange }: { media: string[]; onChange: (m
           </label>
         )}
       </div>
-      <p className="text-xs text-subtle">Prototype: photos are kept in memory on the dev server. Listings without photos get calm generated artwork.</p>
+      <p className="text-xs text-subtle">Up to 4 photos (JPEG, PNG or WebP). Listings without photos get calm generated artwork.</p>
     </Card>
   );
 }

@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/guards";
 import Link from "next/link";
 import { listApplications, type HostTab } from "@/services/admin";
 import { AdminPage, Tabs } from "@/components/admin/page-bits";
@@ -10,6 +11,7 @@ export const metadata = { title: "Host applications" };
 const TYPE: Record<string, string> = { organiser: "Events", venue: "Sports venue", instructor: "Workshops", community: "Community" };
 
 export default async function HostsPage({ searchParams }: { searchParams: Promise<{ tab?: string; id?: string }> }) {
+  await requireAdminPage();
   const sp = await searchParams;
   const tab = (["pending", "changes", "approved", "rejected", "kyc"].includes(sp.tab ?? "") ? sp.tab : "pending") as HostTab;
   const { counts, items } = await listApplications(tab);

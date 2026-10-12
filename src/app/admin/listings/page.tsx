@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/guards";
 import Link from "next/link";
 import { listModeration, type ModerationTab } from "@/services/admin";
 import { AdminPage, Tabs } from "@/components/admin/page-bits";
@@ -10,6 +11,7 @@ import { Star } from "lucide-react";
 export const metadata = { title: "Listing moderation" };
 
 export default async function ListingsModeration({ searchParams }: { searchParams: Promise<{ tab?: string; id?: string; city?: string }> }) {
+  await requireAdminPage();
   const sp = await searchParams;
   const tab = (["review", "live", "rejected"].includes(sp.tab ?? "") ? sp.tab : "review") as ModerationTab;
   const { counts, items, total, cities } = await listModeration(tab, sp.city || undefined);

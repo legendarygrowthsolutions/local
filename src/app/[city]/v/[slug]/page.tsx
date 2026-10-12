@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { cache } from "react";
+import { trackView } from "@/services/views";
 import Link from "next/link";
 import { getVenueDetail } from "@/services/discover";
 import { or404 } from "@/lib/or404";
@@ -14,9 +16,11 @@ import { formatINR } from "@/lib/pricing";
 
 type Params = Promise<{ city: string; slug: string }>;
 
+// Shared by generateMetadata and the page, so the data loads once per request.
+const loadDetail = cache((city: string, slug: string) => or404(getVenueDetail(city, slug)));
 async function load(params: Params) {
   const { city, slug } = await params;
-  return or404(getVenueDetail(city, slug));
+  return loadDetail(city, slug);
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
@@ -31,6 +35,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 export default async function VenuePage({ params }: { params: Params }) {
   const d = await load(params);
+  await trackView(d.venue.id);
   const { venue, card } = d;
   const open = card.whenLabel.startsWith("Open now");
   return (

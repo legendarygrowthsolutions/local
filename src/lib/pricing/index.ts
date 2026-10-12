@@ -6,6 +6,14 @@ export interface Coupon {
   value: number;
   maxDiscount: number;
   description: string;
+  /** Redemptions allowed per account (null = unlimited). */
+  perUserLimit?: number | null;
+  /** Only for accounts with no previous booking. */
+  firstBookingOnly?: boolean;
+  /** Minimum ticket value (rupees) before discount. */
+  minSubtotal?: number;
+  /** Last moment the code can be used (ISO), null = no expiry. */
+  validUntil?: string | null;
 }
 
 const r2 = (n: number) => Math.round(n * 100) / 100;

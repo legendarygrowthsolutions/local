@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/guards";
 import Link from "next/link";
 import { adminPayouts } from "@/services/admin";
 import { AdminPage } from "@/components/admin/page-bits";
@@ -8,6 +9,7 @@ import { cn } from "@/lib/utils";
 export const metadata = { title: "Payouts & fees" };
 
 export default async function PayoutsPage() {
+  await requireAdminPage();
   const d = await adminPayouts();
   return (
     <AdminPage title="Payouts & fees" sub="Hosts are paid weekly for bookings made Monday to Sunday, on the following Wednesday. Attendees pay the convenience fee." wide>

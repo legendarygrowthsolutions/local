@@ -7,19 +7,38 @@ import { formatMins, fromISO, toISO } from "@/lib/time";
 import { getAvailability } from "./availability";
 import { loadInventory } from "./inventory";
 import { toneFor } from "./cards";
+import { randomCode } from "@/lib/crypto";
+import { config } from "@/lib/config";
 import { badRequest, conflict, notFound, ServiceError } from "./errors";
+import { rateLimit } from "./rate-limit";
+import { assertCouponUsable } from "./coupons";
+import { isPublic } from "./visibility";
 
 const ACTIVE_HOLD: Booking["status"][] = ["held", "pending_payment"];
+/** Unpaid holds lock inventory, so cap how many one account can keep at once. */
+const MAX_LIVE_HOLDS = 4;
 
-function newCode() {
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let s = "LCL";
-  for (let i = 0; i < 5; i++) s += chars[Math.floor(Math.random() * chars.length)];
-  return s;
+/**
+ * Hold seats or a court slot. Availability is re-checked and the hold inserted in one transaction,
+ * so two people can't both get the last seat.
+ */
+export async function holdBooking(userId: string, req: HoldRequest, now = new Date()): Promise<Booking> {
+  await rateLimit(`hold:${userId}`, 30, 10 * 60_000, "You're doing that a lot. Please wait a few minutes.", now);
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await repo.transaction(() => holdOnce(userId, req, now));
+    } catch (e) {
+      // A booking-code collision (unique index) is astronomically rare; just retry with a new code.
+      if (attempt < 2 && /unique|duplicate/i.test(String((e as Error).message)) && /code/i.test(String((e as Error).message))) continue;
+      throw e;
+    }
+  }
 }
 
-export async function holdBooking(userId: string, req: HoldRequest, now = new Date()): Promise<Booking> {
-  const code = newCode();
+async function holdOnce(userId: string, req: HoldRequest, now: Date): Promise<Booking> {
+  if ((await repo.bookings.countLiveHolds(userId)) >= MAX_LIVE_HOLDS)
+    throw conflict("You have several unpaid bookings in progress. Finish or let them expire first.", "too_many_holds");
+  const code = "LCL" + randomCode(6);
   const base = { id: "bk_" + code, code, userId, couponCode: null as string | null, createdAt: now.toISOString(), paymentRef: null };
   const coupon = req.couponCode ? await repo.coupons.byCode(req.couponCode) : null;
   if (req.couponCode && !coupon) throw badRequest("That coupon code isn't valid", "coupon_invalid");
@@ -27,7 +46,7 @@ export async function holdBooking(userId: string, req: HoldRequest, now = new Da
   if (req.kind === "venue") {
     if (!req.slots) throw badRequest("Pick a slot first");
     const venue = await repo.venues.byId(req.targetId);
-    if (!venue) throw notFound("Venue not found");
+    if (!venue || !(await isPublic(venue))) throw notFound("Venue not found");
     const tpl = (await repo.templates.byId(venue.templateId))!;
     const resource = (await repo.venues.resources([venue.id])).find((r) => r.id === req.slots!.resourceId);
     if (!resource) throw badRequest("Unknown court");
@@ -36,6 +55,7 @@ export async function holdBooking(userId: string, req: HoldRequest, now = new Da
     const ra = avail.resources.find((r) => r.resource.id === resource.id)!;
     const v = validateRange(ra.slots, { startMins: req.slots.startMins, endMins: req.slots.endMins }, ra.rule);
     if (!v.ok) throw conflict(v.reason, "slot_unavailable");
+    if (coupon) await assertCouponUsable(userId, coupon, v.price, { now });
     const startsAt = toISO(req.slots.date, req.slots.startMins);
     const endsAt = toISO(req.slots.date, req.slots.endMins);
     const sportName = (await repo.categories.list()).find((c) => c.slug === resource.sport && c.parentId === "cat_sports")?.name ?? resource.sport;
@@ -71,7 +91,7 @@ export async function holdBooking(userId: string, req: HoldRequest, now = new Da
   }
 
   const listing = await repo.listings.byId(req.targetId);
-  if (!listing || listing.status !== "live") throw notFound("Listing not found");
+  if (!listing || !(await isPublic(listing))) throw notFound("Listing not found");
   const tpl = (await repo.templates.byId(listing.templateId))!;
   if (tpl.bookingMode === "none") throw badRequest("This listing doesn't take bookings");
   const inv = (await loadInventory([listing], now)).get(listing.id)!;
@@ -80,7 +100,10 @@ export async function holdBooking(userId: string, req: HoldRequest, now = new Da
   const session = req.sessionId ? inv.upcoming.find((s) => s.id === req.sessionId) : inv.upcoming[0];
   if (!session && !isPassOnly) throw conflict("That date is no longer available", "session_unavailable");
 
-  let lines = req.tickets ?? [];
+  // One line per ticket type, so per-type limits can't be dodged by repeating a type.
+  const merged = new Map<string, number>();
+  for (const l of req.tickets ?? []) merged.set(l.ticketTypeId, (merged.get(l.ticketTypeId) ?? 0) + l.qty);
+  let lines = [...merged].map(([ticketTypeId, qty]) => ({ ticketTypeId, qty }));
   if (tpl.bookingMode === "rsvp" && lines.length === 0) {
     const t = inv.tickets[0];
     if (t) lines = [{ ticketTypeId: t.id, qty: 1 }];
@@ -119,8 +142,17 @@ export async function holdBooking(userId: string, req: HoldRequest, now = new Da
   }
 
   const subtotal = items.reduce((s, i) => s + i.qty * i.unitPrice, 0);
+  if (coupon) await assertCouponUsable(userId, coupon, subtotal, { now });
   const price = computePrice(subtotal, tpl.fees, coupon);
   const free = price.total === 0;
+  // Free places are confirmed straight away, so one booking per person per date.
+  if (free) {
+    const mine = await repo.bookings.listByUser(userId);
+    const dup = mine.some(
+      (b) => b.listingId === listing.id && ["requested", "confirmed", "checked_in"].includes(b.status) && b.items.some((i) => i.sessionId === (session?.id ?? null)),
+    );
+    if (dup) throw conflict("You already have a place for this date. Find it under My bookings.", "already_booked");
+  }
   const startsAt = items[0].startsAt ?? session!.startsAt;
   const endsAt = items[0].endsAt ?? session!.endsAt;
   return repo.bookings.insert({
@@ -152,20 +184,36 @@ async function ownBooking(userId: string, id: string) {
  * Dummy gateway. A failed attempt keeps the hold (status pending_payment) so the user can retry
  * until the timer runs out; success confirms the booking.
  */
-export async function payBooking(userId: string, id: string, req: PayRequest) {
-  const b = await ownBooking(userId, id);
-  if (b.status === "expired") throw new ServiceError(410, "hold_expired", "Your hold expired. Please pick your tickets again.");
-  if (!ACTIVE_HOLD.includes(b.status)) throw conflict("This booking can't be paid for");
-  if (req.outcome === "failure") {
-    await repo.bookings.update(id, { status: "pending_payment" });
-    return { outcome: "failed" as const, booking: (await repo.bookings.byId(id))! };
-  }
-  const updated = await repo.bookings.update(id, {
-    status: "confirmed",
-    holdExpiresAt: null,
-    paymentRef: `pay_mock_${req.method}_${Math.random().toString(36).slice(2, 10)}`,
+export async function payBooking(userId: string, id: string, req: PayRequest, now = new Date()) {
+  await rateLimit(`pay:${userId}`, 20, 10 * 60_000, "Too many payment attempts. Please wait a few minutes.", now);
+  if (config.paymentProvider() !== "test") throw new ServiceError(503, "payments_unavailable", "Payments aren't available right now. Please try again later.");
+  return repo.transaction(async () => {
+    const b = await ownBooking(userId, id);
+    if (b.status === "expired") throw new ServiceError(410, "hold_expired", "Your hold expired. Please pick your tickets again.");
+    if (!ACTIVE_HOLD.includes(b.status)) throw conflict("This booking can't be paid for");
+    // Re-check one-per-account coupons: parallel holds could each have applied the same code.
+    if (b.couponCode && req.outcome === "success") {
+      const coupon = await repo.coupons.byCode(b.couponCode);
+      if (coupon) await assertCouponUsable(userId, coupon, b.price.subtotal, { bookingId: b.id, now });
+    }
+    const ref = `pay_test_${randomCode(12, "abcdefghijkmnpqrstuvwxyz23456789")}`;
+    await repo.payments.insert({
+      id: ref,
+      bookingId: id,
+      provider: "test",
+      method: req.method,
+      status: req.outcome === "failure" ? "failed" : "success",
+      amount: b.price.total,
+      ref,
+      createdAt: now.toISOString(),
+    });
+    if (req.outcome === "failure") {
+      await repo.bookings.update(id, { status: "pending_payment" });
+      return { outcome: "failed" as const, booking: (await repo.bookings.byId(id))! };
+    }
+    const updated = await repo.bookings.update(id, { status: "confirmed", holdExpiresAt: null, paymentRef: ref });
+    return { outcome: "success" as const, booking: updated! };
   });
-  return { outcome: "success" as const, booking: updated! };
 }
 
 export interface CancelQuote {
@@ -198,11 +246,13 @@ export async function cancelQuote(b: Booking, now = new Date()): Promise<CancelQ
 }
 
 export async function cancelBooking(userId: string, id: string, now = new Date()) {
-  const b = await ownBooking(userId, id);
-  const q = await cancelQuote(b, now);
-  if (!q.allowed) throw conflict(q.reason, "cancel_not_allowed");
-  const updated = await repo.bookings.update(id, { status: q.refundAmount > 0 ? "refunded" : "cancelled" });
-  return { booking: updated!, refundAmount: q.refundAmount };
+  return repo.transaction(async () => {
+    const b = await ownBooking(userId, id);
+    const q = await cancelQuote(b, now);
+    if (!q.allowed) throw conflict(q.reason, "cancel_not_allowed");
+    const updated = await repo.bookings.update(id, { status: q.refundAmount > 0 ? "refunded" : "cancelled" });
+    return { booking: updated!, refundAmount: q.refundAmount };
+  });
 }
 
 export interface BookingView extends Booking {
@@ -267,8 +317,10 @@ export async function listMyBookings(userId: string, now = new Date()) {
 export async function applyCoupon(userId: string, id: string, code: string | null) {
   const b = await ownBooking(userId, id);
   if (!ACTIVE_HOLD.includes(b.status)) throw conflict("This booking can't be changed");
+  if (code) await rateLimit(`coupon:${userId}`, 15, 10 * 60_000, "Too many coupon attempts. Please wait a few minutes.");
   const coupon = code ? await repo.coupons.byCode(code) : null;
   if (code && !coupon) throw badRequest("That coupon code isn't valid", "coupon_invalid");
+  if (coupon) await assertCouponUsable(userId, coupon, b.price.subtotal, { bookingId: b.id });
   const tplId = b.listingId ? (await repo.listings.byId(b.listingId))?.templateId : (await repo.venues.byId(b.venueId!))?.templateId;
   const tpl = (await repo.templates.byId(tplId!))!;
   return repo.bookings.update(id, { couponCode: coupon?.code ?? null, price: computePrice(b.price.subtotal, tpl.fees, coupon) });

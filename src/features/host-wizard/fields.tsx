@@ -90,7 +90,7 @@ export function Card({ title, sub, children, className }: { title?: string; sub?
   );
 }
 
-/** Downscale an image to a data URL so the mock store stays small. */
+/** Downscale an image in the browser before upload (keeps uploads small and fast). */
 export async function imageToDataUrl(file: File, max = 1400): Promise<string> {
   const url = URL.createObjectURL(file);
   try {

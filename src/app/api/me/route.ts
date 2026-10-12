@@ -10,6 +10,6 @@ export const GET = route(async () => {
 
 export const PATCH = route(async (req) => {
   const u = await requireUser();
-  const patch = await body(req, MePatchSchema);
+  const patch = await body(req, MePatchSchema, 400 * 1024);
   return { user: await updateMe(u.id, patch) };
 });

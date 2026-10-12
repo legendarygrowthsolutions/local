@@ -94,7 +94,7 @@ export function EventLocation({ v, set, errors, catalog, host }: P) {
             ))}
           </select>
         </Field>
-        <Field label="Full address" error={errors.address} hint="Google Places autocomplete arrives with real Maps keys in phase 2.">
+        <Field label="Full address" error={errors.address}>
           <textarea className={cn(inputCls, "h-20 resize-none py-3")} value={v.address} onChange={(e) => set({ address: e.target.value })} placeholder="Building, street, landmark" />
         </Field>
       </Card>

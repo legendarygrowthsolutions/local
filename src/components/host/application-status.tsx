@@ -58,7 +58,7 @@ export function ApplicationStatus({ host }: { host: { brandName: string; status:
         <p className="flex items-start gap-2 rounded-2xl border border-dashed border-line-strong p-4 text-sm text-muted">
           <Info className="mt-0.5 size-4 shrink-0 text-brand" />
           <span>
-            Prototype: log in as the superadmin (<b className="text-ink">90000 00001</b>) and open <b className="text-ink">/admin/hosts</b> to review this application.
+            We review applications within 2 working days and will message you on WhatsApp and SMS when there&apos;s an update.
           </span>
         </p>
       )}

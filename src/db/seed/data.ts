@@ -1,4 +1,3 @@
-import "server-only";
 import type {
   Area, Block, Booking, Category, City, Host, HostMember, JourneyTemplate, Listing, Resource, Session, SlotRule, TicketType, User, Venue,
 } from "@/contracts";
@@ -12,7 +11,6 @@ import categories from "./fixtures/categories.json";
 import templates from "./fixtures/templates.json";
 import hosts from "./fixtures/hosts.json";
 import hostMembers from "./fixtures/hostMembers.json";
-import { seedHostBookings } from "./seed-host-bookings";
 import listings from "./fixtures/listings.json";
 import sessions from "./fixtures/sessions.json";
 import ticketTypes from "./fixtures/ticketTypes.json";
@@ -24,7 +22,7 @@ import users from "./fixtures/users.json";
 import bookings from "./fixtures/bookings.json";
 import coupons from "./fixtures/coupons.json";
 
-export interface MockDb {
+export interface SeedData {
   cities: City[];
   areas: Area[];
   categories: Category[];
@@ -40,13 +38,12 @@ export interface MockDb {
   blocks: Block[];
   users: User[];
   bookings: Booking[];
-  coupons: Coupon[];
-  otps: Map<string, { code: string; expiresAt: number }>;
+  coupons: (Coupon & { id: string })[];
 }
 
 const ISO_RE = /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})\+05:30$/;
 
-/** Shift every "...At" ISO timestamp by whole days so fixtures always sit around today. */
+/** Shift every "...At" ISO timestamp by whole days so seeded events sit around the seed date. */
 function shiftDates<T>(value: T, days: number): T {
   if (days === 0) return value;
   if (Array.isArray(value)) return value.map((v) => shiftDates(v, days)) as T;
@@ -69,47 +66,26 @@ function shiftDates<T>(value: T, days: number): T {
   return value;
 }
 
-function seed(): MockDb {
-  const shift = daysBetween(meta.anchor, todayIST());
-  const clone = <T,>(v: T): T => shiftDates(structuredClone(v), shift);
-  const store: MockDb = {
-    cities: clone(cities) as City[],
-    areas: clone(areas) as Area[],
-    categories: clone(categories) as Category[],
-    templates: clone(templates) as JourneyTemplate[],
-    hosts: clone(hosts) as Host[],
-    hostMembers: clone(hostMembers) as HostMember[],
-    listings: clone(listings) as Listing[],
-    sessions: clone(sessions) as Session[],
-    ticketTypes: clone(ticketTypes) as TicketType[],
-    venues: clone(venues) as Venue[],
-    resources: clone(resources) as Resource[],
-    slotRules: clone(slotRules) as SlotRule[],
-    blocks: clone(blocks) as Block[],
-    users: clone(users) as User[],
-    bookings: clone(bookings) as Booking[],
-    coupons: clone(coupons) as Coupon[],
-    otps: new Map(),
+/** Fixtures re-anchored to `now` (the generator writes them relative to an anchor day). */
+export function loadSeedData(now = new Date()): SeedData {
+  const shift = daysBetween(meta.anchor, todayIST(now));
+  const c = <T,>(v: unknown): T => shiftDates(structuredClone(v), shift) as T;
+  return {
+    cities: c(cities),
+    areas: c(areas),
+    categories: c(categories),
+    templates: c(templates),
+    hosts: c(hosts),
+    hostMembers: c(hostMembers),
+    listings: c(listings),
+    sessions: c(sessions),
+    ticketTypes: c(ticketTypes),
+    venues: c(venues),
+    resources: c(resources),
+    slotRules: c(slotRules),
+    blocks: c(blocks),
+    users: c(users),
+    bookings: c(bookings),
+    coupons: c(coupons),
   };
-  store.bookings.push(...seedHostBookings(store));
-  return store;
-}
-
-/** Bump when the store's shape changes so a running dev server re-seeds. */
-const STORE_VERSION = 3;
-
-const g = globalThis as unknown as { __localMockDb?: MockDb; __localMockKey?: string };
-
-/**
- * In-memory store, seeded once per server process (re-seeded when the IST day changes, so
- * relative dates stay correct, or when fixtures are regenerated). Mutations — bookings, profile edits, approvals — live
- * until the dev server restarts.
- */
-export function db(): MockDb {
-  const key = `${STORE_VERSION}|${todayIST()}|${meta.generatedAt}`;
-  if (!g.__localMockDb || g.__localMockKey !== key) {
-    g.__localMockDb = seed();
-    g.__localMockKey = key;
-  }
-  return g.__localMockDb;
 }

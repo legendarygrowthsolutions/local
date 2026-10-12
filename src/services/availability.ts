@@ -1,4 +1,5 @@
 import "server-only";
+import { isPublic } from "./visibility";
 import type { AvailabilityPayload } from "@/contracts";
 import { repo } from "@/repositories";
 import { bookableDates, generateSlots } from "@/lib/slots/engine";
@@ -7,7 +8,7 @@ import { badRequest, notFound } from "./errors";
 
 export async function getAvailability(venueId: string, sport: string | undefined, date: string | undefined, now = new Date()): Promise<AvailabilityPayload> {
   const venue = await repo.venues.byId(venueId);
-  if (!venue) throw notFound("Venue not found");
+  if (!venue || !(await isPublic(venue))) throw notFound("Venue not found");
   const chosenSport = sport && venue.sports.includes(sport) ? sport : venue.sports[0];
   const resources = (await repo.venues.resources([venue.id])).filter((r) => r.sport === chosenSport);
   const rules = await repo.venues.slotRules(resources.map((r) => r.id));

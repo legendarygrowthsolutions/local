@@ -44,15 +44,18 @@ export const ProfileSchema = z.object({
     .string()
     .regex(/^\d{4}-\d{2}-\d{2}$/, "Enter your date of birth")
     .refine((v) => isAdult(v, 13), "You need to be at least 13"),
-  interests: z.array(z.string()).default([]),
+  interests: z.array(z.string().max(40)).max(30).default([]),
 });
 export type ProfileInput = z.infer<typeof ProfileSchema>;
 
-/** Client-downscaled JPEG/PNG/WebP; ~100 KB cap keeps the mock store small. */
-export const AvatarSchema = z.string().regex(/^data:image\/(jpeg|png|webp);base64,/, "Unsupported image").max(140_000, "Image is too large");
+/** A new client-downscaled JPEG/PNG/WebP upload, or an already-stored `/media/{id}` URL. */
+export const AvatarSchema = z
+  .string()
+  .max(200_000, "Image is too large")
+  .regex(/^(data:image\/(jpeg|png|webp);base64,|\/media\/[A-Za-z0-9_-]+$)/, "Unsupported image");
 
 export const MePatchSchema = ProfileSchema.partial().extend({
-  cityId: z.string().optional(),
+  cityId: z.string().max(40).optional(),
   avatar: AvatarSchema.nullable().optional(),
   notifications: z.object({ whatsapp: z.boolean(), email: z.boolean(), offers: z.boolean() }).optional(),
 });
