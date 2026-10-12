@@ -607,8 +607,9 @@ export const sqlRepository: Repository = {
       await db().insertInto("payments").values({ ...p, orderId: p.orderId ?? null, amount: M.toPaise(p.amount) }).execute();
     },
     listByBooking: async (bookingId) =>
-      (await db().selectFrom("payments").selectAll().where("bookingId", "=", bookingId).orderBy("createdAt").execute()).map((p) => ({
+      (await db().selectFrom("payments").selectAll().where("bookingId", "=", bookingId).orderBy("createdAt").execute()).map(({ orderId, ...p }) => ({
         ...p,
+        ...(orderId ? { orderId } : {}),
         status: p.status as "success" | "failed",
         amount: M.fromPaise(p.amount),
       })),
