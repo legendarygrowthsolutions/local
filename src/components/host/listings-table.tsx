@@ -63,6 +63,7 @@ export function ListingsTable({ initial, isOwner }: { initial: HostListingRow[];
                 <div className="min-w-0">
                   <p className="truncate font-semibold">{r.title}</p>
                   <p className="truncate text-sm text-muted">{r.whenLabel}</p>
+                  {r.pendingReview && <p className="mt-1 text-xs font-semibold text-warn">Edit in review · guests see the live version</p>}
                   {r.status === "rejected" && r.reviewNote && (
                     <p className="mt-1 flex items-start gap-1.5 text-sm text-danger">
                       <CircleAlert className="mt-0.5 size-3.5 shrink-0" /> {r.reviewNote} <Link href={r.editHref} className="font-semibold underline">Fix &amp; resubmit</Link>

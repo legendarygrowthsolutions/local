@@ -20,20 +20,18 @@ export const config = {
     }
     return "dev-only-insecure-secret-change-me-0123456789";
   },
-  /**
-   * How OTPs are delivered. `dev` logs the code on the server and returns it to the client so
-   * the login screen can show it (never use in production with real users).
-   */
-  otpProvider(): "dev" | "none" {
-    const p = process.env.OTP_PROVIDER ?? (isProd ? "none" : "dev");
-    return p === "dev" ? "dev" : "none";
-  },
+
   /**
    * Payment gateway. `test` is the built-in test gateway (the pay screen chooses success or
    * failure), allowed by default outside production only. A real gateway plugs in here.
    */
-  paymentProvider(): "test" | "none" {
+  paymentProvider(): "test" | "razorpay" | "none" {
     const p = process.env.PAYMENT_PROVIDER ?? (isProd ? "none" : "test");
+    if (p === "razorpay") {
+      if (process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET && process.env.RAZORPAY_WEBHOOK_SECRET) return "razorpay";
+      console.error("[payments] PAYMENT_PROVIDER=razorpay needs RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET and RAZORPAY_WEBHOOK_SECRET");
+      return "none";
+    }
     return p === "test" ? "test" : "none";
   },
   /** Ceiling on OTP sends across all numbers per hour (backstop against SMS pumping). */

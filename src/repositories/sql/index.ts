@@ -6,7 +6,9 @@ import * as M from "@/db/mappers";
 import type { BookingItemsTable, BookingsTable } from "@/db/tables";
 import { fromISO } from "@/lib/time";
 import type { TakenRange } from "@/lib/slots/engine";
-import type { Repository } from "../types";
+import type { PaymentRecord, Repository } from "../types";
+
+type PaymentRecordStatus = PaymentRecord["status"];
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -606,11 +608,18 @@ export const sqlRepository: Repository = {
     insert: async (p) => {
       await db().insertInto("payments").values({ ...p, orderId: p.orderId ?? null, amount: M.toPaise(p.amount) }).execute();
     },
+    byOrderId: async (orderId) => {
+      const p = await db().selectFrom("payments").selectAll().where("orderId", "=", orderId).orderBy("createdAt").executeTakeFirst();
+      return p ? { ...p, status: p.status as PaymentRecordStatus, amount: M.fromPaise(p.amount), orderId: p.orderId } : null;
+    },
+    update: async (id, patch) => {
+      await db().updateTable("payments").set(patch).where("id", "=", id).execute();
+    },
     listByBooking: async (bookingId) =>
       (await db().selectFrom("payments").selectAll().where("bookingId", "=", bookingId).orderBy("createdAt").execute()).map(({ orderId, ...p }) => ({
         ...p,
         ...(orderId ? { orderId } : {}),
-        status: p.status as "success" | "failed",
+        status: p.status as PaymentRecordStatus,
         amount: M.fromPaise(p.amount),
       })),
   },
@@ -655,6 +664,17 @@ export const sqlRepository: Repository = {
           .values({ ...r, input: JSON.stringify(r.input) })
           .execute();
       });
+    },
+    lastDecided: async (targetId) => {
+      const r = await db()
+        .selectFrom("listingRevisions")
+        .selectAll()
+        .where("targetId", "=", targetId)
+        .where("status", "!=", "pending")
+        .orderBy("decidedAt", "desc")
+        .limit(1)
+        .executeTakeFirst();
+      return r ? revisionFromRow(r) : null;
     },
     decide: async (id, status, note, at) => {
       await db().updateTable("listingRevisions").set({ status, note, decidedAt: at }).where("id", "=", id).execute();

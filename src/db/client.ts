@@ -1,7 +1,7 @@
 import { AsyncLocalStorage } from "node:async_hooks";
 import { mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import { CamelCasePlugin, HandleEmptyInListsPlugin, Kysely, MysqlDialect, PGliteDialect, PostgresDialect, SqliteDialect, replaceWithNoncontingentExpression, type Dialect, type Transaction } from "kysely";
+import { CamelCasePlugin, HandleEmptyInListsPlugin, Kysely, MysqlDialect, PGliteDialect, PostgresDialect, SqliteAdapter, SqliteDialect, SqliteIntrospector, SqliteQueryCompiler, replaceWithNoncontingentExpression, type Dialect, type Driver, type Transaction } from "kysely";
 import type { Database } from "./tables";
 
 export type Db = Kysely<Database>;
@@ -12,7 +12,8 @@ export type DialectName = "sqlite" | "postgres" | "mysql";
  *   file:./data/local.db (default) → SQLite via better-sqlite3
  *   postgres://… / postgresql://…  → Postgres via `pg` (install it)
  *   mysql://…                      → MySQL via `mysql2` (install it)
- *   libsql://… (Turso)             → via `@libsql/kysely-libsql` (install it)
+ *   libsql://… (Turso)             → via `@libsql/kysely-libsql` + `@libsql/client` (install them)
+ *   libsql+file:./data/local.db    → libSQL's embedded engine on a local file (same drivers)
  *   pglite:memory | pglite:./dir   → in-process Postgres (WASM) — used to run the test suite on Postgres
  * Services never see the dialect; repositories only use portable query-builder SQL.
  */
@@ -23,7 +24,7 @@ export function databaseUrl() {
 export function dialectName(url = databaseUrl()): DialectName {
   if (/^postgres(ql)?:\/\//.test(url) || url.startsWith("pglite:")) return "postgres";
   if (url.startsWith("mysql://")) return "mysql";
-  return "sqlite"; // file: paths and libsql:// both speak SQLite
+  return "sqlite"; // file: paths and libsql both speak SQLite
 }
 
 // Optional drivers are loaded at runtime only when configured, so bundlers don't try to resolve them.
@@ -33,6 +34,47 @@ function sqliteFile(url: string) {
   if (url === ":memory:" || url === "file::memory:") return ":memory:";
   // The database file lives outside the app bundle, so keep it out of output tracing.
   return resolve(/* turbopackIgnore: true */ process.cwd(), url.replace(/^file:/, ""));
+}
+
+/** `libsql://…` (Turso, remote) or `libsql+file:./path.db` (libSQL's embedded engine on a local file). */
+const isLibsql = (url: string) => url.startsWith("libsql://") || url.startsWith("libsql+file:");
+
+/**
+ * `@libsql/kysely-libsql` builds its driver synchronously, but the driver package is loaded lazily, so
+ * the dialect is assembled from Kysely's SQLite pieces plus a driver that resolves the real one on first use.
+ */
+function libsqlDialect(url: string): Dialect {
+  let real: Promise<Driver> | null = null;
+  const driver = () =>
+    (real ??= (async () => {
+      const [{ createClient }, { LibsqlDialect }] = (await Promise.all([load("@libsql/client"), load("@libsql/kysely-libsql")])) as [
+        { createClient: (o: object) => { execute: (q: string) => Promise<unknown> } },
+        { LibsqlDialect: new (o: object) => Dialect },
+      ];
+      const local = url.startsWith("libsql+file:");
+      const client = local
+        ? createClient({ url: "file:" + sqliteFile(url.slice("libsql+".length)), timeout: 5000 })
+        : createClient({ url, authToken: process.env.DATABASE_AUTH_TOKEN });
+      if (local) await client.execute("pragma journal_mode = WAL");
+      const d = new LibsqlDialect({ client }).createDriver();
+      await d.init();
+      return d;
+    })());
+  const lazy: Driver = {
+    init: async () => void (await driver()),
+    acquireConnection: async () => (await driver()).acquireConnection(),
+    beginTransaction: async (c, s) => (await driver()).beginTransaction(c, s),
+    commitTransaction: async (c) => (await driver()).commitTransaction(c),
+    rollbackTransaction: async (c) => (await driver()).rollbackTransaction(c),
+    releaseConnection: async (c) => (await driver()).releaseConnection(c),
+    destroy: async () => (real ? (await real).destroy() : undefined),
+  };
+  return {
+    createAdapter: () => new SqliteAdapter(),
+    createQueryCompiler: () => new SqliteQueryCompiler(),
+    createIntrospector: (db) => new SqliteIntrospector(db),
+    createDriver: () => lazy,
+  };
 }
 
 function makeDialect(url: string): Dialect {
@@ -62,36 +104,7 @@ function makeDialect(url: string): Dialect {
       },
     } as ConstructorParameters<typeof MysqlDialect>[0]);
   }
-  if (url.startsWith("libsql://")) {
-    // Turso: the libSQL dialect implements Kysely's Dialect directly.
-    let inner: Dialect | null = null;
-    const get = async () => {
-      if (!inner) {
-        const m = (await load("@libsql/kysely-libsql")) as { LibsqlDialect: new (o: object) => Dialect };
-        inner = new m.LibsqlDialect({ url, authToken: process.env.DATABASE_AUTH_TOKEN });
-      }
-      return inner;
-    };
-    const sqlite = new SqliteDialect({ database: async () => null as never });
-    return {
-      createAdapter: () => sqlite.createAdapter(),
-      createQueryCompiler: () => sqlite.createQueryCompiler(),
-      createIntrospector: (db) => sqlite.createIntrospector(db),
-      createDriver: () => {
-        let driver: ReturnType<Dialect["createDriver"]> | null = null;
-        const d = async () => (driver ??= (await get()).createDriver());
-        return {
-          init: async () => (await d()).init(),
-          acquireConnection: async () => (await d()).acquireConnection(),
-          beginTransaction: async (c, s) => (await d()).beginTransaction(c, s),
-          commitTransaction: async (c) => (await d()).commitTransaction(c),
-          rollbackTransaction: async (c) => (await d()).rollbackTransaction(c),
-          releaseConnection: async (c) => (await d()).releaseConnection(c),
-          destroy: async () => (await d()).destroy(),
-        };
-      },
-    };
-  }
+  if (isLibsql(url)) return libsqlDialect(url);
   return new SqliteDialect({
     database: async () => {
       const { default: Sqlite } = await import("better-sqlite3");
@@ -133,8 +146,9 @@ export function db(): Db {
 }
 
 /**
- * Run `fn` atomically. Nested calls join the outer transaction. On SQLite the single connection
- * serialises transactions; on Postgres we use SERIALIZABLE and retry serialisation failures.
+ * Run `fn` atomically. Nested calls join the outer transaction. On SQLite/libSQL writers are
+ * serialised by the engine; on Postgres and MySQL we use SERIALIZABLE and retry the transient
+ * conflicts it produces (Postgres 40001 / 40P01, MySQL deadlock 1213 / lock wait timeout 1205).
  */
 export async function withTransaction<T>(fn: () => Promise<T>): Promise<T> {
   if (txStore.getStore()) return fn();
@@ -142,14 +156,24 @@ export async function withTransaction<T>(fn: () => Promise<T>): Promise<T> {
   for (let attempt = 0; ; attempt++) {
     try {
       let builder = rootDb().transaction();
-      if (kind === "postgres") builder = builder.setIsolationLevel("serializable");
+      if (kind !== "sqlite") builder = builder.setIsolationLevel("serializable");
       return await builder.execute((trx) => txStore.run(trx, fn));
     } catch (e) {
-      const code = (e as { code?: string }).code;
-      if (kind === "postgres" && code === "40001" && attempt < 3) continue;
+      if (attempt < 8 && isRetryable(kind, e)) {
+        // Jittered backoff so contending transactions don't collide again in lockstep.
+        await new Promise((r) => setTimeout(r, Math.random() * 10 * 2 ** Math.min(attempt, 5)));
+        continue;
+      }
       throw e;
     }
   }
+}
+
+function isRetryable(kind: DialectName, e: unknown) {
+  const { code, errno } = e as { code?: string; errno?: number };
+  if (kind === "postgres") return code === "40001" || code === "40P01";
+  if (kind === "mysql") return errno === 1213 || errno === 1205;
+  return false;
 }
 
 export async function closeDb() {

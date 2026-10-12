@@ -30,7 +30,8 @@ export interface PaymentRecord {
   bookingId: string;
   provider: string;
   method: string;
-  status: "success" | "failed";
+  /** created = checkout opened; success = paid; failed = declined; refund = money returned (amount refunded). */
+  status: "created" | "success" | "failed" | "refund";
   amount: number; // rupees
   ref: string;
   orderId?: string | null;
@@ -176,6 +177,8 @@ export interface Repository {
   payments: {
     insert(p: PaymentRecord): Promise<void>;
     listByBooking(bookingId: string): Promise<PaymentRecord[]>;
+    byOrderId(orderId: string): Promise<PaymentRecord | null>;
+    update(id: string, patch: Partial<Pick<PaymentRecord, "status" | "ref" | "method">>): Promise<void>;
   };
   views: {
     record(targetId: string, day: string): Promise<void>;
@@ -193,6 +196,8 @@ export interface Repository {
     /** Replace any pending revision for the target with this one. */
     submit(r: ListingRevision): Promise<void>;
     decide(id: string, status: "approved" | "rejected", note: string | null, at: string): Promise<void>;
+    /** Most recent approved/rejected revision for the target (so hosts see why an edit was declined). */
+    lastDecided(targetId: string): Promise<ListingRevision | null>;
   };
   media: {
     insert(m: { id: string; ownerId: string; contentType: string; data: Buffer; createdAt: string; private?: boolean }): Promise<void>;

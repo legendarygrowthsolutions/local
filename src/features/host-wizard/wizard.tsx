@@ -80,12 +80,18 @@ export function ListingWizard({
   id,
   initial,
   status,
+  pendingReview = false,
+  revisionNote = null,
 }: {
   catalog: WizardCatalog;
   host: WizardHost;
   id?: string;
   initial?: ListingInput;
   status?: string;
+  /** A material edit to this live listing is waiting for review (the editor shows that edit). */
+  pendingReview?: boolean;
+  /** Why the last edit to this live listing was declined. */
+  revisionNote?: string | null;
 }) {
   const router = useRouter();
   const [input, setInput] = useState<ListingInput>(initial ?? (host.type === "venue" ? newVenue() : newEvent()));
@@ -154,7 +160,15 @@ export function ListingWizard({
       {
         onSuccess: (r) => {
           if (!id) localStorage.removeItem(DRAFT_KEY);
-          toast.success(r.status === "review" ? "Sent for review — we usually approve within a day" : r.status === "live" ? "Changes are live" : "Draft saved");
+          toast.success(
+            r.pendingReview
+              ? "Changes sent for review. Your listing stays live as it is until they're approved."
+              : r.status === "review"
+                ? "Sent for review — we usually approve within a day"
+                : r.status === "live"
+                  ? "Changes are live"
+                  : "Draft saved",
+          );
           router.push("/host/listings");
           router.refresh();
         },
@@ -189,6 +203,13 @@ export function ListingWizard({
           </Button>
         </div>
       </header>
+      {isLive && (pendingReview || revisionNote) && (
+        <div role="status" className={cn("mx-4 mt-4 rounded-xl p-3.5 text-sm md:mx-8", pendingReview ? "bg-warn-tint text-ink" : "bg-danger-tint text-danger")}>
+          {pendingReview
+            ? "Your last changes are waiting for review. Guests still see the live version; you can keep editing and resubmit."
+            : `Your last changes weren't approved: ${revisionNote}`}
+        </div>
+      )}
 
       <div className="mx-auto flex max-w-[1280px] flex-col gap-6 px-4 py-6 md:px-8 md:py-7">
         {showRestore && (
@@ -428,7 +449,9 @@ function Review({ input, catalog, errors, onJump, isLive }: { input: ListingInpu
         </div>
       </div>
       <p className="text-sm text-muted">
-        {isLive ? "Changes to a live listing apply straight away." : "The local. team reviews new listings, usually within a day. You'll get a text when it's live."}
+        {isLive
+          ? "New dates, capacity, hours and notes apply straight away. Changes to what guests book (title, details, photos, location, prices, tickets or courts) are reviewed first; the live version stays up meanwhile."
+          : "The local. team reviews new listings, usually within a day. You'll get a text when it's live."}
       </p>
     </>
   );

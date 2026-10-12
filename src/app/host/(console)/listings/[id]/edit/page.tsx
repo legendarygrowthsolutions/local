@@ -9,6 +9,6 @@ export const metadata = { title: "Edit listing" };
 export default async function EditListing({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const ctx = await requireHostPage(`/host/listings/${id}/edit`);
-  const [{ input, status }, props] = await Promise.all([or404(getListingInput(ctx, id)), wizardProps(ctx)]);
-  return <ListingWizard {...props} id={id} initial={input} status={status} />;
+  const [{ input, status, pendingReview, revisionNote }, props] = await Promise.all([or404(getListingInput(ctx, id)), wizardProps(ctx)]);
+  return <ListingWizard {...props} id={id} initial={input} status={status} pendingReview={pendingReview} revisionNote={revisionNote} />;
 }

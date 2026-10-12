@@ -120,6 +120,8 @@ export interface HostListingRow {
   publicHref: string | null;
   editHref: string;
   reviewNote: string | null;
+  /** A material edit to this live item is waiting for review. */
+  pendingReview: boolean;
 }
 
 export interface HostBookingRow {
@@ -165,6 +167,7 @@ function bookingRow(ctx: HostContext, b: Booking, now: Date): HostBookingRow {
 
 export async function listHostListings(ctx: HostContext, now = new Date()): Promise<HostListingRow[]> {
   const { listings, venues } = await targets(ctx);
+  const pending = new Set((await repo.revisions.listPending()).filter((r) => r.hostId === ctx.host.id).map((r) => r.targetId));
   const [templates, cities, sessions, tickets, bookings, resources] = await Promise.all([
     repo.templates.list(),
     repo.cities.list(),
@@ -202,6 +205,7 @@ export async function listHostListings(ctx: HostContext, now = new Date()): Prom
       publicHref: l.status === "live" ? `/${citySlug(l.cityId)}/e/${l.slug}` : null,
       editHref: `/host/listings/${l.id}/edit`,
       reviewNote: l.reviewNote ?? null,
+      pendingReview: pending.has(l.id),
     });
   }
   const today = istParts(now).ymd;
@@ -225,6 +229,7 @@ export async function listHostListings(ctx: HostContext, now = new Date()): Prom
       publicHref: v.status === "live" ? `/${citySlug(v.cityId)}/v/${v.slug}` : null,
       editHref: `/host/listings/${v.id}/edit`,
       reviewNote: v.reviewNote ?? null,
+      pendingReview: pending.has(v.id),
     });
   }
   const order: Record<string, number> = { review: 0, draft: 1, live: 2, rejected: 3, ended: 4 };
@@ -368,13 +373,74 @@ async function assertNoOrphans(listingId: string, keepSessions: string[], keepTi
 
 function nextStatus<T extends string>(current: T | null, submit: boolean): "draft" | "review" | "live" {
   // rejected → review on resubmit; the admin's note is cleared below
-  if (current === "live") return "live"; // edits to live listings apply immediately (product decision; see PLAN.md)
+  if (current === "live") return "live"; // material edits to live listings are routed through revisions first
   return submit ? "review" : "draft";
 }
 
+class DryRun extends Error {}
+
+/**
+ * Save a listing or venue. Drafts and items in review are written directly. For a *live* item,
+ * operational edits (dates, capacity, opening hours, things to know) apply straight away, while
+ * material edits (what it is, where, photos, prices, ticket types, courts) are validated and stored
+ * as a pending revision. The live version stays bookable until a superadmin approves the change.
+ */
 export async function saveListing(ctx: HostContext, input: ListingInput, submit: boolean, id?: string) {
   assertApproved(ctx);
+  const live = id ? ((await repo.listings.byId(id)) ?? (await repo.venues.byId(id))) : null;
+  if (id && live && live.hostId === ctx.host.id && live.status === "live") {
+    input = { ...input, media: await storeImages(ctx.user.id, input.media) } as ListingInput;
+    const current = (await listingInputFor(id, ctx.host.id)).input;
+    if (materialFingerprint(current) !== materialFingerprint(input)) {
+      // Validate exactly as a real save would, then roll it back.
+      try {
+        await repo.transaction(async () => {
+          await applyListing(ctx, input, false, id);
+          throw new DryRun();
+        });
+      } catch (e) {
+        if (!(e instanceof DryRun)) throw e;
+      }
+      await repo.revisions.submit({
+        id: rid("rev"),
+        targetId: id,
+        kind: input.kind,
+        hostId: ctx.host.id,
+        submittedBy: ctx.user.id,
+        input,
+        status: "pending",
+        note: null,
+        createdAt: new Date().toISOString(),
+        decidedAt: null,
+      });
+      return { id, status: "live" as const, pendingReview: true };
+    }
+  }
+  return { ...(await applyListing(ctx, input, submit, id)), pendingReview: false };
+}
+
+/** Write a listing/venue as given (no revision routing). Also used when a revision is approved. */
+export function applyListing(ctx: HostContext, input: ListingInput, submit: boolean, id?: string) {
   return input.kind === "event" ? saveEvent(ctx, input, submit, id) : saveVenue(ctx, input, submit, id);
+}
+
+/** Everything about a listing that guests rely on when they book; operational fields are left out. */
+function materialFingerprint(i: ListingInput) {
+  if (i.kind === "event") {
+    const { sessions: _s, thingsToKnow: _t, tickets, ...rest } = i;
+    void _s;
+    void _t;
+    return JSON.stringify({ ...rest, tickets: tickets.map((t) => ({ id: t.id ?? null, name: t.name, description: t.description, price: t.price, isPass: t.isPass })) });
+  }
+  const { openMins: _o, closeMins: _c, advanceDays: _a, maxMins: _m, bufferMins: _b, thingsToKnow: _t, ...rest } = i;
+  void [_o, _c, _a, _m, _b, _t];
+  return JSON.stringify({ ...rest, courts: i.courts.map((c) => ({ ...c, id: c.id ?? null })) });
+}
+
+/** The host's pending edit for a live item, if any (shown in the editor and listings table). */
+export async function pendingRevision(ctx: HostContext, id: string) {
+  const r = await repo.revisions.pendingFor(id);
+  return r && r.hostId === ctx.host.id ? r : null;
 }
 
 async function saveEvent(ctx: HostContext, input: EventListingInput, submit: boolean, id?: string) {
@@ -497,11 +563,11 @@ async function saveVenue(ctx: HostContext, input: VenueInput, submit: boolean, i
   return { id: venueId, status: base.status };
 }
 
-/** Load a listing or venue back into the wizard's input shape. */
-export async function getListingInput(ctx: HostContext, id: string): Promise<{ input: ListingInput; status: string }> {
+/** A listing or venue in the wizard's input shape, as it is live now. */
+export async function listingInputFor(id: string, hostId: string): Promise<{ input: ListingInput; status: string }> {
   const l = await repo.listings.byId(id);
   if (l) {
-    if (l.hostId !== ctx.host.id) throw notFound("Listing not found");
+    if (l.hostId !== hostId) throw notFound("Listing not found");
     const [sessions, tickets] = await Promise.all([repo.listings.sessions([id]), repo.listings.ticketTypes([id])]);
     const ss = sessions.sort((a, b) => a.startsAt.localeCompare(b.startsAt));
     const tpl = (await repo.templates.byId(l.templateId))!;
@@ -546,7 +612,7 @@ export async function getListingInput(ctx: HostContext, id: string): Promise<{ i
     };
   }
   const v = await repo.venues.byId(id);
-  if (!v || v.hostId !== ctx.host.id) throw notFound("Listing not found");
+  if (!v || v.hostId !== hostId) throw notFound("Listing not found");
   const resources = await repo.venues.resources([id]);
   const rules = await repo.venues.slotRules(resources.map((r) => r.id));
   const r0 = rules[0];
@@ -576,6 +642,14 @@ export async function getListingInput(ctx: HostContext, id: string): Promise<{ i
       thingsToKnow: v.thingsToKnow,
     },
   };
+}
+
+/** Load a listing back into the wizard. A pending edit to a live listing is what the host keeps editing. */
+export async function getListingInput(ctx: HostContext, id: string): Promise<{ input: ListingInput; status: string; pendingReview: boolean; revisionNote: string | null }> {
+  const cur = await listingInputFor(id, ctx.host.id);
+  const pending = await pendingRevision(ctx, id);
+  const last = pending ? null : await repo.revisions.lastDecided(id);
+  return { ...cur, input: pending?.input ?? cur.input, pendingReview: !!pending, revisionNote: last?.status === "rejected" ? last.note : null };
 }
 
 // ---------------------------------------------------------------------------

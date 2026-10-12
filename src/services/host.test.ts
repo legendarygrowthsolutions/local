@@ -4,12 +4,12 @@ import { repo } from "@/repositories";
 import { addDays, todayIST, toISO } from "@/lib/time";
 import { makeUser, setupTestDb } from "@/test/db";
 import { attendee, bookingRow, makeListing, makeVenue } from "@/test/fixtures";
-import { decideListing } from "./admin";
+import { decideListing, listModeration } from "./admin";
 import { getListingDetail, searchListings } from "./discover";
 import { getAvailability } from "./availability";
 import { ServiceError } from "./errors";
 import {
-  addBlock, applyAsHost, checkIn, hostBookings, hostDashboard, hostPayouts, inviteMember, listHostListings, removeBlock, removeMember, resolveHostContext, saveListing,
+  addBlock, applyAsHost, checkIn, getListingInput, hostBookings, hostDashboard, hostPayouts, inviteMember, listHostListings, removeBlock, removeMember, resolveHostContext, saveListing,
 } from "./host";
 
 setupTestDb();
@@ -310,5 +310,66 @@ describe("review regressions", () => {
     const ids = (await repo.templates.list()).map((t) => t.id);
     expect(ids.indexOf("tpl_ticket_single")).toBeLessThan(ids.indexOf("tpl_ticket_multi"));
     expect(ids.indexOf("tpl_ticket_single")).toBeLessThan(ids.indexOf("tpl_recurring"));
+  });
+});
+
+describe("edits to live listings", () => {
+  const LIVE = "l_mumbai_05"; // Tidewater Collective, live
+  const decide = decideListing;
+  const moderation = (t: "review") => listModeration(t);
+  const load = async () => (await import("./host")).listingInputFor(LIVE, (await repo.listings.byId(LIVE))!.hostId);
+
+  it("material edits wait for review while the live version stays up; approval applies them", async () => {
+    const ctx = await ctxFor("u_host");
+    const before = (await load()).input as EventListingInput;
+    const r = await saveListing(ctx, { ...before, title: "Totally Different Show" }, false, LIVE);
+    expect(r).toMatchObject({ id: LIVE, status: "live", pendingReview: true });
+    expect((await repo.listings.byId(LIVE))!.title).toBe(before.title); // guests still see the live version
+    expect((await getListingInput(ctx, LIVE))).toMatchObject({ pendingReview: true, input: { title: "Totally Different Show" } });
+    expect((await listHostListings(ctx)).find((x) => x.id === LIVE)!.pendingReview).toBe(true);
+
+    const queue = await moderation("review");
+    const row = queue.items.find((x) => x.id === LIVE)!;
+    expect(row.revision!.changes).toContainEqual(["Title", before.title, "Totally Different Show"]);
+
+    await decide(LIVE, "approve", undefined, { revision: true });
+    expect((await repo.listings.byId(LIVE))!).toMatchObject({ title: "Totally Different Show", status: "live" });
+    expect(await repo.revisions.pendingFor(LIVE)).toBeNull();
+  });
+
+  it("operational edits (dates, capacity, notes) apply straight away", async () => {
+    const ctx = await ctxFor("u_host");
+    const cur = (await load()).input as EventListingInput;
+    const r = await saveListing(ctx, { ...cur, thingsToKnow: [...cur.thingsToKnow, "Doors open 30 minutes early"], sessions: cur.sessions.map((s) => ({ ...s, capacity: s.capacity + 5 })) }, false, LIVE);
+    expect(r.pendingReview).toBe(false);
+    expect((await repo.listings.byId(LIVE))!.thingsToKnow).toContain("Doors open 30 minutes early");
+  });
+
+  it("a declined edit leaves the listing unchanged and tells the host why", async () => {
+    const ctx = await ctxFor("u_host");
+    const cur = (await load()).input as EventListingInput;
+    await saveListing(ctx, { ...cur, tickets: cur.tickets.map((t) => ({ ...t, price: t.price * 3 })) }, false, LIVE);
+    expect(await err(decide(LIVE, "reject", undefined, { revision: true }))).toMatchObject({ status: 400 });
+    await decide(LIVE, "reject", "Price hikes need a reason", { revision: true });
+    expect((await repo.listings.ticketTypes([LIVE])).map((t) => t.price)).toEqual(cur.tickets.map((t) => t.price));
+    expect(await getListingInput(ctx, LIVE)).toMatchObject({ pendingReview: false, revisionNote: "Price hikes need a reason" });
+  });
+
+  it("approval keeps operational changes made after the edit was submitted", async () => {
+    const ctx = await ctxFor("u_host");
+    const cur = (await load()).input as EventListingInput;
+    await saveListing(ctx, { ...cur, summary: "A brand new one-line summary here" }, false, LIVE);
+    // Then a direct operational edit against the live version.
+    const live = (await load()).input as EventListingInput;
+    await saveListing(ctx, { ...live, thingsToKnow: ["Bring ID"] }, false, LIVE);
+    await decide(LIVE, "approve", undefined, { revision: true });
+    expect((await repo.listings.byId(LIVE))!).toMatchObject({ summary: "A brand new one-line summary here", thingsToKnow: ["Bring ID"] });
+  });
+
+  it("an invalid edit is rejected when submitted, not when approved", async () => {
+    const ctx = await ctxFor("u_host");
+    const cur = (await load()).input as EventListingInput;
+    expect(await err(saveListing(ctx, { ...cur, areaId: "a_pune_does_not_exist" }, false, LIVE))).toMatchObject({ status: 400 });
+    expect(await repo.revisions.pendingFor(LIVE)).toBeNull();
   });
 });

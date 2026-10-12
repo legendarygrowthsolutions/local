@@ -2,6 +2,7 @@ import "server-only";
 import type { User } from "@/contracts";
 import { repo } from "@/repositories";
 import { config } from "@/lib/config";
+import { deliverOtp, smsProvider } from "@/lib/providers/sms";
 import { hmac, newId, randomDigits, safeEqual } from "@/lib/crypto";
 import { badRequest, ServiceError } from "./errors";
 import { activateInvites } from "./host";
@@ -18,7 +19,7 @@ const hashCode = (phone: string, code: string) => hmac(config.authSecret(), `${p
  * 5 guesses. Sends are limited per number (resend cooldown, 5 per hour) and per client IP.
  */
 export async function sendOtp(phone: string, ip: string, now = new Date(), channel: "sms" | "whatsapp" = "sms") {
-  const provider = config.otpProvider();
+  const provider = smsProvider();
   if (provider === "none") throw new ServiceError(503, "otp_unavailable", "Login by SMS isn't available right now. Please try again later.");
   const prev = await repo.otps.get(phone);
   if (prev) {
@@ -31,9 +32,16 @@ export async function sendOtp(phone: string, ip: string, now = new Date(), chann
 
   const code = randomDigits(6);
   await repo.otps.put(phone, { codeHash: hashCode(phone, code), expiresAt: new Date(now.getTime() + OTP_TTL_MS).toISOString(), attempts: 0, sentAt: now.toISOString() });
-  // Development delivery: the code is logged and returned so the login screen can show it.
-  if (provider === "dev") console.info(`[otp] ${channel} ${phone.slice(0, 2)}******${phone.slice(-2)} → ${code}`);
-  return { sent: true, resendInSec: RESEND_SEC, channel, ...(provider === "dev" ? { devCode: code } : {}) };
+  let used: "sms" | "whatsapp";
+  try {
+    used = await deliverOtp(provider, phone, code, channel);
+  } catch (e) {
+    // Nothing reached the person, so don't leave a live code (or a resend cooldown) behind.
+    await repo.otps.remove(phone);
+    throw e;
+  }
+  // Development mode returns the code so the login screen can show it; real providers never do.
+  return { sent: true, resendInSec: RESEND_SEC, channel: used, ...(provider === "dev" ? { devCode: code } : {}) };
 }
 
 export async function verifyOtp(phone: string, code: string, ip: string, now = new Date()): Promise<{ user: User; isNew: boolean }> {

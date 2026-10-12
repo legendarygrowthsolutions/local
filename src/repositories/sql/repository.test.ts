@@ -412,3 +412,16 @@ describe("transactions", () => {
     expect(await repo.bookings.byId("bk_rollback")).toBeNull();
   });
 });
+
+describe("media", () => {
+  it("stores uploads up to the 2 MB document limit byte-for-byte", async () => {
+    const u = await makeUser();
+    const data = Buffer.alloc(2 * 1024 * 1024, 0);
+    for (let i = 0; i < data.length; i += 997) data[i] = i % 251;
+    await repo.media.insert({ id: "m_test_big", ownerId: u.id, contentType: "application/pdf", private: true, data, createdAt: new Date().toISOString() });
+    const got = await repo.media.get("m_test_big");
+    expect(got?.data.equals(data)).toBe(true);
+    expect(got?.private).toBe(true);
+    expect(await repo.media.exists("m_test_big")).toBe(false); // private media is never public
+  });
+});

@@ -138,3 +138,25 @@ describe("verifyOtp", () => {
     expect(await repo.members.invitesForPhone("9000000005")).toEqual([]);
   });
 });
+
+describe("real SMS delivery", () => {
+  it("never returns the code, and a failed send leaves no code or cooldown behind", async () => {
+    const { vi } = await import("vitest");
+    Object.assign(process.env, { OTP_PROVIDER: "msg91", MSG91_AUTH_KEY: "k", MSG91_OTP_TEMPLATE_ID: "t" });
+    try {
+      vi.stubGlobal("fetch", vi.fn(async () => new Response('{"type":"success"}', { status: 200 })));
+      const ok = await sendOtp("9811100001", "10.9.9.1");
+      expect(ok).toMatchObject({ sent: true, channel: "sms" });
+      expect(ok).not.toHaveProperty("devCode");
+
+      vi.stubGlobal("fetch", vi.fn(async () => new Response("down", { status: 503 })));
+      await expect(sendOtp("9811100002", "10.9.9.1")).rejects.toMatchObject({ status: 502 });
+      expect(await repo.otps.get("9811100002")).toBeNull();
+    } finally {
+      vi.unstubAllGlobals();
+      process.env.OTP_PROVIDER = "dev";
+      delete process.env.MSG91_AUTH_KEY;
+      delete process.env.MSG91_OTP_TEMPLATE_ID;
+    }
+  });
+});

@@ -90,8 +90,17 @@ export const HoldRequestSchema = z.object({
 });
 export type HoldRequest = z.infer<typeof HoldRequestSchema>;
 
-export const PayRequestSchema = z.object({
-  method: z.enum(["upi", "card", "netbanking", "wallet"]),
-  outcome: z.enum(["success", "failure"]),
-});
+/** Test gateway: the pay screen chooses the outcome. Razorpay: the checkout handler's signed result. */
+export const PayRequestSchema = z.union([
+  z.object({
+    method: z.enum(["upi", "card", "netbanking", "wallet"]),
+    outcome: z.enum(["success", "failure"]),
+  }),
+  z.object({
+    razorpayOrderId: z.string().max(64),
+    razorpayPaymentId: z.string().max(64),
+    razorpaySignature: z.string().max(128),
+  }),
+]);
 export type PayRequest = z.infer<typeof PayRequestSchema>;
+export type TestPayRequest = Extract<PayRequest, { outcome: string }>;

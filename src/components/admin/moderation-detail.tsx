@@ -12,6 +12,11 @@ import { useAdminAction } from "./use-admin-action";
 
 export function ModerationDetail({ row }: { row: ModerationRow }) {
   const [note, setNote] = useState(row.reviewNote ?? "");
+  const rev = row.revision;
+  const decideEdit = useAdminAction<{ decision: "approve" | "reject" }>(
+    (v) => ({ url: `/api/admin/listings/${row.id}/decision`, body: { decision: v.decision, note: note || undefined, revision: true } }),
+    { success: (v) => (v.decision === "approve" ? "Edit approved and live" : "Edit declined; the host has been told why") },
+  );
   const decide = useAdminAction<{ decision: "approve" | "reject" }>(
     (v) => ({ url: `/api/admin/listings/${row.id}/decision`, body: { decision: v.decision, note: note || undefined } }),
     { success: (v) => (v.decision === "approve" ? "Published" : row.status === "live" ? "Taken down and sent back to the host" : "Sent back to the host") },
@@ -83,6 +88,47 @@ export function ModerationDetail({ row }: { row: ModerationRow }) {
 
       {row.reviewNote && row.status === "rejected" && <p className="rounded-xl bg-danger-tint p-3 text-sm text-danger">Sent back: {row.reviewNote}</p>}
 
+      {rev && (
+        <div className="flex flex-col gap-3 rounded-2xl border border-warn/30 bg-warn-tint/50 p-4">
+          <p className="text-sm font-bold">Edit to a live listing · guests see the current version until you approve</p>
+          {rev.changes.length ? (
+            <table className="w-full text-left text-sm">
+              <thead className="text-xs uppercase tracking-wide text-muted">
+                <tr>
+                  <th className="py-1 pr-3 font-semibold">Field</th>
+                  <th className="py-1 pr-3 font-semibold">Now</th>
+                  <th className="py-1 font-semibold">Proposed</th>
+                </tr>
+              </thead>
+              <tbody className="align-top">
+                {rev.changes.map(([field, before, after]) => (
+                  <tr key={field} className="border-t border-line">
+                    <td className="py-1.5 pr-3 font-semibold">{field}</td>
+                    <td className="py-1.5 pr-3 text-muted line-through decoration-muted/50">{before}</td>
+                    <td className="py-1.5">{after}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p className="text-sm text-muted">Only minor changes.</p>
+          )}
+          <label className="flex flex-col gap-1.5">
+            <span className="text-sm font-semibold">Note to host</span>
+            <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={2} placeholder="Required when declining the edit" className="resize-y rounded-xl border border-line-strong bg-surface px-3 py-2.5 text-[15px] outline-none focus:border-brand" />
+          </label>
+          <div className="flex flex-wrap gap-2">
+            <Button className="bg-free hover:bg-[#095a31]" disabled={decideEdit.isPending} loading={decideEdit.isPending && decideEdit.variables?.decision === "approve"} onClick={() => decideEdit.mutate({ decision: "approve" })}>
+              <Check className="size-4" /> Approve edit
+            </Button>
+            <Button variant="danger" disabled={decideEdit.isPending || !note.trim()} loading={decideEdit.isPending && decideEdit.variables?.decision === "reject"} onClick={() => decideEdit.mutate({ decision: "reject" })}>
+              <X className="size-4" /> Decline edit
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {!rev && (
       <div className="flex flex-col gap-3 border-t border-line pt-5">
         {row.status === "live" && (
           <div className="flex flex-wrap items-center gap-3 rounded-xl bg-field/60 p-3">
@@ -109,6 +155,7 @@ export function ModerationDetail({ row }: { row: ModerationRow }) {
         </div>
         {blockers.length > 0 && row.status !== "live" && <p className="text-sm text-warn">Can&apos;t publish yet: {blockers.map((b) => b.label.toLowerCase()).join("; ")}.</p>}
       </div>
+      )}
     </section>
   );
 }

@@ -21,7 +21,7 @@ export function useSaveListing(id?: string) {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: (v: { input: ListingInput; submit: boolean }) =>
-      api<{ id: string; status: string }>(id ? `/api/host/listings/${id}` : "/api/host/listings", { method: id ? "PUT" : "POST", body: v }),
+      api<{ id: string; status: string; pendingReview?: boolean }>(id ? `/api/host/listings/${id}` : "/api/host/listings", { method: id ? "PUT" : "POST", body: v }),
     onSuccess: () => qc.invalidateQueries({ queryKey: hostKeys.listings }),
   });
 }

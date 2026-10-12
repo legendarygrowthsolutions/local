@@ -11,6 +11,8 @@ export const DocumentDecisionSchema = z.object({ status: z.enum(["verified", "re
 export const ListingDecisionSchema = z.object({
   decision: z.enum(["approve", "reject"]),
   note: z.string().trim().max(500).optional(),
+  /** Decide the pending edit to a live listing rather than the listing itself. */
+  revision: z.boolean().optional(),
 });
 
 export const FeatureSchema = z.object({ featured: z.boolean() });

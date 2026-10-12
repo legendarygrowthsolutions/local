@@ -18,7 +18,9 @@
     "db:ensure": "tsx scripts/db.ts ensure",
     "db:schema": "tsx scripts/db.ts schema",
     "predev": "npm run db:ensure",
-    "test:postgres": "TEST_DB=postgres vitest run"
+    "test:postgres": "TEST_DB=postgres vitest run",
+    "test:mysql": "TEST_DB=mysql vitest run",
+    "test:libsql": "TEST_DB=libsql vitest run"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
@@ -47,6 +49,8 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@electric-sql/pglite": "^0.5.9",
+    "@libsql/client": "^0.18.0",
+    "@libsql/kysely-libsql": "^0.4.1",
     "@playwright/test": "^1.64.0",
     "@tailwindcss/turbopack": "^4",
     "@types/better-sqlite3": "^9.6.0",
@@ -55,6 +59,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
+    "mysql2": "^3.24.5",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5",

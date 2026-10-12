@@ -4,7 +4,7 @@ import { AnimatePresence, m } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ChevronLeft, CircleX, CreditCard, Landmark, Lock, Smartphone, Wallet } from "lucide-react";
-import type { PayRequest } from "@/contracts";
+import type { TestPayRequest as PayRequest } from "@/contracts";
 import type { BookingView } from "@/services/bookings";
 import { useBooking, usePay } from "@/lib/api/hooks";
 import { Button } from "@/components/ui/button";
@@ -31,7 +31,7 @@ const OPTIONS: Partial<Record<PayRequest["method"], string[]>> = {
 export function DummyGateway({ initial }: { initial: BookingView }) {
   const router = useRouter();
   const { data: booking = initial } = useBooking(initial.id, initial);
-  const pay = usePay(initial.id);
+  const pay = usePay<PayRequest>(initial.id);
   const [method, setMethod] = useState<PayRequest["method"]>("upi");
   const [option, setOption] = useState<string | null>(null);
   const [upiId, setUpiId] = useState("");

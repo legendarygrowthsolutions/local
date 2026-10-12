@@ -9,6 +9,8 @@ npm install
 npm run dev          # http://localhost:3000 — creates and seeds ./data/local.db on first run
 npm test             # unit + backend integration tests (each file gets its own temp SQLite database)
 npm run test:postgres  # the same suite on Postgres (in-process PGlite), to keep the SQL portable
+npm run test:libsql    # …on libSQL (Turso's engine, local file)
+npm run test:mysql     # …on MySQL 8 (needs a server; TEST_MYSQL_URL, default mysql://root:test@127.0.0.1:33061)
 npm run e2e          # production build + Playwright: golden paths, axe a11y, 360/412/1440px layouts
 npm run typecheck
 ```
@@ -30,7 +32,10 @@ npm run fixtures     # regenerate the seed fixtures in src/db/seed/fixtures (det
 | `file:./data/local.db` (default) | SQLite (`better-sqlite3`, bundled) |
 | `postgres://…` | Postgres (`npm i pg`) |
 | `mysql://…` | MySQL (`npm i mysql2`) |
-| `libsql://…` + `DATABASE_AUTH_TOKEN` | Turso (`npm i @libsql/kysely-libsql`) |
+| `libsql://…` + `DATABASE_AUTH_TOKEN` | Turso (`npm i @libsql/kysely-libsql @libsql/client`) |
+| `libsql+file:./data/local.db` | libSQL's engine on a local file (same packages) |
+
+The full test suite is verified on all four engines: SQLite, Postgres, MySQL 8 and libSQL.
 
 The server applies pending migrations itself when it starts (`src/instrumentation.ts`; set `DB_AUTO_MIGRATE=0` to run them yourself). Seeding is always a deliberate step. Seeded events are anchored to the day you seed, so run `npm run db:reset` to bring the demo data back around today.
 
@@ -81,10 +86,19 @@ services/* ──► repositories (interface) ──► sql/ (Kysely) ──► 
 
 ### Going live
 
-Set `AUTH_SECRET`, a production `DATABASE_URL` and `TRUSTED_IP_HEADER` (if you're behind a proxy). Then plug in an SMS provider (`src/services/auth.ts`, `sendOtp`) and a payment gateway (`src/services/bookings.ts`, `payBooking`). Until you do, production refuses to send codes or take payments rather than faking them.
+1. Set `AUTH_SECRET`, a production `DATABASE_URL`, and `TRUSTED_IP_HEADER` if you're behind a proxy.
+2. **Login codes:** `OTP_PROVIDER=msg91` (India; needs a DLT-approved OTP template) or `twilio` (SMS, plus WhatsApp with an approved template). Both are built and tested against their APIs; they only need your account keys.
+3. **Payments:** `PAYMENT_PROVIDER=razorpay` with your keys and webhook secret. Then point a Razorpay webhook at `/api/payments/razorpay/webhook`.
+   - The server creates the order for the exact hold total.
+   - It verifies the checkout signature, re-checks the payment with Razorpay and captures it.
+   - The webhook confirms the booking if the guest closes the tab.
+   - Money that arrives after a hold expired is refunded automatically.
+   - Cancellations and support refunds go back through Razorpay.
+
+Every variable is listed in `.env.example`. Until a provider is configured, production refuses to send codes or take payments rather than faking them.
 
 ## Quality bar
 
-- **Backend integration tests** (`src/**/*.test.ts`, Vitest, on real SQLite and again on Postgres via PGlite): repository round-trips for every entity, auth (cooldowns, lockout, single use, rate limits), booking rules and concurrency (parallel holds never oversell), payments, coupons, cancellations, host roles and money stripping, check-in, moderation, discovery, uploads.
+- **Backend integration tests** (`src/**/*.test.ts`, Vitest, on real SQLite, and again on Postgres via PGlite, MySQL 8 and libSQL): repository round-trips for every entity, auth (cooldowns, lockout, single use, rate limits), booking rules and concurrency (parallel holds never oversell), payments, coupons, cancellations, host roles and money stripping, check-in, moderation, discovery, uploads.
 - **E2E** (`tests/e2e`, Playwright, production build on a fresh database): ticket booking with login at checkout (a wrong code, then the right one), onboarding, coupon, a failed and then a successful payment; court slot booking and cancellation; free RSVP; host apply → superadmin approval → wizard listing → moderation → live; owner/manager money split; discovery.
 - **Accessibility:** axe (WCAG 2.1 AA) on public, user, host and admin pages at 360, 412 and 1440 px. No serious or critical issues, and no sideways scrolling.

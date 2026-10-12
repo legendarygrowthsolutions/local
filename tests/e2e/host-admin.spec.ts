@@ -62,6 +62,30 @@ test.describe("host and superadmin golden paths", () => {
     await page.goto(href!);
     await expect(page.getByRole("heading", { level: 1, name: "Playwright Silent Reading" })).toBeVisible();
     await expect(page.getByRole("link", { name: "RSVP" }).first()).toBeVisible();
+
+    // The host renames the live listing: it goes to review while guests keep seeing the live version.
+    await login(page, phone);
+    const { items } = (await (await page.request.get("/api/host/listings")).json()) as { items: { id: string; title: string }[] };
+    const id = items.find((x) => x.title === "Playwright Silent Reading")!.id;
+    await page.goto(`/host/listings/${id}/edit`);
+    await page.getByPlaceholder(/Sunday Stand-up Showcase/).fill("Playwright Silent Reading Club");
+    await page.getByRole("button", { name: "Preview" }).click();
+    await page.getByRole("button", { name: /save changes/i }).click();
+    await expect(page.getByText(/sent for review/i)).toBeVisible();
+    await expect(page.getByText(/Edit in review/)).toBeVisible();
+    await page.goto(href!);
+    await expect(page.getByRole("heading", { level: 1, name: "Playwright Silent Reading" })).toBeVisible();
+
+    // Superadmin sees the before/after and approves the edit.
+    await login(page, "9000000001");
+    await page.goto("/admin/listings?tab=review");
+    await page.getByRole("link", { name: /Playwright Silent Reading/ }).click();
+    await expect(page.getByText("Edit to a live listing")).toBeVisible();
+    await expect(page.getByRole("cell", { name: "Playwright Silent Reading Club" })).toBeVisible();
+    await page.getByRole("button", { name: /approve edit/i }).click();
+    await expect(page.getByText("Edit approved and live")).toBeVisible();
+    await page.goto(href!);
+    await expect(page.getByRole("heading", { level: 1, name: "Playwright Silent Reading Club" })).toBeVisible();
   });
 
   test("owner sees money; manager doesn't — in the UI and the API", async ({ page }) => {

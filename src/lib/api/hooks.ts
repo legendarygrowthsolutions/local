@@ -145,10 +145,10 @@ export function useBooking(id: string, initial?: BookingView) {
   });
 }
 
-export function usePay(id: string) {
+export function usePay<R extends PayRequest = PayRequest>(id: string) {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: (req: PayRequest) => api<{ outcome: "success" | "failed"; booking: Booking }>(`/api/bookings/${id}/pay`, { body: req }),
+    mutationFn: (req: R) => api<{ outcome: "success" | "failed" | "refunded"; booking: Booking }>(`/api/bookings/${id}/pay`, { body: req }),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: keys.booking(id) });
       qc.invalidateQueries({ queryKey: keys.myBookings });

@@ -13,6 +13,7 @@ import { badRequest, conflict, notFound, ServiceError } from "./errors";
 import { rateLimit } from "./rate-limit";
 import { assertCouponUsable } from "./coupons";
 import { isPublic } from "./visibility";
+import { cancelWithRefund, confirmCheckout } from "./payments";
 
 const ACTIVE_HOLD: Booking["status"][] = ["held", "pending_payment"];
 /** Unpaid holds lock inventory, so cap how many one account can keep at once. */
@@ -188,6 +189,7 @@ async function ownBooking(userId: string, id: string) {
  */
 export async function payBooking(userId: string, id: string, req: PayRequest, now = new Date()) {
   await rateLimit(`pay:${userId}`, 20, 10 * 60_000, "Too many payment attempts. Please wait a few minutes.", now);
+  if ("razorpayPaymentId" in req) return confirmCheckout(userId, id, req, now);
   if (config.paymentProvider() !== "test") throw new ServiceError(503, "payments_unavailable", "Payments aren't available right now. Please try again later.");
   return repo.transaction(async () => {
     const b = await ownBooking(userId, id);
@@ -248,13 +250,11 @@ export async function cancelQuote(b: Booking, now = new Date()): Promise<CancelQ
 }
 
 export async function cancelBooking(userId: string, id: string, now = new Date()) {
-  return repo.transaction(async () => {
-    const b = await ownBooking(userId, id);
-    const q = await cancelQuote(b, now);
-    if (!q.allowed) throw conflict(q.reason, "cancel_not_allowed");
-    const updated = await repo.bookings.update(id, { status: q.refundAmount > 0 ? "refunded" : "cancelled" });
-    return { booking: updated!, refundAmount: q.refundAmount };
-  });
+  const b = await ownBooking(userId, id);
+  const q = await cancelQuote(b, now);
+  if (!q.allowed) throw conflict(q.reason, "cancel_not_allowed");
+  const booking = await cancelWithRefund(id, [b.status], q.refundAmount, "guest_cancelled", now);
+  return { booking, refundAmount: q.refundAmount };
 }
 
 export interface BookingView extends Booking {

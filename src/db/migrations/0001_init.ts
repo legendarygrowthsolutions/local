@@ -1,4 +1,4 @@
-import type { Kysely } from "kysely";
+import { MysqlAdapter, sql, type Kysely } from "kysely";
 
 /**
  * Initial schema. Written with Kysely's schema builder so the same migration runs on
@@ -7,13 +7,17 @@ import type { Kysely } from "kysely";
  * - booleans are INTEGER 0/1
  * - money is INTEGER paise (never floats)
  * - structured blobs (steps, media, answers) are JSON in TEXT columns
- * - ids are app-generated TEXT
+ * - ids are app-generated TEXT; keys and indexed columns are varchar(255) (MySQL can't index bare TEXT)
+ * - foreign keys are table-level constraints: MySQL silently ignores inline column `REFERENCES`
+ * - large payloads (uploaded media) use `bigText`, since MySQL TEXT stops at 64 KB
  */
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Db = Kysely<any>;
 
 const txt = "varchar(255)" as const;
+/** TEXT for payloads that can exceed 64 KB (MySQL's TEXT limit); MEDIUMTEXT (16 MB) there. */
+const bigText = (db: Db) => (db.getExecutor().adapter instanceof MysqlAdapter ? sql`mediumtext` : sql`text`);
 
 export async function up(db: Db) {
   await db.schema
@@ -31,7 +35,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("areas")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("city_id", txt, (c) => c.notNull().references("cities.id"))
+    .addColumn("city_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("areas_city_id_fk", ["city_id"], "cities", ["id"])
     .addColumn("slug", txt, (c) => c.notNull())
     .addColumn("name", txt, (c) => c.notNull())
     .addColumn("lat", "double precision", (c) => c.notNull())
@@ -87,7 +92,8 @@ export async function up(db: Db) {
 
   await db.schema
     .createTable("user_saved")
-    .addColumn("user_id", txt, (c) => c.notNull().references("users.id").onDelete("cascade"))
+    .addColumn("user_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("user_saved_user_id_fk", ["user_id"], "users", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("item_id", txt, (c) => c.notNull())
     .addColumn("created_at", txt, (c) => c.notNull())
     .addPrimaryKeyConstraint("user_saved_pk", ["user_id", "item_id"])
@@ -95,7 +101,8 @@ export async function up(db: Db) {
 
   await db.schema
     .createTable("user_following")
-    .addColumn("user_id", txt, (c) => c.notNull().references("users.id").onDelete("cascade"))
+    .addColumn("user_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("user_following_user_id_fk", ["user_id"], "users", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("host_id", txt, (c) => c.notNull())
     .addColumn("created_at", txt, (c) => c.notNull())
     .addPrimaryKeyConstraint("user_following_pk", ["user_id", "host_id"])
@@ -128,7 +135,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("host_documents")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("host_id", txt, (c) => c.notNull().references("hosts.id").onDelete("cascade"))
+    .addColumn("host_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("host_documents_host_id_fk", ["host_id"], "hosts", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("kind", txt, (c) => c.notNull())
     .addColumn("file_name", txt, (c) => c.notNull())
     .addColumn("media_id", txt)
@@ -140,7 +148,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("host_members")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("host_id", txt, (c) => c.notNull().references("hosts.id").onDelete("cascade"))
+    .addColumn("host_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("host_members_host_id_fk", ["host_id"], "hosts", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("user_id", txt)
     .addColumn("phone", txt, (c) => c.notNull())
     .addColumn("name", txt)
@@ -156,7 +165,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("listings")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("host_id", txt, (c) => c.notNull().references("hosts.id"))
+    .addColumn("host_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("listings_host_id_fk", ["host_id"], "hosts", ["id"])
     .addColumn("city_id", txt, (c) => c.notNull())
     .addColumn("area_id", txt, (c) => c.notNull())
     .addColumn("category_id", txt, (c) => c.notNull())
@@ -189,7 +199,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("listing_sessions")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("listing_id", txt, (c) => c.notNull().references("listings.id").onDelete("cascade"))
+    .addColumn("listing_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("listing_sessions_listing_id_fk", ["listing_id"], "listings", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("starts_at", txt, (c) => c.notNull())
     .addColumn("ends_at", txt, (c) => c.notNull())
     .addColumn("capacity", "integer", (c) => c.notNull())
@@ -201,7 +212,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("ticket_types")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("listing_id", txt, (c) => c.notNull().references("listings.id").onDelete("cascade"))
+    .addColumn("listing_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("ticket_types_listing_id_fk", ["listing_id"], "listings", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("session_id", txt)
     .addColumn("name", txt, (c) => c.notNull())
     .addColumn("description", "text", (c) => c.notNull())
@@ -217,7 +229,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("venues")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("host_id", txt, (c) => c.notNull().references("hosts.id"))
+    .addColumn("host_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("venues_host_id_fk", ["host_id"], "hosts", ["id"])
     .addColumn("city_id", txt, (c) => c.notNull())
     .addColumn("area_id", txt, (c) => c.notNull())
     .addColumn("template_id", txt, (c) => c.notNull())
@@ -244,7 +257,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("resources")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("venue_id", txt, (c) => c.notNull().references("venues.id").onDelete("cascade"))
+    .addColumn("venue_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("resources_venue_id_fk", ["venue_id"], "venues", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("name", txt, (c) => c.notNull())
     .addColumn("sport", txt, (c) => c.notNull())
     .addColumn("indoor", "integer", (c) => c.notNull().defaultTo(0))
@@ -258,7 +272,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("slot_rules")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("resource_id", txt, (c) => c.notNull().references("resources.id").onDelete("cascade"))
+    .addColumn("resource_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("slot_rules_resource_id_fk", ["resource_id"], "resources", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("open_mins", "integer", (c) => c.notNull())
     .addColumn("close_mins", "integer", (c) => c.notNull())
     .addColumn("min_mins", "integer", (c) => c.notNull())
@@ -274,7 +289,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("blocks")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("resource_id", txt, (c) => c.notNull().references("resources.id").onDelete("cascade"))
+    .addColumn("resource_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("blocks_resource_id_fk", ["resource_id"], "resources", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("starts_at", txt, (c) => c.notNull())
     .addColumn("ends_at", txt, (c) => c.notNull())
     .addColumn("reason", txt, (c) => c.notNull())
@@ -333,7 +349,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("booking_items")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("booking_id", txt, (c) => c.notNull().references("bookings.id").onDelete("cascade"))
+    .addColumn("booking_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("booking_items_booking_id_fk", ["booking_id"], "bookings", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("line", "integer", (c) => c.notNull())
     .addColumn("ticket_type_id", txt)
     .addColumn("session_id", txt)
@@ -352,7 +369,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("payments")
     .addColumn("id", txt, (c) => c.primaryKey())
-    .addColumn("booking_id", txt, (c) => c.notNull().references("bookings.id").onDelete("cascade"))
+    .addColumn("booking_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("payments_booking_id_fk", ["booking_id"], "bookings", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("provider", txt, (c) => c.notNull())
     .addColumn("method", txt, (c) => c.notNull())
     .addColumn("status", txt, (c) => c.notNull())
@@ -377,7 +395,8 @@ export async function up(db: Db) {
   await db.schema
     .createTable("auth_sessions")
     .addColumn("id", txt, (c) => c.primaryKey()) // sha-256 of the cookie token; the token itself is never stored
-    .addColumn("user_id", txt, (c) => c.notNull().references("users.id").onDelete("cascade"))
+    .addColumn("user_id", txt, (c) => c.notNull())
+    .addForeignKeyConstraint("auth_sessions_user_id_fk", ["user_id"], "users", ["id"], (cb) => cb.onDelete("cascade"))
     .addColumn("created_at", txt, (c) => c.notNull())
     .addColumn("expires_at", txt, (c) => c.notNull())
     .execute();
@@ -415,7 +434,7 @@ export async function up(db: Db) {
     .addColumn("content_type", txt, (c) => c.notNull())
     .addColumn("private", "integer", (c) => c.notNull().defaultTo(0))
     .addColumn("bytes", "integer", (c) => c.notNull())
-    .addColumn("data", "text", (c) => c.notNull())
+    .addColumn("data", bigText(db), (c) => c.notNull())
     .addColumn("created_at", txt, (c) => c.notNull())
     .execute();
 

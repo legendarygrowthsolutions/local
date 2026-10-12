@@ -6,6 +6,9 @@ import type {
 import { repo } from "@/repositories";
 import { addDays, formatDate, formatWhen, istParts } from "@/lib/time";
 import { ServiceError, badRequest, conflict, notFound } from "./errors";
+import { applyListing, listingInputFor, resolveHostContext } from "./host";
+import { cancelWithRefund } from "./payments";
+import type { ListingInput } from "@/contracts";
 
 export const forbidden = () => new ServiceError(403, "forbidden", "Superadmins only");
 export function assertAdmin(u: User | null): asserts u is User {
@@ -165,6 +168,8 @@ export interface ModerationRow {
   publicHref: string | null;
   checks: { label: string; ok: boolean }[];
   details: [string, string][];
+  /** A host's pending edit to this live item: what would change. */
+  revision: { submittedAt: string; changes: [string, string, string][] } | null;
 }
 
 export async function listModeration(tab: ModerationTab, cityId?: string, now = new Date()) {
@@ -183,9 +188,11 @@ export async function listModeration(tab: ModerationTab, cityId?: string, now = 
   const rules = await repo.venues.slotRules(resources.map((r) => r.id));
   const city = (id: string) => cities.find((c) => c.id === id);
   const rows: ModerationRow[] = [];
-  const match = (s: string) => (tab === "live" ? s === "live" : s === tab);
+  // Edits to live items wait in the review queue alongside new submissions.
+  const pending = new Map((await repo.revisions.listPending()).map((r) => [r.targetId, r]));
+  const match = (s: string, id: string) => (tab === "live" ? s === "live" : s === tab || (tab === "review" && s === "live" && pending.has(id)));
 
-  for (const l of listings.filter((x) => match(x.status) && (!cityId || x.cityId === cityId))) {
+  for (const l of listings.filter((x) => match(x.status, x.id) && (!cityId || x.cityId === cityId))) {
     const host = hosts.find((h) => h.id === l.hostId)!;
     const tpl = templates.find((t) => t.id === l.templateId)!;
     const ls = sessions.filter((s) => s.listingId === l.id).sort((a, b) => a.startsAt.localeCompare(b.startsAt));
@@ -223,6 +230,7 @@ export async function listModeration(tab: ModerationTab, cityId?: string, now = 
         { label: "Description is detailed (100+ characters)", ok: l.description.length >= 100 },
         { label: "Has photos", ok: l.media.length > 0 },
       ],
+      revision: null,
       details: [
         ["Venue", `${l.venueName}, ${areas.find((a) => a.id === l.areaId)?.name ?? ""}`],
         ["Address", l.address],
@@ -232,7 +240,7 @@ export async function listModeration(tab: ModerationTab, cityId?: string, now = 
       ],
     });
   }
-  for (const v of venues.filter((x) => match(x.status) && (!cityId || x.cityId === cityId))) {
+  for (const v of venues.filter((x) => match(x.status, x.id) && (!cityId || x.cityId === cityId))) {
     const host = hosts.find((h) => h.id === v.hostId)!;
     const vr = resources.filter((r) => r.venueId === v.id);
     const vrules = rules.filter((r) => vr.some((x) => x.id === r.resourceId));
@@ -266,6 +274,7 @@ export async function listModeration(tab: ModerationTab, cityId?: string, now = 
         { label: "Description is detailed (100+ characters)", ok: v.description.length >= 100 },
         { label: "Has photos", ok: v.media.length > 0 },
       ],
+      revision: null,
       details: [
         ["Address", v.address],
         ["Courts", vr.map((r) => `${r.name} (${r.sport}, ${r.slotLengthMins}m)`).join(", ")],
@@ -273,11 +282,16 @@ export async function listModeration(tab: ModerationTab, cityId?: string, now = 
       ],
     });
   }
+  for (const r of rows) {
+    const rev = tab === "review" ? pending.get(r.id) : undefined;
+    r.revision = rev ? { submittedAt: rev.createdAt, changes: revisionChanges((await listingInputFor(r.id, rev.hostId)).input, rev.input, areas, cats) } : null;
+    if (rev) r.createdAt = rev.createdAt;
+  }
   const order = (r: ModerationRow) => (tab === "live" ? (r.featured ? 0 : 1) : 0);
   rows.sort((a, b) => order(a) - order(b) || b.createdAt.localeCompare(a.createdAt) || a.title.localeCompare(b.title));
   const all = [...listings, ...venues];
   return {
-    counts: { review: all.filter((x) => x.status === "review").length, live: all.filter((x) => x.status === "live").length, rejected: all.filter((x) => x.status === "rejected").length },
+    counts: { review: all.filter((x) => x.status === "review").length + pending.size, live: all.filter((x) => x.status === "live").length, rejected: all.filter((x) => x.status === "rejected").length },
     cities: cities.map((c) => ({ id: c.id, name: c.name })),
     items: rows.slice(0, 120),
     total: rows.length,
@@ -292,7 +306,8 @@ async function findTarget(id: string): Promise<{ kind: "event"; item: Listing } 
   throw notFound("Listing not found");
 }
 
-export async function decideListing(id: string, decision: "approve" | "reject", note?: string) {
+export async function decideListing(id: string, decision: "approve" | "reject", note?: string, opts: { revision?: boolean } = {}) {
+  if (opts.revision) return decideRevision(id, decision, note);
   const t = await findTarget(id);
   if (decision === "reject" && !note) throw badRequest("Tell the host what to fix");
   if (decision === "approve") {
@@ -306,6 +321,93 @@ export async function decideListing(id: string, decision: "approve" | "reject", 
   }
   const patch = { status: decision === "approve" ? ("live" as const) : ("rejected" as const), reviewNote: decision === "reject" ? note! : null };
   return t.kind === "event" ? repo.listings.update(id, patch) : repo.venues.update(id, patch);
+}
+
+/**
+ * Approve or decline a host's pending edit to a live item. Approval applies the edit's material
+ * fields on top of the item's *current* operational fields (dates, capacity, hours), so anything
+ * the host changed directly after submitting isn't rolled back.
+ */
+export async function decideRevision(id: string, decision: "approve" | "reject", note?: string, now = new Date()) {
+  const rev = await repo.revisions.pendingFor(id);
+  if (!rev) throw notFound("There's no pending edit for this listing");
+  if (decision === "reject") {
+    if (!note) throw badRequest("Tell the host what to fix");
+    await repo.revisions.decide(rev.id, "rejected", note, now.toISOString());
+    return null;
+  }
+  const host = await repo.hosts.byId(rev.hostId);
+  if (host?.status !== "approved") throw conflict("The host isn't approved");
+  const members = await repo.members.listByHost(rev.hostId);
+  const actor = members.find((m) => m.userId === rev.submittedBy && m.status === "active") ?? members.find((m) => m.role === "owner" && m.status === "active" && m.userId);
+  const user = actor?.userId ? await repo.users.byId(actor.userId) : null;
+  const ctx = user ? await resolveHostContext(user, rev.hostId) : null;
+  if (!ctx || ctx.host.id !== rev.hostId) throw conflict("Nobody on the host's team can apply this edit");
+  const current = (await listingInputFor(id, rev.hostId)).input;
+  const merged = mergeOperational(rev.input, current);
+  return repo.transaction(async () => {
+    const saved = await applyListing(ctx, merged, false, id);
+    await repo.revisions.decide(rev.id, "approved", note ?? null, now.toISOString());
+    return saved;
+  });
+}
+
+function mergeOperational(rev: ListingInput, cur: ListingInput): ListingInput {
+  if (rev.kind === "event" && cur.kind === "event") {
+    const qty = new Map(cur.tickets.filter((t) => t.id).map((t) => [t.id!, t]));
+    return {
+      ...rev,
+      sessions: cur.sessions,
+      thingsToKnow: cur.thingsToKnow,
+      tickets: rev.tickets.map((t) => {
+        const c = t.id ? qty.get(t.id) : undefined;
+        // Day-specific tickets keep pointing at the same date by id-stable index when possible.
+        return c ? { ...t, qty: c.qty, perOrderMax: c.perOrderMax, sessionIndex: c.sessionIndex } : t;
+      }),
+    };
+  }
+  if (rev.kind === "venue" && cur.kind === "venue") {
+    return { ...rev, openMins: cur.openMins, closeMins: cur.closeMins, advanceDays: cur.advanceDays, maxMins: cur.maxMins, bufferMins: cur.bufferMins, thingsToKnow: cur.thingsToKnow };
+  }
+  return rev;
+}
+
+/** Human-readable before → after for the fields an edit touches. */
+function revisionChanges(cur: ListingInput, next: ListingInput, areas: { id: string; name: string }[], cats: { id: string; name: string }[]): [string, string, string][] {
+  const out: [string, string, string][] = [];
+  const add = (label: string, a: unknown, b: unknown, fmt: (v: never) => string = (v) => String(v ?? "—")) => {
+    if (JSON.stringify(a) !== JSON.stringify(b)) out.push([label, fmt(a as never), fmt(b as never)]);
+  };
+  const area = (id: string) => areas.find((a) => a.id === id)?.name ?? id;
+  const cat = (id: string | null) => (id ? (cats.find((c) => c.id === id)?.name ?? id) : "—");
+  if (cur.kind === "event" && next.kind === "event") {
+    add("Title", cur.title, next.title);
+    add("Summary", cur.summary, next.summary);
+    add("Description", cur.description, next.description, (v: string) => (v.length > 140 ? v.slice(0, 140) + "…" : v));
+    add("Category", [cur.categoryId, cur.subcategoryId], [next.categoryId, next.subcategoryId], (v: [string, string | null]) => [cat(v[0]), cat(v[1])].filter((x) => x !== "—").join(" · "));
+    add("Booking type", cur.templateId, next.templateId);
+    add("Venue", cur.venueName, next.venueName);
+    add("Area", cur.areaId, next.areaId, area);
+    add("Address", cur.address, next.address);
+    add("Photos", cur.media, next.media, (v: string[]) => `${v.length} photo${v.length === 1 ? "" : "s"}`);
+    add("Tickets", cur.tickets.map((t) => [t.name, t.price, t.isPass, t.description]), next.tickets.map((t) => [t.name, t.price, t.isPass, t.description]), (v: [string, number][]) => v.map(([n, p]) => `${n} ₹${p}`).join(", ") || "—");
+    add("Age · languages", [cur.ageLimit, cur.languages], [next.ageLimit, next.languages], (v: [string, string[]]) => `${v[0]} · ${v[1].join(", ")}`);
+    add("Questions", cur.formFields.map((f) => f.label), next.formFields.map((f) => f.label), (v: string[]) => v.join(", ") || "—");
+    add("External link", cur.externalUrl, next.externalUrl);
+  } else if (cur.kind === "venue" && next.kind === "venue") {
+    add("Name", cur.name, next.name);
+    add("Summary", cur.summary, next.summary);
+    add("Description", cur.description, next.description, (v: string) => (v.length > 140 ? v.slice(0, 140) + "…" : v));
+    add("Area", cur.areaId, next.areaId, area);
+    add("Address", cur.address, next.address);
+    add("Photos", cur.media, next.media, (v: string[]) => `${v.length} photo${v.length === 1 ? "" : "s"}`);
+    add("Amenities", cur.amenities, next.amenities, (v: string[]) => v.join(", ") || "—");
+    add("Booking type", cur.templateId, next.templateId);
+    add("Courts", cur.courts.map((c) => [c.name, c.sport, c.priceBase, c.pricePeak]), next.courts.map((c) => [c.name, c.sport, c.priceBase, c.pricePeak]), (v: [string, string, number, number][]) =>
+      v.map(([n, s, b, p]) => `${n} (${s}) ₹${b}/₹${p}`).join(", "),
+    );
+  }
+  return out;
 }
 
 /** Homepage curation: featured items get ranks in their city, newest feature last. */
@@ -499,7 +601,7 @@ export async function adminRefund(id: string, refundPct: 0 | 50 | 100) {
   if (!b) throw notFound("Booking not found");
   if (!["confirmed", "requested", "checked_in"].includes(b.status)) throw conflict("Only confirmed bookings can be cancelled");
   const amount = r2(((b.price.subtotal - b.price.discount) * refundPct) / 100);
-  await repo.bookings.update(id, { status: amount > 0 ? "refunded" : "cancelled" });
+  await cancelWithRefund(id, [b.status], amount, "support_refund");
   return { refundAmount: amount };
 }
 

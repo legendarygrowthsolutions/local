@@ -46,7 +46,7 @@ export default async function ListingsModeration({ searchParams }: { searchParam
         </div>
       </div>
       {items.length === 0 ? (
-        <EmptyState title={tab === "review" ? "Review queue is clear" : "Nothing here"} body={tab === "review" ? "New listings from hosts land here." : undefined} />
+        <EmptyState title={tab === "review" ? "Review queue is clear" : "Nothing here"} body={tab === "review" ? "New listings and edits to live listings land here." : undefined} />
       ) : (
         <div className="grid gap-5 lg:grid-cols-[minmax(0,400px)_minmax(0,1fr)]">
           <div className={cn("flex flex-col gap-2 self-start", sp.id && "max-lg:hidden")}>
@@ -61,6 +61,7 @@ export default async function ListingsModeration({ searchParams }: { searchParam
                         <span className="truncate">{x.title}</span>
                       </span>
                       <span className="block truncate text-xs text-muted">
+                        {x.revision && <b className="text-warn">Edit · </b>}
                         {x.hostName} · {x.cityName} · {x.templateName}
                       </span>
                     </span>
@@ -76,7 +77,7 @@ export default async function ListingsModeration({ searchParams }: { searchParam
               <Link href={href({})} className="mb-3 inline-block text-sm font-semibold text-muted lg:hidden">
                 ← All listings
               </Link>
-              <ModerationDetail key={selected.id + selected.status + selected.featured} row={selected} />
+              <ModerationDetail key={selected.id + selected.status + selected.featured + (selected.revision?.submittedAt ?? "")} row={selected} />
             </div>
           )}
         </div>
