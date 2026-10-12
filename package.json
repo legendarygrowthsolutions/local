@@ -20,7 +20,8 @@
     "predev": "npm run db:ensure",
     "test:postgres": "TEST_DB=postgres vitest run",
     "test:mysql": "TEST_DB=mysql vitest run",
-    "test:libsql": "TEST_DB=libsql vitest run"
+    "test:libsql": "TEST_DB=libsql vitest run",
+    "e2e:providers": "RAZORPAY_CHECKOUT_SRC=http://localhost:3299/v1/checkout.js next build && playwright test -c playwright.providers.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

@@ -12,6 +12,7 @@ npm run test:postgres  # the same suite on Postgres (in-process PGlite), to keep
 npm run test:libsql    # …on libSQL (Turso's engine, local file)
 npm run test:mysql     # …on MySQL 8 (needs a server; TEST_MYSQL_URL, default mysql://root:test@127.0.0.1:33061)
 npm run e2e          # production build + Playwright: golden paths, axe a11y, 360/412/1440px layouts
+npm run e2e:providers  # the app wired to MSG91 + Razorpay, against a local stand-in of their HTTP APIs
 npm run typecheck
 ```
 
@@ -101,4 +102,10 @@ Every variable is listed in `.env.example`. Until a provider is configured, prod
 
 - **Backend integration tests** (`src/**/*.test.ts`, Vitest, on real SQLite, and again on Postgres via PGlite, MySQL 8 and libSQL): repository round-trips for every entity, auth (cooldowns, lockout, single use, rate limits), booking rules and concurrency (parallel holds never oversell), payments, coupons, cancellations, host roles and money stripping, check-in, moderation, discovery, uploads.
 - **E2E** (`tests/e2e`, Playwright, production build on a fresh database): ticket booking with login at checkout (a wrong code, then the right one), onboarding, coupon, a failed and then a successful payment; court slot booking and cancellation; free RSVP; host apply → superadmin approval → wizard listing → moderation → live; owner/manager money split; discovery.
+- **Provider suite** (`tests/providers`): the production app is configured for MSG91 and Razorpay and talks real HTTP to a local stand-in of both APIs (`tests/providers/fake-providers.mjs`). It covers:
+  - login with the code delivered by SMS and never shown on screen;
+  - Razorpay Checkout in the browser, declined then paid, with the payment captured;
+  - a signed webhook confirming a booking whose guest never returned, a forged webhook refused, and a cancellation refunded through the gateway.
+
+  Only live accounts aren't exercised; they need your keys.
 - **Accessibility:** axe (WCAG 2.1 AA) on public, user, host and admin pages at 360, 412 and 1440 px. No serious or critical issues, and no sideways scrolling.

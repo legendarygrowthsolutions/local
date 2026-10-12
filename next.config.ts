@@ -1,16 +1,18 @@
 import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV !== "production";
+// Checkout script origin (overridable for the provider test suite's local stand-in).
+const checkoutOrigin = process.env.RAZORPAY_CHECKOUT_SRC ? new URL(process.env.RAZORPAY_CHECKOUT_SRC).origin : "https://checkout.razorpay.com";
 
 // The only third party is Razorpay Checkout (loaded on the payment screen). Inline scripts are Next's hydration payload (no nonce, so
 // pages stay statically optimisable); 'unsafe-eval' is only needed by React Refresh in dev.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://checkout.razorpay.com${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' ${checkoutOrigin}${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
-  `connect-src 'self' https://api.razorpay.com https://lumberjack.razorpay.com${isDev ? " ws:" : ""}`,
+  `connect-src 'self' https://api.razorpay.com https://lumberjack.razorpay.com${checkoutOrigin === "https://checkout.razorpay.com" ? "" : ` ${checkoutOrigin}`}${isDev ? " ws:" : ""}`,
   "frame-src https://api.razorpay.com https://checkout.razorpay.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",

@@ -24,10 +24,10 @@ type RazorpayCtor = new (o: Record<string, unknown>) => { open(): void; on(evt: 
 
 let scriptPromise: Promise<void> | null = null;
 /** Razorpay Checkout is loaded only when someone taps Pay. */
-function loadCheckout() {
+function loadCheckout(src: string) {
   scriptPromise ??= new Promise<void>((resolve, reject) => {
     const s = document.createElement("script");
-    s.src = "https://checkout.razorpay.com/v1/checkout.js";
+    s.src = src;
     s.async = true;
     s.onload = () => resolve();
     s.onerror = () => {
@@ -39,7 +39,7 @@ function loadCheckout() {
   return scriptPromise;
 }
 
-export function RazorpayCheckout({ initial }: { initial: BookingView }) {
+export function RazorpayCheckout({ initial, scriptSrc }: { initial: BookingView; scriptSrc: string }) {
   const router = useRouter();
   const { data: booking = initial } = useBooking(initial.id, initial);
   const pay = usePay(initial.id);
@@ -53,7 +53,7 @@ export function RazorpayCheckout({ initial }: { initial: BookingView }) {
     setError(null);
     setOpening(true);
     try {
-      const [order] = await Promise.all([api<CheckoutOrder>(`/api/bookings/${initial.id}/checkout`, { method: "POST" }), loadCheckout()]);
+      const [order] = await Promise.all([api<CheckoutOrder>(`/api/bookings/${initial.id}/checkout`, { method: "POST" }), loadCheckout(scriptSrc)]);
       const Razorpay = (window as unknown as { Razorpay: RazorpayCtor }).Razorpay;
       const rz = new Razorpay({
         key: order.keyId,
@@ -79,7 +79,11 @@ export function RazorpayCheckout({ initial }: { initial: BookingView }) {
             },
           ),
       });
-      rz.on("payment.failed", (r) => setError(r.error?.description ?? "The payment failed. Your spot is still held."));
+      rz.on("payment.failed", (r) => {
+        setError(r.error?.description ?? "The payment failed. Your spot is still held.");
+        // Let them try again whether or not the sheet stays open.
+        setOpening(false);
+      });
       rz.open();
     } catch (e) {
       setError(e instanceof Error ? e.message : "Couldn't start the payment");

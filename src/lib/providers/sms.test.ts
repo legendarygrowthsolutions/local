@@ -72,3 +72,38 @@ describe("Twilio", () => {
     expect(JSON.parse(form.get("ContentVariables")!)).toEqual({ 1: "111222" });
   });
 });
+
+describe("over real HTTP (local stub servers)", () => {
+  it("MSG91 and Twilio requests arrive with the right auth and payload", async () => {
+    const { createServer } = await import("node:http");
+    const seen: { url: string; headers: Record<string, unknown>; body: string }[] = [];
+    const server = createServer((req, res) => {
+      let body = "";
+      req.on("data", (c) => (body += c));
+      req.on("end", () => {
+        seen.push({ url: req.url!, headers: req.headers, body });
+        res.writeHead(req.url!.includes("Messages.json") ? 201 : 200, { "content-type": "application/json" });
+        res.end(req.url!.includes("flow") ? '{"type":"success"}' : '{"sid":"SM1"}');
+      });
+    });
+    await new Promise<void>((r) => server.listen(0, r));
+    const base = `http://127.0.0.1:${(server.address() as { port: number }).port}`;
+    try {
+      Object.assign(process.env, {
+        MSG91_AUTH_KEY: "k1", MSG91_OTP_TEMPLATE_ID: "t1", MSG91_API_BASE: base,
+        TWILIO_ACCOUNT_SID: "AC9", TWILIO_AUTH_TOKEN: "tok9", TWILIO_FROM: "+15550009999", TWILIO_API_BASE: base,
+      });
+      expect(await deliverOtp("msg91", "9123456789", "424242", "sms")).toBe("sms");
+      expect(await deliverOtp("twilio", "9123456789", "434343", "sms")).toBe("sms");
+      expect(seen[0]).toMatchObject({ url: "/api/v5/flow", headers: { authkey: "k1" } });
+      expect(JSON.parse(seen[0].body).recipients).toEqual([{ mobiles: "919123456789", otp: "424242" }]);
+      expect(seen[1].url).toBe("/2010-04-01/Accounts/AC9/Messages.json");
+      expect(seen[1].headers.authorization).toBe("Basic " + Buffer.from("AC9:tok9").toString("base64"));
+      expect(new URLSearchParams(seen[1].body).get("To")).toBe("+919123456789");
+    } finally {
+      server.close();
+      delete process.env.MSG91_API_BASE;
+      delete process.env.TWILIO_API_BASE;
+    }
+  });
+});

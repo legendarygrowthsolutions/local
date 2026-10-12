@@ -34,7 +34,7 @@ async function msg91(phone: string, code: string): Promise<OtpChannel> {
   const authKey = process.env.MSG91_AUTH_KEY!;
   const templateId = process.env.MSG91_OTP_TEMPLATE_ID!;
   const text = await post(
-    "https://control.msg91.com/api/v5/flow",
+    `${process.env.MSG91_API_BASE ?? "https://control.msg91.com"}/api/v5/flow`,
     { headers: { authkey: authKey, "content-type": "application/json", accept: "application/json" }, body: JSON.stringify({ template_id: templateId, short_url: "0", recipients: [{ mobiles: `91${phone}`, otp: code }] }) },
     "msg91",
   );
@@ -70,7 +70,7 @@ async function twilio(phone: string, code: string, channel: OtpChannel): Promise
     form.set("Body", MESSAGE(code));
   }
   await post(
-    `https://api.twilio.com/2010-04-01/Accounts/${encodeURIComponent(sid)}/Messages.json`,
+    `${process.env.TWILIO_API_BASE ?? "https://api.twilio.com"}/2010-04-01/Accounts/${encodeURIComponent(sid)}/Messages.json`,
     { headers: { authorization: "Basic " + Buffer.from(`${sid}:${token}`).toString("base64"), "content-type": "application/x-www-form-urlencoded" }, body: form.toString() },
     "twilio",
   );

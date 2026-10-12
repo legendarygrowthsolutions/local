@@ -6,7 +6,10 @@ import { ServiceError } from "@/services/errors";
  * Razorpay REST client (orders, payments, refunds) and signature checks.
  * Docs: https://razorpay.com/docs/api/ — amounts are integer paise.
  */
-const API = "https://api.razorpay.com/v1";
+// Overridable so the provider suite can run against a local stand-in of the same API.
+const api = () => process.env.RAZORPAY_API_BASE ?? "https://api.razorpay.com/v1";
+/** Where Razorpay Checkout's script is served from. */
+export const checkoutScriptUrl = () => process.env.RAZORPAY_CHECKOUT_SRC ?? "https://checkout.razorpay.com/v1/checkout.js";
 
 export interface RazorpayOrder {
   id: string;
@@ -34,7 +37,7 @@ async function call<T>(method: "GET" | "POST", path: string, body?: unknown): Pr
   const { keyId, keySecret } = razorpayKeys();
   let res: Response;
   try {
-    res = await fetch(API + path, {
+    res = await fetch(api() + path, {
       method,
       headers: { authorization: "Basic " + Buffer.from(`${keyId}:${keySecret}`).toString("base64"), ...(body ? { "content-type": "application/json" } : {}) },
       body: body ? JSON.stringify(body) : undefined,
