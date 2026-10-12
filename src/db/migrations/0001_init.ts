@@ -358,6 +358,8 @@ export async function up(db: Db) {
     .addColumn("status", txt, (c) => c.notNull())
     .addColumn("amount", "integer", (c) => c.notNull())
     .addColumn("ref", txt, (c) => c.notNull())
+    // Gateway order id (e.g. Razorpay order_…), set when checkout starts.
+    .addColumn("order_id", txt)
     .addColumn("created_at", txt, (c) => c.notNull())
     .execute();
   await db.schema.createIndex("payments_booking_idx").on("payments").column("booking_id").execute();
@@ -388,6 +390,22 @@ export async function up(db: Db) {
     .addColumn("reset_at", txt, (c) => c.notNull())
     .execute();
 
+  // Material edits to live listings wait here for moderation while the live version stays up.
+  await db.schema
+    .createTable("listing_revisions")
+    .addColumn("id", txt, (c) => c.primaryKey())
+    .addColumn("target_id", txt, (c) => c.notNull())
+    .addColumn("kind", txt, (c) => c.notNull())
+    .addColumn("host_id", txt, (c) => c.notNull())
+    .addColumn("submitted_by", txt, (c) => c.notNull())
+    .addColumn("input", "text", (c) => c.notNull())
+    .addColumn("status", txt, (c) => c.notNull())
+    .addColumn("note", "text")
+    .addColumn("created_at", txt, (c) => c.notNull())
+    .addColumn("decided_at", txt)
+    .execute();
+  await db.schema.createIndex("listing_revisions_target_idx").on("listing_revisions").columns(["target_id", "status"]).execute();
+
   // Uploaded images (listing photos, avatars). Base64 in TEXT keeps this portable across dialects;
   // swap for object storage by changing the media repository only.
   await db.schema
@@ -412,7 +430,7 @@ export async function up(db: Db) {
 
 export async function down(db: Db) {
   for (const t of [
-    "listing_views", "media", "rate_limits", "auth_sessions", "otp_codes", "payments", "booking_items", "bookings", "coupons", "blocks",
+    "listing_views", "media", "listing_revisions", "rate_limits", "auth_sessions", "otp_codes", "payments", "booking_items", "bookings", "coupons", "blocks",
     "slot_rules", "resources", "venues", "ticket_types", "listing_sessions", "listings", "host_members", "host_documents", "hosts",
     "user_following", "user_saved", "users", "journey_templates", "categories", "areas", "cities",
   ]) {

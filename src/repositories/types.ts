@@ -1,3 +1,4 @@
+import type { ListingInput } from "@/contracts";
 import type {
   Area, Block, Booking, Category, City, Host, HostMember, JourneyTemplate, Listing, Resource, Session, SlotRule, TicketType, User, Venue,
 } from "@/contracts";
@@ -11,6 +12,19 @@ export interface OtpRecord {
   sentAt: string;
 }
 
+export interface ListingRevision {
+  id: string;
+  targetId: string;
+  kind: "event" | "venue";
+  hostId: string;
+  submittedBy: string;
+  input: ListingInput;
+  status: "pending" | "approved" | "rejected";
+  note: string | null;
+  createdAt: string;
+  decidedAt: string | null;
+}
+
 export interface PaymentRecord {
   id: string;
   bookingId: string;
@@ -19,6 +33,7 @@ export interface PaymentRecord {
   status: "success" | "failed";
   amount: number; // rupees
   ref: string;
+  orderId?: string | null;
   createdAt: string;
 }
 
@@ -169,6 +184,15 @@ export interface Repository {
   };
   coupons: {
     byCode(code: string): Promise<Coupon | null>;
+  };
+  revisions: {
+    /** The pending revision for a listing/venue, if any. */
+    pendingFor(targetId: string): Promise<ListingRevision | null>;
+    /** Pending revisions for these targets (moderation queue). */
+    listPending(): Promise<ListingRevision[]>;
+    /** Replace any pending revision for the target with this one. */
+    submit(r: ListingRevision): Promise<void>;
+    decide(id: string, status: "approved" | "rejected", note: string | null, at: string): Promise<void>;
   };
   media: {
     insert(m: { id: string; ownerId: string; contentType: string; data: Buffer; createdAt: string; private?: boolean }): Promise<void>;

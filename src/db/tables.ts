@@ -66,11 +66,15 @@ export interface BookingItemsTable {
   id: string; bookingId: string; line: number; ticketTypeId: string | null; sessionId: string | null; resourceId: string | null;
   startsAt: string | null; endsAt: string | null; label: string; qty: number; unitPrice: number;
 }
-export interface PaymentsTable { id: string; bookingId: string; provider: string; method: string; status: string; amount: number; ref: string; createdAt: string }
+export interface PaymentsTable { id: string; bookingId: string; provider: string; method: string; status: string; amount: number; ref: string; orderId: string | null; createdAt: string }
 export interface OtpCodesTable { phone: string; codeHash: string; expiresAt: string; attempts: number; sentAt: string }
 export interface AuthSessionsTable { id: string; userId: string; createdAt: string; expiresAt: string }
 export interface RateLimitsTable { key: string; count: number; resetAt: string }
 export interface MediaTable { id: string; ownerId: string; contentType: string; private: number; bytes: number; data: string; createdAt: string }
+export interface ListingRevisionsTable {
+  id: string; targetId: string; kind: string; hostId: string; submittedBy: string; input: string; status: string; note: string | null;
+  createdAt: string; decidedAt: string | null;
+}
 export interface ListingViewsTable { targetId: string; day: string; count: number }
 
 export interface Database {
@@ -100,4 +104,5 @@ export interface Database {
   rateLimits: RateLimitsTable;
   listingViews: ListingViewsTable;
   media: MediaTable;
+  listingRevisions: ListingRevisionsTable;
 }

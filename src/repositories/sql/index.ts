@@ -604,7 +604,7 @@ export const sqlRepository: Repository = {
 
   payments: {
     insert: async (p) => {
-      await db().insertInto("payments").values({ ...p, amount: M.toPaise(p.amount) }).execute();
+      await db().insertInto("payments").values({ ...p, orderId: p.orderId ?? null, amount: M.toPaise(p.amount) }).execute();
     },
     listByBooking: async (bookingId) =>
       (await db().selectFrom("payments").selectAll().where("bookingId", "=", bookingId).orderBy("createdAt").execute()).map((p) => ({
@@ -639,6 +639,27 @@ export const sqlRepository: Repository = {
     },
   },
 
+  revisions: {
+    pendingFor: async (targetId) => {
+      const r = await db().selectFrom("listingRevisions").selectAll().where("targetId", "=", targetId).where("status", "=", "pending").executeTakeFirst();
+      return r ? revisionFromRow(r) : null;
+    },
+    listPending: async () =>
+      (await db().selectFrom("listingRevisions").selectAll().where("status", "=", "pending").orderBy("createdAt", "desc").execute()).map(revisionFromRow),
+    submit: async (r) => {
+      await withTransaction(async () => {
+        await db().deleteFrom("listingRevisions").where("targetId", "=", r.targetId).where("status", "=", "pending").execute();
+        await db()
+          .insertInto("listingRevisions")
+          .values({ ...r, input: JSON.stringify(r.input) })
+          .execute();
+      });
+    },
+    decide: async (id, status, note, at) => {
+      await db().updateTable("listingRevisions").set({ status, note, decidedAt: at }).where("id", "=", id).execute();
+    },
+  },
+
   media: {
     insert: async (m) => {
       await db()
@@ -660,6 +681,10 @@ export const sqlRepository: Repository = {
     },
   },
 };
+
+function revisionFromRow(r: import("@/db/tables").ListingRevisionsTable): import("../types").ListingRevision {
+  return { ...r, kind: r.kind as "event" | "venue", status: r.status as "pending" | "approved" | "rejected", input: JSON.parse(r.input) };
+}
 
 function allAreas() {
   return cached("areas", async () => (await db().selectFrom("areas").selectAll().orderBy("name").execute()).map(M.areaFromRow));
