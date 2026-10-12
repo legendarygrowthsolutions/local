@@ -1,0 +1,46 @@
+[
+ {
+  "id": "hm_1",
+  "hostId": "h_mumbai_1",
+  "userId": "u_host",
+  "phone": "9000000002",
+  "name": "Riya Kapoor",
+  "role": "owner",
+  "status": "active",
+  "invitedBy": null,
+  "createdAt": "2025-12-15T10:00:00+05:30"
+ },
+ {
+  "id": "hm_2",
+  "hostId": "h_mumbai_5",
+  "userId": "u_venue",
+  "phone": "9000000003",
+  "name": "Kabir Shah",
+  "role": "owner",
+  "status": "active",
+  "invitedBy": null,
+  "createdAt": "2025-05-29T10:00:00+05:30"
+ },
+ {
+  "id": "hm_3",
+  "hostId": "h_mumbai_5",
+  "userId": "u_manager",
+  "phone": "9000000004",
+  "name": "Neha Joshi",
+  "role": "manager",
+  "status": "active",
+  "invitedBy": "u_venue",
+  "createdAt": "2026-07-13T10:00:00+05:30"
+ },
+ {
+  "id": "hm_4",
+  "hostId": "h_mumbai_5",
+  "userId": null,
+  "phone": "9000000005",
+  "name": null,
+  "role": "manager",
+  "status": "invited",
+  "invitedBy": "u_venue",
+  "createdAt": "2026-10-09T10:00:00+05:30"
+ }
+]

@@ -1,0 +1,72 @@
+[
+ {
+  "id": "u_demo",
+  "phone": "9876543210",
+  "name": "Aarav Mehta",
+  "gender": "male",
+  "dob": "1996-04-12",
+  "cityId": "c_mumbai",
+  "interests": [
+   "comedy",
+   "pickleball",
+   "art-craft"
+  ],
+  "role": "user",
+  "saved": [],
+  "createdAt": "2026-06-13T10:00:00+05:30"
+ },
+ {
+  "id": "u_host",
+  "phone": "9000000002",
+  "name": "Riya Kapoor",
+  "gender": "female",
+  "dob": "1992-09-30",
+  "cityId": "c_mumbai",
+  "interests": [
+   "music"
+  ],
+  "role": "host",
+  "saved": [],
+  "createdAt": "2025-12-15T10:00:00+05:30"
+ },
+ {
+  "id": "u_admin",
+  "phone": "9000000001",
+  "name": "Admin",
+  "gender": "na",
+  "dob": "1990-01-01",
+  "cityId": "c_mumbai",
+  "interests": [],
+  "role": "admin",
+  "saved": [],
+  "createdAt": "2025-09-06T10:00:00+05:30"
+ },
+ {
+  "id": "u_venue",
+  "phone": "9000000003",
+  "name": "Kabir Shah",
+  "gender": "male",
+  "dob": "1988-02-14",
+  "cityId": "c_mumbai",
+  "interests": [
+   "pickleball"
+  ],
+  "role": "host",
+  "saved": [],
+  "createdAt": "2025-05-29T10:00:00+05:30"
+ },
+ {
+  "id": "u_manager",
+  "phone": "9000000004",
+  "name": "Neha Joshi",
+  "gender": "female",
+  "dob": "1997-07-21",
+  "cityId": "c_mumbai",
+  "interests": [
+   "badminton"
+  ],
+  "role": "host",
+  "saved": [],
+  "createdAt": "2026-07-13T10:00:00+05:30"
+ }
+]

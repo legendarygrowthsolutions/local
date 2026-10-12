@@ -1,0 +1,5210 @@
+[
+ {
+  "id": "s_1",
+  "listingId": "l_mumbai_01",
+  "startsAt": "2026-10-11T20:00:00+05:30",
+  "endsAt": "2026-10-11T21:30:00+05:30",
+  "capacity": 200,
+  "label": "Show"
+ },
+ {
+  "id": "s_2",
+  "listingId": "l_mumbai_02",
+  "startsAt": "2026-10-12T21:30:00+05:30",
+  "endsAt": "2026-10-12T23:10:00+05:30",
+  "capacity": 200,
+  "label": "Show"
+ },
+ {
+  "id": "s_3",
+  "listingId": "l_mumbai_03",
+  "startsAt": "2026-10-13T18:00:00+05:30",
+  "endsAt": "2026-10-13T20:00:00+05:30",
+  "capacity": 80,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_4",
+  "listingId": "l_mumbai_05",
+  "startsAt": "2026-10-12T20:00:00+05:30",
+  "endsAt": "2026-10-12T23:00:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_5",
+  "listingId": "l_mumbai_06",
+  "startsAt": "2026-10-13T19:00:00+05:30",
+  "endsAt": "2026-10-13T21:30:00+05:30",
+  "capacity": 150,
+  "label": "Show"
+ },
+ {
+  "id": "s_6",
+  "listingId": "l_mumbai_07",
+  "startsAt": "2026-10-29T18:30:00+05:30",
+  "endsAt": "2026-10-29T21:00:00+05:30",
+  "capacity": 150,
+  "label": "Show"
+ },
+ {
+  "id": "s_7",
+  "listingId": "l_mumbai_08",
+  "startsAt": "2026-10-24T21:00:00+05:30",
+  "endsAt": "2026-10-25T00:00:00+05:30",
+  "capacity": 80,
+  "label": "Show"
+ },
+ {
+  "id": "s_8",
+  "listingId": "l_mumbai_09",
+  "startsAt": "2026-10-24T15:00:00+05:30",
+  "endsAt": "2026-10-24T23:00:00+05:30",
+  "capacity": 1500,
+  "label": "Day 1"
+ },
+ {
+  "id": "s_9",
+  "listingId": "l_mumbai_09",
+  "startsAt": "2026-10-25T15:00:00+05:30",
+  "endsAt": "2026-10-25T23:00:00+05:30",
+  "capacity": 1500,
+  "label": "Day 2"
+ },
+ {
+  "id": "s_10",
+  "listingId": "l_mumbai_10",
+  "startsAt": "2026-10-14T19:30:00+05:30",
+  "endsAt": "2026-10-14T21:00:00+05:30",
+  "capacity": 80,
+  "label": "Show"
+ },
+ {
+  "id": "s_11",
+  "listingId": "l_mumbai_11",
+  "startsAt": "2026-10-23T18:00:00+05:30",
+  "endsAt": "2026-10-23T19:40:00+05:30",
+  "capacity": 150,
+  "label": "Show"
+ },
+ {
+  "id": "s_12",
+  "listingId": "l_mumbai_12",
+  "startsAt": "2026-10-24T20:00:00+05:30",
+  "endsAt": "2026-10-24T21:30:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_13",
+  "listingId": "l_mumbai_14",
+  "startsAt": "2026-10-24T11:00:00+05:30",
+  "endsAt": "2026-10-24T20:00:00+05:30",
+  "capacity": 0,
+  "label": "Open day"
+ },
+ {
+  "id": "s_14",
+  "listingId": "l_mumbai_15",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_15",
+  "listingId": "l_mumbai_15",
+  "startsAt": "2026-10-21T11:00:00+05:30",
+  "endsAt": "2026-10-21T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_16",
+  "listingId": "l_mumbai_15",
+  "startsAt": "2026-10-28T11:00:00+05:30",
+  "endsAt": "2026-10-28T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_17",
+  "listingId": "l_mumbai_15",
+  "startsAt": "2026-11-04T11:00:00+05:30",
+  "endsAt": "2026-11-04T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_18",
+  "listingId": "l_mumbai_15",
+  "startsAt": "2026-11-11T11:00:00+05:30",
+  "endsAt": "2026-11-11T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_19",
+  "listingId": "l_mumbai_15",
+  "startsAt": "2026-11-18T11:00:00+05:30",
+  "endsAt": "2026-11-18T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_20",
+  "listingId": "l_mumbai_16",
+  "startsAt": "2026-10-17T16:00:00+05:30",
+  "endsAt": "2026-10-17T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_21",
+  "listingId": "l_mumbai_16",
+  "startsAt": "2026-10-24T16:00:00+05:30",
+  "endsAt": "2026-10-24T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_22",
+  "listingId": "l_mumbai_16",
+  "startsAt": "2026-10-31T16:00:00+05:30",
+  "endsAt": "2026-10-31T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_23",
+  "listingId": "l_mumbai_16",
+  "startsAt": "2026-11-07T16:00:00+05:30",
+  "endsAt": "2026-11-07T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_24",
+  "listingId": "l_mumbai_16",
+  "startsAt": "2026-11-14T16:00:00+05:30",
+  "endsAt": "2026-11-14T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_25",
+  "listingId": "l_mumbai_16",
+  "startsAt": "2026-11-21T16:00:00+05:30",
+  "endsAt": "2026-11-21T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_26",
+  "listingId": "l_mumbai_17",
+  "startsAt": "2026-10-19T11:00:00+05:30",
+  "endsAt": "2026-10-19T14:00:00+05:30",
+  "capacity": 150,
+  "label": "Show"
+ },
+ {
+  "id": "s_27",
+  "listingId": "l_mumbai_18",
+  "startsAt": "2026-10-18T18:00:00+05:30",
+  "endsAt": "2026-10-18T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_28",
+  "listingId": "l_mumbai_18",
+  "startsAt": "2026-10-25T18:00:00+05:30",
+  "endsAt": "2026-10-25T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_29",
+  "listingId": "l_mumbai_18",
+  "startsAt": "2026-11-01T18:00:00+05:30",
+  "endsAt": "2026-11-01T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_30",
+  "listingId": "l_mumbai_18",
+  "startsAt": "2026-11-08T18:00:00+05:30",
+  "endsAt": "2026-11-08T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_31",
+  "listingId": "l_mumbai_18",
+  "startsAt": "2026-11-15T18:00:00+05:30",
+  "endsAt": "2026-11-15T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_32",
+  "listingId": "l_mumbai_18",
+  "startsAt": "2026-11-22T18:00:00+05:30",
+  "endsAt": "2026-11-22T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_33",
+  "listingId": "l_mumbai_19",
+  "startsAt": "2026-10-14T10:00:00+05:30",
+  "endsAt": "2026-10-14T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_34",
+  "listingId": "l_mumbai_19",
+  "startsAt": "2026-10-21T10:00:00+05:30",
+  "endsAt": "2026-10-21T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_35",
+  "listingId": "l_mumbai_19",
+  "startsAt": "2026-10-28T10:00:00+05:30",
+  "endsAt": "2026-10-28T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_36",
+  "listingId": "l_mumbai_19",
+  "startsAt": "2026-11-04T10:00:00+05:30",
+  "endsAt": "2026-11-04T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_37",
+  "listingId": "l_mumbai_19",
+  "startsAt": "2026-11-11T10:00:00+05:30",
+  "endsAt": "2026-11-11T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_38",
+  "listingId": "l_mumbai_19",
+  "startsAt": "2026-11-18T10:00:00+05:30",
+  "endsAt": "2026-11-18T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_39",
+  "listingId": "l_mumbai_20",
+  "startsAt": "2026-11-03T17:00:00+05:30",
+  "endsAt": "2026-11-03T19:30:00+05:30",
+  "capacity": 200,
+  "label": "Show"
+ },
+ {
+  "id": "s_40",
+  "listingId": "l_mumbai_21",
+  "startsAt": "2026-11-08T06:30:00+05:30",
+  "endsAt": "2026-11-08T07:30:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_41",
+  "listingId": "l_mumbai_23",
+  "startsAt": "2026-10-17T07:00:00+05:30",
+  "endsAt": "2026-10-17T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_42",
+  "listingId": "l_mumbai_23",
+  "startsAt": "2026-10-24T07:00:00+05:30",
+  "endsAt": "2026-10-24T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_43",
+  "listingId": "l_mumbai_23",
+  "startsAt": "2026-10-31T07:00:00+05:30",
+  "endsAt": "2026-10-31T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_44",
+  "listingId": "l_mumbai_23",
+  "startsAt": "2026-11-07T07:00:00+05:30",
+  "endsAt": "2026-11-07T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_45",
+  "listingId": "l_mumbai_23",
+  "startsAt": "2026-11-14T07:00:00+05:30",
+  "endsAt": "2026-11-14T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_46",
+  "listingId": "l_mumbai_23",
+  "startsAt": "2026-11-21T07:00:00+05:30",
+  "endsAt": "2026-11-21T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_47",
+  "listingId": "l_mumbai_24",
+  "startsAt": "2026-10-24T14:00:00+05:30",
+  "endsAt": "2026-10-24T17:00:00+05:30",
+  "capacity": 80,
+  "label": "Show"
+ },
+ {
+  "id": "s_48",
+  "listingId": "l_mumbai_25",
+  "startsAt": "2026-10-29T17:00:00+05:30",
+  "endsAt": "2026-10-29T19:00:00+05:30",
+  "capacity": 30,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_49",
+  "listingId": "l_mumbai_26",
+  "startsAt": "2026-10-24T06:00:00+05:30",
+  "endsAt": "2026-10-24T07:15:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_50",
+  "listingId": "l_mumbai_27",
+  "startsAt": "2026-10-16T08:30:00+05:30",
+  "endsAt": "2026-10-16T10:00:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_51",
+  "listingId": "l_mumbai_28",
+  "startsAt": "2026-10-14T19:00:00+05:30",
+  "endsAt": "2026-10-14T22:00:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_52",
+  "listingId": "l_mumbai_29",
+  "startsAt": "2026-10-23T07:30:00+05:30",
+  "endsAt": "2026-10-23T10:00:00+05:30",
+  "capacity": 80,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_53",
+  "listingId": "l_mumbai_30",
+  "startsAt": "2026-10-24T18:30:00+05:30",
+  "endsAt": "2026-10-24T21:00:00+05:30",
+  "capacity": 0,
+  "label": "Open day"
+ },
+ {
+  "id": "s_54",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-06T11:00:00+05:30",
+  "endsAt": "2026-10-06T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_55",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-06T13:00:00+05:30",
+  "endsAt": "2026-10-06T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_56",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-06T15:00:00+05:30",
+  "endsAt": "2026-10-06T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_57",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-06T17:00:00+05:30",
+  "endsAt": "2026-10-06T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_58",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-07T11:00:00+05:30",
+  "endsAt": "2026-10-07T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_59",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-07T13:00:00+05:30",
+  "endsAt": "2026-10-07T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_60",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-07T15:00:00+05:30",
+  "endsAt": "2026-10-07T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_61",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-07T17:00:00+05:30",
+  "endsAt": "2026-10-07T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_62",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-08T11:00:00+05:30",
+  "endsAt": "2026-10-08T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_63",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-08T13:00:00+05:30",
+  "endsAt": "2026-10-08T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_64",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-08T15:00:00+05:30",
+  "endsAt": "2026-10-08T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_65",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-08T17:00:00+05:30",
+  "endsAt": "2026-10-08T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_66",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-09T11:00:00+05:30",
+  "endsAt": "2026-10-09T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_67",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-09T13:00:00+05:30",
+  "endsAt": "2026-10-09T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_68",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-09T15:00:00+05:30",
+  "endsAt": "2026-10-09T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_69",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-09T17:00:00+05:30",
+  "endsAt": "2026-10-09T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_70",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-10T11:00:00+05:30",
+  "endsAt": "2026-10-10T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_71",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-10T13:00:00+05:30",
+  "endsAt": "2026-10-10T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_72",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-10T15:00:00+05:30",
+  "endsAt": "2026-10-10T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_73",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-10T17:00:00+05:30",
+  "endsAt": "2026-10-10T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_74",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-11T11:00:00+05:30",
+  "endsAt": "2026-10-11T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_75",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-11T13:00:00+05:30",
+  "endsAt": "2026-10-11T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_76",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-11T15:00:00+05:30",
+  "endsAt": "2026-10-11T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_77",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-11T17:00:00+05:30",
+  "endsAt": "2026-10-11T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_78",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_79",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-13T13:00:00+05:30",
+  "endsAt": "2026-10-13T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_80",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-13T15:00:00+05:30",
+  "endsAt": "2026-10-13T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_81",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-13T17:00:00+05:30",
+  "endsAt": "2026-10-13T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_82",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_83",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-14T13:00:00+05:30",
+  "endsAt": "2026-10-14T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_84",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-14T15:00:00+05:30",
+  "endsAt": "2026-10-14T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_85",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-14T17:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_86",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-15T11:00:00+05:30",
+  "endsAt": "2026-10-15T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_87",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-15T13:00:00+05:30",
+  "endsAt": "2026-10-15T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_88",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-15T15:00:00+05:30",
+  "endsAt": "2026-10-15T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_89",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-15T17:00:00+05:30",
+  "endsAt": "2026-10-15T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_90",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-16T11:00:00+05:30",
+  "endsAt": "2026-10-16T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_91",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-16T13:00:00+05:30",
+  "endsAt": "2026-10-16T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_92",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-16T15:00:00+05:30",
+  "endsAt": "2026-10-16T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_93",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-16T17:00:00+05:30",
+  "endsAt": "2026-10-16T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_94",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-17T11:00:00+05:30",
+  "endsAt": "2026-10-17T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_95",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-17T13:00:00+05:30",
+  "endsAt": "2026-10-17T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_96",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-17T15:00:00+05:30",
+  "endsAt": "2026-10-17T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_97",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-17T17:00:00+05:30",
+  "endsAt": "2026-10-17T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_98",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-18T11:00:00+05:30",
+  "endsAt": "2026-10-18T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_99",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-18T13:00:00+05:30",
+  "endsAt": "2026-10-18T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_100",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-18T15:00:00+05:30",
+  "endsAt": "2026-10-18T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_101",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-18T17:00:00+05:30",
+  "endsAt": "2026-10-18T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_102",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-20T11:00:00+05:30",
+  "endsAt": "2026-10-20T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_103",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-20T13:00:00+05:30",
+  "endsAt": "2026-10-20T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_104",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-20T15:00:00+05:30",
+  "endsAt": "2026-10-20T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_105",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-20T17:00:00+05:30",
+  "endsAt": "2026-10-20T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_106",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-21T11:00:00+05:30",
+  "endsAt": "2026-10-21T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_107",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-21T13:00:00+05:30",
+  "endsAt": "2026-10-21T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_108",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-21T15:00:00+05:30",
+  "endsAt": "2026-10-21T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_109",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-21T17:00:00+05:30",
+  "endsAt": "2026-10-21T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_110",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-22T11:00:00+05:30",
+  "endsAt": "2026-10-22T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_111",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-22T13:00:00+05:30",
+  "endsAt": "2026-10-22T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_112",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-22T15:00:00+05:30",
+  "endsAt": "2026-10-22T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_113",
+  "listingId": "l_mumbai_32",
+  "startsAt": "2026-10-22T17:00:00+05:30",
+  "endsAt": "2026-10-22T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_114",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-06T11:00:00+05:30",
+  "endsAt": "2026-10-06T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_115",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-06T13:00:00+05:30",
+  "endsAt": "2026-10-06T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_116",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-06T15:00:00+05:30",
+  "endsAt": "2026-10-06T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_117",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-06T17:00:00+05:30",
+  "endsAt": "2026-10-06T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_118",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-07T11:00:00+05:30",
+  "endsAt": "2026-10-07T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_119",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-07T13:00:00+05:30",
+  "endsAt": "2026-10-07T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_120",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-07T15:00:00+05:30",
+  "endsAt": "2026-10-07T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_121",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-07T17:00:00+05:30",
+  "endsAt": "2026-10-07T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_122",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-08T11:00:00+05:30",
+  "endsAt": "2026-10-08T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_123",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-08T13:00:00+05:30",
+  "endsAt": "2026-10-08T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_124",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-08T15:00:00+05:30",
+  "endsAt": "2026-10-08T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_125",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-08T17:00:00+05:30",
+  "endsAt": "2026-10-08T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_126",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-09T11:00:00+05:30",
+  "endsAt": "2026-10-09T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_127",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-09T13:00:00+05:30",
+  "endsAt": "2026-10-09T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_128",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-09T15:00:00+05:30",
+  "endsAt": "2026-10-09T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_129",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-09T17:00:00+05:30",
+  "endsAt": "2026-10-09T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_130",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-10T11:00:00+05:30",
+  "endsAt": "2026-10-10T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_131",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-10T13:00:00+05:30",
+  "endsAt": "2026-10-10T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_132",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-10T15:00:00+05:30",
+  "endsAt": "2026-10-10T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_133",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-10T17:00:00+05:30",
+  "endsAt": "2026-10-10T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_134",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-11T11:00:00+05:30",
+  "endsAt": "2026-10-11T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_135",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-11T13:00:00+05:30",
+  "endsAt": "2026-10-11T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_136",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-11T15:00:00+05:30",
+  "endsAt": "2026-10-11T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_137",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-11T17:00:00+05:30",
+  "endsAt": "2026-10-11T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_138",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_139",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-13T13:00:00+05:30",
+  "endsAt": "2026-10-13T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_140",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-13T15:00:00+05:30",
+  "endsAt": "2026-10-13T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_141",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-13T17:00:00+05:30",
+  "endsAt": "2026-10-13T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_142",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_143",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-14T13:00:00+05:30",
+  "endsAt": "2026-10-14T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_144",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-14T15:00:00+05:30",
+  "endsAt": "2026-10-14T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_145",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-14T17:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_146",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-15T11:00:00+05:30",
+  "endsAt": "2026-10-15T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_147",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-15T13:00:00+05:30",
+  "endsAt": "2026-10-15T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_148",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-15T15:00:00+05:30",
+  "endsAt": "2026-10-15T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_149",
+  "listingId": "l_mumbai_33",
+  "startsAt": "2026-10-15T17:00:00+05:30",
+  "endsAt": "2026-10-15T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_150",
+  "listingId": "l_mumbai_34",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 0,
+  "label": "Open day"
+ },
+ {
+  "id": "s_151",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-08T11:00:00+05:30",
+  "endsAt": "2026-10-08T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_152",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-08T13:00:00+05:30",
+  "endsAt": "2026-10-08T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_153",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-08T15:00:00+05:30",
+  "endsAt": "2026-10-08T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_154",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-08T17:00:00+05:30",
+  "endsAt": "2026-10-08T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_155",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-09T11:00:00+05:30",
+  "endsAt": "2026-10-09T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_156",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-09T13:00:00+05:30",
+  "endsAt": "2026-10-09T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_157",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-09T15:00:00+05:30",
+  "endsAt": "2026-10-09T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_158",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-09T17:00:00+05:30",
+  "endsAt": "2026-10-09T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_159",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-10T11:00:00+05:30",
+  "endsAt": "2026-10-10T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_160",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-10T13:00:00+05:30",
+  "endsAt": "2026-10-10T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_161",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-10T15:00:00+05:30",
+  "endsAt": "2026-10-10T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_162",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-10T17:00:00+05:30",
+  "endsAt": "2026-10-10T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_163",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-11T11:00:00+05:30",
+  "endsAt": "2026-10-11T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_164",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-11T13:00:00+05:30",
+  "endsAt": "2026-10-11T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_165",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-11T15:00:00+05:30",
+  "endsAt": "2026-10-11T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_166",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-11T17:00:00+05:30",
+  "endsAt": "2026-10-11T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_167",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_168",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-13T13:00:00+05:30",
+  "endsAt": "2026-10-13T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_169",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-13T15:00:00+05:30",
+  "endsAt": "2026-10-13T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_170",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-13T17:00:00+05:30",
+  "endsAt": "2026-10-13T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_171",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_172",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-14T13:00:00+05:30",
+  "endsAt": "2026-10-14T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_173",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-14T15:00:00+05:30",
+  "endsAt": "2026-10-14T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_174",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-14T17:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_175",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-15T11:00:00+05:30",
+  "endsAt": "2026-10-15T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_176",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-15T13:00:00+05:30",
+  "endsAt": "2026-10-15T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_177",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-15T15:00:00+05:30",
+  "endsAt": "2026-10-15T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_178",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-15T17:00:00+05:30",
+  "endsAt": "2026-10-15T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_179",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-16T11:00:00+05:30",
+  "endsAt": "2026-10-16T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_180",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-16T13:00:00+05:30",
+  "endsAt": "2026-10-16T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_181",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-16T15:00:00+05:30",
+  "endsAt": "2026-10-16T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_182",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-16T17:00:00+05:30",
+  "endsAt": "2026-10-16T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_183",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-17T11:00:00+05:30",
+  "endsAt": "2026-10-17T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_184",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-17T13:00:00+05:30",
+  "endsAt": "2026-10-17T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_185",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-17T15:00:00+05:30",
+  "endsAt": "2026-10-17T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_186",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-17T17:00:00+05:30",
+  "endsAt": "2026-10-17T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_187",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-18T11:00:00+05:30",
+  "endsAt": "2026-10-18T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_188",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-18T13:00:00+05:30",
+  "endsAt": "2026-10-18T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_189",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-18T15:00:00+05:30",
+  "endsAt": "2026-10-18T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_190",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-18T17:00:00+05:30",
+  "endsAt": "2026-10-18T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_191",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-20T11:00:00+05:30",
+  "endsAt": "2026-10-20T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_192",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-20T13:00:00+05:30",
+  "endsAt": "2026-10-20T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_193",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-20T15:00:00+05:30",
+  "endsAt": "2026-10-20T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_194",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-20T17:00:00+05:30",
+  "endsAt": "2026-10-20T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_195",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-21T11:00:00+05:30",
+  "endsAt": "2026-10-21T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_196",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-21T13:00:00+05:30",
+  "endsAt": "2026-10-21T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_197",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-21T15:00:00+05:30",
+  "endsAt": "2026-10-21T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_198",
+  "listingId": "l_mumbai_35",
+  "startsAt": "2026-10-21T17:00:00+05:30",
+  "endsAt": "2026-10-21T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_199",
+  "listingId": "l_mumbai_36",
+  "startsAt": "2026-10-30T18:00:00+05:30",
+  "endsAt": "2026-10-30T21:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_200",
+  "listingId": "l_mumbai_37",
+  "startsAt": "2026-10-19T10:00:00+05:30",
+  "endsAt": "2026-10-21T10:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_201",
+  "listingId": "l_mumbai_38",
+  "startsAt": "2026-10-20T08:00:00+05:30",
+  "endsAt": "2026-10-20T16:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_202",
+  "listingId": "l_mumbai_39",
+  "startsAt": "2026-10-21T09:00:00+05:30",
+  "endsAt": "2026-10-21T18:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_203",
+  "listingId": "l_mumbai_40",
+  "startsAt": "2026-10-22T16:00:00+05:30",
+  "endsAt": "2026-10-22T21:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_204",
+  "listingId": "l_pune_01",
+  "startsAt": "2026-10-11T20:00:00+05:30",
+  "endsAt": "2026-10-11T21:30:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_205",
+  "listingId": "l_pune_02",
+  "startsAt": "2026-10-12T21:30:00+05:30",
+  "endsAt": "2026-10-12T23:10:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_206",
+  "listingId": "l_pune_03",
+  "startsAt": "2026-10-13T18:00:00+05:30",
+  "endsAt": "2026-10-13T20:00:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_207",
+  "listingId": "l_pune_04",
+  "startsAt": "2026-10-11T19:30:00+05:30",
+  "endsAt": "2026-10-11T20:45:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_208",
+  "listingId": "l_pune_05",
+  "startsAt": "2026-10-12T20:00:00+05:30",
+  "endsAt": "2026-10-12T23:00:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_209",
+  "listingId": "l_pune_07",
+  "startsAt": "2026-10-23T18:30:00+05:30",
+  "endsAt": "2026-10-23T21:00:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_210",
+  "listingId": "l_pune_08",
+  "startsAt": "2026-10-17T21:00:00+05:30",
+  "endsAt": "2026-10-18T00:00:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_211",
+  "listingId": "l_pune_09",
+  "startsAt": "2026-10-24T15:00:00+05:30",
+  "endsAt": "2026-10-24T23:00:00+05:30",
+  "capacity": 1500,
+  "label": "Day 1"
+ },
+ {
+  "id": "s_212",
+  "listingId": "l_pune_09",
+  "startsAt": "2026-10-25T15:00:00+05:30",
+  "endsAt": "2026-10-25T23:00:00+05:30",
+  "capacity": 1500,
+  "label": "Day 2"
+ },
+ {
+  "id": "s_213",
+  "listingId": "l_pune_10",
+  "startsAt": "2026-11-07T19:30:00+05:30",
+  "endsAt": "2026-11-07T21:00:00+05:30",
+  "capacity": 150,
+  "label": "Show"
+ },
+ {
+  "id": "s_214",
+  "listingId": "l_pune_11",
+  "startsAt": "2026-10-16T18:00:00+05:30",
+  "endsAt": "2026-10-16T19:40:00+05:30",
+  "capacity": 200,
+  "label": "Show"
+ },
+ {
+  "id": "s_215",
+  "listingId": "l_pune_12",
+  "startsAt": "2026-10-24T20:00:00+05:30",
+  "endsAt": "2026-10-24T21:30:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_216",
+  "listingId": "l_pune_13",
+  "startsAt": "2026-10-23T12:00:00+05:30",
+  "endsAt": "2026-10-23T22:00:00+05:30",
+  "capacity": 1500,
+  "label": "Day 1"
+ },
+ {
+  "id": "s_217",
+  "listingId": "l_pune_13",
+  "startsAt": "2026-10-24T12:00:00+05:30",
+  "endsAt": "2026-10-24T22:00:00+05:30",
+  "capacity": 1500,
+  "label": "Day 2"
+ },
+ {
+  "id": "s_218",
+  "listingId": "l_pune_13",
+  "startsAt": "2026-10-25T12:00:00+05:30",
+  "endsAt": "2026-10-25T22:00:00+05:30",
+  "capacity": 1500,
+  "label": "Day 3"
+ },
+ {
+  "id": "s_219",
+  "listingId": "l_pune_14",
+  "startsAt": "2026-10-17T11:00:00+05:30",
+  "endsAt": "2026-10-17T20:00:00+05:30",
+  "capacity": 0,
+  "label": "Open day"
+ },
+ {
+  "id": "s_220",
+  "listingId": "l_pune_16",
+  "startsAt": "2026-10-17T16:00:00+05:30",
+  "endsAt": "2026-10-17T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_221",
+  "listingId": "l_pune_16",
+  "startsAt": "2026-10-24T16:00:00+05:30",
+  "endsAt": "2026-10-24T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_222",
+  "listingId": "l_pune_16",
+  "startsAt": "2026-10-31T16:00:00+05:30",
+  "endsAt": "2026-10-31T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_223",
+  "listingId": "l_pune_16",
+  "startsAt": "2026-11-07T16:00:00+05:30",
+  "endsAt": "2026-11-07T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_224",
+  "listingId": "l_pune_16",
+  "startsAt": "2026-11-14T16:00:00+05:30",
+  "endsAt": "2026-11-14T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_225",
+  "listingId": "l_pune_16",
+  "startsAt": "2026-11-21T16:00:00+05:30",
+  "endsAt": "2026-11-21T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_226",
+  "listingId": "l_pune_17",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T14:00:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_227",
+  "listingId": "l_pune_18",
+  "startsAt": "2026-10-18T18:00:00+05:30",
+  "endsAt": "2026-10-18T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_228",
+  "listingId": "l_pune_18",
+  "startsAt": "2026-10-25T18:00:00+05:30",
+  "endsAt": "2026-10-25T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_229",
+  "listingId": "l_pune_18",
+  "startsAt": "2026-11-01T18:00:00+05:30",
+  "endsAt": "2026-11-01T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_230",
+  "listingId": "l_pune_18",
+  "startsAt": "2026-11-08T18:00:00+05:30",
+  "endsAt": "2026-11-08T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_231",
+  "listingId": "l_pune_18",
+  "startsAt": "2026-11-15T18:00:00+05:30",
+  "endsAt": "2026-11-15T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_232",
+  "listingId": "l_pune_18",
+  "startsAt": "2026-11-22T18:00:00+05:30",
+  "endsAt": "2026-11-22T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_233",
+  "listingId": "l_pune_19",
+  "startsAt": "2026-10-18T10:00:00+05:30",
+  "endsAt": "2026-10-18T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_234",
+  "listingId": "l_pune_19",
+  "startsAt": "2026-10-25T10:00:00+05:30",
+  "endsAt": "2026-10-25T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_235",
+  "listingId": "l_pune_19",
+  "startsAt": "2026-11-01T10:00:00+05:30",
+  "endsAt": "2026-11-01T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_236",
+  "listingId": "l_pune_19",
+  "startsAt": "2026-11-08T10:00:00+05:30",
+  "endsAt": "2026-11-08T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_237",
+  "listingId": "l_pune_19",
+  "startsAt": "2026-11-15T10:00:00+05:30",
+  "endsAt": "2026-11-15T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_238",
+  "listingId": "l_pune_19",
+  "startsAt": "2026-11-22T10:00:00+05:30",
+  "endsAt": "2026-11-22T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_239",
+  "listingId": "l_pune_20",
+  "startsAt": "2026-10-28T17:00:00+05:30",
+  "endsAt": "2026-10-28T19:30:00+05:30",
+  "capacity": 200,
+  "label": "Show"
+ },
+ {
+  "id": "s_240",
+  "listingId": "l_pune_21",
+  "startsAt": "2026-11-02T06:30:00+05:30",
+  "endsAt": "2026-11-02T07:30:00+05:30",
+  "capacity": 40,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_241",
+  "listingId": "l_pune_22",
+  "startsAt": "2026-10-18T19:00:00+05:30",
+  "endsAt": "2026-10-18T20:15:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_242",
+  "listingId": "l_pune_22",
+  "startsAt": "2026-10-25T19:00:00+05:30",
+  "endsAt": "2026-10-25T20:15:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_243",
+  "listingId": "l_pune_22",
+  "startsAt": "2026-11-01T19:00:00+05:30",
+  "endsAt": "2026-11-01T20:15:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_244",
+  "listingId": "l_pune_22",
+  "startsAt": "2026-11-08T19:00:00+05:30",
+  "endsAt": "2026-11-08T20:15:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_245",
+  "listingId": "l_pune_22",
+  "startsAt": "2026-11-15T19:00:00+05:30",
+  "endsAt": "2026-11-15T20:15:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_246",
+  "listingId": "l_pune_22",
+  "startsAt": "2026-11-22T19:00:00+05:30",
+  "endsAt": "2026-11-22T20:15:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_247",
+  "listingId": "l_pune_23",
+  "startsAt": "2026-10-17T07:00:00+05:30",
+  "endsAt": "2026-10-17T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_248",
+  "listingId": "l_pune_23",
+  "startsAt": "2026-10-24T07:00:00+05:30",
+  "endsAt": "2026-10-24T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_249",
+  "listingId": "l_pune_23",
+  "startsAt": "2026-10-31T07:00:00+05:30",
+  "endsAt": "2026-10-31T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_250",
+  "listingId": "l_pune_23",
+  "startsAt": "2026-11-07T07:00:00+05:30",
+  "endsAt": "2026-11-07T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_251",
+  "listingId": "l_pune_23",
+  "startsAt": "2026-11-14T07:00:00+05:30",
+  "endsAt": "2026-11-14T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_252",
+  "listingId": "l_pune_23",
+  "startsAt": "2026-11-21T07:00:00+05:30",
+  "endsAt": "2026-11-21T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_253",
+  "listingId": "l_pune_25",
+  "startsAt": "2026-10-23T17:00:00+05:30",
+  "endsAt": "2026-10-23T19:00:00+05:30",
+  "capacity": 40,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_254",
+  "listingId": "l_pune_26",
+  "startsAt": "2026-10-17T06:00:00+05:30",
+  "endsAt": "2026-10-17T07:15:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_255",
+  "listingId": "l_pune_27",
+  "startsAt": "2026-10-23T08:30:00+05:30",
+  "endsAt": "2026-10-23T10:00:00+05:30",
+  "capacity": 30,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_256",
+  "listingId": "l_pune_28",
+  "startsAt": "2026-11-07T19:00:00+05:30",
+  "endsAt": "2026-11-07T22:00:00+05:30",
+  "capacity": 80,
+  "label": "Show"
+ },
+ {
+  "id": "s_257",
+  "listingId": "l_pune_29",
+  "startsAt": "2026-10-16T07:30:00+05:30",
+  "endsAt": "2026-10-16T10:00:00+05:30",
+  "capacity": 30,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_258",
+  "listingId": "l_pune_30",
+  "startsAt": "2026-10-24T18:30:00+05:30",
+  "endsAt": "2026-10-24T21:00:00+05:30",
+  "capacity": 0,
+  "label": "Open day"
+ },
+ {
+  "id": "s_259",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-08T11:00:00+05:30",
+  "endsAt": "2026-10-08T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_260",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-08T13:00:00+05:30",
+  "endsAt": "2026-10-08T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_261",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-08T15:00:00+05:30",
+  "endsAt": "2026-10-08T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_262",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-08T17:00:00+05:30",
+  "endsAt": "2026-10-08T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_263",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-09T11:00:00+05:30",
+  "endsAt": "2026-10-09T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_264",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-09T13:00:00+05:30",
+  "endsAt": "2026-10-09T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_265",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-09T15:00:00+05:30",
+  "endsAt": "2026-10-09T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_266",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-09T17:00:00+05:30",
+  "endsAt": "2026-10-09T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_267",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-10T11:00:00+05:30",
+  "endsAt": "2026-10-10T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_268",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-10T13:00:00+05:30",
+  "endsAt": "2026-10-10T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_269",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-10T15:00:00+05:30",
+  "endsAt": "2026-10-10T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_270",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-10T17:00:00+05:30",
+  "endsAt": "2026-10-10T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_271",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-11T11:00:00+05:30",
+  "endsAt": "2026-10-11T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_272",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-11T13:00:00+05:30",
+  "endsAt": "2026-10-11T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_273",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-11T15:00:00+05:30",
+  "endsAt": "2026-10-11T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_274",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-11T17:00:00+05:30",
+  "endsAt": "2026-10-11T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_275",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_276",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-13T13:00:00+05:30",
+  "endsAt": "2026-10-13T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_277",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-13T15:00:00+05:30",
+  "endsAt": "2026-10-13T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_278",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-13T17:00:00+05:30",
+  "endsAt": "2026-10-13T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_279",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_280",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-14T13:00:00+05:30",
+  "endsAt": "2026-10-14T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_281",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-14T15:00:00+05:30",
+  "endsAt": "2026-10-14T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_282",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-14T17:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_283",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-15T11:00:00+05:30",
+  "endsAt": "2026-10-15T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_284",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-15T13:00:00+05:30",
+  "endsAt": "2026-10-15T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_285",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-15T15:00:00+05:30",
+  "endsAt": "2026-10-15T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_286",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-15T17:00:00+05:30",
+  "endsAt": "2026-10-15T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_287",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-16T11:00:00+05:30",
+  "endsAt": "2026-10-16T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_288",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-16T13:00:00+05:30",
+  "endsAt": "2026-10-16T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_289",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-16T15:00:00+05:30",
+  "endsAt": "2026-10-16T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_290",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-16T17:00:00+05:30",
+  "endsAt": "2026-10-16T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_291",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-17T11:00:00+05:30",
+  "endsAt": "2026-10-17T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_292",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-17T13:00:00+05:30",
+  "endsAt": "2026-10-17T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_293",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-17T15:00:00+05:30",
+  "endsAt": "2026-10-17T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_294",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-17T17:00:00+05:30",
+  "endsAt": "2026-10-17T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_295",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-18T11:00:00+05:30",
+  "endsAt": "2026-10-18T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_296",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-18T13:00:00+05:30",
+  "endsAt": "2026-10-18T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_297",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-18T15:00:00+05:30",
+  "endsAt": "2026-10-18T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_298",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-18T17:00:00+05:30",
+  "endsAt": "2026-10-18T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_299",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-20T11:00:00+05:30",
+  "endsAt": "2026-10-20T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_300",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-20T13:00:00+05:30",
+  "endsAt": "2026-10-20T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_301",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-20T15:00:00+05:30",
+  "endsAt": "2026-10-20T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_302",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-20T17:00:00+05:30",
+  "endsAt": "2026-10-20T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_303",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-21T11:00:00+05:30",
+  "endsAt": "2026-10-21T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_304",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-21T13:00:00+05:30",
+  "endsAt": "2026-10-21T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_305",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-21T15:00:00+05:30",
+  "endsAt": "2026-10-21T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_306",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-21T17:00:00+05:30",
+  "endsAt": "2026-10-21T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_307",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-22T11:00:00+05:30",
+  "endsAt": "2026-10-22T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_308",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-22T13:00:00+05:30",
+  "endsAt": "2026-10-22T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_309",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-22T15:00:00+05:30",
+  "endsAt": "2026-10-22T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_310",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-22T17:00:00+05:30",
+  "endsAt": "2026-10-22T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_311",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-23T11:00:00+05:30",
+  "endsAt": "2026-10-23T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_312",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-23T13:00:00+05:30",
+  "endsAt": "2026-10-23T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_313",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-23T15:00:00+05:30",
+  "endsAt": "2026-10-23T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_314",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-23T17:00:00+05:30",
+  "endsAt": "2026-10-23T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_315",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-24T11:00:00+05:30",
+  "endsAt": "2026-10-24T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_316",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-24T13:00:00+05:30",
+  "endsAt": "2026-10-24T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_317",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-24T15:00:00+05:30",
+  "endsAt": "2026-10-24T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_318",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-24T17:00:00+05:30",
+  "endsAt": "2026-10-24T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_319",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-25T11:00:00+05:30",
+  "endsAt": "2026-10-25T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_320",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-25T13:00:00+05:30",
+  "endsAt": "2026-10-25T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_321",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-25T15:00:00+05:30",
+  "endsAt": "2026-10-25T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_322",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-25T17:00:00+05:30",
+  "endsAt": "2026-10-25T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_323",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-27T11:00:00+05:30",
+  "endsAt": "2026-10-27T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_324",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-27T13:00:00+05:30",
+  "endsAt": "2026-10-27T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_325",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-27T15:00:00+05:30",
+  "endsAt": "2026-10-27T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_326",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-27T17:00:00+05:30",
+  "endsAt": "2026-10-27T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_327",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-28T11:00:00+05:30",
+  "endsAt": "2026-10-28T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_328",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-28T13:00:00+05:30",
+  "endsAt": "2026-10-28T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_329",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-28T15:00:00+05:30",
+  "endsAt": "2026-10-28T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_330",
+  "listingId": "l_pune_31",
+  "startsAt": "2026-10-28T17:00:00+05:30",
+  "endsAt": "2026-10-28T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_331",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-06T11:00:00+05:30",
+  "endsAt": "2026-10-06T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_332",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-06T13:00:00+05:30",
+  "endsAt": "2026-10-06T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_333",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-06T15:00:00+05:30",
+  "endsAt": "2026-10-06T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_334",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-06T17:00:00+05:30",
+  "endsAt": "2026-10-06T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_335",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-07T11:00:00+05:30",
+  "endsAt": "2026-10-07T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_336",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-07T13:00:00+05:30",
+  "endsAt": "2026-10-07T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_337",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-07T15:00:00+05:30",
+  "endsAt": "2026-10-07T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_338",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-07T17:00:00+05:30",
+  "endsAt": "2026-10-07T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_339",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-08T11:00:00+05:30",
+  "endsAt": "2026-10-08T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_340",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-08T13:00:00+05:30",
+  "endsAt": "2026-10-08T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_341",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-08T15:00:00+05:30",
+  "endsAt": "2026-10-08T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_342",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-08T17:00:00+05:30",
+  "endsAt": "2026-10-08T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_343",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-09T11:00:00+05:30",
+  "endsAt": "2026-10-09T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_344",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-09T13:00:00+05:30",
+  "endsAt": "2026-10-09T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_345",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-09T15:00:00+05:30",
+  "endsAt": "2026-10-09T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_346",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-09T17:00:00+05:30",
+  "endsAt": "2026-10-09T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_347",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-10T11:00:00+05:30",
+  "endsAt": "2026-10-10T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_348",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-10T13:00:00+05:30",
+  "endsAt": "2026-10-10T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_349",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-10T15:00:00+05:30",
+  "endsAt": "2026-10-10T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_350",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-10T17:00:00+05:30",
+  "endsAt": "2026-10-10T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_351",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-11T11:00:00+05:30",
+  "endsAt": "2026-10-11T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_352",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-11T13:00:00+05:30",
+  "endsAt": "2026-10-11T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_353",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-11T15:00:00+05:30",
+  "endsAt": "2026-10-11T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_354",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-11T17:00:00+05:30",
+  "endsAt": "2026-10-11T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_355",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_356",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-13T13:00:00+05:30",
+  "endsAt": "2026-10-13T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_357",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-13T15:00:00+05:30",
+  "endsAt": "2026-10-13T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_358",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-13T17:00:00+05:30",
+  "endsAt": "2026-10-13T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_359",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_360",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-14T13:00:00+05:30",
+  "endsAt": "2026-10-14T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_361",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-14T15:00:00+05:30",
+  "endsAt": "2026-10-14T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_362",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-14T17:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_363",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-15T11:00:00+05:30",
+  "endsAt": "2026-10-15T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_364",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-15T13:00:00+05:30",
+  "endsAt": "2026-10-15T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_365",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-15T15:00:00+05:30",
+  "endsAt": "2026-10-15T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_366",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-15T17:00:00+05:30",
+  "endsAt": "2026-10-15T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_367",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-16T11:00:00+05:30",
+  "endsAt": "2026-10-16T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_368",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-16T13:00:00+05:30",
+  "endsAt": "2026-10-16T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_369",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-16T15:00:00+05:30",
+  "endsAt": "2026-10-16T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_370",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-16T17:00:00+05:30",
+  "endsAt": "2026-10-16T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_371",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-17T11:00:00+05:30",
+  "endsAt": "2026-10-17T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_372",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-17T13:00:00+05:30",
+  "endsAt": "2026-10-17T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_373",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-17T15:00:00+05:30",
+  "endsAt": "2026-10-17T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_374",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-17T17:00:00+05:30",
+  "endsAt": "2026-10-17T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_375",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-18T11:00:00+05:30",
+  "endsAt": "2026-10-18T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_376",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-18T13:00:00+05:30",
+  "endsAt": "2026-10-18T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_377",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-18T15:00:00+05:30",
+  "endsAt": "2026-10-18T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_378",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-18T17:00:00+05:30",
+  "endsAt": "2026-10-18T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_379",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-20T11:00:00+05:30",
+  "endsAt": "2026-10-20T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_380",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-20T13:00:00+05:30",
+  "endsAt": "2026-10-20T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_381",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-20T15:00:00+05:30",
+  "endsAt": "2026-10-20T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_382",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-20T17:00:00+05:30",
+  "endsAt": "2026-10-20T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_383",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-21T11:00:00+05:30",
+  "endsAt": "2026-10-21T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_384",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-21T13:00:00+05:30",
+  "endsAt": "2026-10-21T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_385",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-21T15:00:00+05:30",
+  "endsAt": "2026-10-21T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_386",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-21T17:00:00+05:30",
+  "endsAt": "2026-10-21T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_387",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-22T11:00:00+05:30",
+  "endsAt": "2026-10-22T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_388",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-22T13:00:00+05:30",
+  "endsAt": "2026-10-22T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_389",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-22T15:00:00+05:30",
+  "endsAt": "2026-10-22T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_390",
+  "listingId": "l_pune_32",
+  "startsAt": "2026-10-22T17:00:00+05:30",
+  "endsAt": "2026-10-22T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_391",
+  "listingId": "l_pune_34",
+  "startsAt": "2026-11-07T11:00:00+05:30",
+  "endsAt": "2026-11-07T19:00:00+05:30",
+  "capacity": 0,
+  "label": "Open day"
+ },
+ {
+  "id": "s_392",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-07T11:00:00+05:30",
+  "endsAt": "2026-10-07T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_393",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-07T13:00:00+05:30",
+  "endsAt": "2026-10-07T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_394",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-07T15:00:00+05:30",
+  "endsAt": "2026-10-07T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_395",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-07T17:00:00+05:30",
+  "endsAt": "2026-10-07T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_396",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-08T11:00:00+05:30",
+  "endsAt": "2026-10-08T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_397",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-08T13:00:00+05:30",
+  "endsAt": "2026-10-08T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_398",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-08T15:00:00+05:30",
+  "endsAt": "2026-10-08T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_399",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-08T17:00:00+05:30",
+  "endsAt": "2026-10-08T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_400",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-09T11:00:00+05:30",
+  "endsAt": "2026-10-09T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_401",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-09T13:00:00+05:30",
+  "endsAt": "2026-10-09T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_402",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-09T15:00:00+05:30",
+  "endsAt": "2026-10-09T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_403",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-09T17:00:00+05:30",
+  "endsAt": "2026-10-09T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_404",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-10T11:00:00+05:30",
+  "endsAt": "2026-10-10T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_405",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-10T13:00:00+05:30",
+  "endsAt": "2026-10-10T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_406",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-10T15:00:00+05:30",
+  "endsAt": "2026-10-10T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_407",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-10T17:00:00+05:30",
+  "endsAt": "2026-10-10T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_408",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-11T11:00:00+05:30",
+  "endsAt": "2026-10-11T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_409",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-11T13:00:00+05:30",
+  "endsAt": "2026-10-11T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_410",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-11T15:00:00+05:30",
+  "endsAt": "2026-10-11T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_411",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-11T17:00:00+05:30",
+  "endsAt": "2026-10-11T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_412",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_413",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-13T13:00:00+05:30",
+  "endsAt": "2026-10-13T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_414",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-13T15:00:00+05:30",
+  "endsAt": "2026-10-13T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_415",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-13T17:00:00+05:30",
+  "endsAt": "2026-10-13T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_416",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_417",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-14T13:00:00+05:30",
+  "endsAt": "2026-10-14T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_418",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-14T15:00:00+05:30",
+  "endsAt": "2026-10-14T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_419",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-14T17:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_420",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-15T11:00:00+05:30",
+  "endsAt": "2026-10-15T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_421",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-15T13:00:00+05:30",
+  "endsAt": "2026-10-15T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_422",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-15T15:00:00+05:30",
+  "endsAt": "2026-10-15T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_423",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-15T17:00:00+05:30",
+  "endsAt": "2026-10-15T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_424",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-16T11:00:00+05:30",
+  "endsAt": "2026-10-16T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_425",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-16T13:00:00+05:30",
+  "endsAt": "2026-10-16T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_426",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-16T15:00:00+05:30",
+  "endsAt": "2026-10-16T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_427",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-16T17:00:00+05:30",
+  "endsAt": "2026-10-16T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_428",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-17T11:00:00+05:30",
+  "endsAt": "2026-10-17T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_429",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-17T13:00:00+05:30",
+  "endsAt": "2026-10-17T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_430",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-17T15:00:00+05:30",
+  "endsAt": "2026-10-17T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_431",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-17T17:00:00+05:30",
+  "endsAt": "2026-10-17T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_432",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-18T11:00:00+05:30",
+  "endsAt": "2026-10-18T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_433",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-18T13:00:00+05:30",
+  "endsAt": "2026-10-18T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_434",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-18T15:00:00+05:30",
+  "endsAt": "2026-10-18T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_435",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-18T17:00:00+05:30",
+  "endsAt": "2026-10-18T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_436",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-20T11:00:00+05:30",
+  "endsAt": "2026-10-20T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_437",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-20T13:00:00+05:30",
+  "endsAt": "2026-10-20T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_438",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-20T15:00:00+05:30",
+  "endsAt": "2026-10-20T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_439",
+  "listingId": "l_pune_35",
+  "startsAt": "2026-10-20T17:00:00+05:30",
+  "endsAt": "2026-10-20T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_440",
+  "listingId": "l_pune_36",
+  "startsAt": "2026-10-30T18:00:00+05:30",
+  "endsAt": "2026-10-30T21:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_441",
+  "listingId": "l_pune_37",
+  "startsAt": "2026-10-19T10:00:00+05:30",
+  "endsAt": "2026-10-21T10:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_442",
+  "listingId": "l_pune_38",
+  "startsAt": "2026-10-20T08:00:00+05:30",
+  "endsAt": "2026-10-20T16:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_443",
+  "listingId": "l_pune_39",
+  "startsAt": "2026-10-21T09:00:00+05:30",
+  "endsAt": "2026-10-21T18:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_444",
+  "listingId": "l_pune_40",
+  "startsAt": "2026-10-22T16:00:00+05:30",
+  "endsAt": "2026-10-22T21:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_445",
+  "listingId": "l_nagpur_01",
+  "startsAt": "2026-10-11T20:00:00+05:30",
+  "endsAt": "2026-10-11T21:30:00+05:30",
+  "capacity": 80,
+  "label": "Show"
+ },
+ {
+  "id": "s_446",
+  "listingId": "l_nagpur_02",
+  "startsAt": "2026-10-12T21:30:00+05:30",
+  "endsAt": "2026-10-12T23:10:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_447",
+  "listingId": "l_nagpur_03",
+  "startsAt": "2026-10-13T18:00:00+05:30",
+  "endsAt": "2026-10-13T20:00:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_448",
+  "listingId": "l_nagpur_05",
+  "startsAt": "2026-10-12T20:00:00+05:30",
+  "endsAt": "2026-10-12T23:00:00+05:30",
+  "capacity": 80,
+  "label": "Show"
+ },
+ {
+  "id": "s_449",
+  "listingId": "l_nagpur_06",
+  "startsAt": "2026-10-13T19:00:00+05:30",
+  "endsAt": "2026-10-13T21:30:00+05:30",
+  "capacity": 150,
+  "label": "Show"
+ },
+ {
+  "id": "s_450",
+  "listingId": "l_nagpur_07",
+  "startsAt": "2026-10-29T18:30:00+05:30",
+  "endsAt": "2026-10-29T21:00:00+05:30",
+  "capacity": 80,
+  "label": "Show"
+ },
+ {
+  "id": "s_451",
+  "listingId": "l_nagpur_08",
+  "startsAt": "2026-10-24T21:00:00+05:30",
+  "endsAt": "2026-10-25T00:00:00+05:30",
+  "capacity": 150,
+  "label": "Show"
+ },
+ {
+  "id": "s_452",
+  "listingId": "l_nagpur_09",
+  "startsAt": "2026-10-24T15:00:00+05:30",
+  "endsAt": "2026-10-24T23:00:00+05:30",
+  "capacity": 1500,
+  "label": "Day 1"
+ },
+ {
+  "id": "s_453",
+  "listingId": "l_nagpur_09",
+  "startsAt": "2026-10-25T15:00:00+05:30",
+  "endsAt": "2026-10-25T23:00:00+05:30",
+  "capacity": 1500,
+  "label": "Day 2"
+ },
+ {
+  "id": "s_454",
+  "listingId": "l_nagpur_10",
+  "startsAt": "2026-10-14T19:30:00+05:30",
+  "endsAt": "2026-10-14T21:00:00+05:30",
+  "capacity": 200,
+  "label": "Show"
+ },
+ {
+  "id": "s_455",
+  "listingId": "l_nagpur_11",
+  "startsAt": "2026-10-23T18:00:00+05:30",
+  "endsAt": "2026-10-23T19:40:00+05:30",
+  "capacity": 150,
+  "label": "Show"
+ },
+ {
+  "id": "s_456",
+  "listingId": "l_nagpur_12",
+  "startsAt": "2026-10-24T20:00:00+05:30",
+  "endsAt": "2026-10-24T21:30:00+05:30",
+  "capacity": 40,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_457",
+  "listingId": "l_nagpur_14",
+  "startsAt": "2026-10-24T11:00:00+05:30",
+  "endsAt": "2026-10-24T20:00:00+05:30",
+  "capacity": 0,
+  "label": "Open day"
+ },
+ {
+  "id": "s_458",
+  "listingId": "l_nagpur_15",
+  "startsAt": "2026-10-17T11:00:00+05:30",
+  "endsAt": "2026-10-17T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_459",
+  "listingId": "l_nagpur_15",
+  "startsAt": "2026-10-24T11:00:00+05:30",
+  "endsAt": "2026-10-24T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_460",
+  "listingId": "l_nagpur_15",
+  "startsAt": "2026-10-31T11:00:00+05:30",
+  "endsAt": "2026-10-31T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_461",
+  "listingId": "l_nagpur_15",
+  "startsAt": "2026-11-07T11:00:00+05:30",
+  "endsAt": "2026-11-07T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_462",
+  "listingId": "l_nagpur_15",
+  "startsAt": "2026-11-14T11:00:00+05:30",
+  "endsAt": "2026-11-14T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_463",
+  "listingId": "l_nagpur_15",
+  "startsAt": "2026-11-21T11:00:00+05:30",
+  "endsAt": "2026-11-21T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_464",
+  "listingId": "l_nagpur_16",
+  "startsAt": "2026-10-17T16:00:00+05:30",
+  "endsAt": "2026-10-17T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_465",
+  "listingId": "l_nagpur_16",
+  "startsAt": "2026-10-24T16:00:00+05:30",
+  "endsAt": "2026-10-24T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_466",
+  "listingId": "l_nagpur_16",
+  "startsAt": "2026-10-31T16:00:00+05:30",
+  "endsAt": "2026-10-31T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_467",
+  "listingId": "l_nagpur_16",
+  "startsAt": "2026-11-07T16:00:00+05:30",
+  "endsAt": "2026-11-07T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_468",
+  "listingId": "l_nagpur_16",
+  "startsAt": "2026-11-14T16:00:00+05:30",
+  "endsAt": "2026-11-14T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_469",
+  "listingId": "l_nagpur_16",
+  "startsAt": "2026-11-21T16:00:00+05:30",
+  "endsAt": "2026-11-21T18:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_470",
+  "listingId": "l_nagpur_17",
+  "startsAt": "2026-10-19T11:00:00+05:30",
+  "endsAt": "2026-10-19T14:00:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_471",
+  "listingId": "l_nagpur_18",
+  "startsAt": "2026-10-18T18:00:00+05:30",
+  "endsAt": "2026-10-18T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_472",
+  "listingId": "l_nagpur_18",
+  "startsAt": "2026-10-25T18:00:00+05:30",
+  "endsAt": "2026-10-25T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_473",
+  "listingId": "l_nagpur_18",
+  "startsAt": "2026-11-01T18:00:00+05:30",
+  "endsAt": "2026-11-01T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_474",
+  "listingId": "l_nagpur_18",
+  "startsAt": "2026-11-08T18:00:00+05:30",
+  "endsAt": "2026-11-08T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_475",
+  "listingId": "l_nagpur_18",
+  "startsAt": "2026-11-15T18:00:00+05:30",
+  "endsAt": "2026-11-15T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_476",
+  "listingId": "l_nagpur_18",
+  "startsAt": "2026-11-22T18:00:00+05:30",
+  "endsAt": "2026-11-22T20:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_477",
+  "listingId": "l_nagpur_19",
+  "startsAt": "2026-10-18T10:00:00+05:30",
+  "endsAt": "2026-10-18T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_478",
+  "listingId": "l_nagpur_19",
+  "startsAt": "2026-10-25T10:00:00+05:30",
+  "endsAt": "2026-10-25T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_479",
+  "listingId": "l_nagpur_19",
+  "startsAt": "2026-11-01T10:00:00+05:30",
+  "endsAt": "2026-11-01T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_480",
+  "listingId": "l_nagpur_19",
+  "startsAt": "2026-11-08T10:00:00+05:30",
+  "endsAt": "2026-11-08T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_481",
+  "listingId": "l_nagpur_19",
+  "startsAt": "2026-11-15T10:00:00+05:30",
+  "endsAt": "2026-11-15T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_482",
+  "listingId": "l_nagpur_19",
+  "startsAt": "2026-11-22T10:00:00+05:30",
+  "endsAt": "2026-11-22T13:30:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_483",
+  "listingId": "l_nagpur_20",
+  "startsAt": "2026-11-03T17:00:00+05:30",
+  "endsAt": "2026-11-03T19:30:00+05:30",
+  "capacity": 200,
+  "label": "Show"
+ },
+ {
+  "id": "s_484",
+  "listingId": "l_nagpur_21",
+  "startsAt": "2026-11-08T06:30:00+05:30",
+  "endsAt": "2026-11-08T07:30:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_485",
+  "listingId": "l_nagpur_23",
+  "startsAt": "2026-10-18T07:00:00+05:30",
+  "endsAt": "2026-10-18T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 1"
+ },
+ {
+  "id": "s_486",
+  "listingId": "l_nagpur_23",
+  "startsAt": "2026-10-25T07:00:00+05:30",
+  "endsAt": "2026-10-25T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 2"
+ },
+ {
+  "id": "s_487",
+  "listingId": "l_nagpur_23",
+  "startsAt": "2026-11-01T07:00:00+05:30",
+  "endsAt": "2026-11-01T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 3"
+ },
+ {
+  "id": "s_488",
+  "listingId": "l_nagpur_23",
+  "startsAt": "2026-11-08T07:00:00+05:30",
+  "endsAt": "2026-11-08T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 4"
+ },
+ {
+  "id": "s_489",
+  "listingId": "l_nagpur_23",
+  "startsAt": "2026-11-15T07:00:00+05:30",
+  "endsAt": "2026-11-15T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 5"
+ },
+ {
+  "id": "s_490",
+  "listingId": "l_nagpur_23",
+  "startsAt": "2026-11-22T07:00:00+05:30",
+  "endsAt": "2026-11-22T09:00:00+05:30",
+  "capacity": 12,
+  "label": "Batch 6"
+ },
+ {
+  "id": "s_491",
+  "listingId": "l_nagpur_24",
+  "startsAt": "2026-10-24T14:00:00+05:30",
+  "endsAt": "2026-10-24T17:00:00+05:30",
+  "capacity": 120,
+  "label": "Show"
+ },
+ {
+  "id": "s_492",
+  "listingId": "l_nagpur_25",
+  "startsAt": "2026-10-29T17:00:00+05:30",
+  "endsAt": "2026-10-29T19:00:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_493",
+  "listingId": "l_nagpur_26",
+  "startsAt": "2026-10-24T06:00:00+05:30",
+  "endsAt": "2026-10-24T07:15:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_494",
+  "listingId": "l_nagpur_27",
+  "startsAt": "2026-10-16T08:30:00+05:30",
+  "endsAt": "2026-10-16T10:00:00+05:30",
+  "capacity": 40,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_495",
+  "listingId": "l_nagpur_28",
+  "startsAt": "2026-10-14T19:00:00+05:30",
+  "endsAt": "2026-10-14T22:00:00+05:30",
+  "capacity": 200,
+  "label": "Show"
+ },
+ {
+  "id": "s_496",
+  "listingId": "l_nagpur_29",
+  "startsAt": "2026-10-23T07:30:00+05:30",
+  "endsAt": "2026-10-23T10:00:00+05:30",
+  "capacity": 60,
+  "label": "RSVP"
+ },
+ {
+  "id": "s_497",
+  "listingId": "l_nagpur_30",
+  "startsAt": "2026-10-24T18:30:00+05:30",
+  "endsAt": "2026-10-24T21:00:00+05:30",
+  "capacity": 0,
+  "label": "Open day"
+ },
+ {
+  "id": "s_498",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-07T11:00:00+05:30",
+  "endsAt": "2026-10-07T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_499",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-07T13:00:00+05:30",
+  "endsAt": "2026-10-07T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_500",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-07T15:00:00+05:30",
+  "endsAt": "2026-10-07T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_501",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-07T17:00:00+05:30",
+  "endsAt": "2026-10-07T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_502",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-08T11:00:00+05:30",
+  "endsAt": "2026-10-08T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_503",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-08T13:00:00+05:30",
+  "endsAt": "2026-10-08T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_504",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-08T15:00:00+05:30",
+  "endsAt": "2026-10-08T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_505",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-08T17:00:00+05:30",
+  "endsAt": "2026-10-08T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_506",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-09T11:00:00+05:30",
+  "endsAt": "2026-10-09T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_507",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-09T13:00:00+05:30",
+  "endsAt": "2026-10-09T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_508",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-09T15:00:00+05:30",
+  "endsAt": "2026-10-09T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_509",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-09T17:00:00+05:30",
+  "endsAt": "2026-10-09T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_510",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-10T11:00:00+05:30",
+  "endsAt": "2026-10-10T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_511",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-10T13:00:00+05:30",
+  "endsAt": "2026-10-10T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_512",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-10T15:00:00+05:30",
+  "endsAt": "2026-10-10T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_513",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-10T17:00:00+05:30",
+  "endsAt": "2026-10-10T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_514",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-11T11:00:00+05:30",
+  "endsAt": "2026-10-11T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_515",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-11T13:00:00+05:30",
+  "endsAt": "2026-10-11T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_516",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-11T15:00:00+05:30",
+  "endsAt": "2026-10-11T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_517",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-11T17:00:00+05:30",
+  "endsAt": "2026-10-11T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_518",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_519",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-13T13:00:00+05:30",
+  "endsAt": "2026-10-13T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_520",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-13T15:00:00+05:30",
+  "endsAt": "2026-10-13T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_521",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-13T17:00:00+05:30",
+  "endsAt": "2026-10-13T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_522",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_523",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-14T13:00:00+05:30",
+  "endsAt": "2026-10-14T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_524",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-14T15:00:00+05:30",
+  "endsAt": "2026-10-14T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_525",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-14T17:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_526",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-15T11:00:00+05:30",
+  "endsAt": "2026-10-15T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_527",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-15T13:00:00+05:30",
+  "endsAt": "2026-10-15T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_528",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-15T15:00:00+05:30",
+  "endsAt": "2026-10-15T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_529",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-15T17:00:00+05:30",
+  "endsAt": "2026-10-15T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_530",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-16T11:00:00+05:30",
+  "endsAt": "2026-10-16T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_531",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-16T13:00:00+05:30",
+  "endsAt": "2026-10-16T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_532",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-16T15:00:00+05:30",
+  "endsAt": "2026-10-16T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_533",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-16T17:00:00+05:30",
+  "endsAt": "2026-10-16T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_534",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-17T11:00:00+05:30",
+  "endsAt": "2026-10-17T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_535",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-17T13:00:00+05:30",
+  "endsAt": "2026-10-17T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_536",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-17T15:00:00+05:30",
+  "endsAt": "2026-10-17T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_537",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-17T17:00:00+05:30",
+  "endsAt": "2026-10-17T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_538",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-18T11:00:00+05:30",
+  "endsAt": "2026-10-18T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_539",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-18T13:00:00+05:30",
+  "endsAt": "2026-10-18T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_540",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-18T15:00:00+05:30",
+  "endsAt": "2026-10-18T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_541",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-18T17:00:00+05:30",
+  "endsAt": "2026-10-18T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_542",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-20T11:00:00+05:30",
+  "endsAt": "2026-10-20T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_543",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-20T13:00:00+05:30",
+  "endsAt": "2026-10-20T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_544",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-20T15:00:00+05:30",
+  "endsAt": "2026-10-20T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_545",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-20T17:00:00+05:30",
+  "endsAt": "2026-10-20T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_546",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-21T11:00:00+05:30",
+  "endsAt": "2026-10-21T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_547",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-21T13:00:00+05:30",
+  "endsAt": "2026-10-21T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_548",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-21T15:00:00+05:30",
+  "endsAt": "2026-10-21T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_549",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-21T17:00:00+05:30",
+  "endsAt": "2026-10-21T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_550",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-22T11:00:00+05:30",
+  "endsAt": "2026-10-22T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_551",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-22T13:00:00+05:30",
+  "endsAt": "2026-10-22T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_552",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-22T15:00:00+05:30",
+  "endsAt": "2026-10-22T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_553",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-22T17:00:00+05:30",
+  "endsAt": "2026-10-22T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_554",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-23T11:00:00+05:30",
+  "endsAt": "2026-10-23T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_555",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-23T13:00:00+05:30",
+  "endsAt": "2026-10-23T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_556",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-23T15:00:00+05:30",
+  "endsAt": "2026-10-23T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_557",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-23T17:00:00+05:30",
+  "endsAt": "2026-10-23T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_558",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-24T11:00:00+05:30",
+  "endsAt": "2026-10-24T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_559",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-24T13:00:00+05:30",
+  "endsAt": "2026-10-24T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_560",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-24T15:00:00+05:30",
+  "endsAt": "2026-10-24T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_561",
+  "listingId": "l_nagpur_32",
+  "startsAt": "2026-10-24T17:00:00+05:30",
+  "endsAt": "2026-10-24T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_562",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-06T11:00:00+05:30",
+  "endsAt": "2026-10-06T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_563",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-06T13:00:00+05:30",
+  "endsAt": "2026-10-06T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_564",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-06T15:00:00+05:30",
+  "endsAt": "2026-10-06T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_565",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-06T17:00:00+05:30",
+  "endsAt": "2026-10-06T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_566",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-07T11:00:00+05:30",
+  "endsAt": "2026-10-07T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_567",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-07T13:00:00+05:30",
+  "endsAt": "2026-10-07T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_568",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-07T15:00:00+05:30",
+  "endsAt": "2026-10-07T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_569",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-07T17:00:00+05:30",
+  "endsAt": "2026-10-07T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_570",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-08T11:00:00+05:30",
+  "endsAt": "2026-10-08T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_571",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-08T13:00:00+05:30",
+  "endsAt": "2026-10-08T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_572",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-08T15:00:00+05:30",
+  "endsAt": "2026-10-08T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_573",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-08T17:00:00+05:30",
+  "endsAt": "2026-10-08T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_574",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-09T11:00:00+05:30",
+  "endsAt": "2026-10-09T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_575",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-09T13:00:00+05:30",
+  "endsAt": "2026-10-09T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_576",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-09T15:00:00+05:30",
+  "endsAt": "2026-10-09T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_577",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-09T17:00:00+05:30",
+  "endsAt": "2026-10-09T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_578",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-10T11:00:00+05:30",
+  "endsAt": "2026-10-10T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_579",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-10T13:00:00+05:30",
+  "endsAt": "2026-10-10T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_580",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-10T15:00:00+05:30",
+  "endsAt": "2026-10-10T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_581",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-10T17:00:00+05:30",
+  "endsAt": "2026-10-10T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_582",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-11T11:00:00+05:30",
+  "endsAt": "2026-10-11T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_583",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-11T13:00:00+05:30",
+  "endsAt": "2026-10-11T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_584",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-11T15:00:00+05:30",
+  "endsAt": "2026-10-11T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_585",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-11T17:00:00+05:30",
+  "endsAt": "2026-10-11T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_586",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_587",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-13T13:00:00+05:30",
+  "endsAt": "2026-10-13T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_588",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-13T15:00:00+05:30",
+  "endsAt": "2026-10-13T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_589",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-13T17:00:00+05:30",
+  "endsAt": "2026-10-13T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_590",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_591",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-14T13:00:00+05:30",
+  "endsAt": "2026-10-14T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_592",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-14T15:00:00+05:30",
+  "endsAt": "2026-10-14T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_593",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-14T17:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_594",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-15T11:00:00+05:30",
+  "endsAt": "2026-10-15T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_595",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-15T13:00:00+05:30",
+  "endsAt": "2026-10-15T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_596",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-15T15:00:00+05:30",
+  "endsAt": "2026-10-15T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_597",
+  "listingId": "l_nagpur_33",
+  "startsAt": "2026-10-15T17:00:00+05:30",
+  "endsAt": "2026-10-15T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_598",
+  "listingId": "l_nagpur_34",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 0,
+  "label": "Open day"
+ },
+ {
+  "id": "s_599",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-09T11:00:00+05:30",
+  "endsAt": "2026-10-09T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_600",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-09T13:00:00+05:30",
+  "endsAt": "2026-10-09T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_601",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-09T15:00:00+05:30",
+  "endsAt": "2026-10-09T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_602",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-09T17:00:00+05:30",
+  "endsAt": "2026-10-09T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_603",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-10T11:00:00+05:30",
+  "endsAt": "2026-10-10T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_604",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-10T13:00:00+05:30",
+  "endsAt": "2026-10-10T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_605",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-10T15:00:00+05:30",
+  "endsAt": "2026-10-10T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_606",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-10T17:00:00+05:30",
+  "endsAt": "2026-10-10T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_607",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-11T11:00:00+05:30",
+  "endsAt": "2026-10-11T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_608",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-11T13:00:00+05:30",
+  "endsAt": "2026-10-11T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_609",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-11T15:00:00+05:30",
+  "endsAt": "2026-10-11T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_610",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-11T17:00:00+05:30",
+  "endsAt": "2026-10-11T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_611",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-13T11:00:00+05:30",
+  "endsAt": "2026-10-13T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_612",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-13T13:00:00+05:30",
+  "endsAt": "2026-10-13T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_613",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-13T15:00:00+05:30",
+  "endsAt": "2026-10-13T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_614",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-13T17:00:00+05:30",
+  "endsAt": "2026-10-13T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_615",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-14T11:00:00+05:30",
+  "endsAt": "2026-10-14T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_616",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-14T13:00:00+05:30",
+  "endsAt": "2026-10-14T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_617",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-14T15:00:00+05:30",
+  "endsAt": "2026-10-14T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_618",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-14T17:00:00+05:30",
+  "endsAt": "2026-10-14T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_619",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-15T11:00:00+05:30",
+  "endsAt": "2026-10-15T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_620",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-15T13:00:00+05:30",
+  "endsAt": "2026-10-15T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_621",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-15T15:00:00+05:30",
+  "endsAt": "2026-10-15T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_622",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-15T17:00:00+05:30",
+  "endsAt": "2026-10-15T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_623",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-16T11:00:00+05:30",
+  "endsAt": "2026-10-16T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_624",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-16T13:00:00+05:30",
+  "endsAt": "2026-10-16T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_625",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-16T15:00:00+05:30",
+  "endsAt": "2026-10-16T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_626",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-16T17:00:00+05:30",
+  "endsAt": "2026-10-16T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_627",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-17T11:00:00+05:30",
+  "endsAt": "2026-10-17T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_628",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-17T13:00:00+05:30",
+  "endsAt": "2026-10-17T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_629",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-17T15:00:00+05:30",
+  "endsAt": "2026-10-17T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_630",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-17T17:00:00+05:30",
+  "endsAt": "2026-10-17T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_631",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-18T11:00:00+05:30",
+  "endsAt": "2026-10-18T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_632",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-18T13:00:00+05:30",
+  "endsAt": "2026-10-18T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_633",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-18T15:00:00+05:30",
+  "endsAt": "2026-10-18T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_634",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-18T17:00:00+05:30",
+  "endsAt": "2026-10-18T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_635",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-20T11:00:00+05:30",
+  "endsAt": "2026-10-20T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_636",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-20T13:00:00+05:30",
+  "endsAt": "2026-10-20T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_637",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-20T15:00:00+05:30",
+  "endsAt": "2026-10-20T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_638",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-20T17:00:00+05:30",
+  "endsAt": "2026-10-20T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_639",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-21T11:00:00+05:30",
+  "endsAt": "2026-10-21T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_640",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-21T13:00:00+05:30",
+  "endsAt": "2026-10-21T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_641",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-21T15:00:00+05:30",
+  "endsAt": "2026-10-21T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_642",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-21T17:00:00+05:30",
+  "endsAt": "2026-10-21T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_643",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-22T11:00:00+05:30",
+  "endsAt": "2026-10-22T13:00:00+05:30",
+  "capacity": 60,
+  "label": "11 AM – 1 PM"
+ },
+ {
+  "id": "s_644",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-22T13:00:00+05:30",
+  "endsAt": "2026-10-22T15:00:00+05:30",
+  "capacity": 60,
+  "label": "1 – 3 PM"
+ },
+ {
+  "id": "s_645",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-22T15:00:00+05:30",
+  "endsAt": "2026-10-22T17:00:00+05:30",
+  "capacity": 60,
+  "label": "3 – 5 PM"
+ },
+ {
+  "id": "s_646",
+  "listingId": "l_nagpur_35",
+  "startsAt": "2026-10-22T17:00:00+05:30",
+  "endsAt": "2026-10-22T19:00:00+05:30",
+  "capacity": 60,
+  "label": "5 – 7 PM"
+ },
+ {
+  "id": "s_647",
+  "listingId": "l_nagpur_36",
+  "startsAt": "2026-10-30T18:00:00+05:30",
+  "endsAt": "2026-10-30T21:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_648",
+  "listingId": "l_nagpur_37",
+  "startsAt": "2026-10-19T10:00:00+05:30",
+  "endsAt": "2026-10-21T10:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_649",
+  "listingId": "l_nagpur_38",
+  "startsAt": "2026-10-20T08:00:00+05:30",
+  "endsAt": "2026-10-20T16:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_650",
+  "listingId": "l_nagpur_39",
+  "startsAt": "2026-10-21T09:00:00+05:30",
+  "endsAt": "2026-10-21T18:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ },
+ {
+  "id": "s_651",
+  "listingId": "l_nagpur_40",
+  "startsAt": "2026-10-22T16:00:00+05:30",
+  "endsAt": "2026-10-22T21:00:00+05:30",
+  "capacity": 64,
+  "label": "Main event"
+ }
+]

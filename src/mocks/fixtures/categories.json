@@ -1,0 +1,278 @@
+[
+ {
+  "id": "cat_events",
+  "slug": "events",
+  "name": "Events",
+  "singular": "Event",
+  "parentId": null,
+  "icon": "Ticket",
+  "sort": 0,
+  "blurb": "Gigs, stand-up, theatre and festivals"
+ },
+ {
+  "id": "cat_events_comedy",
+  "slug": "comedy",
+  "name": "Comedy",
+  "singular": "Comedy",
+  "parentId": "cat_events",
+  "icon": "Mic",
+  "sort": 0
+ },
+ {
+  "id": "cat_events_music",
+  "slug": "music",
+  "name": "Music",
+  "singular": "Music",
+  "parentId": "cat_events",
+  "icon": "Music",
+  "sort": 1
+ },
+ {
+  "id": "cat_events_theatre",
+  "slug": "theatre",
+  "name": "Theatre",
+  "singular": "Theatre",
+  "parentId": "cat_events",
+  "icon": "Drama",
+  "sort": 2
+ },
+ {
+  "id": "cat_events_festivals",
+  "slug": "festivals",
+  "name": "Festivals",
+  "singular": "Festivals",
+  "parentId": "cat_events",
+  "icon": "PartyPopper",
+  "sort": 3
+ },
+ {
+  "id": "cat_sports",
+  "slug": "sports",
+  "name": "Sports",
+  "singular": "Sports",
+  "parentId": null,
+  "icon": "Volleyball",
+  "sort": 1,
+  "blurb": "Book courts and turfs near you"
+ },
+ {
+  "id": "cat_sports_pickleball",
+  "slug": "pickleball",
+  "name": "Pickleball",
+  "singular": "Pickleball",
+  "parentId": "cat_sports",
+  "icon": "Activity",
+  "sort": 0
+ },
+ {
+  "id": "cat_sports_badminton",
+  "slug": "badminton",
+  "name": "Badminton",
+  "singular": "Badminton",
+  "parentId": "cat_sports",
+  "icon": "Activity",
+  "sort": 1
+ },
+ {
+  "id": "cat_sports_football",
+  "slug": "football",
+  "name": "Football",
+  "singular": "Football",
+  "parentId": "cat_sports",
+  "icon": "Activity",
+  "sort": 2
+ },
+ {
+  "id": "cat_sports_box-cricket",
+  "slug": "box-cricket",
+  "name": "Box cricket",
+  "singular": "Box cricket",
+  "parentId": "cat_sports",
+  "icon": "Activity",
+  "sort": 3
+ },
+ {
+  "id": "cat_sports_tennis",
+  "slug": "tennis",
+  "name": "Tennis",
+  "singular": "Tennis",
+  "parentId": "cat_sports",
+  "icon": "Activity",
+  "sort": 4
+ },
+ {
+  "id": "cat_sports_padel",
+  "slug": "padel",
+  "name": "Padel",
+  "singular": "Padel",
+  "parentId": "cat_sports",
+  "icon": "Activity",
+  "sort": 5
+ },
+ {
+  "id": "cat_workshops",
+  "slug": "workshops",
+  "name": "Workshops",
+  "singular": "Workshop",
+  "parentId": null,
+  "icon": "Palette",
+  "sort": 2,
+  "blurb": "Learn something with your hands"
+ },
+ {
+  "id": "cat_workshops_art-craft",
+  "slug": "art-craft",
+  "name": "Art & craft",
+  "singular": "Art & craft",
+  "parentId": "cat_workshops",
+  "icon": "Brush",
+  "sort": 0
+ },
+ {
+  "id": "cat_workshops_cooking",
+  "slug": "cooking",
+  "name": "Food & drink",
+  "singular": "Food & drink",
+  "parentId": "cat_workshops",
+  "icon": "Coffee",
+  "sort": 1
+ },
+ {
+  "id": "cat_workshops_wellness",
+  "slug": "wellness",
+  "name": "Wellness",
+  "singular": "Wellness",
+  "parentId": "cat_workshops",
+  "icon": "Sun",
+  "sort": 2
+ },
+ {
+  "id": "cat_workshops_photography",
+  "slug": "photography",
+  "name": "Photography",
+  "singular": "Photography",
+  "parentId": "cat_workshops",
+  "icon": "Camera",
+  "sort": 3
+ },
+ {
+  "id": "cat_meetups",
+  "slug": "meetups",
+  "name": "Meetups",
+  "singular": "Meetup",
+  "parentId": null,
+  "icon": "Users",
+  "sort": 3,
+  "blurb": "Clubs, communities and new people"
+ },
+ {
+  "id": "cat_meetups_book-clubs",
+  "slug": "book-clubs",
+  "name": "Book clubs",
+  "singular": "Book clubs",
+  "parentId": "cat_meetups",
+  "icon": "BookOpen",
+  "sort": 0
+ },
+ {
+  "id": "cat_meetups_running",
+  "slug": "running",
+  "name": "Running clubs",
+  "singular": "Running clubs",
+  "parentId": "cat_meetups",
+  "icon": "Footprints",
+  "sort": 1
+ },
+ {
+  "id": "cat_meetups_startups",
+  "slug": "startups",
+  "name": "Startups & tech",
+  "singular": "Startups & tech",
+  "parentId": "cat_meetups",
+  "icon": "Rocket",
+  "sort": 2
+ },
+ {
+  "id": "cat_meetups_board-games",
+  "slug": "board-games",
+  "name": "Board games",
+  "singular": "Board games",
+  "parentId": "cat_meetups",
+  "icon": "Dices",
+  "sort": 3
+ },
+ {
+  "id": "cat_exhibitions",
+  "slug": "exhibitions",
+  "name": "Exhibitions",
+  "singular": "Exhibition",
+  "parentId": null,
+  "icon": "Frame",
+  "sort": 4,
+  "blurb": "Art, design and heritage shows"
+ },
+ {
+  "id": "cat_exhibitions_art",
+  "slug": "art",
+  "name": "Art",
+  "singular": "Art",
+  "parentId": "cat_exhibitions",
+  "icon": "Frame",
+  "sort": 0
+ },
+ {
+  "id": "cat_exhibitions_design",
+  "slug": "design",
+  "name": "Design",
+  "singular": "Design",
+  "parentId": "cat_exhibitions",
+  "icon": "PenTool",
+  "sort": 1
+ },
+ {
+  "id": "cat_exhibitions_heritage",
+  "slug": "heritage",
+  "name": "Heritage",
+  "singular": "Heritage",
+  "parentId": "cat_exhibitions",
+  "icon": "Landmark",
+  "sort": 2
+ },
+ {
+  "id": "cat_competitions",
+  "slug": "competitions",
+  "name": "Competitions",
+  "singular": "Competition",
+  "parentId": null,
+  "icon": "Trophy",
+  "sort": 5,
+  "blurb": "Quizzes, hackathons and tournaments"
+ },
+ {
+  "id": "cat_competitions_quizzes",
+  "slug": "quizzes",
+  "name": "Quizzes",
+  "singular": "Quizzes",
+  "parentId": "cat_competitions",
+  "icon": "Brain",
+  "sort": 0
+ },
+ {
+  "id": "cat_competitions_hackathons",
+  "slug": "hackathons",
+  "name": "Hackathons",
+  "singular": "Hackathons",
+  "parentId": "cat_competitions",
+  "icon": "Code",
+  "sort": 1
+ },
+ {
+  "id": "cat_competitions_tournaments",
+  "slug": "tournaments",
+  "name": "Tournaments",
+  "singular": "Tournaments",
+  "parentId": "cat_competitions",
+  "icon": "Medal",
+  "sort": 2
+ }
+]

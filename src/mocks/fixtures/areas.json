@@ -1,0 +1,194 @@
+[
+ {
+  "id": "a_mumbai_bandra-west",
+  "cityId": "c_mumbai",
+  "slug": "bandra-west",
+  "name": "Bandra West",
+  "lat": 19.0596,
+  "lng": 72.8295
+ },
+ {
+  "id": "a_mumbai_andheri-west",
+  "cityId": "c_mumbai",
+  "slug": "andheri-west",
+  "name": "Andheri West",
+  "lat": 19.1364,
+  "lng": 72.8296
+ },
+ {
+  "id": "a_mumbai_lower-parel",
+  "cityId": "c_mumbai",
+  "slug": "lower-parel",
+  "name": "Lower Parel",
+  "lat": 18.9977,
+  "lng": 72.8376
+ },
+ {
+  "id": "a_mumbai_powai",
+  "cityId": "c_mumbai",
+  "slug": "powai",
+  "name": "Powai",
+  "lat": 19.1176,
+  "lng": 72.906
+ },
+ {
+  "id": "a_mumbai_juhu",
+  "cityId": "c_mumbai",
+  "slug": "juhu",
+  "name": "Juhu",
+  "lat": 19.1075,
+  "lng": 72.8263
+ },
+ {
+  "id": "a_mumbai_colaba",
+  "cityId": "c_mumbai",
+  "slug": "colaba",
+  "name": "Colaba",
+  "lat": 18.9067,
+  "lng": 72.8147
+ },
+ {
+  "id": "a_mumbai_worli",
+  "cityId": "c_mumbai",
+  "slug": "worli",
+  "name": "Worli",
+  "lat": 19.0176,
+  "lng": 72.8162
+ },
+ {
+  "id": "a_mumbai_malad-west",
+  "cityId": "c_mumbai",
+  "slug": "malad-west",
+  "name": "Malad West",
+  "lat": 19.1872,
+  "lng": 72.8484
+ },
+ {
+  "id": "a_pune_koregaon-park",
+  "cityId": "c_pune",
+  "slug": "koregaon-park",
+  "name": "Koregaon Park",
+  "lat": 18.5362,
+  "lng": 73.894
+ },
+ {
+  "id": "a_pune_baner",
+  "cityId": "c_pune",
+  "slug": "baner",
+  "name": "Baner",
+  "lat": 18.559,
+  "lng": 73.7868
+ },
+ {
+  "id": "a_pune_kothrud",
+  "cityId": "c_pune",
+  "slug": "kothrud",
+  "name": "Kothrud",
+  "lat": 18.5074,
+  "lng": 73.8077
+ },
+ {
+  "id": "a_pune_viman-nagar",
+  "cityId": "c_pune",
+  "slug": "viman-nagar",
+  "name": "Viman Nagar",
+  "lat": 18.5679,
+  "lng": 73.9143
+ },
+ {
+  "id": "a_pune_hinjewadi",
+  "cityId": "c_pune",
+  "slug": "hinjewadi",
+  "name": "Hinjewadi",
+  "lat": 18.5913,
+  "lng": 73.7389
+ },
+ {
+  "id": "a_pune_kalyani-nagar",
+  "cityId": "c_pune",
+  "slug": "kalyani-nagar",
+  "name": "Kalyani Nagar",
+  "lat": 18.5463,
+  "lng": 73.9033
+ },
+ {
+  "id": "a_pune_aundh",
+  "cityId": "c_pune",
+  "slug": "aundh",
+  "name": "Aundh",
+  "lat": 18.558,
+  "lng": 73.8075
+ },
+ {
+  "id": "a_pune_wakad",
+  "cityId": "c_pune",
+  "slug": "wakad",
+  "name": "Wakad",
+  "lat": 18.5987,
+  "lng": 73.7652
+ },
+ {
+  "id": "a_nagpur_dharampeth",
+  "cityId": "c_nagpur",
+  "slug": "dharampeth",
+  "name": "Dharampeth",
+  "lat": 21.1418,
+  "lng": 79.064
+ },
+ {
+  "id": "a_nagpur_civil-lines",
+  "cityId": "c_nagpur",
+  "slug": "civil-lines",
+  "name": "Civil Lines",
+  "lat": 21.1594,
+  "lng": 79.0767
+ },
+ {
+  "id": "a_nagpur_sitabuldi",
+  "cityId": "c_nagpur",
+  "slug": "sitabuldi",
+  "name": "Sitabuldi",
+  "lat": 21.1438,
+  "lng": 79.0821
+ },
+ {
+  "id": "a_nagpur_manish-nagar",
+  "cityId": "c_nagpur",
+  "slug": "manish-nagar",
+  "name": "Manish Nagar",
+  "lat": 21.087,
+  "lng": 79.079
+ },
+ {
+  "id": "a_nagpur_ramdaspeth",
+  "cityId": "c_nagpur",
+  "slug": "ramdaspeth",
+  "name": "Ramdaspeth",
+  "lat": 21.135,
+  "lng": 79.071
+ },
+ {
+  "id": "a_nagpur_wardha-road",
+  "cityId": "c_nagpur",
+  "slug": "wardha-road",
+  "name": "Wardha Road",
+  "lat": 21.1,
+  "lng": 79.07
+ },
+ {
+  "id": "a_nagpur_sadar",
+  "cityId": "c_nagpur",
+  "slug": "sadar",
+  "name": "Sadar",
+  "lat": 21.163,
+  "lng": 79.082
+ },
+ {
+  "id": "a_nagpur_pratap-nagar",
+  "cityId": "c_nagpur",
+  "slug": "pratap-nagar",
+  "name": "Pratap Nagar",
+  "lat": 21.118,
+  "lng": 79.051
+ }
+]

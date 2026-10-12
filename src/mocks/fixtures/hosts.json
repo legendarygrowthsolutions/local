@@ -1,0 +1,707 @@
+[
+ {
+  "id": "h_mumbai_1",
+  "userId": "u_host",
+  "type": "organiser",
+  "brandName": "Tidewater Collective",
+  "cityId": "c_mumbai",
+  "bio": "We put on intimate gigs, comedy nights and weekend festivals, mostly in small rooms where you can actually see the stage.",
+  "instagram": "@tidewatercollective",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2022-08-01",
+  "contactName": "Rohit Kulkarni",
+  "contactPhone": "9835610588",
+  "email": "hello@tidewatercollective.in",
+  "website": null,
+  "gstin": "27ABCDE1436F1Z9",
+  "expectedPerMonth": "6–10",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_mumbai_0_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_mumbai_0_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-06-22T10:00:00+05:30"
+ },
+ {
+  "id": "h_mumbai_2",
+  "userId": null,
+  "type": "organiser",
+  "brandName": "Punchline Collective",
+  "cityId": "c_mumbai",
+  "bio": "We put on intimate gigs, comedy nights and weekend festivals, mostly in small rooms where you can actually see the stage.",
+  "instagram": "@punchlinecollective",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2024-04-01",
+  "contactName": "Riya Kapoor",
+  "contactPhone": "9873784945",
+  "email": "hello@punchlinecollective.in",
+  "website": null,
+  "gstin": "27ABCDE1524F1Z9",
+  "expectedPerMonth": "3–5",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_mumbai_1_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_mumbai_1_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-06-20T10:00:00+05:30"
+ },
+ {
+  "id": "h_mumbai_3",
+  "userId": null,
+  "type": "instructor",
+  "brandName": "Kiln House Studio",
+  "cityId": "c_mumbai",
+  "bio": "A small studio run by working artists. Classes are hands-on, capped at 12, and all materials are included.",
+  "instagram": "@kilnhousestudio",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2024-04-01",
+  "contactName": "Ananya Iyer",
+  "contactPhone": "9884723919",
+  "email": "hello@kilnhousestudio.in",
+  "website": null,
+  "gstin": "27ABCDE7798F1Z6",
+  "expectedPerMonth": "10+",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_mumbai_2_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_mumbai_2_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-04-25T10:00:00+05:30"
+ },
+ {
+  "id": "h_mumbai_4",
+  "userId": null,
+  "type": "community",
+  "brandName": "Bandra Bookworms",
+  "cityId": "c_mumbai",
+  "bio": "A volunteer-run community. Show up, say hi and you're one of us. Every meetup is free.",
+  "instagram": "@bandrabookworms",
+  "kycStatus": "none",
+  "status": "approved",
+  "since": "2021-01-01",
+  "contactName": "Arjun Deshpande",
+  "contactPhone": "9878255158",
+  "email": "hello@bandrabookworms.in",
+  "website": null,
+  "gstin": null,
+  "expectedPerMonth": "6–10",
+  "wantsPaid": false,
+  "documents": [],
+  "reviewNote": null,
+  "submittedAt": "2025-11-07T10:00:00+05:30"
+ },
+ {
+  "id": "h_mumbai_5",
+  "userId": null,
+  "type": "venue",
+  "brandName": "Smash Arena",
+  "cityId": "c_mumbai",
+  "bio": "Well-kept courts, clean changing rooms and friendly staff. Equipment on rent at the front desk.",
+  "instagram": "@smasharena",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2024-06-01",
+  "contactName": "Riya Kapoor",
+  "contactPhone": "9830551923",
+  "email": "hello@smasharena.in",
+  "website": null,
+  "gstin": "27ABCDE3494F1Z6",
+  "expectedPerMonth": "10+",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_mumbai_4_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_mumbai_4_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-10-25T10:00:00+05:30"
+ },
+ {
+  "id": "h_mumbai_6",
+  "userId": null,
+  "type": "venue",
+  "brandName": "Turf Tribe",
+  "cityId": "c_mumbai",
+  "bio": "Well-kept courts, clean changing rooms and friendly staff. Equipment on rent at the front desk.",
+  "instagram": "@turftribe",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2021-09-01",
+  "contactName": "Riya Kapoor",
+  "contactPhone": "9835225465",
+  "email": "hello@turftribe.in",
+  "website": null,
+  "gstin": "27ABCDE3959F1Z8",
+  "expectedPerMonth": "10+",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_mumbai_5_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_mumbai_5_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-07-29T10:00:00+05:30"
+ },
+ {
+  "id": "h_pune_1",
+  "userId": null,
+  "type": "organiser",
+  "brandName": "The Courtyard Project",
+  "cityId": "c_pune",
+  "bio": "We put on intimate gigs, comedy nights and weekend festivals, mostly in small rooms where you can actually see the stage.",
+  "instagram": "@thecourtyardproject",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2024-01-01",
+  "contactName": "Ananya Iyer",
+  "contactPhone": "9815457663",
+  "email": "hello@thecourtyardproject.in",
+  "website": null,
+  "gstin": "27ABCDE6715F1Z1",
+  "expectedPerMonth": "10+",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_pune_0_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_pune_0_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-09-09T10:00:00+05:30"
+ },
+ {
+  "id": "h_pune_2",
+  "userId": null,
+  "type": "organiser",
+  "brandName": "Deccan Live",
+  "cityId": "c_pune",
+  "bio": "We put on intimate gigs, comedy nights and weekend festivals, mostly in small rooms where you can actually see the stage.",
+  "instagram": "@deccanlive",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2021-02-01",
+  "contactName": "Kabir Shah",
+  "contactPhone": "9863004196",
+  "email": "hello@deccanlive.in",
+  "website": null,
+  "gstin": "27ABCDE9278F1Z1",
+  "expectedPerMonth": "3–5",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_pune_1_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_pune_1_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-12-26T10:00:00+05:30"
+ },
+ {
+  "id": "h_pune_3",
+  "userId": null,
+  "type": "instructor",
+  "brandName": "Clay & Co. Studio",
+  "cityId": "c_pune",
+  "bio": "A small studio run by working artists. Classes are hands-on, capped at 12, and all materials are included.",
+  "instagram": "@clayandcostudio",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2025-04-01",
+  "contactName": "Riya Kapoor",
+  "contactPhone": "9812413534",
+  "email": "hello@clayandcostudio.in",
+  "website": null,
+  "gstin": "27ABCDE3224F1Z3",
+  "expectedPerMonth": "1–2",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_pune_2_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_pune_2_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-04-19T10:00:00+05:30"
+ },
+ {
+  "id": "h_pune_4",
+  "userId": null,
+  "type": "community",
+  "brandName": "Koregaon Runners",
+  "cityId": "c_pune",
+  "bio": "A volunteer-run community. Show up, say hi and you're one of us. Every meetup is free.",
+  "instagram": "@koregaonrunners",
+  "kycStatus": "none",
+  "status": "approved",
+  "since": "2025-04-01",
+  "contactName": "Ananya Iyer",
+  "contactPhone": "9863068790",
+  "email": "hello@koregaonrunners.in",
+  "website": null,
+  "gstin": null,
+  "expectedPerMonth": "6–10",
+  "wantsPaid": false,
+  "documents": [],
+  "reviewNote": null,
+  "submittedAt": "2025-12-27T10:00:00+05:30"
+ },
+ {
+  "id": "h_pune_5",
+  "userId": null,
+  "type": "venue",
+  "brandName": "Kick-off Turf",
+  "cityId": "c_pune",
+  "bio": "Well-kept courts, clean changing rooms and friendly staff. Equipment on rent at the front desk.",
+  "instagram": "@kickoffturf",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2022-08-01",
+  "contactName": "Rohit Kulkarni",
+  "contactPhone": "9860080983",
+  "email": "hello@kickoffturf.in",
+  "website": null,
+  "gstin": "27ABCDE3743F1Z7",
+  "expectedPerMonth": "3–5",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_pune_4_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_pune_4_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-09-12T10:00:00+05:30"
+ },
+ {
+  "id": "h_pune_6",
+  "userId": null,
+  "type": "venue",
+  "brandName": "Rally Point Sports",
+  "cityId": "c_pune",
+  "bio": "Well-kept courts, clean changing rooms and friendly staff. Equipment on rent at the front desk.",
+  "instagram": "@rallypointsports",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2021-09-01",
+  "contactName": "Meera Nair",
+  "contactPhone": "9851432460",
+  "email": "hello@rallypointsports.in",
+  "website": null,
+  "gstin": "27ABCDE1764F1Z2",
+  "expectedPerMonth": "10+",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_pune_5_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_pune_5_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-08-29T10:00:00+05:30"
+ },
+ {
+  "id": "h_nagpur_1",
+  "userId": null,
+  "type": "organiser",
+  "brandName": "Sitabuldi Sessions",
+  "cityId": "c_nagpur",
+  "bio": "We put on intimate gigs, comedy nights and weekend festivals, mostly in small rooms where you can actually see the stage.",
+  "instagram": "@sitabuldisessions",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2021-03-01",
+  "contactName": "Meera Nair",
+  "contactPhone": "9889717609",
+  "email": "hello@sitabuldisessions.in",
+  "website": null,
+  "gstin": "27ABCDE7825F1Z5",
+  "expectedPerMonth": "10+",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_nagpur_0_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_nagpur_0_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2026-01-20T10:00:00+05:30"
+ },
+ {
+  "id": "h_nagpur_2",
+  "userId": null,
+  "type": "organiser",
+  "brandName": "Orange City Live",
+  "cityId": "c_nagpur",
+  "bio": "We put on intimate gigs, comedy nights and weekend festivals, mostly in small rooms where you can actually see the stage.",
+  "instagram": "@orangecitylive",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2025-08-01",
+  "contactName": "Arjun Deshpande",
+  "contactPhone": "9816855586",
+  "email": "hello@orangecitylive.in",
+  "website": null,
+  "gstin": "27ABCDE3642F1Z7",
+  "expectedPerMonth": "1–2",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_nagpur_1_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_nagpur_1_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-04-24T10:00:00+05:30"
+ },
+ {
+  "id": "h_nagpur_3",
+  "userId": null,
+  "type": "instructor",
+  "brandName": "Mud & Wheel",
+  "cityId": "c_nagpur",
+  "bio": "A small studio run by working artists. Classes are hands-on, capped at 12, and all materials are included.",
+  "instagram": "@mudandwheel",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2023-01-01",
+  "contactName": "Kabir Shah",
+  "contactPhone": "9896972620",
+  "email": "hello@mudandwheel.in",
+  "website": null,
+  "gstin": "27ABCDE5557F1Z3",
+  "expectedPerMonth": "1–2",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_nagpur_2_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_nagpur_2_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-11-02T10:00:00+05:30"
+ },
+ {
+  "id": "h_nagpur_4",
+  "userId": null,
+  "type": "community",
+  "brandName": "Orange City Runners",
+  "cityId": "c_nagpur",
+  "bio": "A volunteer-run community. Show up, say hi and you're one of us. Every meetup is free.",
+  "instagram": "@orangecityrunners",
+  "kycStatus": "none",
+  "status": "approved",
+  "since": "2023-07-01",
+  "contactName": "Ananya Iyer",
+  "contactPhone": "9862342560",
+  "email": "hello@orangecityrunners.in",
+  "website": null,
+  "gstin": null,
+  "expectedPerMonth": "3–5",
+  "wantsPaid": false,
+  "documents": [],
+  "reviewNote": null,
+  "submittedAt": "2025-05-11T10:00:00+05:30"
+ },
+ {
+  "id": "h_nagpur_5",
+  "userId": null,
+  "type": "venue",
+  "brandName": "Nagpur Sports Hub",
+  "cityId": "c_nagpur",
+  "bio": "Well-kept courts, clean changing rooms and friendly staff. Equipment on rent at the front desk.",
+  "instagram": "@nagpursportshub",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2024-04-01",
+  "contactName": "Riya Kapoor",
+  "contactPhone": "9841937987",
+  "email": "hello@nagpursportshub.in",
+  "website": null,
+  "gstin": "27ABCDE7606F1Z3",
+  "expectedPerMonth": "1–2",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_nagpur_4_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_nagpur_4_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-08-29T10:00:00+05:30"
+ },
+ {
+  "id": "h_nagpur_6",
+  "userId": null,
+  "type": "venue",
+  "brandName": "Vidarbha Courts",
+  "cityId": "c_nagpur",
+  "bio": "Well-kept courts, clean changing rooms and friendly staff. Equipment on rent at the front desk.",
+  "instagram": "@vidarbhacourts",
+  "kycStatus": "verified",
+  "status": "approved",
+  "since": "2021-01-01",
+  "contactName": "Rohit Kulkarni",
+  "contactPhone": "9812923577",
+  "email": "hello@vidarbhacourts.in",
+  "website": null,
+  "gstin": "27ABCDE5914F1Z3",
+  "expectedPerMonth": "10+",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_nagpur_5_pan",
+    "kind": "pan",
+    "fileName": "pan-card.pdf",
+    "status": "verified"
+   },
+   {
+    "id": "doc_nagpur_5_bank",
+    "kind": "bank",
+    "fileName": "cancelled-cheque.jpg",
+    "status": "verified"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2025-11-15T10:00:00+05:30"
+ },
+ {
+  "id": "h_app_1",
+  "userId": null,
+  "type": "organiser",
+  "brandName": "Saffron Supper Club",
+  "cityId": "c_mumbai",
+  "bio": "We put on intimate gigs, comedy nights and weekend festivals, mostly in small rooms where you can actually see the stage.",
+  "instagram": "@saffronsupperclub",
+  "kycStatus": "pending",
+  "status": "pending",
+  "since": "2026-10-01",
+  "contactName": "Ishaan Mehra",
+  "contactPhone": "9744980359",
+  "email": "hello@saffronsupperclub.in",
+  "website": null,
+  "gstin": "27PQRSX2494K1Z2",
+  "expectedPerMonth": "6–10",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_app_0_pan",
+    "kind": "pan",
+    "fileName": "pan.pdf",
+    "status": "uploaded"
+   },
+   {
+    "id": "doc_app_0_bank",
+    "kind": "bank",
+    "fileName": "bank-proof.pdf",
+    "status": "uploaded"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2026-10-11T10:00:00+05:30"
+ },
+ {
+  "id": "h_app_2",
+  "userId": null,
+  "type": "venue",
+  "brandName": "Courtside Collective",
+  "cityId": "c_pune",
+  "bio": "Well-kept courts, clean changing rooms and friendly staff. Equipment on rent at the front desk.",
+  "instagram": "@courtsidecollective",
+  "kycStatus": "pending",
+  "status": "pending",
+  "since": "2026-10-01",
+  "contactName": "Tanvi Joshi",
+  "contactPhone": "9731558474",
+  "email": "hello@courtsidecollective.in",
+  "website": null,
+  "gstin": "27PQRSX7880K1Z1",
+  "expectedPerMonth": "1–2",
+  "wantsPaid": true,
+  "documents": [
+   {
+    "id": "doc_app_1_pan",
+    "kind": "pan",
+    "fileName": "pan.pdf",
+    "status": "uploaded"
+   },
+   {
+    "id": "doc_app_1_bank",
+    "kind": "bank",
+    "fileName": "bank-proof.pdf",
+    "status": "uploaded"
+   }
+  ],
+  "reviewNote": null,
+  "submittedAt": "2026-10-10T11:30:00+05:30"
+ },
+ {
+  "id": "h_app_3",
+  "userId": null,
+  "type": "instructor",
+  "brandName": "Inkwell Studio",
+  "cityId": "c_nagpur",
+  "bio": "A small studio run by working artists. Classes are hands-on, capped at 12, and all materials are included.",
+  "instagram": "@inkwellstudio",
+  "kycStatus": "none",
+  "status": "pending",
+  "since": "2026-10-01",
+  "contactName": "Farhan Qureshi",
+  "contactPhone": "9784865508",
+  "email": "hello@inkwellstudio.in",
+  "website": null,
+  "gstin": null,
+  "expectedPerMonth": "3–5",
+  "wantsPaid": false,
+  "documents": [],
+  "reviewNote": null,
+  "submittedAt": "2026-10-09T13:00:00+05:30"
+ },
+ {
+  "id": "h_app_4",
+  "userId": null,
+  "type": "community",
+  "brandName": "Bandra Run Crew",
+  "cityId": "c_mumbai",
+  "bio": "A volunteer-run community. Show up, say hi and you're one of us. Every meetup is free.",
+  "instagram": "@bandraruncrew",
+  "kycStatus": "none",
+  "status": "changes",
+  "since": "2026-10-01",
+  "contactName": "Zoya Fernandes",
+  "contactPhone": "9768663133",
+  "email": "hello@bandraruncrew.in",
+  "website": null,
+  "gstin": null,
+  "expectedPerMonth": "1–2",
+  "wantsPaid": false,
+  "documents": [],
+  "reviewNote": "Please add a link to a past run or your Instagram so we can verify the group.",
+  "submittedAt": "2026-10-08T14:30:00+05:30"
+ }
+]

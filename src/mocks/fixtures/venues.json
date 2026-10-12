@@ -1,0 +1,1016 @@
+[
+ {
+  "id": "v_mumbai_01",
+  "hostId": "h_mumbai_5",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_worli",
+  "templateId": "tpl_court_30",
+  "slug": "smash-arena-worli",
+  "name": "Smash Arena Worli",
+  "summary": "pickleball & badminton in Worli. Book in 30-minute slots.",
+  "description": "Smash Arena Worli has courts for pickleball and badminton, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Smash Arena Worli, 90 Link Road, Worli, Mumbai",
+  "lat": 19.0195,
+  "lng": 72.8145,
+  "amenities": [
+   "Parking",
+   "Washrooms",
+   "Drinking water",
+   "Changing rooms",
+   "Equipment on rent"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "pickleball",
+   "badminton"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": 1,
+  "status": "live"
+ },
+ {
+  "id": "v_mumbai_02",
+  "hostId": "h_mumbai_6",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_powai",
+  "templateId": "tpl_court_60",
+  "slug": "pickle-republic-powai",
+  "name": "Pickle Republic Powai",
+  "summary": "pickleball in Powai. Book by the hour.",
+  "description": "Pickle Republic Powai has well-kept pickleball courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Pickle Republic Powai, 83 Sports Complex Lane, Powai, Mumbai",
+  "lat": 19.1122,
+  "lng": 72.9072,
+  "amenities": [
+   "Floodlights",
+   "Parking",
+   "Washrooms",
+   "Café"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "pickleball"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": 2,
+  "status": "live"
+ },
+ {
+  "id": "v_mumbai_03",
+  "hostId": "h_mumbai_5",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_bandra-west",
+  "templateId": "tpl_court_60",
+  "slug": "turf-tribe-bandra",
+  "name": "Turf Tribe Bandra",
+  "summary": "football & box cricket in Bandra West. Book by the hour.",
+  "description": "Turf Tribe Bandra has courts for football and box cricket, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Turf Tribe Bandra, 26 Link Road, Bandra West, Mumbai",
+  "lat": 19.0616,
+  "lng": 72.8265,
+  "amenities": [
+   "Changing rooms",
+   "Showers",
+   "Lockers",
+   "Equipment on rent",
+   "First aid"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "football",
+   "box-cricket"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": 3,
+  "status": "live"
+ },
+ {
+  "id": "v_mumbai_04",
+  "hostId": "h_mumbai_6",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_colaba",
+  "templateId": "tpl_court_60",
+  "slug": "shuttle-house-colaba",
+  "name": "Shuttle House Colaba",
+  "summary": "badminton in Colaba. Book by the hour.",
+  "description": "Shuttle House Colaba has well-kept badminton courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Shuttle House Colaba, 36 Club Road, Colaba, Mumbai",
+  "lat": 18.911,
+  "lng": 72.8155,
+  "amenities": [
+   "Washrooms",
+   "Drinking water",
+   "Seating area"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "badminton"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_mumbai_05",
+  "hostId": "h_mumbai_5",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_lower-parel",
+  "templateId": "tpl_court_60",
+  "slug": "box-cricket-bay-lower-parel",
+  "name": "Box Cricket Bay Lower Parel",
+  "summary": "box cricket in Lower Parel. Book by the hour.",
+  "description": "Box Cricket Bay Lower Parel has well-kept box cricket courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Box Cricket Bay Lower Parel, 65 Station Road, Lower Parel, Mumbai",
+  "lat": 19.0015,
+  "lng": 72.8367,
+  "amenities": [
+   "Parking",
+   "Washrooms",
+   "Drinking water",
+   "Changing rooms",
+   "Equipment on rent"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "box-cricket"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_mumbai_06",
+  "hostId": "h_mumbai_6",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_malad-west",
+  "templateId": "tpl_court_60",
+  "slug": "ace-tennis-centre-malad",
+  "name": "Ace Tennis Centre Malad",
+  "summary": "tennis & pickleball in Malad West. Book by the hour.",
+  "description": "Ace Tennis Centre Malad has courts for tennis and pickleball, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Ace Tennis Centre Malad, 36 Sports Complex Lane, Malad West, Mumbai",
+  "lat": 19.188,
+  "lng": 72.8515,
+  "amenities": [
+   "Floodlights",
+   "Parking",
+   "Washrooms",
+   "Café"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "tennis",
+   "pickleball"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_mumbai_07",
+  "hostId": "h_mumbai_5",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_juhu",
+  "templateId": "tpl_court_60",
+  "slug": "padel-point-juhu",
+  "name": "Padel Point Juhu",
+  "summary": "padel in Juhu. Book by the hour.",
+  "description": "Padel Point Juhu has well-kept padel courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Padel Point Juhu, 90 Club Road, Juhu, Mumbai",
+  "lat": 19.1015,
+  "lng": 72.8287,
+  "amenities": [
+   "Changing rooms",
+   "Showers",
+   "Lockers",
+   "Equipment on rent",
+   "First aid"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "padel"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_mumbai_08",
+  "hostId": "h_mumbai_6",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_andheri-west",
+  "templateId": "tpl_court_60",
+  "slug": "kick-off-arena-andheri",
+  "name": "Kick-off Arena Andheri",
+  "summary": "football in Andheri West. Book by the hour.",
+  "description": "Kick-off Arena Andheri has well-kept football courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Kick-off Arena Andheri, 43 Club Road, Andheri West, Mumbai",
+  "lat": 19.1371,
+  "lng": 72.8293,
+  "amenities": [
+   "Washrooms",
+   "Drinking water",
+   "Seating area"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "football"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_mumbai_09",
+  "hostId": "h_mumbai_5",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_worli",
+  "templateId": "tpl_court_30",
+  "slug": "dropshot-club-worli",
+  "name": "Dropshot Club Worli",
+  "summary": "badminton & pickleball in Worli. Book in 30-minute slots.",
+  "description": "Dropshot Club Worli has courts for badminton and pickleball, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Dropshot Club Worli, 24 Link Road, Worli, Mumbai",
+  "lat": 19.0173,
+  "lng": 72.8164,
+  "amenities": [
+   "Parking",
+   "Washrooms",
+   "Drinking water",
+   "Changing rooms",
+   "Equipment on rent"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "badminton",
+   "pickleball"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_mumbai_10",
+  "hostId": "h_mumbai_6",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_powai",
+  "templateId": "tpl_court_60",
+  "slug": "court-nine-powai",
+  "name": "Court Nine Powai",
+  "summary": "pickleball & padel in Powai. Book by the hour.",
+  "description": "Court Nine Powai has courts for pickleball and padel, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Court Nine Powai, 51 Sports Complex Lane, Powai, Mumbai",
+  "lat": 19.116,
+  "lng": 72.9037,
+  "amenities": [
+   "Floodlights",
+   "Parking",
+   "Washrooms",
+   "Café"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "pickleball",
+   "padel"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_01",
+  "hostId": "h_pune_5",
+  "cityId": "c_pune",
+  "areaId": "a_pune_hinjewadi",
+  "templateId": "tpl_court_30",
+  "slug": "smash-arena-hinjewadi",
+  "name": "Smash Arena Hinjewadi",
+  "summary": "pickleball & badminton in Hinjewadi. Book in 30-minute slots.",
+  "description": "Smash Arena Hinjewadi has courts for pickleball and badminton, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Smash Arena Hinjewadi, 75 Station Road, Hinjewadi, Pune",
+  "lat": 18.5923,
+  "lng": 73.7331,
+  "amenities": [
+   "Parking",
+   "Washrooms",
+   "Drinking water",
+   "Changing rooms",
+   "Equipment on rent"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "pickleball",
+   "badminton"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": 1,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_02",
+  "hostId": "h_pune_6",
+  "cityId": "c_pune",
+  "areaId": "a_pune_baner",
+  "templateId": "tpl_court_60",
+  "slug": "pickle-republic-baner",
+  "name": "Pickle Republic Baner",
+  "summary": "pickleball in Baner. Book by the hour.",
+  "description": "Pickle Republic Baner has well-kept pickleball courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Pickle Republic Baner, 59 Sports Complex Lane, Baner, Pune",
+  "lat": 18.5647,
+  "lng": 73.7915,
+  "amenities": [
+   "Floodlights",
+   "Parking",
+   "Washrooms",
+   "Café"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "pickleball"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": 2,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_03",
+  "hostId": "h_app_2",
+  "cityId": "c_pune",
+  "areaId": "a_pune_aundh",
+  "templateId": "tpl_court_60",
+  "slug": "turf-tribe-aundh",
+  "name": "Turf Tribe Aundh",
+  "summary": "football & box cricket in Aundh. Book by the hour.",
+  "description": "Turf Tribe Aundh has courts for football and box cricket, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Turf Tribe Aundh, 65 Station Road, Aundh, Pune",
+  "lat": 18.5547,
+  "lng": 73.803,
+  "amenities": [
+   "Changing rooms",
+   "Showers",
+   "Lockers",
+   "Equipment on rent",
+   "First aid"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "football",
+   "box-cricket"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": 3,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_04",
+  "hostId": "h_pune_5",
+  "cityId": "c_pune",
+  "areaId": "a_pune_viman-nagar",
+  "templateId": "tpl_court_60",
+  "slug": "shuttle-house-viman-nagar",
+  "name": "Shuttle House Viman Nagar",
+  "summary": "badminton in Viman Nagar. Book by the hour.",
+  "description": "Shuttle House Viman Nagar has well-kept badminton courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Shuttle House Viman Nagar, 53 Club Road, Viman Nagar, Pune",
+  "lat": 18.5678,
+  "lng": 73.9183,
+  "amenities": [
+   "Washrooms",
+   "Drinking water",
+   "Seating area"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "badminton"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_05",
+  "hostId": "h_pune_6",
+  "cityId": "c_pune",
+  "areaId": "a_pune_koregaon-park",
+  "templateId": "tpl_court_60",
+  "slug": "box-cricket-bay-koregaon-park",
+  "name": "Box Cricket Bay Koregaon Park",
+  "summary": "box cricket in Koregaon Park. Book by the hour.",
+  "description": "Box Cricket Bay Koregaon Park has well-kept box cricket courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Box Cricket Bay Koregaon Park, 47 Ring Road, Koregaon Park, Pune",
+  "lat": 18.5338,
+  "lng": 73.8889,
+  "amenities": [
+   "Parking",
+   "Washrooms",
+   "Drinking water",
+   "Changing rooms",
+   "Equipment on rent"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "box-cricket"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_06",
+  "hostId": "h_app_2",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kalyani-nagar",
+  "templateId": "tpl_court_60",
+  "slug": "ace-tennis-centre-kalyani-nagar",
+  "name": "Ace Tennis Centre Kalyani Nagar",
+  "summary": "tennis & pickleball in Kalyani Nagar. Book by the hour.",
+  "description": "Ace Tennis Centre Kalyani Nagar has courts for tennis and pickleball, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Ace Tennis Centre Kalyani Nagar, 2 Club Road, Kalyani Nagar, Pune",
+  "lat": 18.5468,
+  "lng": 73.9042,
+  "amenities": [
+   "Floodlights",
+   "Parking",
+   "Washrooms",
+   "Café"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "tennis",
+   "pickleball"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_07",
+  "hostId": "h_pune_5",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kothrud",
+  "templateId": "tpl_court_60",
+  "slug": "padel-point-kothrud",
+  "name": "Padel Point Kothrud",
+  "summary": "padel in Kothrud. Book by the hour.",
+  "description": "Padel Point Kothrud has well-kept padel courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Padel Point Kothrud, 86 Sports Complex Lane, Kothrud, Pune",
+  "lat": 18.5091,
+  "lng": 73.8056,
+  "amenities": [
+   "Changing rooms",
+   "Showers",
+   "Lockers",
+   "Equipment on rent",
+   "First aid"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "padel"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_08",
+  "hostId": "h_pune_6",
+  "cityId": "c_pune",
+  "areaId": "a_pune_wakad",
+  "templateId": "tpl_court_60",
+  "slug": "kick-off-arena-wakad",
+  "name": "Kick-off Arena Wakad",
+  "summary": "football in Wakad. Book by the hour.",
+  "description": "Kick-off Arena Wakad has well-kept football courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Kick-off Arena Wakad, 83 Station Road, Wakad, Pune",
+  "lat": 18.6038,
+  "lng": 73.7633,
+  "amenities": [
+   "Washrooms",
+   "Drinking water",
+   "Seating area"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "football"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_09",
+  "hostId": "h_app_2",
+  "cityId": "c_pune",
+  "areaId": "a_pune_hinjewadi",
+  "templateId": "tpl_court_30",
+  "slug": "dropshot-club-hinjewadi",
+  "name": "Dropshot Club Hinjewadi",
+  "summary": "badminton & pickleball in Hinjewadi. Book in 30-minute slots.",
+  "description": "Dropshot Club Hinjewadi has courts for badminton and pickleball, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Dropshot Club Hinjewadi, 19 Ring Road, Hinjewadi, Pune",
+  "lat": 18.5925,
+  "lng": 73.741,
+  "amenities": [
+   "Parking",
+   "Washrooms",
+   "Drinking water",
+   "Changing rooms",
+   "Equipment on rent"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "badminton",
+   "pickleball"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_pune_10",
+  "hostId": "h_pune_5",
+  "cityId": "c_pune",
+  "areaId": "a_pune_baner",
+  "templateId": "tpl_court_60",
+  "slug": "court-nine-baner",
+  "name": "Court Nine Baner",
+  "summary": "pickleball & padel in Baner. Book by the hour.",
+  "description": "Court Nine Baner has courts for pickleball and padel, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Court Nine Baner, 46 Sports Complex Lane, Baner, Pune",
+  "lat": 18.5632,
+  "lng": 73.7879,
+  "amenities": [
+   "Floodlights",
+   "Parking",
+   "Washrooms",
+   "Café"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "pickleball",
+   "padel"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_01",
+  "hostId": "h_nagpur_5",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sadar",
+  "templateId": "tpl_court_30",
+  "slug": "smash-arena-sadar",
+  "name": "Smash Arena Sadar",
+  "summary": "pickleball & badminton in Sadar. Book in 30-minute slots.",
+  "description": "Smash Arena Sadar has courts for pickleball and badminton, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Smash Arena Sadar, 76 Station Road, Sadar, Nagpur",
+  "lat": 21.1621,
+  "lng": 79.0799,
+  "amenities": [
+   "Parking",
+   "Washrooms",
+   "Drinking water",
+   "Changing rooms",
+   "Equipment on rent"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "pickleball",
+   "badminton"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": 1,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_02",
+  "hostId": "h_nagpur_6",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_manish-nagar",
+  "templateId": "tpl_court_60",
+  "slug": "pickle-republic-manish-nagar",
+  "name": "Pickle Republic Manish Nagar",
+  "summary": "pickleball in Manish Nagar. Book by the hour.",
+  "description": "Pickle Republic Manish Nagar has well-kept pickleball courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Pickle Republic Manish Nagar, 58 Ring Road, Manish Nagar, Nagpur",
+  "lat": 21.0891,
+  "lng": 79.0826,
+  "amenities": [
+   "Floodlights",
+   "Parking",
+   "Washrooms",
+   "Café"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "pickleball"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": 2,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_03",
+  "hostId": "h_nagpur_5",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_dharampeth",
+  "templateId": "tpl_court_60",
+  "slug": "turf-tribe-dharampeth",
+  "name": "Turf Tribe Dharampeth",
+  "summary": "football & box cricket in Dharampeth. Book by the hour.",
+  "description": "Turf Tribe Dharampeth has courts for football and box cricket, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Turf Tribe Dharampeth, 73 Ring Road, Dharampeth, Nagpur",
+  "lat": 21.1423,
+  "lng": 79.0678,
+  "amenities": [
+   "Changing rooms",
+   "Showers",
+   "Lockers",
+   "Equipment on rent",
+   "First aid"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "football",
+   "box-cricket"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": 3,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_04",
+  "hostId": "h_nagpur_6",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_wardha-road",
+  "templateId": "tpl_court_60",
+  "slug": "shuttle-house-wardha-road",
+  "name": "Shuttle House Wardha Road",
+  "summary": "badminton in Wardha Road. Book by the hour.",
+  "description": "Shuttle House Wardha Road has well-kept badminton courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Shuttle House Wardha Road, 53 Ring Road, Wardha Road, Nagpur",
+  "lat": 21.0981,
+  "lng": 79.0748,
+  "amenities": [
+   "Washrooms",
+   "Drinking water",
+   "Seating area"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "badminton"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_05",
+  "hostId": "h_nagpur_5",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sitabuldi",
+  "templateId": "tpl_court_60",
+  "slug": "box-cricket-bay-sitabuldi",
+  "name": "Box Cricket Bay Sitabuldi",
+  "summary": "box cricket in Sitabuldi. Book by the hour.",
+  "description": "Box Cricket Bay Sitabuldi has well-kept box cricket courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Box Cricket Bay Sitabuldi, 85 Sports Complex Lane, Sitabuldi, Nagpur",
+  "lat": 21.1403,
+  "lng": 79.0801,
+  "amenities": [
+   "Parking",
+   "Washrooms",
+   "Drinking water",
+   "Changing rooms",
+   "Equipment on rent"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "box-cricket"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_06",
+  "hostId": "h_nagpur_6",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_pratap-nagar",
+  "templateId": "tpl_court_60",
+  "slug": "ace-tennis-centre-pratap-nagar",
+  "name": "Ace Tennis Centre Pratap Nagar",
+  "summary": "tennis & pickleball in Pratap Nagar. Book by the hour.",
+  "description": "Ace Tennis Centre Pratap Nagar has courts for tennis and pickleball, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Ace Tennis Centre Pratap Nagar, 81 Club Road, Pratap Nagar, Nagpur",
+  "lat": 21.1172,
+  "lng": 79.0456,
+  "amenities": [
+   "Floodlights",
+   "Parking",
+   "Washrooms",
+   "Café"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "tennis",
+   "pickleball"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_07",
+  "hostId": "h_nagpur_5",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_ramdaspeth",
+  "templateId": "tpl_court_60",
+  "slug": "padel-point-ramdaspeth",
+  "name": "Padel Point Ramdaspeth",
+  "summary": "padel in Ramdaspeth. Book by the hour.",
+  "description": "Padel Point Ramdaspeth has well-kept padel courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Padel Point Ramdaspeth, 68 Station Road, Ramdaspeth, Nagpur",
+  "lat": 21.1384,
+  "lng": 79.0677,
+  "amenities": [
+   "Changing rooms",
+   "Showers",
+   "Lockers",
+   "Equipment on rent",
+   "First aid"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "padel"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_08",
+  "hostId": "h_nagpur_6",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_civil-lines",
+  "templateId": "tpl_court_60",
+  "slug": "kick-off-arena-civil-lines",
+  "name": "Kick-off Arena Civil Lines",
+  "summary": "football in Civil Lines. Book by the hour.",
+  "description": "Kick-off Arena Civil Lines has well-kept football courts, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Kick-off Arena Civil Lines, 57 Club Road, Civil Lines, Nagpur",
+  "lat": 21.1627,
+  "lng": 79.0747,
+  "amenities": [
+   "Washrooms",
+   "Drinking water",
+   "Seating area"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "football"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_09",
+  "hostId": "h_nagpur_5",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sadar",
+  "templateId": "tpl_court_30",
+  "slug": "dropshot-club-sadar",
+  "name": "Dropshot Club Sadar",
+  "summary": "badminton & pickleball in Sadar. Book in 30-minute slots.",
+  "description": "Dropshot Club Sadar has courts for badminton and pickleball, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Dropshot Club Sadar, 23 Ring Road, Sadar, Nagpur",
+  "lat": 21.1682,
+  "lng": 79.082,
+  "amenities": [
+   "Parking",
+   "Washrooms",
+   "Drinking water",
+   "Changing rooms",
+   "Equipment on rent"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "badminton",
+   "pickleball"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ },
+ {
+  "id": "v_nagpur_10",
+  "hostId": "h_nagpur_6",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_manish-nagar",
+  "templateId": "tpl_court_60",
+  "slug": "court-nine-manish-nagar",
+  "name": "Court Nine Manish Nagar",
+  "summary": "pickleball & padel in Manish Nagar. Book by the hour.",
+  "description": "Court Nine Manish Nagar has courts for pickleball and padel, floodlit for evening games. Walk-ins are welcome when slots are free, but evenings and weekends fill up fast, so book ahead.",
+  "media": [],
+  "address": "Court Nine Manish Nagar, 82 Sports Complex Lane, Manish Nagar, Nagpur",
+  "lat": 21.0908,
+  "lng": 79.0762,
+  "amenities": [
+   "Floodlights",
+   "Parking",
+   "Washrooms",
+   "Café"
+  ],
+  "hoursLabel": "6 AM – 11 PM",
+  "sports": [
+   "pickleball",
+   "padel"
+  ],
+  "thingsToKnow": [
+   "Non-marking shoes are compulsory",
+   "Arrive 10 minutes before your slot",
+   "Rackets and balls available on rent",
+   "Free cancellation up to 6 hours before"
+  ],
+  "featuredRank": null,
+  "status": "live"
+ }
+]

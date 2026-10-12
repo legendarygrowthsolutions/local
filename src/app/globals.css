@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* Design tokens — PLAN.md §7. Neutral base (~85%), one brand colour (~10%), functional colours in tiny doses. */
+@theme {
+  --color-ground: #f7f7f4;
+  --color-surface: #ffffff;
+  --color-ink: #121a1b;
+  --color-ink-2: #2a3335;
+  --color-muted: #536062;
+  --color-subtle: #657073; /* ≥4.5:1 on ground and surface (WCAG AA) */
+  --color-line: #e3e8e6;
+  --color-line-strong: #d2dad8;
+  --color-field: #eef2f1;
+
+  --color-brand: #0b6e79;
+  --color-brand-hover: #095d66;
+  --color-brand-ink: #08505a;
+  --color-tint: #ddf1f2;
+  --color-brand-soft: #7fd0d6; /* brand on dark feature surfaces */
+
+  /* Gold spark — accents on dark feature surfaces only (hero shapes, logo dot, CTA chip) */
+  --color-spark: #e9b44c;
+  --color-spark-ink: #2a1d02;
+
+  --color-feature: #0c2326;
+  --color-feature-2: #163639;
+  --color-feature-3: #1f4448;
+  --color-feature-muted: #a9c3c4;
+
+  --color-free: #0b6b3a;
+  --color-free-tint: #e6f3ec;
+  --color-urgent: #9e2a0e;
+  --color-urgent-tint: #ffece6;
+  --color-warn: #6b4e00;
+  --color-warn-tint: #fff3c4;
+  --color-danger: #b42318;
+  --color-danger-tint: #fdecea;
+
+  --color-tone-0: #e2ecea;
+  --color-tone-1: #e8ede6;
+  --color-tone-2: #f2e9e4;
+  --color-tone-3: #e6eaf1;
+
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 20px;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-shimmer: shimmer 1.4s linear infinite;
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  :focus-visible:not(input):not(textarea) {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-surface), 0 0 0 5px var(--color-brand);
+    border-radius: 10px;
+  }
+  ::selection {
+    background: var(--color-tint);
+    color: var(--color-brand-ink);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}
+
+@utility skeleton {
+  background: linear-gradient(90deg, #e9eeed 0%, #f4f7f6 50%, #e9eeed 100%);
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Motion (PLAN §7) ---------- */
+
+/* Card cover → detail hero morph */
+::view-transition-group(.morph) {
+  animation-duration: 380ms;
+  animation-timing-function: var(--ease-out-soft);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  30% {
+    filter: blur(2px);
+  }
+}
+
+/* Scroll-driven reveal for home rails: CSS only, progressive enhancement */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+/* Transform only: text is never semi-transparent, so contrast holds mid-animation. */
+@keyframes reveal-up {
+  from {
+    transform: translateY(32px) scale(0.985);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+  .reveal {
+    animation: none !important;
+  }
+}
+
+/* Desktop sheet (centred dialog). Translate stays in the transform so the centring isn't lost. */
+.sheet-dialog[data-state="open"] { animation: sheet-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.sheet-dialog[data-state="closed"] { animation: sheet-out 150ms ease-in forwards; }
+.sheet-overlay[data-state="open"] { animation: fade-in 200ms ease-out; }
+.sheet-overlay[data-state="closed"] { animation: fade-in 150ms ease-in reverse forwards; }
+@keyframes sheet-in {
+  from { opacity: 0; transform: translate(-50%, calc(-50% + 12px)) scale(0.98); }
+}
+@keyframes sheet-out {
+  to { opacity: 0; transform: translate(-50%, calc(-50% + 8px)) scale(0.98); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sheet-dialog, .sheet-overlay { animation-duration: 1ms !important; }
+}

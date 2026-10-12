@@ -1,0 +1,5033 @@
+[
+ {
+  "id": "l_mumbai_01",
+  "hostId": "h_mumbai_2",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_worli",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_ticket_single",
+  "slug": "rohan-desai-overthinking-it-mum1",
+  "title": "Rohan Desai: Overthinking It",
+  "summary": "A new hour of stand-up about rent, parents and the group chat.",
+  "description": "A new hour of stand-up about rent, parents and the group chat.\n\nHosted by Punchline Collective at The Loft Hall, Worli. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Loft Hall",
+  "address": "The Loft Hall, 13 MG Road, Worli, Mumbai",
+  "lat": 19.0174,
+  "lng": 72.8137,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-07T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_02",
+  "hostId": "h_mumbai_2",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_andheri-west",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_ticket_single",
+  "slug": "the-late-late-laugh-club-mum2",
+  "title": "The Late Late Laugh Club",
+  "summary": "Five comics, one late night. Fresh sets only.",
+  "description": "Five comics, one late night. Fresh sets only.\n\nHosted by Punchline Collective at Cobalt Terrace, Andheri West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Cobalt Terrace",
+  "address": "Cobalt Terrace, 17 Station Road, Andheri West, Mumbai",
+  "lat": 19.1349,
+  "lng": 72.8326,
+  "ageLimit": "12+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 1,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-15T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_03",
+  "hostId": "h_mumbai_2",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_juhu",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_rsvp",
+  "slug": "sunday-open-mic-mum3",
+  "title": "Sunday Open Mic",
+  "summary": "Sign up to perform or come to watch. Free entry, buy a coffee.",
+  "description": "Sign up to perform or come to watch. Free entry, buy a coffee.\n\nHosted by Punchline Collective at Sandbox Studio, Juhu. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Sandbox Studio",
+  "address": "Sandbox Studio, 33 Hill Road, Juhu, Mumbai",
+  "lat": 19.1098,
+  "lng": 72.822,
+  "ageLimit": "12+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-08T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_05",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_lower-parel",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "indie-nights-monsoon-sessions-mum5",
+  "title": "Indie Nights: Monsoon Sessions",
+  "summary": "Three bands from the city's indie scene, back to back.",
+  "description": "Three bands from the city's indie scene, back to back.\n\nHosted by Tidewater Collective at The Courtyard Theatre, Lower Parel. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Courtyard Theatre",
+  "address": "The Courtyard Theatre, 20 Lake Road, Lower Parel, Mumbai",
+  "lat": 18.9939,
+  "lng": 72.8364,
+  "ageLimit": "18+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-17T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_06",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_colaba",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "sufi-under-the-stars-mum6",
+  "title": "Sufi Under the Stars",
+  "summary": "An open-air evening of qawwali and Sufi poetry.",
+  "description": "An open-air evening of qawwali and Sufi poetry.\n\nHosted by Tidewater Collective at Tin Roof Social, Colaba. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Tin Roof Social",
+  "address": "Tin Roof Social, 2 Main Street, Colaba, Mumbai",
+  "lat": 18.9086,
+  "lng": 72.8098,
+  "ageLimit": "All ages",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 2,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-06T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_07",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_bandra-west",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "jazz-on-the-terrace-mum7",
+  "title": "Jazz on the Terrace",
+  "summary": "A quartet, a sunset and a very good playlist between sets.",
+  "description": "A quartet, a sunset and a very good playlist between sets.\n\nHosted by Tidewater Collective at Blue Door Collective, Bandra West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Blue Door Collective",
+  "address": "Blue Door Collective, 44 Temple Lane, Bandra West, Mumbai",
+  "lat": 19.0551,
+  "lng": 72.8294,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-28T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_08",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_powai",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "retro-bollywood-night-mum8",
+  "title": "Retro Bollywood Night",
+  "summary": "Seventies and eighties hits, live band, full dance floor.",
+  "description": "Seventies and eighties hits, live band, full dance floor.\n\nHosted by Tidewater Collective at Paper Boat Café, Powai. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Paper Boat Café",
+  "address": "Paper Boat Café, 31 MG Road, Powai, Mumbai",
+  "lat": 19.1181,
+  "lng": 72.9094,
+  "ageLimit": "16+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-22T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_09",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_worli",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_multi",
+  "slug": "mumbai-sound-festival-mum9",
+  "title": "Mumbai Sound Festival",
+  "summary": "Two days, three stages and thirty artists across indie, electronic and folk.",
+  "description": "Two days, three stages and thirty artists across indie, electronic and folk.\n\nHosted by Tidewater Collective at Lantern House, Worli. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Lantern House",
+  "address": "Lantern House, 45 Temple Lane, Worli, Mumbai",
+  "lat": 19.0211,
+  "lng": 72.8157,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Day tickets are valid for the chosen day only",
+   "The season pass covers all days",
+   "Re-entry allowed with wristband",
+   "Age 18+ for the bar area"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-21T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_10",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_andheri-west",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_theatre",
+  "templateId": "tpl_ticket_single",
+  "slug": "the-last-local-train-mum10",
+  "title": "The Last Local Train",
+  "summary": "A two-hander about strangers stuck on the final train home.",
+  "description": "A two-hander about strangers stuck on the final train home.\n\nHosted by Tidewater Collective at Banyan Room, Andheri West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Banyan Room",
+  "address": "Banyan Room, 11 Station Road, Andheri West, Mumbai",
+  "lat": 19.1325,
+  "lng": 72.8266,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi"
+  ],
+  "tags": [
+   "theatre",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 3,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-13T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_11",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_juhu",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_theatre",
+  "templateId": "tpl_ticket_single",
+  "slug": "chai-cigarette-aur-kahaniyan-mum11",
+  "title": "Chai, Cigarette aur Kahaniyan",
+  "summary": "Short Hindi plays performed in the round.",
+  "description": "Short Hindi plays performed in the round.\n\nHosted by Tidewater Collective at Copper Kettle Hall, Juhu. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Copper Kettle Hall",
+  "address": "Copper Kettle Hall, 33 Hill Road, Juhu, Mumbai",
+  "lat": 19.1042,
+  "lng": 72.824,
+  "ageLimit": "12+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "theatre",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-05T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_12",
+  "hostId": "h_mumbai_2",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_malad-west",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_theatre",
+  "templateId": "tpl_rsvp",
+  "slug": "improv-jam-night-mum12",
+  "title": "Improv Jam Night",
+  "summary": "Audience suggestions, zero scripts. Free with RSVP.",
+  "description": "Audience suggestions, zero scripts. Free with RSVP.\n\nHosted by Punchline Collective at The Attic Terrace, Malad West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Attic Terrace",
+  "address": "The Attic Terrace, 27 MG Road, Malad West, Mumbai",
+  "lat": 19.191,
+  "lng": 72.8528,
+  "ageLimit": "12+",
+  "languages": [
+   "Hindi"
+  ],
+  "tags": [
+   "theatre",
+   "events",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-09T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_14",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_colaba",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_festivals",
+  "templateId": "tpl_info",
+  "slug": "diwali-design-bazaar-mum14",
+  "title": "Diwali Design Bazaar",
+  "summary": "Handmade lamps, textiles and gifts from local makers. Free entry.",
+  "description": "Handmade lamps, textiles and gifts from local makers. Free entry.\n\nHosted by Tidewater Collective at Mango Tree Garden, Colaba. Just walk in — there is nothing to book.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Mango Tree Garden",
+  "address": "Mango Tree Garden, 32 Lake Road, Colaba, Mumbai",
+  "lat": 18.9111,
+  "lng": 72.8107,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "festivals",
+   "events",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, no booking needed",
+   "Open to all ages",
+   "Nearest metro and parking are on the map"
+  ],
+  "externalUrl": "https://example.com",
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-18T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_15",
+  "hostId": "h_mumbai_3",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_bandra-west",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_recurring",
+  "slug": "wheel-throwing-for-beginners-mum15",
+  "title": "Wheel Throwing for Beginners",
+  "summary": "Get your hands muddy and leave with two pieces of your own.",
+  "description": "Get your hands muddy and leave with two pieces of your own.\n\nHosted by Kiln House Studio at Monsoon Theatre, Bandra West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Monsoon Theatre",
+  "address": "Monsoon Theatre, 3 Lake Road, Bandra West, Mumbai",
+  "lat": 19.0573,
+  "lng": 72.8288,
+  "ageLimit": "All ages",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-10T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_16",
+  "hostId": "h_mumbai_3",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_powai",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_recurring",
+  "slug": "weekend-watercolour-basics-mum16",
+  "title": "Weekend Watercolour Basics",
+  "summary": "Washes, layering and loose florals. All materials included.",
+  "description": "Washes, layering and loose florals. All materials included.\n\nHosted by Kiln House Studio at Saffron Social, Powai. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Saffron Social",
+  "address": "Saffron Social, 39 Main Street, Powai, Mumbai",
+  "lat": 19.1146,
+  "lng": 72.9013,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 4,
+  "formFields": [],
+  "createdAt": "2026-09-01T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_17",
+  "hostId": "h_mumbai_3",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_worli",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_ticket_single",
+  "slug": "block-printing-workshop-mum17",
+  "title": "Block Printing Workshop",
+  "summary": "Carve your own block and print a tote to take home.",
+  "description": "Carve your own block and print a tote to take home.\n\nHosted by Kiln House Studio at The Loft Collective, Worli. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Loft Collective",
+  "address": "The Loft Collective, 12 Station Road, Worli, Mumbai",
+  "lat": 19.0174,
+  "lng": 72.8192,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-01T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_18",
+  "hostId": "h_mumbai_3",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_andheri-west",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_recurring",
+  "slug": "candle-making-studio-mum18",
+  "title": "Candle Making Studio",
+  "summary": "Soy wax, scents and moulds. Make three candles in an evening.",
+  "description": "Soy wax, scents and moulds. Make three candles in an evening.\n\nHosted by Kiln House Studio at Cobalt Café, Andheri West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Cobalt Café",
+  "address": "Cobalt Café, 8 Station Road, Andheri West, Mumbai",
+  "lat": 19.1354,
+  "lng": 72.8289,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 5,
+  "formFields": [],
+  "createdAt": "2026-10-07T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_19",
+  "hostId": "h_mumbai_3",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_juhu",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_cooking",
+  "templateId": "tpl_recurring",
+  "slug": "sourdough-from-scratch-mum19",
+  "title": "Sourdough from Scratch",
+  "summary": "Starter, shaping and scoring. Take home a loaf and a starter.",
+  "description": "Starter, shaping and scoring. Take home a loaf and a starter.\n\nHosted by Kiln House Studio at Sandbox House, Juhu. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Sandbox House",
+  "address": "Sandbox House, 44 MG Road, Juhu, Mumbai",
+  "lat": 19.1036,
+  "lng": 72.8267,
+  "ageLimit": "18+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "cooking",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-17T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_20",
+  "hostId": "h_mumbai_3",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_malad-west",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_cooking",
+  "templateId": "tpl_ticket_single",
+  "slug": "mumbai-street-food-cook-along-mum20",
+  "title": "Mumbai Street Food Cook-along",
+  "summary": "Cook five street-food classics with a chef who grew up on them.",
+  "description": "Cook five street-food classics with a chef who grew up on them.\n\nHosted by Kiln House Studio at Jamun Room, Malad West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Jamun Room",
+  "address": "Jamun Room, 36 MG Road, Malad West, Mumbai",
+  "lat": 19.1839,
+  "lng": 72.8457,
+  "ageLimit": "16+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "cooking",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-01T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_21",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_lower-parel",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_wellness",
+  "templateId": "tpl_rsvp",
+  "slug": "sunrise-yoga-in-the-park-mum21",
+  "title": "Sunrise Yoga in the Park",
+  "summary": "A gentle flow for all levels. Bring a mat and water.",
+  "description": "A gentle flow for all levels. Bring a mat and water.\n\nHosted by Bandra Bookworms at The Courtyard Hall, Lower Parel. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Courtyard Hall",
+  "address": "The Courtyard Hall, 35 Temple Lane, Lower Parel, Mumbai",
+  "lat": 19.0018,
+  "lng": 72.837,
+  "ageLimit": "18+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "wellness",
+   "workshops",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-21T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_23",
+  "hostId": "h_mumbai_3",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_bandra-west",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_photography",
+  "templateId": "tpl_recurring",
+  "slug": "phone-photography-walk-mum23",
+  "title": "Phone Photography Walk",
+  "summary": "Learn composition and light on a two-hour walk.",
+  "description": "Learn composition and light on a two-hour walk.\n\nHosted by Kiln House Studio at Blue Door Studio, Bandra West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Blue Door Studio",
+  "address": "Blue Door Studio, 16 Station Road, Bandra West, Mumbai",
+  "lat": 19.0625,
+  "lng": 72.8336,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "photography",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-14T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_24",
+  "hostId": "h_mumbai_3",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_powai",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_photography",
+  "templateId": "tpl_ticket_single",
+  "slug": "portrait-lighting-101-mum24",
+  "title": "Portrait Lighting 101",
+  "summary": "Studio lights, reflectors and posing. Bring any camera.",
+  "description": "Studio lights, reflectors and posing. Bring any camera.\n\nHosted by Kiln House Studio at Paper Boat Garden, Powai. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Paper Boat Garden",
+  "address": "Paper Boat Garden, 35 Temple Lane, Powai, Mumbai",
+  "lat": 19.1177,
+  "lng": 72.9052,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "photography",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-07T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_25",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_worli",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_book-clubs",
+  "templateId": "tpl_rsvp",
+  "slug": "silent-book-club-mum25",
+  "title": "Silent Book Club",
+  "summary": "Bring a book, read quietly for an hour, then chat if you like.",
+  "description": "Bring a book, read quietly for an hour, then chat if you like.\n\nHosted by Bandra Bookworms at Lantern Theatre, Worli. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Lantern Theatre",
+  "address": "Lantern Theatre, 16 Temple Lane, Worli, Mumbai",
+  "lat": 19.0161,
+  "lng": 72.8144,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "book-clubs",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-01T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_26",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_andheri-west",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_running",
+  "templateId": "tpl_rsvp",
+  "slug": "saturday-5k-run-club-mum26",
+  "title": "Saturday 5K Run Club",
+  "summary": "A social 5K at an easy pace, followed by chai.",
+  "description": "A social 5K at an easy pace, followed by chai.\n\nHosted by Bandra Bookworms at Banyan Social, Andheri West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Banyan Social",
+  "address": "Banyan Social, 37 Lake Road, Andheri West, Mumbai",
+  "lat": 19.1364,
+  "lng": 72.8267,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "running",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-07T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_27",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_juhu",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_startups",
+  "templateId": "tpl_rsvp",
+  "slug": "founders-chai-morning-mum27",
+  "title": "Founders' Chai Morning",
+  "summary": "Early-stage founders swapping notes over chai. No pitches.",
+  "description": "Early-stage founders swapping notes over chai. No pitches.\n\nHosted by Bandra Bookworms at Copper Kettle Collective, Juhu. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Copper Kettle Collective",
+  "address": "Copper Kettle Collective, 7 Temple Lane, Juhu, Mumbai",
+  "lat": 19.1045,
+  "lng": 72.8271,
+  "ageLimit": "12+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "startups",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-02T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_28",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_malad-west",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_board-games",
+  "templateId": "tpl_ticket_single",
+  "slug": "board-game-night-mum28",
+  "title": "Board Game Night",
+  "summary": "A library of 200 games and someone to teach you any of them.",
+  "description": "A library of 200 games and someone to teach you any of them.\n\nHosted by Bandra Bookworms at The Attic Café, Malad West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Attic Café",
+  "address": "The Attic Café, 44 MG Road, Malad West, Mumbai",
+  "lat": 19.1914,
+  "lng": 72.8478,
+  "ageLimit": "16+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "board-games",
+   "meetups",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-19T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_29",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_lower-parel",
+  "categoryId": "cat_meetups",
+  "subcategoryId": null,
+  "templateId": "tpl_rsvp",
+  "slug": "sketchwalk-old-mumbai-mum29",
+  "title": "Sketchwalk: Old Mumbai",
+  "summary": "Draw the city's old lanes with other sketchers. All levels.",
+  "description": "Draw the city's old lanes with other sketchers. All levels.\n\nHosted by Bandra Bookworms at Indigo House, Lower Parel. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Indigo House",
+  "address": "Indigo House, 48 Main Street, Lower Parel, Mumbai",
+  "lat": 18.9965,
+  "lng": 72.8367,
+  "ageLimit": "12+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "art",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-22T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_30",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_colaba",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_startups",
+  "templateId": "tpl_info",
+  "slug": "product-folks-meetup-mum30",
+  "title": "Product Folks Meetup",
+  "summary": "Talks and demos from product people in the city.",
+  "description": "Talks and demos from product people in the city.\n\nHosted by Bandra Bookworms at Mango Tree Room, Colaba. Just walk in — there is nothing to book.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Mango Tree Room",
+  "address": "Mango Tree Room, 9 Hill Road, Colaba, Mumbai",
+  "lat": 18.9022,
+  "lng": 72.814,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "startups",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, no booking needed",
+   "Open to all ages",
+   "Nearest metro and parking are on the map"
+  ],
+  "externalUrl": "https://example.com",
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-10T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_32",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_powai",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_heritage",
+  "templateId": "tpl_timed_entry",
+  "slug": "textiles-of-the-deccan-mum32",
+  "title": "Textiles of the Deccan",
+  "summary": "Paithani, Himroo and Khun: three centuries of weaving.",
+  "description": "Paithani, Himroo and Khun: three centuries of weaving.\n\nHosted by Tidewater Collective at Saffron Terrace, Powai. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Saffron Terrace",
+  "address": "Saffron Terrace, 4 Hill Road, Powai, Mumbai",
+  "lat": 19.1132,
+  "lng": 72.9099,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "heritage",
+   "exhibitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Choose an entry window; stay as long as you like",
+   "Students get a discount at entry with ID",
+   "Photography allowed without flash",
+   "Wheelchair accessible"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-13T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_33",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_worli",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_design",
+  "templateId": "tpl_timed_entry",
+  "slug": "future-homes-design-expo-mum33",
+  "title": "Future Homes: Design Expo",
+  "summary": "Furniture, materials and small-space ideas from young studios.",
+  "description": "Furniture, materials and small-space ideas from young studios.\n\nHosted by Tidewater Collective at The Loft Studio, Worli. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Loft Studio",
+  "address": "The Loft Studio, 40 Temple Lane, Worli, Mumbai",
+  "lat": 19.0218,
+  "lng": 72.8165,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "design",
+   "exhibitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Choose an entry window; stay as long as you like",
+   "Students get a discount at entry with ID",
+   "Photography allowed without flash",
+   "Wheelchair accessible"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-28T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_34",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_andheri-west",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_art",
+  "templateId": "tpl_info",
+  "slug": "light-and-shadow-a-photo-show-mum34",
+  "title": "Light & Shadow: A Photo Show",
+  "summary": "Street photography from the city's photo walk community. Free entry.",
+  "description": "Street photography from the city's photo walk community. Free entry.\n\nHosted by Bandra Bookworms at Cobalt Garden, Andheri West. Just walk in — there is nothing to book.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Cobalt Garden",
+  "address": "Cobalt Garden, 41 Link Road, Andheri West, Mumbai",
+  "lat": 19.1365,
+  "lng": 72.8322,
+  "ageLimit": "16+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art",
+   "exhibitions",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, no booking needed",
+   "Open to all ages",
+   "Nearest metro and parking are on the map"
+  ],
+  "externalUrl": "https://example.com",
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-10-04T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_35",
+  "hostId": "h_mumbai_3",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_juhu",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_art",
+  "templateId": "tpl_timed_entry",
+  "slug": "stories-in-clay-mum35",
+  "title": "Stories in Clay",
+  "summary": "Contemporary ceramics, from tableware to sculpture.",
+  "description": "Contemporary ceramics, from tableware to sculpture.\n\nHosted by Kiln House Studio at Sandbox Theatre, Juhu. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Sandbox Theatre",
+  "address": "Sandbox Theatre, 35 MG Road, Juhu, Mumbai",
+  "lat": 19.1025,
+  "lng": 72.8222,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art",
+   "exhibitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Choose an entry window; stay as long as you like",
+   "Students get a discount at entry with ID",
+   "Photography allowed without flash",
+   "Wheelchair accessible"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-08T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_36",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_malad-west",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_quizzes",
+  "templateId": "tpl_competition",
+  "slug": "city-quiz-league-season-4-mum36",
+  "title": "City Quiz League: Season 4",
+  "summary": "Teams of up to four, eight rounds, one very smug winner.",
+  "description": "Teams of up to four, eight rounds, one very smug winner.\n\nHosted by Bandra Bookworms at Jamun Social, Malad West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Jamun Social",
+  "address": "Jamun Social, 29 Main Street, Malad West, Mumbai",
+  "lat": 19.184,
+  "lng": 72.8504,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "quizzes",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-05T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_37",
+  "hostId": "h_mumbai_4",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_lower-parel",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_hackathons",
+  "templateId": "tpl_competition",
+  "slug": "48h-civic-hackathon-mum37",
+  "title": "48h Civic Hackathon",
+  "summary": "Build something useful for your city in a weekend. Mentors and meals included.",
+  "description": "Build something useful for your city in a weekend. Mentors and meals included.\n\nHosted by Bandra Bookworms at The Courtyard Collective, Lower Parel. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Courtyard Collective",
+  "address": "The Courtyard Collective, 22 Main Street, Lower Parel, Mumbai",
+  "lat": 18.9946,
+  "lng": 72.8342,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "hackathons",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-05T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_38",
+  "hostId": "h_mumbai_5",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_colaba",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_tournaments",
+  "templateId": "tpl_competition",
+  "slug": "weekend-pickleball-open-mum38",
+  "title": "Weekend Pickleball Open",
+  "summary": "Doubles tournament with beginner and intermediate draws.",
+  "description": "Doubles tournament with beginner and intermediate draws.\n\nHosted by Smash Arena at Tin Roof Café, Colaba. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Tin Roof Café",
+  "address": "Tin Roof Café, 21 Main Street, Colaba, Mumbai",
+  "lat": 18.9081,
+  "lng": 72.8154,
+  "ageLimit": "16+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "tournaments",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-08T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_39",
+  "hostId": "h_mumbai_5",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_bandra-west",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_tournaments",
+  "templateId": "tpl_competition",
+  "slug": "corporate-box-cricket-cup-mum39",
+  "title": "Corporate Box Cricket Cup",
+  "summary": "Six-a-side box cricket for office teams. Knockout format.",
+  "description": "Six-a-side box cricket for office teams. Knockout format.\n\nHosted by Smash Arena at Blue Door House, Bandra West. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Blue Door House",
+  "address": "Blue Door House, 30 Main Street, Bandra West, Mumbai",
+  "lat": 19.0581,
+  "lng": 72.8319,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "tournaments",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-03T10:00:00+05:30"
+ },
+ {
+  "id": "l_mumbai_40",
+  "hostId": "h_mumbai_1",
+  "cityId": "c_mumbai",
+  "areaId": "a_mumbai_powai",
+  "categoryId": "cat_competitions",
+  "subcategoryId": null,
+  "templateId": "tpl_competition",
+  "slug": "battle-of-the-bands-mum40",
+  "title": "Battle of the Bands",
+  "summary": "Inter-college band competition with a studio session as the prize.",
+  "description": "Inter-college band competition with a studio session as the prize.\n\nHosted by Tidewater Collective at Paper Boat Room, Powai. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Paper Boat Room",
+  "address": "Paper Boat Room, 31 Temple Lane, Powai, Mumbai",
+  "lat": 19.1212,
+  "lng": 72.9012,
+  "ageLimit": "All ages",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "quizzes",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-02T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_01",
+  "hostId": "h_pune_2",
+  "cityId": "c_pune",
+  "areaId": "a_pune_hinjewadi",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_ticket_single",
+  "slug": "rohan-desai-overthinking-it-pun1",
+  "title": "Rohan Desai: Overthinking It",
+  "summary": "A new hour of stand-up about rent, parents and the group chat.",
+  "description": "A new hour of stand-up about rent, parents and the group chat.\n\nHosted by Deccan Live at Indigo Theatre, Hinjewadi. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Indigo Theatre",
+  "address": "Indigo Theatre, 17 Hill Road, Hinjewadi, Pune",
+  "lat": 18.5907,
+  "lng": 73.7356,
+  "ageLimit": "16+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-29T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_02",
+  "hostId": "h_pune_2",
+  "cityId": "c_pune",
+  "areaId": "a_pune_wakad",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_ticket_single",
+  "slug": "the-late-late-laugh-club-pun2",
+  "title": "The Late Late Laugh Club",
+  "summary": "Five comics, one late night. Fresh sets only.",
+  "description": "Five comics, one late night. Fresh sets only.\n\nHosted by Deccan Live at Mango Tree Social, Wakad. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Mango Tree Social",
+  "address": "Mango Tree Social, 4 Lake Road, Wakad, Pune",
+  "lat": 18.5944,
+  "lng": 73.762,
+  "ageLimit": "18+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 1,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-22T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_03",
+  "hostId": "h_pune_2",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kothrud",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_rsvp",
+  "slug": "sunday-open-mic-pun3",
+  "title": "Sunday Open Mic",
+  "summary": "Sign up to perform or come to watch. Free entry, buy a coffee.",
+  "description": "Sign up to perform or come to watch. Free entry, buy a coffee.\n\nHosted by Deccan Live at Monsoon Collective, Kothrud. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Monsoon Collective",
+  "address": "Monsoon Collective, 16 Hill Road, Kothrud, Pune",
+  "lat": 18.5077,
+  "lng": 73.8093,
+  "ageLimit": "12+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-23T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_04",
+  "hostId": "h_pune_2",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kalyani-nagar",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_ticket_single",
+  "slug": "aditi-rao-main-character-energy-pun4",
+  "title": "Aditi Rao: Main Character Energy",
+  "summary": "Observational comedy from one of the sharpest new voices.",
+  "description": "Observational comedy from one of the sharpest new voices.\n\nHosted by Deccan Live at Saffron Café, Kalyani Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Saffron Café",
+  "address": "Saffron Café, 28 Main Street, Kalyani Nagar, Pune",
+  "lat": 18.5509,
+  "lng": 73.9018,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-06T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_05",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_koregaon-park",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "indie-nights-monsoon-sessions-pun5",
+  "title": "Indie Nights: Monsoon Sessions",
+  "summary": "Three bands from the city's indie scene, back to back.",
+  "description": "Three bands from the city's indie scene, back to back.\n\nHosted by The Courtyard Project at The Loft House, Koregaon Park. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Loft House",
+  "address": "The Loft House, 39 Link Road, Koregaon Park, Pune",
+  "lat": 18.534,
+  "lng": 73.8916,
+  "ageLimit": "18+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 2,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-08T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_07",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_aundh",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "jazz-on-the-terrace-pun7",
+  "title": "Jazz on the Terrace",
+  "summary": "A quartet, a sunset and a very good playlist between sets.",
+  "description": "A quartet, a sunset and a very good playlist between sets.\n\nHosted by The Courtyard Project at Sandbox Hall, Aundh. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Sandbox Hall",
+  "address": "Sandbox Hall, 42 Station Road, Aundh, Pune",
+  "lat": 18.5597,
+  "lng": 73.8073,
+  "ageLimit": "18+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-10T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_08",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_baner",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "retro-bollywood-night-pun8",
+  "title": "Retro Bollywood Night",
+  "summary": "Seventies and eighties hits, live band, full dance floor.",
+  "description": "Seventies and eighties hits, live band, full dance floor.\n\nHosted by The Courtyard Project at Jamun Terrace, Baner. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Jamun Terrace",
+  "address": "Jamun Terrace, 41 Temple Lane, Baner, Pune",
+  "lat": 18.556,
+  "lng": 73.7906,
+  "ageLimit": "All ages",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-24T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_09",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_hinjewadi",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_multi",
+  "slug": "pune-sound-festival-pun9",
+  "title": "Pune Sound Festival",
+  "summary": "Two days, three stages and thirty artists across indie, electronic and folk.",
+  "description": "Two days, three stages and thirty artists across indie, electronic and folk.\n\nHosted by The Courtyard Project at The Courtyard Studio, Hinjewadi. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Courtyard Studio",
+  "address": "The Courtyard Studio, 11 Main Street, Hinjewadi, Pune",
+  "lat": 18.5888,
+  "lng": 73.7375,
+  "ageLimit": "12+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Day tickets are valid for the chosen day only",
+   "The season pass covers all days",
+   "Re-entry allowed with wristband",
+   "Age 18+ for the bar area"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-05T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_10",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_wakad",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_theatre",
+  "templateId": "tpl_ticket_single",
+  "slug": "the-last-local-train-pun10",
+  "title": "The Last Local Train",
+  "summary": "A two-hander about strangers stuck on the final train home.",
+  "description": "A two-hander about strangers stuck on the final train home.\n\nHosted by The Courtyard Project at Tin Roof Garden, Wakad. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Tin Roof Garden",
+  "address": "Tin Roof Garden, 24 MG Road, Wakad, Pune",
+  "lat": 18.5993,
+  "lng": 73.7642,
+  "ageLimit": "12+",
+  "languages": [
+   "Hindi"
+  ],
+  "tags": [
+   "theatre",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 3,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-22T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_11",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kothrud",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_theatre",
+  "templateId": "tpl_ticket_single",
+  "slug": "chai-cigarette-aur-kahaniyan-pun11",
+  "title": "Chai, Cigarette aur Kahaniyan",
+  "summary": "Short Hindi plays performed in the round.",
+  "description": "Short Hindi plays performed in the round.\n\nHosted by The Courtyard Project at Blue Door Theatre, Kothrud. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Blue Door Theatre",
+  "address": "Blue Door Theatre, 42 MG Road, Kothrud, Pune",
+  "lat": 18.5026,
+  "lng": 73.8041,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "theatre",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-23T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_12",
+  "hostId": "h_pune_2",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kalyani-nagar",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_theatre",
+  "templateId": "tpl_rsvp",
+  "slug": "improv-jam-night-pun12",
+  "title": "Improv Jam Night",
+  "summary": "Audience suggestions, zero scripts. Free with RSVP.",
+  "description": "Audience suggestions, zero scripts. Free with RSVP.\n\nHosted by Deccan Live at Paper Boat Social, Kalyani Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Paper Boat Social",
+  "address": "Paper Boat Social, 23 Station Road, Kalyani Nagar, Pune",
+  "lat": 18.5431,
+  "lng": 73.907,
+  "ageLimit": "12+",
+  "languages": [
+   "Hindi"
+  ],
+  "tags": [
+   "theatre",
+   "events",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-22T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_13",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_koregaon-park",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_festivals",
+  "templateId": "tpl_ticket_multi",
+  "slug": "pune-food-and-flea-weekend-pun13",
+  "title": "Pune Food & Flea Weekend",
+  "summary": "Sixty food stalls, independent brands and live music all weekend.",
+  "description": "Sixty food stalls, independent brands and live music all weekend.\n\nHosted by The Courtyard Project at Lantern Collective, Koregaon Park. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Lantern Collective",
+  "address": "Lantern Collective, 22 Lake Road, Koregaon Park, Pune",
+  "lat": 18.5335,
+  "lng": 73.8972,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "festivals",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Day tickets are valid for the chosen day only",
+   "The season pass covers all days",
+   "Re-entry allowed with wristband",
+   "Age 18+ for the bar area"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-24T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_14",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_viman-nagar",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_festivals",
+  "templateId": "tpl_info",
+  "slug": "diwali-design-bazaar-pun14",
+  "title": "Diwali Design Bazaar",
+  "summary": "Handmade lamps, textiles and gifts from local makers. Free entry.",
+  "description": "Handmade lamps, textiles and gifts from local makers. Free entry.\n\nHosted by The Courtyard Project at Banyan Café, Viman Nagar. Just walk in — there is nothing to book.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Banyan Café",
+  "address": "Banyan Café, 2 Main Street, Viman Nagar, Pune",
+  "lat": 18.5654,
+  "lng": 73.9139,
+  "ageLimit": "18+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "festivals",
+   "events",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, no booking needed",
+   "Open to all ages",
+   "Nearest metro and parking are on the map"
+  ],
+  "externalUrl": "https://example.com",
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-18T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_16",
+  "hostId": "h_pune_3",
+  "cityId": "c_pune",
+  "areaId": "a_pune_baner",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_recurring",
+  "slug": "weekend-watercolour-basics-pun16",
+  "title": "Weekend Watercolour Basics",
+  "summary": "Washes, layering and loose florals. All materials included.",
+  "description": "Washes, layering and loose florals. All materials included.\n\nHosted by Clay & Co. Studio at The Attic Room, Baner. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Attic Room",
+  "address": "The Attic Room, 35 Hill Road, Baner, Pune",
+  "lat": 18.5594,
+  "lng": 73.7845,
+  "ageLimit": "16+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 4,
+  "formFields": [],
+  "createdAt": "2026-09-10T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_17",
+  "hostId": "h_pune_3",
+  "cityId": "c_pune",
+  "areaId": "a_pune_hinjewadi",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_ticket_single",
+  "slug": "block-printing-workshop-pun17",
+  "title": "Block Printing Workshop",
+  "summary": "Carve your own block and print a tote to take home.",
+  "description": "Carve your own block and print a tote to take home.\n\nHosted by Clay & Co. Studio at Indigo Hall, Hinjewadi. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Indigo Hall",
+  "address": "Indigo Hall, 48 Temple Lane, Hinjewadi, Pune",
+  "lat": 18.5911,
+  "lng": 73.7353,
+  "ageLimit": "18+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-06T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_18",
+  "hostId": "h_pune_3",
+  "cityId": "c_pune",
+  "areaId": "a_pune_wakad",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_recurring",
+  "slug": "candle-making-studio-pun18",
+  "title": "Candle Making Studio",
+  "summary": "Soy wax, scents and moulds. Make three candles in an evening.",
+  "description": "Soy wax, scents and moulds. Make three candles in an evening.\n\nHosted by Clay & Co. Studio at Mango Tree Terrace, Wakad. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Mango Tree Terrace",
+  "address": "Mango Tree Terrace, 3 Link Road, Wakad, Pune",
+  "lat": 18.5988,
+  "lng": 73.7645,
+  "ageLimit": "18+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 5,
+  "formFields": [],
+  "createdAt": "2026-09-09T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_19",
+  "hostId": "h_pune_3",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kothrud",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_cooking",
+  "templateId": "tpl_recurring",
+  "slug": "sourdough-from-scratch-pun19",
+  "title": "Sourdough from Scratch",
+  "summary": "Starter, shaping and scoring. Take home a loaf and a starter.",
+  "description": "Starter, shaping and scoring. Take home a loaf and a starter.\n\nHosted by Clay & Co. Studio at Monsoon Studio, Kothrud. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Monsoon Studio",
+  "address": "Monsoon Studio, 36 MG Road, Kothrud, Pune",
+  "lat": 18.5098,
+  "lng": 73.8028,
+  "ageLimit": "18+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "cooking",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-05T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_20",
+  "hostId": "h_pune_3",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kalyani-nagar",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_cooking",
+  "templateId": "tpl_ticket_single",
+  "slug": "pune-street-food-cook-along-pun20",
+  "title": "Pune Street Food Cook-along",
+  "summary": "Cook five street-food classics with a chef who grew up on them.",
+  "description": "Cook five street-food classics with a chef who grew up on them.\n\nHosted by Clay & Co. Studio at Saffron Garden, Kalyani Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Saffron Garden",
+  "address": "Saffron Garden, 34 Hill Road, Kalyani Nagar, Pune",
+  "lat": 18.5489,
+  "lng": 73.9047,
+  "ageLimit": "12+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "cooking",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-02T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_21",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_koregaon-park",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_wellness",
+  "templateId": "tpl_rsvp",
+  "slug": "sunrise-yoga-in-the-park-pun21",
+  "title": "Sunrise Yoga in the Park",
+  "summary": "A gentle flow for all levels. Bring a mat and water.",
+  "description": "A gentle flow for all levels. Bring a mat and water.\n\nHosted by Koregaon Runners at The Loft Theatre, Koregaon Park. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Loft Theatre",
+  "address": "The Loft Theatre, 39 Link Road, Koregaon Park, Pune",
+  "lat": 18.5387,
+  "lng": 73.8928,
+  "ageLimit": "12+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "wellness",
+   "workshops",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-17T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_22",
+  "hostId": "h_pune_3",
+  "cityId": "c_pune",
+  "areaId": "a_pune_viman-nagar",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_wellness",
+  "templateId": "tpl_recurring",
+  "slug": "breathwork-and-sound-bath-pun22",
+  "title": "Breathwork & Sound Bath",
+  "summary": "Guided breathing followed by a 40-minute sound bath.",
+  "description": "Guided breathing followed by a 40-minute sound bath.\n\nHosted by Clay & Co. Studio at Cobalt Social, Viman Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Cobalt Social",
+  "address": "Cobalt Social, 15 Lake Road, Viman Nagar, Pune",
+  "lat": 18.5671,
+  "lng": 73.9189,
+  "ageLimit": "16+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "wellness",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-13T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_23",
+  "hostId": "h_pune_3",
+  "cityId": "c_pune",
+  "areaId": "a_pune_aundh",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_photography",
+  "templateId": "tpl_recurring",
+  "slug": "phone-photography-walk-pun23",
+  "title": "Phone Photography Walk",
+  "summary": "Learn composition and light on a two-hour walk.",
+  "description": "Learn composition and light on a two-hour walk.\n\nHosted by Clay & Co. Studio at Sandbox Collective, Aundh. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Sandbox Collective",
+  "address": "Sandbox Collective, 33 MG Road, Aundh, Pune",
+  "lat": 18.5554,
+  "lng": 73.8045,
+  "ageLimit": "All ages",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "photography",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-18T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_25",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_hinjewadi",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_book-clubs",
+  "templateId": "tpl_rsvp",
+  "slug": "silent-book-club-pun25",
+  "title": "Silent Book Club",
+  "summary": "Bring a book, read quietly for an hour, then chat if you like.",
+  "description": "Bring a book, read quietly for an hour, then chat if you like.\n\nHosted by Koregaon Runners at The Courtyard House, Hinjewadi. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Courtyard House",
+  "address": "The Courtyard House, 40 Station Road, Hinjewadi, Pune",
+  "lat": 18.5891,
+  "lng": 73.7413,
+  "ageLimit": "12+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "book-clubs",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-07T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_26",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_wakad",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_running",
+  "templateId": "tpl_rsvp",
+  "slug": "saturday-5k-run-club-pun26",
+  "title": "Saturday 5K Run Club",
+  "summary": "A social 5K at an easy pace, followed by chai.",
+  "description": "A social 5K at an easy pace, followed by chai.\n\nHosted by Koregaon Runners at Tin Roof Room, Wakad. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Tin Roof Room",
+  "address": "Tin Roof Room, 5 Station Road, Wakad, Pune",
+  "lat": 18.6011,
+  "lng": 73.7688,
+  "ageLimit": "12+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "running",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-21T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_27",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kothrud",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_startups",
+  "templateId": "tpl_rsvp",
+  "slug": "founders-chai-morning-pun27",
+  "title": "Founders' Chai Morning",
+  "summary": "Early-stage founders swapping notes over chai. No pitches.",
+  "description": "Early-stage founders swapping notes over chai. No pitches.\n\nHosted by Koregaon Runners at Blue Door Hall, Kothrud. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Blue Door Hall",
+  "address": "Blue Door Hall, 20 Lake Road, Kothrud, Pune",
+  "lat": 18.5061,
+  "lng": 73.8082,
+  "ageLimit": "16+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "startups",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-03T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_28",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kalyani-nagar",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_board-games",
+  "templateId": "tpl_ticket_single",
+  "slug": "board-game-night-pun28",
+  "title": "Board Game Night",
+  "summary": "A library of 200 games and someone to teach you any of them.",
+  "description": "A library of 200 games and someone to teach you any of them.\n\nHosted by Koregaon Runners at Paper Boat Terrace, Kalyani Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Paper Boat Terrace",
+  "address": "Paper Boat Terrace, 35 Station Road, Kalyani Nagar, Pune",
+  "lat": 18.5457,
+  "lng": 73.9015,
+  "ageLimit": "All ages",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "board-games",
+   "meetups",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-08T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_29",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_koregaon-park",
+  "categoryId": "cat_meetups",
+  "subcategoryId": null,
+  "templateId": "tpl_rsvp",
+  "slug": "sketchwalk-old-pune-pun29",
+  "title": "Sketchwalk: Old Pune",
+  "summary": "Draw the city's old lanes with other sketchers. All levels.",
+  "description": "Draw the city's old lanes with other sketchers. All levels.\n\nHosted by Koregaon Runners at Lantern Studio, Koregaon Park. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Lantern Studio",
+  "address": "Lantern Studio, 16 MG Road, Koregaon Park, Pune",
+  "lat": 18.5339,
+  "lng": 73.8979,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-28T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_30",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_viman-nagar",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_startups",
+  "templateId": "tpl_info",
+  "slug": "product-folks-meetup-pun30",
+  "title": "Product Folks Meetup",
+  "summary": "Talks and demos from product people in the city.",
+  "description": "Talks and demos from product people in the city.\n\nHosted by Koregaon Runners at Banyan Garden, Viman Nagar. Just walk in — there is nothing to book.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Banyan Garden",
+  "address": "Banyan Garden, 15 Station Road, Viman Nagar, Pune",
+  "lat": 18.5705,
+  "lng": 73.9096,
+  "ageLimit": "16+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "startups",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, no booking needed",
+   "Open to all ages",
+   "Nearest metro and parking are on the map"
+  ],
+  "externalUrl": "https://example.com",
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-01T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_31",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_aundh",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_art",
+  "templateId": "tpl_timed_entry",
+  "slug": "monsoon-lines-contemporary-ink-pun31",
+  "title": "Monsoon Lines: Contemporary Ink",
+  "summary": "Forty works on paper by artists from the western coast.",
+  "description": "Forty works on paper by artists from the western coast.\n\nHosted by The Courtyard Project at Copper Kettle Theatre, Aundh. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Copper Kettle Theatre",
+  "address": "Copper Kettle Theatre, 30 MG Road, Aundh, Pune",
+  "lat": 18.5562,
+  "lng": 73.808,
+  "ageLimit": "16+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art",
+   "exhibitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Choose an entry window; stay as long as you like",
+   "Students get a discount at entry with ID",
+   "Photography allowed without flash",
+   "Wheelchair accessible"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-13T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_32",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_baner",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_heritage",
+  "templateId": "tpl_timed_entry",
+  "slug": "textiles-of-the-deccan-pun32",
+  "title": "Textiles of the Deccan",
+  "summary": "Paithani, Himroo and Khun: three centuries of weaving.",
+  "description": "Paithani, Himroo and Khun: three centuries of weaving.\n\nHosted by The Courtyard Project at The Attic Social, Baner. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Attic Social",
+  "address": "The Attic Social, 11 Main Street, Baner, Pune",
+  "lat": 18.5584,
+  "lng": 73.788,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "heritage",
+   "exhibitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Choose an entry window; stay as long as you like",
+   "Students get a discount at entry with ID",
+   "Photography allowed without flash",
+   "Wheelchair accessible"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-04T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_34",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_wakad",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_art",
+  "templateId": "tpl_info",
+  "slug": "light-and-shadow-a-photo-show-pun34",
+  "title": "Light & Shadow: A Photo Show",
+  "summary": "Street photography from the city's photo walk community. Free entry.",
+  "description": "Street photography from the city's photo walk community. Free entry.\n\nHosted by Koregaon Runners at Mango Tree Café, Wakad. Just walk in — there is nothing to book.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Mango Tree Café",
+  "address": "Mango Tree Café, 35 Link Road, Wakad, Pune",
+  "lat": 18.5947,
+  "lng": 73.7649,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art",
+   "exhibitions",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, no booking needed",
+   "Open to all ages",
+   "Nearest metro and parking are on the map"
+  ],
+  "externalUrl": "https://example.com",
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-27T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_35",
+  "hostId": "h_pune_3",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kothrud",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_art",
+  "templateId": "tpl_timed_entry",
+  "slug": "stories-in-clay-pun35",
+  "title": "Stories in Clay",
+  "summary": "Contemporary ceramics, from tableware to sculpture.",
+  "description": "Contemporary ceramics, from tableware to sculpture.\n\nHosted by Clay & Co. Studio at Monsoon House, Kothrud. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Monsoon House",
+  "address": "Monsoon House, 39 Temple Lane, Kothrud, Pune",
+  "lat": 18.5098,
+  "lng": 73.8089,
+  "ageLimit": "12+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art",
+   "exhibitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Choose an entry window; stay as long as you like",
+   "Students get a discount at entry with ID",
+   "Photography allowed without flash",
+   "Wheelchair accessible"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-28T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_36",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_kalyani-nagar",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_quizzes",
+  "templateId": "tpl_competition",
+  "slug": "city-quiz-league-season-4-pun36",
+  "title": "City Quiz League: Season 4",
+  "summary": "Teams of up to four, eight rounds, one very smug winner.",
+  "description": "Teams of up to four, eight rounds, one very smug winner.\n\nHosted by Koregaon Runners at Saffron Room, Kalyani Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Saffron Room",
+  "address": "Saffron Room, 30 Link Road, Kalyani Nagar, Pune",
+  "lat": 18.5484,
+  "lng": 73.9079,
+  "ageLimit": "16+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "quizzes",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-21T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_37",
+  "hostId": "h_pune_4",
+  "cityId": "c_pune",
+  "areaId": "a_pune_koregaon-park",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_hackathons",
+  "templateId": "tpl_competition",
+  "slug": "48h-civic-hackathon-pun37",
+  "title": "48h Civic Hackathon",
+  "summary": "Build something useful for your city in a weekend. Mentors and meals included.",
+  "description": "Build something useful for your city in a weekend. Mentors and meals included.\n\nHosted by Koregaon Runners at The Loft Hall, Koregaon Park. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Loft Hall",
+  "address": "The Loft Hall, 14 Link Road, Koregaon Park, Pune",
+  "lat": 18.5364,
+  "lng": 73.8953,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "hackathons",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-07T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_38",
+  "hostId": "h_pune_5",
+  "cityId": "c_pune",
+  "areaId": "a_pune_viman-nagar",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_tournaments",
+  "templateId": "tpl_competition",
+  "slug": "weekend-pickleball-open-pun38",
+  "title": "Weekend Pickleball Open",
+  "summary": "Doubles tournament with beginner and intermediate draws.",
+  "description": "Doubles tournament with beginner and intermediate draws.\n\nHosted by Kick-off Turf at Cobalt Terrace, Viman Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Cobalt Terrace",
+  "address": "Cobalt Terrace, 36 Hill Road, Viman Nagar, Pune",
+  "lat": 18.5687,
+  "lng": 73.919,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "tournaments",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-04T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_39",
+  "hostId": "h_pune_5",
+  "cityId": "c_pune",
+  "areaId": "a_pune_aundh",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_tournaments",
+  "templateId": "tpl_competition",
+  "slug": "corporate-box-cricket-cup-pun39",
+  "title": "Corporate Box Cricket Cup",
+  "summary": "Six-a-side box cricket for office teams. Knockout format.",
+  "description": "Six-a-side box cricket for office teams. Knockout format.\n\nHosted by Kick-off Turf at Sandbox Studio, Aundh. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Sandbox Studio",
+  "address": "Sandbox Studio, 7 Station Road, Aundh, Pune",
+  "lat": 18.5614,
+  "lng": 73.8109,
+  "ageLimit": "All ages",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "tournaments",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-05T10:00:00+05:30"
+ },
+ {
+  "id": "l_pune_40",
+  "hostId": "h_pune_1",
+  "cityId": "c_pune",
+  "areaId": "a_pune_baner",
+  "categoryId": "cat_competitions",
+  "subcategoryId": null,
+  "templateId": "tpl_competition",
+  "slug": "battle-of-the-bands-pun40",
+  "title": "Battle of the Bands",
+  "summary": "Inter-college band competition with a studio session as the prize.",
+  "description": "Inter-college band competition with a studio session as the prize.\n\nHosted by The Courtyard Project at Jamun Garden, Baner. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Jamun Garden",
+  "address": "Jamun Garden, 2 Main Street, Baner, Pune",
+  "lat": 18.5627,
+  "lng": 73.7823,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "quizzes",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-01T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_01",
+  "hostId": "h_nagpur_2",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sadar",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_ticket_single",
+  "slug": "rohan-desai-overthinking-it-nag1",
+  "title": "Rohan Desai: Overthinking It",
+  "summary": "A new hour of stand-up about rent, parents and the group chat.",
+  "description": "A new hour of stand-up about rent, parents and the group chat.\n\nHosted by Orange City Live at The Loft Hall, Sadar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Loft Hall",
+  "address": "The Loft Hall, 34 Hill Road, Sadar, Nagpur",
+  "lat": 21.1675,
+  "lng": 79.0788,
+  "ageLimit": "18+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-25T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_02",
+  "hostId": "h_nagpur_2",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_civil-lines",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_ticket_single",
+  "slug": "the-late-late-laugh-club-nag2",
+  "title": "The Late Late Laugh Club",
+  "summary": "Five comics, one late night. Fresh sets only.",
+  "description": "Five comics, one late night. Fresh sets only.\n\nHosted by Orange City Live at Cobalt Terrace, Civil Lines. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Cobalt Terrace",
+  "address": "Cobalt Terrace, 25 Station Road, Civil Lines, Nagpur",
+  "lat": 21.1578,
+  "lng": 79.0727,
+  "ageLimit": "18+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 1,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-23T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_03",
+  "hostId": "h_nagpur_2",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_ramdaspeth",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_comedy",
+  "templateId": "tpl_rsvp",
+  "slug": "sunday-open-mic-nag3",
+  "title": "Sunday Open Mic",
+  "summary": "Sign up to perform or come to watch. Free entry, buy a coffee.",
+  "description": "Sign up to perform or come to watch. Free entry, buy a coffee.\n\nHosted by Orange City Live at Sandbox Studio, Ramdaspeth. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Sandbox Studio",
+  "address": "Sandbox Studio, 31 Temple Lane, Ramdaspeth, Nagpur",
+  "lat": 21.1314,
+  "lng": 79.0715,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "comedy",
+   "events",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-06T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_05",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sitabuldi",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "indie-nights-monsoon-sessions-nag5",
+  "title": "Indie Nights: Monsoon Sessions",
+  "summary": "Three bands from the city's indie scene, back to back.",
+  "description": "Three bands from the city's indie scene, back to back.\n\nHosted by Sitabuldi Sessions at The Courtyard Theatre, Sitabuldi. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Courtyard Theatre",
+  "address": "The Courtyard Theatre, 15 Lake Road, Sitabuldi, Nagpur",
+  "lat": 21.1388,
+  "lng": 79.0831,
+  "ageLimit": "16+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-13T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_06",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_wardha-road",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "sufi-under-the-stars-nag6",
+  "title": "Sufi Under the Stars",
+  "summary": "An open-air evening of qawwali and Sufi poetry.",
+  "description": "An open-air evening of qawwali and Sufi poetry.\n\nHosted by Sitabuldi Sessions at Tin Roof Social, Wardha Road. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Tin Roof Social",
+  "address": "Tin Roof Social, 21 Main Street, Wardha Road, Nagpur",
+  "lat": 21.1031,
+  "lng": 79.0702,
+  "ageLimit": "All ages",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 2,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-06T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_07",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_dharampeth",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "jazz-on-the-terrace-nag7",
+  "title": "Jazz on the Terrace",
+  "summary": "A quartet, a sunset and a very good playlist between sets.",
+  "description": "A quartet, a sunset and a very good playlist between sets.\n\nHosted by Sitabuldi Sessions at Blue Door Collective, Dharampeth. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Blue Door Collective",
+  "address": "Blue Door Collective, 39 Hill Road, Dharampeth, Nagpur",
+  "lat": 21.1379,
+  "lng": 79.0645,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-15T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_08",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_manish-nagar",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_single",
+  "slug": "retro-bollywood-night-nag8",
+  "title": "Retro Bollywood Night",
+  "summary": "Seventies and eighties hits, live band, full dance floor.",
+  "description": "Seventies and eighties hits, live band, full dance floor.\n\nHosted by Sitabuldi Sessions at Paper Boat Café, Manish Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Paper Boat Café",
+  "address": "Paper Boat Café, 47 MG Road, Manish Nagar, Nagpur",
+  "lat": 21.0866,
+  "lng": 79.0826,
+  "ageLimit": "12+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-15T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_09",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sadar",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_music",
+  "templateId": "tpl_ticket_multi",
+  "slug": "nagpur-sound-festival-nag9",
+  "title": "Nagpur Sound Festival",
+  "summary": "Two days, three stages and thirty artists across indie, electronic and folk.",
+  "description": "Two days, three stages and thirty artists across indie, electronic and folk.\n\nHosted by Sitabuldi Sessions at Lantern House, Sadar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Lantern House",
+  "address": "Lantern House, 35 Main Street, Sadar, Nagpur",
+  "lat": 21.1597,
+  "lng": 79.0786,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "music",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Day tickets are valid for the chosen day only",
+   "The season pass covers all days",
+   "Re-entry allowed with wristband",
+   "Age 18+ for the bar area"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-10-06T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_10",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_civil-lines",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_theatre",
+  "templateId": "tpl_ticket_single",
+  "slug": "the-last-local-train-nag10",
+  "title": "The Last Local Train",
+  "summary": "A two-hander about strangers stuck on the final train home.",
+  "description": "A two-hander about strangers stuck on the final train home.\n\nHosted by Sitabuldi Sessions at Banyan Room, Civil Lines. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Banyan Room",
+  "address": "Banyan Room, 41 Link Road, Civil Lines, Nagpur",
+  "lat": 21.1599,
+  "lng": 79.0752,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi"
+  ],
+  "tags": [
+   "theatre",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 3,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-04T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_11",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_ramdaspeth",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_theatre",
+  "templateId": "tpl_ticket_single",
+  "slug": "chai-cigarette-aur-kahaniyan-nag11",
+  "title": "Chai, Cigarette aur Kahaniyan",
+  "summary": "Short Hindi plays performed in the round.",
+  "description": "Short Hindi plays performed in the round.\n\nHosted by Sitabuldi Sessions at Copper Kettle Hall, Ramdaspeth. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Copper Kettle Hall",
+  "address": "Copper Kettle Hall, 22 Link Road, Ramdaspeth, Nagpur",
+  "lat": 21.134,
+  "lng": 79.0714,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "theatre",
+   "events",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-15T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_12",
+  "hostId": "h_nagpur_2",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_pratap-nagar",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_theatre",
+  "templateId": "tpl_rsvp",
+  "slug": "improv-jam-night-nag12",
+  "title": "Improv Jam Night",
+  "summary": "Audience suggestions, zero scripts. Free with RSVP.",
+  "description": "Audience suggestions, zero scripts. Free with RSVP.\n\nHosted by Orange City Live at The Attic Terrace, Pratap Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Attic Terrace",
+  "address": "The Attic Terrace, 27 Hill Road, Pratap Nagar, Nagpur",
+  "lat": 21.1148,
+  "lng": 79.0508,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi"
+  ],
+  "tags": [
+   "theatre",
+   "events",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-24T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_14",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_wardha-road",
+  "categoryId": "cat_events",
+  "subcategoryId": "cat_events_festivals",
+  "templateId": "tpl_info",
+  "slug": "diwali-design-bazaar-nag14",
+  "title": "Diwali Design Bazaar",
+  "summary": "Handmade lamps, textiles and gifts from local makers. Free entry.",
+  "description": "Handmade lamps, textiles and gifts from local makers. Free entry.\n\nHosted by Sitabuldi Sessions at Mango Tree Garden, Wardha Road. Just walk in — there is nothing to book.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Mango Tree Garden",
+  "address": "Mango Tree Garden, 39 Lake Road, Wardha Road, Nagpur",
+  "lat": 21.0987,
+  "lng": 79.0665,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "festivals",
+   "events",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, no booking needed",
+   "Open to all ages",
+   "Nearest metro and parking are on the map"
+  ],
+  "externalUrl": "https://example.com",
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-02T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_15",
+  "hostId": "h_nagpur_3",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_dharampeth",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_recurring",
+  "slug": "wheel-throwing-for-beginners-nag15",
+  "title": "Wheel Throwing for Beginners",
+  "summary": "Get your hands muddy and leave with two pieces of your own.",
+  "description": "Get your hands muddy and leave with two pieces of your own.\n\nHosted by Mud & Wheel at Monsoon Theatre, Dharampeth. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Monsoon Theatre",
+  "address": "Monsoon Theatre, 26 MG Road, Dharampeth, Nagpur",
+  "lat": 21.1457,
+  "lng": 79.0636,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-23T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_16",
+  "hostId": "h_nagpur_3",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_manish-nagar",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_recurring",
+  "slug": "weekend-watercolour-basics-nag16",
+  "title": "Weekend Watercolour Basics",
+  "summary": "Washes, layering and loose florals. All materials included.",
+  "description": "Washes, layering and loose florals. All materials included.\n\nHosted by Mud & Wheel at Saffron Social, Manish Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Saffron Social",
+  "address": "Saffron Social, 3 Main Street, Manish Nagar, Nagpur",
+  "lat": 21.0901,
+  "lng": 79.0785,
+  "ageLimit": "16+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 4,
+  "formFields": [],
+  "createdAt": "2026-09-18T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_17",
+  "hostId": "h_nagpur_3",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sadar",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_ticket_single",
+  "slug": "block-printing-workshop-nag17",
+  "title": "Block Printing Workshop",
+  "summary": "Carve your own block and print a tote to take home.",
+  "description": "Carve your own block and print a tote to take home.\n\nHosted by Mud & Wheel at The Loft Collective, Sadar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Loft Collective",
+  "address": "The Loft Collective, 37 Main Street, Sadar, Nagpur",
+  "lat": 21.1594,
+  "lng": 79.0798,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-02T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_18",
+  "hostId": "h_nagpur_3",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_civil-lines",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_art-craft",
+  "templateId": "tpl_recurring",
+  "slug": "candle-making-studio-nag18",
+  "title": "Candle Making Studio",
+  "summary": "Soy wax, scents and moulds. Make three candles in an evening.",
+  "description": "Soy wax, scents and moulds. Make three candles in an evening.\n\nHosted by Mud & Wheel at Cobalt Café, Civil Lines. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Cobalt Café",
+  "address": "Cobalt Café, 8 Station Road, Civil Lines, Nagpur",
+  "lat": 21.1616,
+  "lng": 79.0765,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "art-craft",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": 5,
+  "formFields": [],
+  "createdAt": "2026-09-21T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_19",
+  "hostId": "h_nagpur_3",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_ramdaspeth",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_cooking",
+  "templateId": "tpl_recurring",
+  "slug": "sourdough-from-scratch-nag19",
+  "title": "Sourdough from Scratch",
+  "summary": "Starter, shaping and scoring. Take home a loaf and a starter.",
+  "description": "Starter, shaping and scoring. Take home a loaf and a starter.\n\nHosted by Mud & Wheel at Sandbox House, Ramdaspeth. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Sandbox House",
+  "address": "Sandbox House, 10 Temple Lane, Ramdaspeth, Nagpur",
+  "lat": 21.132,
+  "lng": 79.0707,
+  "ageLimit": "12+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "cooking",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-07T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_20",
+  "hostId": "h_nagpur_3",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_pratap-nagar",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_cooking",
+  "templateId": "tpl_ticket_single",
+  "slug": "nagpur-street-food-cook-along-nag20",
+  "title": "Nagpur Street Food Cook-along",
+  "summary": "Cook five street-food classics with a chef who grew up on them.",
+  "description": "Cook five street-food classics with a chef who grew up on them.\n\nHosted by Mud & Wheel at Jamun Room, Pratap Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Jamun Room",
+  "address": "Jamun Room, 8 Station Road, Pratap Nagar, Nagpur",
+  "lat": 21.1156,
+  "lng": 79.0544,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "cooking",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-06T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_21",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sitabuldi",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_wellness",
+  "templateId": "tpl_rsvp",
+  "slug": "sunrise-yoga-in-the-park-nag21",
+  "title": "Sunrise Yoga in the Park",
+  "summary": "A gentle flow for all levels. Bring a mat and water.",
+  "description": "A gentle flow for all levels. Bring a mat and water.\n\nHosted by Orange City Runners at The Courtyard Hall, Sitabuldi. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Courtyard Hall",
+  "address": "The Courtyard Hall, 15 Temple Lane, Sitabuldi, Nagpur",
+  "lat": 21.1405,
+  "lng": 79.0843,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "wellness",
+   "workshops",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-23T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_23",
+  "hostId": "h_nagpur_3",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_dharampeth",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_photography",
+  "templateId": "tpl_recurring",
+  "slug": "phone-photography-walk-nag23",
+  "title": "Phone Photography Walk",
+  "summary": "Learn composition and light on a two-hour walk.",
+  "description": "Learn composition and light on a two-hour walk.\n\nHosted by Mud & Wheel at Blue Door Studio, Dharampeth. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Blue Door Studio",
+  "address": "Blue Door Studio, 8 Temple Lane, Dharampeth, Nagpur",
+  "lat": 21.1392,
+  "lng": 79.0641,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "photography",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "All materials included",
+   "Wear clothes you don't mind getting messy",
+   "Max 12 people per batch",
+   "Arrive 10 minutes early"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-04T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_24",
+  "hostId": "h_nagpur_3",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_manish-nagar",
+  "categoryId": "cat_workshops",
+  "subcategoryId": "cat_workshops_photography",
+  "templateId": "tpl_ticket_single",
+  "slug": "portrait-lighting-101-nag24",
+  "title": "Portrait Lighting 101",
+  "summary": "Studio lights, reflectors and posing. Bring any camera.",
+  "description": "Studio lights, reflectors and posing. Bring any camera.\n\nHosted by Mud & Wheel at Paper Boat Garden, Manish Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Paper Boat Garden",
+  "address": "Paper Boat Garden, 5 Main Street, Manish Nagar, Nagpur",
+  "lat": 21.0872,
+  "lng": 79.0782,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "photography",
+   "workshops",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-14T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_25",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sadar",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_book-clubs",
+  "templateId": "tpl_rsvp",
+  "slug": "silent-book-club-nag25",
+  "title": "Silent Book Club",
+  "summary": "Bring a book, read quietly for an hour, then chat if you like.",
+  "description": "Bring a book, read quietly for an hour, then chat if you like.\n\nHosted by Orange City Runners at Lantern Theatre, Sadar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Lantern Theatre",
+  "address": "Lantern Theatre, 43 Link Road, Sadar, Nagpur",
+  "lat": 21.1605,
+  "lng": 79.0795,
+  "ageLimit": "18+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "book-clubs",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-04T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_26",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_civil-lines",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_running",
+  "templateId": "tpl_rsvp",
+  "slug": "saturday-5k-run-club-nag26",
+  "title": "Saturday 5K Run Club",
+  "summary": "A social 5K at an easy pace, followed by chai.",
+  "description": "A social 5K at an easy pace, followed by chai.\n\nHosted by Orange City Runners at Banyan Social, Civil Lines. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Banyan Social",
+  "address": "Banyan Social, 41 Temple Lane, Civil Lines, Nagpur",
+  "lat": 21.1633,
+  "lng": 79.0771,
+  "ageLimit": "12+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "running",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-18T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_27",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_ramdaspeth",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_startups",
+  "templateId": "tpl_rsvp",
+  "slug": "founders-chai-morning-nag27",
+  "title": "Founders' Chai Morning",
+  "summary": "Early-stage founders swapping notes over chai. No pitches.",
+  "description": "Early-stage founders swapping notes over chai. No pitches.\n\nHosted by Orange City Runners at Copper Kettle Collective, Ramdaspeth. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Copper Kettle Collective",
+  "address": "Copper Kettle Collective, 24 Lake Road, Ramdaspeth, Nagpur",
+  "lat": 21.1337,
+  "lng": 79.0732,
+  "ageLimit": "16+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "startups",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-05T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_28",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_pratap-nagar",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_board-games",
+  "templateId": "tpl_ticket_single",
+  "slug": "board-game-night-nag28",
+  "title": "Board Game Night",
+  "summary": "A library of 200 games and someone to teach you any of them.",
+  "description": "A library of 200 games and someone to teach you any of them.\n\nHosted by Orange City Runners at The Attic Café, Pratap Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Attic Café",
+  "address": "The Attic Café, 48 Hill Road, Pratap Nagar, Nagpur",
+  "lat": 21.1157,
+  "lng": 79.0495,
+  "ageLimit": "18+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "board-games",
+   "meetups",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Entry from 30 minutes before start",
+   "Age 16+ (ID may be checked)",
+   "Tickets are non-transferable",
+   "Limited seating, first come first seated"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_insta",
+    "label": "Instagram handle (optional)",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-18T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_29",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sitabuldi",
+  "categoryId": "cat_meetups",
+  "subcategoryId": null,
+  "templateId": "tpl_rsvp",
+  "slug": "sketchwalk-old-nagpur-nag29",
+  "title": "Sketchwalk: Old Nagpur",
+  "summary": "Draw the city's old lanes with other sketchers. All levels.",
+  "description": "Draw the city's old lanes with other sketchers. All levels.\n\nHosted by Orange City Runners at Indigo House, Sitabuldi. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Indigo House",
+  "address": "Indigo House, 25 MG Road, Sitabuldi, Nagpur",
+  "lat": 21.1428,
+  "lng": 79.0833,
+  "ageLimit": "16+",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "art",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, RSVP to save a spot",
+   "Please cancel if you can't make it",
+   "All levels welcome"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_heard",
+    "label": "How did you hear about us?",
+    "type": "select",
+    "options": [
+     "Instagram",
+     "A friend",
+     "local.",
+     "Other"
+    ],
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-22T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_30",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_wardha-road",
+  "categoryId": "cat_meetups",
+  "subcategoryId": "cat_meetups_startups",
+  "templateId": "tpl_info",
+  "slug": "product-folks-meetup-nag30",
+  "title": "Product Folks Meetup",
+  "summary": "Talks and demos from product people in the city.",
+  "description": "Talks and demos from product people in the city.\n\nHosted by Orange City Runners at Mango Tree Room, Wardha Road. Just walk in — there is nothing to book.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Mango Tree Room",
+  "address": "Mango Tree Room, 10 Temple Lane, Wardha Road, Nagpur",
+  "lat": 21.0963,
+  "lng": 79.0674,
+  "ageLimit": "All ages",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "startups",
+   "meetups",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, no booking needed",
+   "Open to all ages",
+   "Nearest metro and parking are on the map"
+  ],
+  "externalUrl": "https://example.com",
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-29T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_32",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_manish-nagar",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_heritage",
+  "templateId": "tpl_timed_entry",
+  "slug": "textiles-of-the-deccan-nag32",
+  "title": "Textiles of the Deccan",
+  "summary": "Paithani, Himroo and Khun: three centuries of weaving.",
+  "description": "Paithani, Himroo and Khun: three centuries of weaving.\n\nHosted by Sitabuldi Sessions at Saffron Terrace, Manish Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Saffron Terrace",
+  "address": "Saffron Terrace, 43 Hill Road, Manish Nagar, Nagpur",
+  "lat": 21.0892,
+  "lng": 79.0812,
+  "ageLimit": "12+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "heritage",
+   "exhibitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Choose an entry window; stay as long as you like",
+   "Students get a discount at entry with ID",
+   "Photography allowed without flash",
+   "Wheelchair accessible"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-25T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_33",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sadar",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_design",
+  "templateId": "tpl_timed_entry",
+  "slug": "future-homes-design-expo-nag33",
+  "title": "Future Homes: Design Expo",
+  "summary": "Furniture, materials and small-space ideas from young studios.",
+  "description": "Furniture, materials and small-space ideas from young studios.\n\nHosted by Sitabuldi Sessions at The Loft Studio, Sadar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Loft Studio",
+  "address": "The Loft Studio, 30 Hill Road, Sadar, Nagpur",
+  "lat": 21.1623,
+  "lng": 79.0836,
+  "ageLimit": "12+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "design",
+   "exhibitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Choose an entry window; stay as long as you like",
+   "Students get a discount at entry with ID",
+   "Photography allowed without flash",
+   "Wheelchair accessible"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-11T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_34",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_civil-lines",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_art",
+  "templateId": "tpl_info",
+  "slug": "light-and-shadow-a-photo-show-nag34",
+  "title": "Light & Shadow: A Photo Show",
+  "summary": "Street photography from the city's photo walk community. Free entry.",
+  "description": "Street photography from the city's photo walk community. Free entry.\n\nHosted by Orange City Runners at Cobalt Garden, Civil Lines. Just walk in — there is nothing to book.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Cobalt Garden",
+  "address": "Cobalt Garden, 40 Temple Lane, Civil Lines, Nagpur",
+  "lat": 21.1632,
+  "lng": 79.0754,
+  "ageLimit": "16+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art",
+   "exhibitions",
+   "free"
+  ],
+  "thingsToKnow": [
+   "Free entry, no booking needed",
+   "Open to all ages",
+   "Nearest metro and parking are on the map"
+  ],
+  "externalUrl": "https://example.com",
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-03T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_35",
+  "hostId": "h_nagpur_3",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_ramdaspeth",
+  "categoryId": "cat_exhibitions",
+  "subcategoryId": "cat_exhibitions_art",
+  "templateId": "tpl_timed_entry",
+  "slug": "stories-in-clay-nag35",
+  "title": "Stories in Clay",
+  "summary": "Contemporary ceramics, from tableware to sculpture.",
+  "description": "Contemporary ceramics, from tableware to sculpture.\n\nHosted by Mud & Wheel at Sandbox Theatre, Ramdaspeth. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Sandbox Theatre",
+  "address": "Sandbox Theatre, 35 Link Road, Ramdaspeth, Nagpur",
+  "lat": 21.1302,
+  "lng": 79.0701,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "art",
+   "exhibitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Choose an entry window; stay as long as you like",
+   "Students get a discount at entry with ID",
+   "Photography allowed without flash",
+   "Wheelchair accessible"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [],
+  "createdAt": "2026-09-22T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_36",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_pratap-nagar",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_quizzes",
+  "templateId": "tpl_competition",
+  "slug": "city-quiz-league-season-4-nag36",
+  "title": "City Quiz League: Season 4",
+  "summary": "Teams of up to four, eight rounds, one very smug winner.",
+  "description": "Teams of up to four, eight rounds, one very smug winner.\n\nHosted by Orange City Runners at Jamun Social, Pratap Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Jamun Social",
+  "address": "Jamun Social, 22 MG Road, Pratap Nagar, Nagpur",
+  "lat": 21.1163,
+  "lng": 79.0538,
+  "ageLimit": "All ages",
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "tags": [
+   "quizzes",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-10-02T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_37",
+  "hostId": "h_nagpur_4",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_sitabuldi",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_hackathons",
+  "templateId": "tpl_competition",
+  "slug": "48h-civic-hackathon-nag37",
+  "title": "48h Civic Hackathon",
+  "summary": "Build something useful for your city in a weekend. Mentors and meals included.",
+  "description": "Build something useful for your city in a weekend. Mentors and meals included.\n\nHosted by Orange City Runners at The Courtyard Collective, Sitabuldi. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "The Courtyard Collective",
+  "address": "The Courtyard Collective, 26 Station Road, Sitabuldi, Nagpur",
+  "lat": 21.1439,
+  "lng": 79.0818,
+  "ageLimit": "12+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "hackathons",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-05T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_38",
+  "hostId": "h_nagpur_5",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_wardha-road",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_tournaments",
+  "templateId": "tpl_competition",
+  "slug": "weekend-pickleball-open-nag38",
+  "title": "Weekend Pickleball Open",
+  "summary": "Doubles tournament with beginner and intermediate draws.",
+  "description": "Doubles tournament with beginner and intermediate draws.\n\nHosted by Nagpur Sports Hub at Tin Roof Café, Wardha Road. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Tin Roof Café",
+  "address": "Tin Roof Café, 41 MG Road, Wardha Road, Nagpur",
+  "lat": 21.0964,
+  "lng": 79.0707,
+  "ageLimit": "18+",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "tournaments",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-28T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_39",
+  "hostId": "h_nagpur_5",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_dharampeth",
+  "categoryId": "cat_competitions",
+  "subcategoryId": "cat_competitions_tournaments",
+  "templateId": "tpl_competition",
+  "slug": "corporate-box-cricket-cup-nag39",
+  "title": "Corporate Box Cricket Cup",
+  "summary": "Six-a-side box cricket for office teams. Knockout format.",
+  "description": "Six-a-side box cricket for office teams. Knockout format.\n\nHosted by Nagpur Sports Hub at Blue Door House, Dharampeth. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Blue Door House",
+  "address": "Blue Door House, 3 MG Road, Dharampeth, Nagpur",
+  "lat": 21.1435,
+  "lng": 79.0624,
+  "ageLimit": "18+",
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "tags": [
+   "tournaments",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-11T10:00:00+05:30"
+ },
+ {
+  "id": "l_nagpur_40",
+  "hostId": "h_nagpur_1",
+  "cityId": "c_nagpur",
+  "areaId": "a_nagpur_manish-nagar",
+  "categoryId": "cat_competitions",
+  "subcategoryId": null,
+  "templateId": "tpl_competition",
+  "slug": "battle-of-the-bands-nag40",
+  "title": "Battle of the Bands",
+  "summary": "Inter-college band competition with a studio session as the prize.",
+  "description": "Inter-college band competition with a studio session as the prize.\n\nHosted by Sitabuldi Sessions at Paper Boat Room, Manish Nagar. Spots are limited, so book early.\n\nExpect a relaxed crowd, good sound and a team that genuinely cares about the details. Doors open a little before the start time; grab a drink and settle in.",
+  "media": [],
+  "venueName": "Paper Boat Room",
+  "address": "Paper Boat Room, 28 Main Street, Manish Nagar, Nagpur",
+  "lat": 21.0853,
+  "lng": 79.0825,
+  "ageLimit": "All ages",
+  "languages": [
+   "English"
+  ],
+  "tags": [
+   "quizzes",
+   "competitions",
+   "paid"
+  ],
+  "thingsToKnow": [
+   "Registration closes 48 hours before start",
+   "One registration per team",
+   "Rules and fixtures are shared by email",
+   "Bring a valid ID for every team member"
+  ],
+  "externalUrl": null,
+  "status": "live",
+  "featuredRank": null,
+  "formFields": [
+   {
+    "id": "f_team",
+    "label": "Team name",
+    "type": "text",
+    "required": true
+   },
+   {
+    "id": "f_members",
+    "label": "Team size",
+    "type": "select",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "required": true
+   },
+   {
+    "id": "f_org",
+    "label": "College or company",
+    "type": "text",
+    "required": false
+   }
+  ],
+  "createdAt": "2026-09-01T10:00:00+05:30"
+ }
+]

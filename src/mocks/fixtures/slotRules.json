@@ -1,0 +1,3698 @@
+[
+ {
+  "id": "sr_r_v_mumbai_01_1",
+  "resourceId": "r_v_mumbai_01_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_01_2",
+  "resourceId": "r_v_mumbai_01_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_01_3",
+  "resourceId": "r_v_mumbai_01_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_01_4",
+  "resourceId": "r_v_mumbai_01_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_01_5",
+  "resourceId": "r_v_mumbai_01_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_02_1",
+  "resourceId": "r_v_mumbai_02_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_02_2",
+  "resourceId": "r_v_mumbai_02_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_03_1",
+  "resourceId": "r_v_mumbai_03_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1300,
+  "pricePeak": 1700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_03_2",
+  "resourceId": "r_v_mumbai_03_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1100,
+  "pricePeak": 1500,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_03_3",
+  "resourceId": "r_v_mumbai_03_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1100,
+  "pricePeak": 1500,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_04_1",
+  "resourceId": "r_v_mumbai_04_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_04_2",
+  "resourceId": "r_v_mumbai_04_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_04_3",
+  "resourceId": "r_v_mumbai_04_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_05_1",
+  "resourceId": "r_v_mumbai_05_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1100,
+  "pricePeak": 1500,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_06_1",
+  "resourceId": "r_v_mumbai_06_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_06_2",
+  "resourceId": "r_v_mumbai_06_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_06_3",
+  "resourceId": "r_v_mumbai_06_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_06_4",
+  "resourceId": "r_v_mumbai_06_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_07_1",
+  "resourceId": "r_v_mumbai_07_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_07_2",
+  "resourceId": "r_v_mumbai_07_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_07_3",
+  "resourceId": "r_v_mumbai_07_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_07_4",
+  "resourceId": "r_v_mumbai_07_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_08_1",
+  "resourceId": "r_v_mumbai_08_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1300,
+  "pricePeak": 1700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_09_1",
+  "resourceId": "r_v_mumbai_09_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_09_2",
+  "resourceId": "r_v_mumbai_09_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_09_3",
+  "resourceId": "r_v_mumbai_09_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_09_4",
+  "resourceId": "r_v_mumbai_09_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_10_1",
+  "resourceId": "r_v_mumbai_10_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_10_2",
+  "resourceId": "r_v_mumbai_10_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_10_3",
+  "resourceId": "r_v_mumbai_10_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_10_4",
+  "resourceId": "r_v_mumbai_10_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_10_5",
+  "resourceId": "r_v_mumbai_10_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_10_6",
+  "resourceId": "r_v_mumbai_10_6",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_mumbai_10_7",
+  "resourceId": "r_v_mumbai_10_7",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_01_1",
+  "resourceId": "r_v_pune_01_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_01_2",
+  "resourceId": "r_v_pune_01_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_01_3",
+  "resourceId": "r_v_pune_01_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_01_4",
+  "resourceId": "r_v_pune_01_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_01_5",
+  "resourceId": "r_v_pune_01_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_01_6",
+  "resourceId": "r_v_pune_01_6",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_02_1",
+  "resourceId": "r_v_pune_02_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_02_2",
+  "resourceId": "r_v_pune_02_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_03_1",
+  "resourceId": "r_v_pune_03_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1300,
+  "pricePeak": 1700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_03_2",
+  "resourceId": "r_v_pune_03_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1300,
+  "pricePeak": 1700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_03_3",
+  "resourceId": "r_v_pune_03_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1100,
+  "pricePeak": 1500,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_04_1",
+  "resourceId": "r_v_pune_04_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_04_2",
+  "resourceId": "r_v_pune_04_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_05_1",
+  "resourceId": "r_v_pune_05_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1100,
+  "pricePeak": 1500,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_06_1",
+  "resourceId": "r_v_pune_06_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_06_2",
+  "resourceId": "r_v_pune_06_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_06_3",
+  "resourceId": "r_v_pune_06_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_06_4",
+  "resourceId": "r_v_pune_06_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_06_5",
+  "resourceId": "r_v_pune_06_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_06_6",
+  "resourceId": "r_v_pune_06_6",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_07_1",
+  "resourceId": "r_v_pune_07_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_07_2",
+  "resourceId": "r_v_pune_07_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_07_3",
+  "resourceId": "r_v_pune_07_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_08_1",
+  "resourceId": "r_v_pune_08_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1300,
+  "pricePeak": 1700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_09_1",
+  "resourceId": "r_v_pune_09_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_09_2",
+  "resourceId": "r_v_pune_09_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_09_3",
+  "resourceId": "r_v_pune_09_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_09_4",
+  "resourceId": "r_v_pune_09_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_09_5",
+  "resourceId": "r_v_pune_09_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_09_6",
+  "resourceId": "r_v_pune_09_6",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_10_1",
+  "resourceId": "r_v_pune_10_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_10_2",
+  "resourceId": "r_v_pune_10_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_10_3",
+  "resourceId": "r_v_pune_10_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_10_4",
+  "resourceId": "r_v_pune_10_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_10_5",
+  "resourceId": "r_v_pune_10_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_pune_10_6",
+  "resourceId": "r_v_pune_10_6",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_01_1",
+  "resourceId": "r_v_nagpur_01_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_01_2",
+  "resourceId": "r_v_nagpur_01_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_01_3",
+  "resourceId": "r_v_nagpur_01_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_01_4",
+  "resourceId": "r_v_nagpur_01_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_01_5",
+  "resourceId": "r_v_nagpur_01_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_01_6",
+  "resourceId": "r_v_nagpur_01_6",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_02_1",
+  "resourceId": "r_v_nagpur_02_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_02_2",
+  "resourceId": "r_v_nagpur_02_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_02_3",
+  "resourceId": "r_v_nagpur_02_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_03_1",
+  "resourceId": "r_v_nagpur_03_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1300,
+  "pricePeak": 1700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_03_2",
+  "resourceId": "r_v_nagpur_03_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1300,
+  "pricePeak": 1700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_03_3",
+  "resourceId": "r_v_nagpur_03_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1100,
+  "pricePeak": 1500,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_03_4",
+  "resourceId": "r_v_nagpur_03_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1100,
+  "pricePeak": 1500,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_04_1",
+  "resourceId": "r_v_nagpur_04_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_04_2",
+  "resourceId": "r_v_nagpur_04_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_04_3",
+  "resourceId": "r_v_nagpur_04_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_05_1",
+  "resourceId": "r_v_nagpur_05_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1100,
+  "pricePeak": 1500,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_05_2",
+  "resourceId": "r_v_nagpur_05_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1100,
+  "pricePeak": 1500,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_06_1",
+  "resourceId": "r_v_nagpur_06_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_06_2",
+  "resourceId": "r_v_nagpur_06_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_06_3",
+  "resourceId": "r_v_nagpur_06_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_06_4",
+  "resourceId": "r_v_nagpur_06_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_06_5",
+  "resourceId": "r_v_nagpur_06_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_07_1",
+  "resourceId": "r_v_nagpur_07_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_07_2",
+  "resourceId": "r_v_nagpur_07_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_07_3",
+  "resourceId": "r_v_nagpur_07_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_08_1",
+  "resourceId": "r_v_nagpur_08_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1300,
+  "pricePeak": 1700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_08_2",
+  "resourceId": "r_v_nagpur_08_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1300,
+  "pricePeak": 1700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_09_1",
+  "resourceId": "r_v_nagpur_09_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_09_2",
+  "resourceId": "r_v_nagpur_09_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_09_3",
+  "resourceId": "r_v_nagpur_09_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 400,
+  "pricePeak": 550,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_09_4",
+  "resourceId": "r_v_nagpur_09_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_09_5",
+  "resourceId": "r_v_nagpur_09_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 30,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_09_6",
+  "resourceId": "r_v_nagpur_09_6",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_10_1",
+  "resourceId": "r_v_nagpur_10_1",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_10_2",
+  "resourceId": "r_v_nagpur_10_2",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 600,
+  "pricePeak": 800,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_10_3",
+  "resourceId": "r_v_nagpur_10_3",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_10_4",
+  "resourceId": "r_v_nagpur_10_4",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 500,
+  "pricePeak": 700,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_10_5",
+  "resourceId": "r_v_nagpur_10_5",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_10_6",
+  "resourceId": "r_v_nagpur_10_6",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_10_7",
+  "resourceId": "r_v_nagpur_10_7",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ },
+ {
+  "id": "sr_r_v_nagpur_10_8",
+  "resourceId": "r_v_nagpur_10_8",
+  "openMins": 360,
+  "closeMins": 1380,
+  "minMins": 60,
+  "maxMins": 180,
+  "bufferMins": 0,
+  "advanceDays": 14,
+  "priceBase": 1500,
+  "pricePeak": 1900,
+  "peak": [
+   {
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "fromMins": 1080,
+    "toMins": 1320
+   },
+   {
+    "days": [
+     0,
+     6
+    ],
+    "fromMins": 420,
+    "toMins": 1320
+   }
+  ]
+ }
+]

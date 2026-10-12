@@ -1,0 +1,32 @@
+[
+ {
+  "id": "c_mumbai",
+  "slug": "mumbai",
+  "name": "Mumbai",
+  "state": "Maharashtra",
+  "lat": 19.076,
+  "lng": 72.8777,
+  "active": true,
+  "tagline": "The city that never sits still"
+ },
+ {
+  "id": "c_pune",
+  "slug": "pune",
+  "name": "Pune",
+  "state": "Maharashtra",
+  "lat": 18.5204,
+  "lng": 73.8567,
+  "active": true,
+  "tagline": "Weekends, sorted"
+ },
+ {
+  "id": "c_nagpur",
+  "slug": "nagpur",
+  "name": "Nagpur",
+  "state": "Maharashtra",
+  "lat": 21.1458,
+  "lng": 79.0882,
+  "active": true,
+  "tagline": "Orange City, after hours"
+ }
+]

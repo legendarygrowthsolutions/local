@@ -1,0 +1,212 @@
+[
+ {
+  "id": "b_r_v_mumbai_01_1",
+  "resourceId": "r_v_mumbai_01_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_mumbai_02_1",
+  "resourceId": "r_v_mumbai_02_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_mumbai_03_1",
+  "resourceId": "r_v_mumbai_03_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_mumbai_04_1",
+  "resourceId": "r_v_mumbai_04_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_mumbai_05_1",
+  "resourceId": "r_v_mumbai_05_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_mumbai_06_1",
+  "resourceId": "r_v_mumbai_06_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_mumbai_07_1",
+  "resourceId": "r_v_mumbai_07_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_mumbai_08_1",
+  "resourceId": "r_v_mumbai_08_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_mumbai_09_1",
+  "resourceId": "r_v_mumbai_09_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_mumbai_10_1",
+  "resourceId": "r_v_mumbai_10_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_01_1",
+  "resourceId": "r_v_pune_01_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_02_1",
+  "resourceId": "r_v_pune_02_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_03_1",
+  "resourceId": "r_v_pune_03_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_04_1",
+  "resourceId": "r_v_pune_04_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_05_1",
+  "resourceId": "r_v_pune_05_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_06_1",
+  "resourceId": "r_v_pune_06_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_07_1",
+  "resourceId": "r_v_pune_07_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_08_1",
+  "resourceId": "r_v_pune_08_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_09_1",
+  "resourceId": "r_v_pune_09_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_pune_10_1",
+  "resourceId": "r_v_pune_10_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_01_1",
+  "resourceId": "r_v_nagpur_01_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_02_1",
+  "resourceId": "r_v_nagpur_02_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_03_1",
+  "resourceId": "r_v_nagpur_03_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_04_1",
+  "resourceId": "r_v_nagpur_04_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_05_1",
+  "resourceId": "r_v_nagpur_05_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_06_1",
+  "resourceId": "r_v_nagpur_06_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_07_1",
+  "resourceId": "r_v_nagpur_07_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_08_1",
+  "resourceId": "r_v_nagpur_08_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_09_1",
+  "resourceId": "r_v_nagpur_09_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ },
+ {
+  "id": "b_r_v_nagpur_10_1",
+  "resourceId": "r_v_nagpur_10_1",
+  "startsAt": "2026-10-13T06:00:00+05:30",
+  "endsAt": "2026-10-13T09:00:00+05:30",
+  "reason": "Maintenance"
+ }
+]

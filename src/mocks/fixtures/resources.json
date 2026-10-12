@@ -1,0 +1,1122 @@
+[
+ {
+  "id": "r_v_mumbai_01_1",
+  "venueId": "v_mumbai_01",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_01_2",
+  "venueId": "v_mumbai_01",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_01_3",
+  "venueId": "v_mumbai_01",
+  "name": "Court 1",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_01_4",
+  "venueId": "v_mumbai_01",
+  "name": "Court 2",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_01_5",
+  "venueId": "v_mumbai_01",
+  "name": "Court 3",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_02_1",
+  "venueId": "v_mumbai_02",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_02_2",
+  "venueId": "v_mumbai_02",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_03_1",
+  "venueId": "v_mumbai_03",
+  "name": "Turf 1",
+  "sport": "football",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 14
+ },
+ {
+  "id": "r_v_mumbai_03_2",
+  "venueId": "v_mumbai_03",
+  "name": "Box 1",
+  "sport": "box-cricket",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 12
+ },
+ {
+  "id": "r_v_mumbai_03_3",
+  "venueId": "v_mumbai_03",
+  "name": "Box 2",
+  "sport": "box-cricket",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 12
+ },
+ {
+  "id": "r_v_mumbai_04_1",
+  "venueId": "v_mumbai_04",
+  "name": "Court 1",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_04_2",
+  "venueId": "v_mumbai_04",
+  "name": "Court 2",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_04_3",
+  "venueId": "v_mumbai_04",
+  "name": "Court 3",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_05_1",
+  "venueId": "v_mumbai_05",
+  "name": "Box 1",
+  "sport": "box-cricket",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 12
+ },
+ {
+  "id": "r_v_mumbai_06_1",
+  "venueId": "v_mumbai_06",
+  "name": "Court 1",
+  "sport": "tennis",
+  "indoor": false,
+  "surface": "Hard court",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_06_2",
+  "venueId": "v_mumbai_06",
+  "name": "Court 2",
+  "sport": "tennis",
+  "indoor": false,
+  "surface": "Hard court",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_06_3",
+  "venueId": "v_mumbai_06",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_06_4",
+  "venueId": "v_mumbai_06",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_07_1",
+  "venueId": "v_mumbai_07",
+  "name": "Court 1",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_07_2",
+  "venueId": "v_mumbai_07",
+  "name": "Court 2",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_07_3",
+  "venueId": "v_mumbai_07",
+  "name": "Court 3",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_07_4",
+  "venueId": "v_mumbai_07",
+  "name": "Court 4",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_08_1",
+  "venueId": "v_mumbai_08",
+  "name": "Turf 1",
+  "sport": "football",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 14
+ },
+ {
+  "id": "r_v_mumbai_09_1",
+  "venueId": "v_mumbai_09",
+  "name": "Court 1",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_09_2",
+  "venueId": "v_mumbai_09",
+  "name": "Court 2",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_09_3",
+  "venueId": "v_mumbai_09",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_09_4",
+  "venueId": "v_mumbai_09",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_10_1",
+  "venueId": "v_mumbai_10",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_10_2",
+  "venueId": "v_mumbai_10",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_10_3",
+  "venueId": "v_mumbai_10",
+  "name": "Court 3",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_10_4",
+  "venueId": "v_mumbai_10",
+  "name": "Court 1",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_10_5",
+  "venueId": "v_mumbai_10",
+  "name": "Court 2",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_10_6",
+  "venueId": "v_mumbai_10",
+  "name": "Court 3",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_mumbai_10_7",
+  "venueId": "v_mumbai_10",
+  "name": "Court 4",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_01_1",
+  "venueId": "v_pune_01",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_01_2",
+  "venueId": "v_pune_01",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_01_3",
+  "venueId": "v_pune_01",
+  "name": "Court 1",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_01_4",
+  "venueId": "v_pune_01",
+  "name": "Court 2",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_01_5",
+  "venueId": "v_pune_01",
+  "name": "Court 3",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_01_6",
+  "venueId": "v_pune_01",
+  "name": "Court 4",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_02_1",
+  "venueId": "v_pune_02",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_02_2",
+  "venueId": "v_pune_02",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_03_1",
+  "venueId": "v_pune_03",
+  "name": "Turf 1",
+  "sport": "football",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 14
+ },
+ {
+  "id": "r_v_pune_03_2",
+  "venueId": "v_pune_03",
+  "name": "Turf 2",
+  "sport": "football",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 14
+ },
+ {
+  "id": "r_v_pune_03_3",
+  "venueId": "v_pune_03",
+  "name": "Box 1",
+  "sport": "box-cricket",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 12
+ },
+ {
+  "id": "r_v_pune_04_1",
+  "venueId": "v_pune_04",
+  "name": "Court 1",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_04_2",
+  "venueId": "v_pune_04",
+  "name": "Court 2",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_05_1",
+  "venueId": "v_pune_05",
+  "name": "Box 1",
+  "sport": "box-cricket",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 12
+ },
+ {
+  "id": "r_v_pune_06_1",
+  "venueId": "v_pune_06",
+  "name": "Court 1",
+  "sport": "tennis",
+  "indoor": false,
+  "surface": "Clay",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_06_2",
+  "venueId": "v_pune_06",
+  "name": "Court 2",
+  "sport": "tennis",
+  "indoor": false,
+  "surface": "Hard court",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_06_3",
+  "venueId": "v_pune_06",
+  "name": "Court 3",
+  "sport": "tennis",
+  "indoor": false,
+  "surface": "Clay",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_06_4",
+  "venueId": "v_pune_06",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_06_5",
+  "venueId": "v_pune_06",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_06_6",
+  "venueId": "v_pune_06",
+  "name": "Court 3",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_07_1",
+  "venueId": "v_pune_07",
+  "name": "Court 1",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_07_2",
+  "venueId": "v_pune_07",
+  "name": "Court 2",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_07_3",
+  "venueId": "v_pune_07",
+  "name": "Court 3",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_08_1",
+  "venueId": "v_pune_08",
+  "name": "Turf 1",
+  "sport": "football",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 14
+ },
+ {
+  "id": "r_v_pune_09_1",
+  "venueId": "v_pune_09",
+  "name": "Court 1",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_09_2",
+  "venueId": "v_pune_09",
+  "name": "Court 2",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_09_3",
+  "venueId": "v_pune_09",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_09_4",
+  "venueId": "v_pune_09",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_09_5",
+  "venueId": "v_pune_09",
+  "name": "Court 3",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Acrylic",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_09_6",
+  "venueId": "v_pune_09",
+  "name": "Court 4",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_10_1",
+  "venueId": "v_pune_10",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_10_2",
+  "venueId": "v_pune_10",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_10_3",
+  "venueId": "v_pune_10",
+  "name": "Court 3",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_10_4",
+  "venueId": "v_pune_10",
+  "name": "Court 1",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_10_5",
+  "venueId": "v_pune_10",
+  "name": "Court 2",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_pune_10_6",
+  "venueId": "v_pune_10",
+  "name": "Court 3",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_01_1",
+  "venueId": "v_nagpur_01",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_01_2",
+  "venueId": "v_nagpur_01",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_01_3",
+  "venueId": "v_nagpur_01",
+  "name": "Court 1",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_01_4",
+  "venueId": "v_nagpur_01",
+  "name": "Court 2",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_01_5",
+  "venueId": "v_nagpur_01",
+  "name": "Court 3",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_01_6",
+  "venueId": "v_nagpur_01",
+  "name": "Court 4",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_02_1",
+  "venueId": "v_nagpur_02",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_02_2",
+  "venueId": "v_nagpur_02",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_02_3",
+  "venueId": "v_nagpur_02",
+  "name": "Court 3",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_03_1",
+  "venueId": "v_nagpur_03",
+  "name": "Turf 1",
+  "sport": "football",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 14
+ },
+ {
+  "id": "r_v_nagpur_03_2",
+  "venueId": "v_nagpur_03",
+  "name": "Turf 2",
+  "sport": "football",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 14
+ },
+ {
+  "id": "r_v_nagpur_03_3",
+  "venueId": "v_nagpur_03",
+  "name": "Box 1",
+  "sport": "box-cricket",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 12
+ },
+ {
+  "id": "r_v_nagpur_03_4",
+  "venueId": "v_nagpur_03",
+  "name": "Box 2",
+  "sport": "box-cricket",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 12
+ },
+ {
+  "id": "r_v_nagpur_04_1",
+  "venueId": "v_nagpur_04",
+  "name": "Court 1",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_04_2",
+  "venueId": "v_nagpur_04",
+  "name": "Court 2",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_04_3",
+  "venueId": "v_nagpur_04",
+  "name": "Court 3",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Synthetic mat",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_05_1",
+  "venueId": "v_nagpur_05",
+  "name": "Box 1",
+  "sport": "box-cricket",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 12
+ },
+ {
+  "id": "r_v_nagpur_05_2",
+  "venueId": "v_nagpur_05",
+  "name": "Box 2",
+  "sport": "box-cricket",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 12
+ },
+ {
+  "id": "r_v_nagpur_06_1",
+  "venueId": "v_nagpur_06",
+  "name": "Court 1",
+  "sport": "tennis",
+  "indoor": false,
+  "surface": "Clay",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_06_2",
+  "venueId": "v_nagpur_06",
+  "name": "Court 2",
+  "sport": "tennis",
+  "indoor": false,
+  "surface": "Hard court",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_06_3",
+  "venueId": "v_nagpur_06",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_06_4",
+  "venueId": "v_nagpur_06",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_06_5",
+  "venueId": "v_nagpur_06",
+  "name": "Court 3",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_07_1",
+  "venueId": "v_nagpur_07",
+  "name": "Court 1",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_07_2",
+  "venueId": "v_nagpur_07",
+  "name": "Court 2",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_07_3",
+  "venueId": "v_nagpur_07",
+  "name": "Court 3",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_08_1",
+  "venueId": "v_nagpur_08",
+  "name": "Turf 1",
+  "sport": "football",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 14
+ },
+ {
+  "id": "r_v_nagpur_08_2",
+  "venueId": "v_nagpur_08",
+  "name": "Turf 2",
+  "sport": "football",
+  "indoor": false,
+  "surface": "Artificial turf",
+  "slotLengthMins": 60,
+  "capacity": 14
+ },
+ {
+  "id": "r_v_nagpur_09_1",
+  "venueId": "v_nagpur_09",
+  "name": "Court 1",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_09_2",
+  "venueId": "v_nagpur_09",
+  "name": "Court 2",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_09_3",
+  "venueId": "v_nagpur_09",
+  "name": "Court 3",
+  "sport": "badminton",
+  "indoor": true,
+  "surface": "Wooden",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_09_4",
+  "venueId": "v_nagpur_09",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Acrylic",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_09_5",
+  "venueId": "v_nagpur_09",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 30,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_09_6",
+  "venueId": "v_nagpur_09",
+  "name": "Court 3",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_10_1",
+  "venueId": "v_nagpur_10",
+  "name": "Court 1",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_10_2",
+  "venueId": "v_nagpur_10",
+  "name": "Court 2",
+  "sport": "pickleball",
+  "indoor": true,
+  "surface": "Cushioned acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_10_3",
+  "venueId": "v_nagpur_10",
+  "name": "Court 3",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_10_4",
+  "venueId": "v_nagpur_10",
+  "name": "Court 4",
+  "sport": "pickleball",
+  "indoor": false,
+  "surface": "Acrylic",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_10_5",
+  "venueId": "v_nagpur_10",
+  "name": "Court 1",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_10_6",
+  "venueId": "v_nagpur_10",
+  "name": "Court 2",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_10_7",
+  "venueId": "v_nagpur_10",
+  "name": "Court 3",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ },
+ {
+  "id": "r_v_nagpur_10_8",
+  "venueId": "v_nagpur_10",
+  "name": "Court 4",
+  "sport": "padel",
+  "indoor": false,
+  "surface": "Synthetic grass",
+  "slotLengthMins": 60,
+  "capacity": 4
+ }
+]
