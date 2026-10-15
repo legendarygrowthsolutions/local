@@ -278,7 +278,7 @@ function JourneyInner({ target }: { target: JourneyTarget }) {
             )}
             <div className="flex items-baseline justify-between border-t border-line pt-4">
               <span className="text-sm text-muted">{summary}</span>
-              {hint ? <span className="text-sm font-semibold text-muted">{hint}</span> : <span className="font-display text-2xl font-extrabold">{total === null ? "—" : formatINR(total, { free: "Free" })}</span>}
+              {hint ? <span className="text-sm font-semibold text-muted">{hint}</span> : <span className="font-display text-2xl font-extrabold">{total === null ? "-" : formatINR(total, { free: "Free" })}</span>}
             </div>
             <Button size="lg" block disabled={ctaDisabled} loading={ctaLoading} onClick={onCta} className="font-bold">
               {ctaLabel}
@@ -294,7 +294,7 @@ function JourneyInner({ target }: { target: JourneyTarget }) {
           {!onReview && (
             <div className="min-w-0 flex-1">
               <p className="truncate text-xs text-muted">{summary}</p>
-              {hint ? <p className="truncate text-[15px] font-semibold leading-tight text-muted">{hint}</p> : <p className="truncate font-display text-2xl font-extrabold leading-tight">{total === null ? "—" : formatINR(total, { free: "Free" })}</p>}
+              {hint ? <p className="truncate text-[15px] font-semibold leading-tight text-muted">{hint}</p> : <p className="truncate font-display text-2xl font-extrabold leading-tight">{total === null ? "-" : formatINR(total, { free: "Free" })}</p>}
             </div>
           )}
           <Button size="lg" disabled={ctaDisabled} loading={ctaLoading} onClick={onCta} className={cn("font-bold", onReview ? "flex-1" : "px-8")}>

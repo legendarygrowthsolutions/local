@@ -19,6 +19,7 @@ const NAV: { href: string; label: string; badge?: "hosts" | "listings"; exact?: 
   { href: "/admin/bookings", label: "Bookings & refunds" },
   { href: "/admin/users", label: "Users" },
   { href: "/admin/payouts", label: "Payouts & fees" },
+  { href: "/admin/coupons", label: "Coupons" },
   { href: "/admin/homepage", label: "Homepage & banners" },
 ];
 

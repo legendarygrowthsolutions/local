@@ -6,7 +6,7 @@
   "state": "Maharashtra",
   "lat": 19.076,
   "lng": 72.8777,
-  "active": true,
+  "active": false,
   "tagline": "The city that never sits still"
  },
  {
@@ -16,7 +16,7 @@
   "state": "Maharashtra",
   "lat": 18.5204,
   "lng": 73.8567,
-  "active": true,
+  "active": false,
   "tagline": "Weekends, sorted"
  },
  {

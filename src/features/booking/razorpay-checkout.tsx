@@ -72,7 +72,7 @@ export function RazorpayCheckout({ initial, scriptSrc }: { initial: BookingView;
               onSuccess: (res) => {
                 if (res.outcome === "success") router.replace(`/book/done/${initial.id}`);
                 else if (res.outcome === "refunded") setError("Your hold expired before the payment came through, so we've refunded it in full.");
-                else setError("Your bank declined the payment. Your spot is still held — try again or use another method.");
+                else setError("Your bank declined the payment. Your spot is still held. Try again or use another method.");
               },
               onError: (e) => setError(e instanceof ApiError ? e.message : "We couldn't confirm the payment. If money was taken, it will be confirmed or refunded automatically."),
               onSettled: () => setOpening(false),

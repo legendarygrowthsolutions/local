@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const d = await load(params);
   const sports = d.sports.map((s) => s.name).join(" & ");
   return {
-    title: `${d.venue.name} — ${sports} courts in ${d.area.name}, ${d.city.name}`,
+    title: `${d.venue.name}: ${sports} courts in ${d.area.name}, ${d.city.name}`,
     description: `Book ${sports.toLowerCase()} at ${d.venue.name}, ${d.area.name}. From ${formatINR(d.priceFrom)}/hr. ${d.venue.amenities.slice(0, 3).join(", ")}.`,
     alternates: { canonical: abs(d.card.href) },
   };
@@ -70,9 +70,11 @@ export default async function VenuePage({ params }: { params: Params }) {
               <About text={venue.description} />
             </Section>
 
-            <Section title="Things to know">
-              <ThingsToKnow items={venue.thingsToKnow} />
-            </Section>
+            {venue.thingsToKnow.length > 0 && (
+              <Section title="Things to know">
+                <ThingsToKnow items={venue.thingsToKnow} />
+              </Section>
+            )}
 
             <Section title="Location">
               <MapCard lat={venue.lat} lng={venue.lng} label={venue.name} address={venue.address} />

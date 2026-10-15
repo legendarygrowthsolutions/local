@@ -89,7 +89,7 @@
  },
  {
   "id": "tpl_ticket_single",
-  "name": "Ticketed — single day",
+  "name": "Ticketed (single day)",
   "description": "Ticket tiers for one show, with a seat hold during checkout.",
   "allowedCategories": [
    "events",
@@ -150,7 +150,7 @@
  },
  {
   "id": "tpl_ticket_multi",
-  "name": "Ticketed — multi-day",
+  "name": "Ticketed (multi-day)",
   "description": "Day tickets plus a season pass for festivals.",
   "allowedCategories": [
    "events"
@@ -345,7 +345,7 @@
  },
  {
   "id": "tpl_court_60",
-  "name": "Court slots — hourly",
+  "name": "Court slots (hourly)",
   "description": "Courts and turfs booked in 60-minute slots.",
   "allowedCategories": [
    "sports"
@@ -415,7 +415,7 @@
  },
  {
   "id": "tpl_court_30",
-  "name": "Court slots — 30 min",
+  "name": "Court slots (30 min)",
   "description": "Courts booked in 30-minute slots.",
   "allowedCategories": [
    "sports"
@@ -485,7 +485,7 @@
  },
  {
   "id": "tpl_competition",
-  "name": "Competition — teams",
+  "name": "Competition (teams)",
   "description": "Divisions, a team form and an entry fee.",
   "allowedCategories": [
    "competitions"

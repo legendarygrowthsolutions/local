@@ -75,6 +75,9 @@ export async function verifyOtp(phone: string, code: string, ip: string, now = n
       createdAt: now.toISOString(),
     });
   }
+  if (user.role !== "admin" && config.superadminPhones().has(phone)) {
+    user = (await repo.users.update(user.id, { role: "admin" })) ?? user;
+  }
   await activateInvites(user);
   return { user, isNew: !user.name };
 }

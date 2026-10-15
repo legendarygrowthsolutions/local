@@ -83,7 +83,7 @@ export function DummyGateway({ initial }: { initial: BookingView }) {
               <CircleX className="size-5 shrink-0 text-danger" aria-hidden />
               <div className="text-sm">
                 <p className="font-semibold text-danger">Payment failed</p>
-                <p className="text-ink-2">Your bank declined the payment. Your spot is still held — try again or use another method.</p>
+                <p className="text-ink-2">Your bank declined the payment. Your spot is still held. Try again or use another method.</p>
               </div>
             </div>
           </m.div>
@@ -170,7 +170,7 @@ export function DummyGateway({ initial }: { initial: BookingView }) {
             {pay.error && <p className="text-center text-sm text-danger">{pay.error.message}</p>}
           </>
         )}
-        <p className="text-center text-xs text-muted">Test mode — no money moves.</p>
+        <p className="text-center text-xs text-muted">Test mode: no money moves.</p>
       </div>
     </main>
   );

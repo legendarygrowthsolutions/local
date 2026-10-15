@@ -55,6 +55,16 @@ export interface BlocksTable { id: string; resourceId: string; startsAt: string;
 export interface CouponsTable {
   id: string; code: string; type: string; value: number; maxDiscount: number; description: string; perUserLimit: number | null;
   firstBookingOnly: Bool; minSubtotal: number; validUntil: string | null; active: Bool;
+  validFrom: string | null; totalLimit: number | null; cityId: string | null; createdAt: string | null; updatedAt: string | null;
+}
+export interface HostPayoutAccountsTable {
+  hostId: string; method: string; holderName: string; accountNumber: string | null; ifsc: string | null; bankName: string | null;
+  upiId: string | null; updatedAt: string; updatedBy: string | null;
+}
+export interface PayoutsTable {
+  id: string; hostId: string; cycleFrom: string; cycleTo: string; bookings: number; gross: number; refunds: number; deductions: number;
+  adjustment: number; amount: number; method: string; reference: string; paidOn: string; paidTo: string; notes: string | null;
+  recordedBy: string; createdAt: string; voidedAt: string | null; voidedBy: string | null; voidReason: string | null;
 }
 export interface BookingsTable {
   id: string; code: string; userId: string; kind: string; listingId: string | null; venueId: string | null; cityId: string; title: string;
@@ -96,6 +106,8 @@ export interface Database {
   slotRules: SlotRulesTable;
   blocks: BlocksTable;
   coupons: CouponsTable;
+  hostPayoutAccounts: HostPayoutAccountsTable;
+  payouts: PayoutsTable;
   bookings: BookingsTable;
   bookingItems: BookingItemsTable;
   payments: PaymentsTable;

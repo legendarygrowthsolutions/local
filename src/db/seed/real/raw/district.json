@@ -1,0 +1,2214 @@
+{
+ "source": "district.in",
+ "crawledAt": "2026-10-12T16:35:10.851Z",
+ "events": [
+  {
+   "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+   "listedIn": [
+    "music-in-nagpur-book-tickets",
+    "upcoming-events-in-nagpur"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets#event",
+    "name": "The Philosophy of Resonance | Satinder Sartaaj Live in Nagpur",
+    "description": "Dr. Satinder Sartaaj brings together soulful Punjabi poetry, Sufi music and high-energy Bhangra in an unforgettable live experience. Known for his powerful vocals and poetic storytelling, he takes the audience through moments of deep emotion, reflection and celebration. Expect beautiful verses, energetic performances, immersive visuals and an evening that stays with you long after the show ends.",
+    "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01M1XBDG5FD5E67M4HY8R6T9D3.jpg",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "Suresh Chandra Suri Ground",
+     "address": "Pawanputra Housing Society, Plot No. 2, Nara Rd, near nara, bustop, Nagpur, Maharashtra 440014, India",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1994933,
+      "longitude": 79.0890872
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "FIRDAUS PRODUCTION PRIVATE LIMITED"
+    },
+    "keywords": "The Philosophy of Resonance | Satinder Sartaaj Live in Nagpur, All",
+    "startDate": "2026-11-13T13:30:00.000Z",
+    "endDate": "2026-11-13T16:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 1000,
+     "highPrice": 10000,
+     "priceCurrency": "INR",
+     "offerCount": 10,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "VIP | Section - 2",
+       "availability": "http://schema.org/InStock",
+       "price": 10000,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "VIP | Section - 3",
+       "availability": "http://schema.org/InStock",
+       "price": 8500,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "VIP | Section - 4",
+       "availability": "http://schema.org/InStock",
+       "price": 7000,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "VIP | Section - 5",
+       "availability": "http://schema.org/InStock",
+       "price": 5500,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "VIP | Section - 6",
+       "availability": "http://schema.org/InStock",
+       "price": 4500,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "Platinum | Section - 1",
+       "availability": "http://schema.org/InStock",
+       "price": 3500,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "Platinum | Section - 2",
+       "availability": "http://schema.org/InStock",
+       "price": 3000,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "Gold | Section - 1",
+       "availability": "http://schema.org/InStock",
+       "price": 2500,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "Gold | Section - 2",
+       "availability": "http://schema.org/InStock",
+       "price": 2000,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+       "name": "Silver | Section - 1",
+       "availability": "http://schema.org/InStock",
+       "price": 1500,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-07T12:31:09.876Z"
+      }
+     ],
+     "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets"
+    },
+    "doorTime": "12:30 PM"
+   },
+   "occurrences": [
+    {
+     "start": "2026-11-13T13:30:00.000Z",
+     "end": "2026-11-13T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 1000,
+      "highPrice": 10000,
+      "priceCurrency": "INR",
+      "offerCount": 10,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "VIP | Section - 2",
+        "availability": "http://schema.org/InStock",
+        "price": 10000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "VIP | Section - 3",
+        "availability": "http://schema.org/InStock",
+        "price": 8500,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "VIP | Section - 4",
+        "availability": "http://schema.org/InStock",
+        "price": 7000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "VIP | Section - 5",
+        "availability": "http://schema.org/InStock",
+        "price": 5500,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "VIP | Section - 6",
+        "availability": "http://schema.org/InStock",
+        "price": 4500,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "Platinum | Section - 1",
+        "availability": "http://schema.org/InStock",
+        "price": 3500,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "Platinum | Section - 2",
+        "availability": "http://schema.org/InStock",
+        "price": 3000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "Gold | Section - 1",
+        "availability": "http://schema.org/InStock",
+        "price": 2500,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "Gold | Section - 2",
+        "availability": "http://schema.org/InStock",
+        "price": 2000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets",
+        "name": "Silver | Section - 1",
+        "availability": "http://schema.org/InStock",
+        "price": 1500,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-07T12:31:09.876Z"
+       }
+      ],
+      "url": "https://www.district.in/events/the-philosophy-of-resonance-satinder-sartaaj-live-in-nagpur-2026-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "Is there an age restriction for the event?",
+     "Yes, the event is open to all ages. However a valid ticket is required to attendees ages 5 years and above."
+    ],
+    [
+     "Is there parking available?",
+     "Yes, paid parking will be available at the venue."
+    ],
+    [
+     "Can I get a refund if I can't attend the event?",
+     "No, tickets for this event are non-refundable."
+    ],
+    [
+     "Is the venue wheelchair accessible?",
+     "Yes, the venue is wheelchair accessible."
+    ],
+    [
+     "Will food, beverages & alcohol be available at the venue?",
+     "Yes, food and non-alcoholic beverages will be available for purchase at the venue."
+    ],
+    [
+     "Is re-entry to the venue allowed?",
+     "No, re-entry is not allowed once you exit the venue."
+    ],
+    [
+     "Is there a designated smoking area?",
+     "No, there is no designated smoking area at the venue."
+    ],
+    [
+     "Are there group bookings available?",
+     "For group bookings of 20 or more tickets, please reach out to the District Corporate Sales team at bulkbooking@district.in."
+    ],
+    [
+     "What is the cart time for ticket purchases?",
+     "Customers have 10 minutes to complete their purchase after adding tickets to the cart."
+    ],
+    [
+     "What if I can’t make it to the event?",
+     "Tickets, once purchased, are non-transferable, non-cancellable and non-refundable (unless provided in the terms and conditions of the event) with no exceptions."
+    ],
+    [
+     "Are city shifts allowed?",
+     "No, city shifts are not allowed. Tickets are only valid for the city selected at the time of purchase and cannot be transferred to another city."
+    ],
+    [
+     "What if I need to change my delivery address?",
+     "You can update your delivery address through the app. Go to Profile > Event Tickets, select your booking, scroll to Home Delivery Address, and edit the details.\nPlease note that this option is available only for a limited period. Once home delivery has begun, address changes will no longer be possible."
+    ],
+    [
+     "Can I officially transfer my tickets?",
+     "Unfortunately, tickets cannot be officially transferred."
+    ],
+    [
+     "What if I’ve already received my wristbands and then decide to cancel?",
+     "If your wristbands have already been delivered and you cancel your ticket, the wristbands will be invalid and you won’t be granted entry to the event. If you attempt to attend using those wristbands, access will be denied."
+    ],
+    [
+     "Is the venue wheelchair accessible?",
+     "Yes, the venue is wheelchair accessible. However, we recommend bringing your own wheelchairs to the concert."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/screening-of-india-vs-west-indies-the-studs-nagpur-oct3-2026-buy-tickets",
+   "listedIn": [
+    "screenings-in-nagpur-book-tickets",
+    "upcoming-events-in-nagpur"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/screening-of-india-vs-west-indies-the-studs-nagpur-oct3-2026-buy-tickets#event",
+    "name": "Screening of India vs West Indies | The Studs Nagpur",
+    "description": "Catch every moment of the big game at The Studs Nagpur.• Live match screening on the big screen• Delicious food &amp; all-day dining• Taproom with refreshing drinks• Comfortable seating and lively ambience• Perfect spot to watch the game with your squadCome for the match, stay for the food, drinks and matchday atmosphere.",
+    "url": "https://www.district.in/events/screening-of-india-vs-west-indies-the-studs-nagpur-oct3-2026-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01M3VKAFMJCK4F9C01R6Q7BEN9.jpeg",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "The Studs - Sports Bar & Grill",
+     "address": "Plot 219/U/1, Vinod Bhavan, Museum Road, Civil Lines, Nagpur",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1511908473,
+      "longitude": 79.0757298728
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "Ambros World Foods"
+    },
+    "keywords": "Screening of India vs West Indies | The Studs Nagpur, All",
+    "startDate": "2026-10-14T13:30:00.000Z",
+    "endDate": "2026-10-14T15:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 199,
+     "highPrice": 199,
+     "priceCurrency": "INR",
+     "offerCount": 1,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-14T15:20:00.000Z",
+       "url": "https://www.district.in/events/screening-of-india-vs-west-indies-the-studs-nagpur-oct3-2026-buy-tickets",
+       "name": "Regular Cover Charges",
+       "availability": "http://schema.org/InStock",
+       "price": 199,
+       "priceCurrency": "INR",
+       "validFrom": "2026-10-01T20:44:11.964Z"
+      }
+     ],
+     "url": "https://www.district.in/events/screening-of-india-vs-west-indies-the-studs-nagpur-oct3-2026-buy-tickets"
+    },
+    "doorTime": "01:20 PM"
+   },
+   "occurrences": [
+    {
+     "start": "2026-10-14T13:30:00.000Z",
+     "end": "2026-10-14T15:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 199,
+      "highPrice": 199,
+      "priceCurrency": "INR",
+      "offerCount": 1,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-14T15:20:00.000Z",
+        "url": "https://www.district.in/events/screening-of-india-vs-west-indies-the-studs-nagpur-oct3-2026-buy-tickets",
+        "name": "Regular Cover Charges",
+        "availability": "http://schema.org/InStock",
+        "price": 199,
+        "priceCurrency": "INR",
+        "validFrom": "2026-10-01T20:44:11.964Z"
+       }
+      ],
+      "url": "https://www.district.in/events/screening-of-india-vs-west-indies-the-studs-nagpur-oct3-2026-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "How long does Screening of India vs West Indies | The Studs Nagpur last?",
+     "Screening of India vs West Indies | The Studs Nagpur has a total duration of 2 Hours."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+   "listedIn": [
+    "navratri-in-nagpur-book-tickets",
+    "upcoming-events-in-nagpur"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/raasera-oct16-2026-buy-tickets#event",
+    "name": "Raasera",
+    "description": "Get ready for two unforgettable nights of Garba, music, lights, and celebration as GIG HOUSE brings Raasera 2026 to Nagpur for a festive experience filled with colour, rhythm, and high-energy celebrations.Schedule16 October — Traditional GarbaStep into the spirit of Navratri with traditional Garba and live music, surrounded by the energy of the crowd and the vibrant colours of the festival. Experience the charm of classic Garba rhythms while celebrating the traditions that make Navratri special.17 October — DJ GarbaTurn up the energy with a high-octane DJ Garba experience featuring bigger beats, nonstop dancing, and a lively festive atmosphere designed to keep the celebrations going.Two nights. Two vibes. One celebration.Bring your friends, bring your best Garba moves, and experience Navratri through a celebration where tradition meets modern festive energy.Dance • Connect • Celebrate • Repeat. ❤️",
+    "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01M3HBYC7YKC7D9EHP406QH9WM.png",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "7 Vachann - Best Celebration Lawn in Nagpur",
+     "address": "40019, Bhandara Rd, Beside Jain Temple Honey Street, Wardhaman Nagar Colony, Nagpur, Maharashtra 440008, India",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1516032,
+      "longitude": 79.1377219
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "Vani Nilesh Puglia"
+    },
+    "keywords": "Raasera, All",
+    "startDate": "2026-10-16T12:30:00.000Z",
+    "endDate": "2026-10-16T17:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 499,
+     "highPrice": 2100,
+     "priceCurrency": "INR",
+     "offerCount": 3,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-16T17:30:00.000Z",
+       "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+       "name": "Stag | Early Bird",
+       "availability": "http://schema.org/InStock",
+       "price": 499,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-28T17:29:47.114Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-16T17:30:00.000Z",
+       "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+       "name": "Couple | Early Bird",
+       "availability": "http://schema.org/InStock",
+       "price": 899,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-28T17:29:47.114Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-16T17:30:00.000Z",
+       "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+       "name": "Group of 5 | Early Bird",
+       "availability": "http://schema.org/InStock",
+       "price": 2100,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-28T17:29:47.114Z"
+      }
+     ],
+     "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets"
+    },
+    "doorTime": "12:15 PM"
+   },
+   "occurrences": [
+    {
+     "start": "2026-10-16T12:30:00.000Z",
+     "end": "2026-10-16T17:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 499,
+      "highPrice": 2100,
+      "priceCurrency": "INR",
+      "offerCount": 3,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-16T17:30:00.000Z",
+        "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+        "name": "Stag | Early Bird",
+        "availability": "http://schema.org/InStock",
+        "price": 499,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-28T17:29:47.114Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-16T17:30:00.000Z",
+        "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+        "name": "Couple | Early Bird",
+        "availability": "http://schema.org/InStock",
+        "price": 899,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-28T17:29:47.114Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-16T17:30:00.000Z",
+        "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+        "name": "Group of 5 | Early Bird",
+        "availability": "http://schema.org/InStock",
+        "price": 2100,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-28T17:29:47.114Z"
+       }
+      ],
+      "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets"
+     }
+    },
+    {
+     "start": "2026-10-17T12:30:00.000Z",
+     "end": "2026-10-17T17:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 499,
+      "highPrice": 2100,
+      "priceCurrency": "INR",
+      "offerCount": 3,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-17T17:30:00.000Z",
+        "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+        "name": "Stag | Early Bird",
+        "availability": "http://schema.org/InStock",
+        "price": 499,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-28T17:29:47.114Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-17T17:30:00.000Z",
+        "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+        "name": "Couple | Early Bird",
+        "availability": "http://schema.org/InStock",
+        "price": 899,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-28T17:29:47.114Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-17T17:30:00.000Z",
+        "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets",
+        "name": "Group of 5 | Early Bird",
+        "availability": "http://schema.org/InStock",
+        "price": 2100,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-28T17:29:47.114Z"
+       }
+      ],
+      "url": "https://www.district.in/events/raasera-oct16-2026-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "How long does Raasera last?",
+     "Raasera has a total duration of 5 Hours."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+   "listedIn": [
+    "music-in-nagpur-book-tickets",
+    "upcoming-events-in-nagpur"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets#event",
+    "name": "Sonu Nigam - The Revolution India Tour | Nagpur",
+    "description": "Celebrate 30 glorious years of music with Sonu Nigam's The Revolution Tour—a spectacular live experience that brings generations together through the power of timeless music. From soulful melodies and romantic classics to chart-topping hits, Sonu Nigam's voice has been the soundtrack to countless memories, touching hearts across all age groups and every stage of life.More than just a concert, The Revolution Tour is a celebration of nostalgia, family, and togetherness. Join one of India's most iconic artists for an unforgettable evening filled with beloved songs, powerful performances, and magical moments that remind us why Sonu Nigam remains a musical legend loved by millions.",
+    "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01KXEMZ81W7ADJ9QNSP743SF7D.png",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "Venue to be announced",
+     "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nagpur",
+      "addressCountry": "IN"
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "ITW PLAYWORX MEDIA & ENTERTAINMENT PRIVATE LIMITED"
+    },
+    "performer": [
+     {
+      "@type": "Person",
+      "name": "Sonu Nigam",
+      "sameAs": [
+       "https://www.district.in/events/sonu-nigam/artist",
+       "https://www.instagram.com/sonunigamofficial",
+       "https://open.spotify.com/artist/1dVygo6tRFXC8CSWURQJq2",
+       "https://www.youtube.com/channel/UCDYFISYJx2tSc6cyhvx0N5Q"
+      ]
+     }
+    ],
+    "keywords": "Sonu Nigam - The Revolution India Tour | Nagpur, All",
+    "startDate": "2027-01-16T13:30:00.000Z",
+    "endDate": "2027-01-16T16:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 1399,
+     "highPrice": 9999,
+     "priceCurrency": "INR",
+     "offerCount": 5,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2027-01-16T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+       "name": "Early Bird | Silver",
+       "availability": "http://schema.org/InStock",
+       "price": 1399,
+       "priceCurrency": "INR",
+       "validFrom": "2026-07-07T10:42:12.324Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2027-01-16T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+       "name": "Early Bird | Gold",
+       "availability": "http://schema.org/InStock",
+       "price": 2399,
+       "priceCurrency": "INR",
+       "validFrom": "2026-07-07T10:42:12.324Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2027-01-16T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+       "name": "Early Bird | Platinum",
+       "availability": "http://schema.org/InStock",
+       "price": 3499,
+       "priceCurrency": "INR",
+       "validFrom": "2026-07-07T10:42:12.324Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2027-01-16T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+       "name": "Early Bird | Diamond",
+       "availability": "http://schema.org/InStock",
+       "price": 5999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-07-07T10:42:12.324Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2027-01-16T13:30:00.000Z",
+       "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+       "name": "Early Bird | Lounge",
+       "availability": "http://schema.org/InStock",
+       "price": 9999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-07-07T10:42:12.324Z"
+      }
+     ],
+     "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets"
+    }
+   },
+   "occurrences": [
+    {
+     "start": "2027-01-16T13:30:00.000Z",
+     "end": "2027-01-16T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 1399,
+      "highPrice": 9999,
+      "priceCurrency": "INR",
+      "offerCount": 5,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2027-01-16T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+        "name": "Early Bird | Silver",
+        "availability": "http://schema.org/InStock",
+        "price": 1399,
+        "priceCurrency": "INR",
+        "validFrom": "2026-07-07T10:42:12.324Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2027-01-16T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+        "name": "Early Bird | Gold",
+        "availability": "http://schema.org/InStock",
+        "price": 2399,
+        "priceCurrency": "INR",
+        "validFrom": "2026-07-07T10:42:12.324Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2027-01-16T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+        "name": "Early Bird | Platinum",
+        "availability": "http://schema.org/InStock",
+        "price": 3499,
+        "priceCurrency": "INR",
+        "validFrom": "2026-07-07T10:42:12.324Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2027-01-16T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+        "name": "Early Bird | Diamond",
+        "availability": "http://schema.org/InStock",
+        "price": 5999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-07-07T10:42:12.324Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2027-01-16T13:30:00.000Z",
+        "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets",
+        "name": "Early Bird | Lounge",
+        "availability": "http://schema.org/InStock",
+        "price": 9999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-07-07T10:42:12.324Z"
+       }
+      ],
+      "url": "https://www.district.in/events/the-revolution-india-tour-nagpur-2027-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "Is there an age restriction for the event?",
+     "No, the event is open for attendees of all age groups."
+    ],
+    [
+     "Is there parking available?",
+     "No, parking will not be available at the venue."
+    ],
+    [
+     "Can I get a refund if I can't attend the event?",
+     "No, tickets for this event are non-refundable."
+    ],
+    [
+     "Are there accommodations for individuals with disabilities?",
+     "No, there are no additional accommodations for individuals with disabilities."
+    ],
+    [
+     "Is the venue wheelchair accessible?",
+     "Yes, the venue is wheelchair accessible."
+    ],
+    [
+     "Will food, beverages & alcohol be available at the venue?",
+     "Yes, food, beverages, and alcohol will be available at the venue."
+    ],
+    [
+     "Is re-entry to the venue allowed?",
+     "No, re-entry is not allowed once you exit the venue."
+    ],
+    [
+     "Is there a designated smoking area?",
+     "Yes, a designated smoking area will be available at the venue."
+    ],
+    [
+     "Are there group bookings available?",
+     "For group bookings of 20 or more tickets, please reach out to the District Corporate Sales team at bulkbooking@district.in."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/el-clsico-barcelona-vs-real-madrid-live-screening-at-the-studs-nagpur-oct25-2026-buy-tickets",
+   "listedIn": [
+    "screenings-in-nagpur-book-tickets",
+    "upcoming-events-in-nagpur"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/el-clsico-barcelona-vs-real-madrid-live-screening-at-the-studs-nagpur-oct25-2026-buy-tickets#event",
+    "name": "Screening of El Clásico: Barcelona Vs Real Madrid | The Studs Nagpur",
+    "description": "Experience the thrill of El Clásico LIVE on the big screen with great food, refreshing drinks, and an electrifying football atmosphere.Highlights:Live football screeningBig-screen match experienceDelicious food and drinksVibrant sports bar ambiencePerfect for football fans and matchday gatherings",
+    "url": "https://www.district.in/events/el-clsico-barcelona-vs-real-madrid-live-screening-at-the-studs-nagpur-oct25-2026-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01M4JN6RRSFCG6N4KB1XYFPX2N.jpeg",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "The Studs - Sports Bar & Grill",
+     "address": "Plot 219/U/1, Vinod Bhavan, Museum Road, Civil Lines, Nagpur",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1511908473,
+      "longitude": 79.0757298728
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "Ambros World Foods"
+    },
+    "keywords": "Screening of El Clásico: Barcelona Vs Real Madrid | The Studs Nagpur, All",
+    "startDate": "2026-10-25T18:30:00.000Z",
+    "endDate": "2026-10-25T22:00:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 1499,
+     "highPrice": 1499,
+     "priceCurrency": "INR",
+     "offerCount": 1,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-25T21:50:00.000Z",
+       "url": "https://www.district.in/events/el-clsico-barcelona-vs-real-madrid-live-screening-at-the-studs-nagpur-oct25-2026-buy-tickets",
+       "name": "Cover Charge Ticket",
+       "availability": "http://schema.org/InStock",
+       "price": 1499,
+       "priceCurrency": "INR",
+       "validFrom": "2026-10-11T14:10:00.154Z"
+      }
+     ],
+     "url": "https://www.district.in/events/el-clsico-barcelona-vs-real-madrid-live-screening-at-the-studs-nagpur-oct25-2026-buy-tickets"
+    },
+    "doorTime": "06:20 PM"
+   },
+   "occurrences": [
+    {
+     "start": "2026-10-25T18:30:00.000Z",
+     "end": "2026-10-25T22:00:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 1499,
+      "highPrice": 1499,
+      "priceCurrency": "INR",
+      "offerCount": 1,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-25T21:50:00.000Z",
+        "url": "https://www.district.in/events/el-clsico-barcelona-vs-real-madrid-live-screening-at-the-studs-nagpur-oct25-2026-buy-tickets",
+        "name": "Cover Charge Ticket",
+        "availability": "http://schema.org/InStock",
+        "price": 1499,
+        "priceCurrency": "INR",
+        "validFrom": "2026-10-11T14:10:00.154Z"
+       }
+      ],
+      "url": "https://www.district.in/events/el-clsico-barcelona-vs-real-madrid-live-screening-at-the-studs-nagpur-oct25-2026-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "How long does Screening of El Clásico: Barcelona Vs Real Madrid | The Studs Nagpur last?",
+     "Screening of El Clásico: Barcelona Vs Real Madrid | The Studs Nagpur has a total duration of 3 Hours and 30 Minutes."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+   "listedIn": [
+    "music-in-nagpur-book-tickets",
+    "upcoming-events-in-nagpur"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets#event",
+    "name": "Sunidhi Chauhan | I AM HOME INDIA TOUR | Nagpur",
+    "description": "When Sunidhi hits the stage, the vibe flips. Lights drop. Bass hits. The crowd loses it. No filters. No fluff. Just pure, electric energy. This October, she’s back — louder, bolder, and unapologetically Sunidhi. A tour built different: bigger sound, tighter groove, and a setlist that’s straight fire. The hits that raised you. The ones you forgot you knew. And a few that’ll melt your playlist. 20+ years. 22 awards. 2,500 songs. But the numbers don’t matter the moment does. It’s her. It’s you. It’s live music the way it’s meant to feel. This isn’t a throwback. This is Sunidhi. Unstoppable. Untamed. Home.",
+    "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01M10YBXD6QQ5FZ34BQ87KYZ8N.jpg",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "Halff Time Venue",
+     "address": "Khasra 54, Drugdhamna, Maharashtra 440021, India",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1650023,
+      "longitude": 78.94852190000002
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "Sachi Entertainment"
+    },
+    "performer": [
+     {
+      "@type": "Person",
+      "name": "Sunidhi Chauhan",
+      "sameAs": [
+       "https://www.district.in/events/sunidhi-chauhan/artist",
+       "https://www.instagram.com/sunidhichauhan5",
+       "https://open.spotify.com/artist/3eDT9fwXKuHWFvgZaaYC5v",
+       "https://www.youtube.com/channel/UCOy7uPsjass2DCY4a_UUp-Q"
+      ]
+     }
+    ],
+    "keywords": "Sunidhi Chauhan | I AM HOME INDIA TOUR | Nagpur, All",
+    "startDate": "2026-10-24T13:30:00.000Z",
+    "endDate": "2026-10-24T16:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 999,
+     "highPrice": 6999,
+     "priceCurrency": "INR",
+     "offerCount": 10,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Phase 1 | Lounge Left",
+       "availability": "http://schema.org/SoldOut",
+       "price": 5999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Phase 2 | Lounge Left",
+       "availability": "http://schema.org/InStock",
+       "price": 6999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Early Bird | Lounge Right",
+       "availability": "http://schema.org/SoldOut",
+       "price": 4999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Phase 2 | Lounge Right",
+       "availability": "http://schema.org/InStock",
+       "price": 6999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Phase 2 | Fanpit Left",
+       "availability": "http://schema.org/SoldOut",
+       "price": 2999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Phase 3 | Fanpit Left",
+       "availability": "http://schema.org/SoldOut",
+       "price": 3499,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Phase 4 | Fanpit Left",
+       "availability": "http://schema.org/InStock",
+       "price": 3999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Early Bird | Fanpit Right",
+       "availability": "http://schema.org/SoldOut",
+       "price": 1999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Phase 1 | Fanpit Right",
+       "availability": "http://schema.org/SoldOut",
+       "price": 2499,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-24T14:00:00.000Z",
+       "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+       "name": "Phase 2 | Fanpit Right",
+       "availability": "http://schema.org/SoldOut",
+       "price": 2999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-08-31T11:53:19.458Z"
+      }
+     ],
+     "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets"
+    },
+    "doorTime": "11:30 AM"
+   },
+   "occurrences": [
+    {
+     "start": "2026-10-24T13:30:00.000Z",
+     "end": "2026-10-24T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 999,
+      "highPrice": 6999,
+      "priceCurrency": "INR",
+      "offerCount": 10,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Phase 1 | Lounge Left",
+        "availability": "http://schema.org/SoldOut",
+        "price": 5999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Phase 2 | Lounge Left",
+        "availability": "http://schema.org/InStock",
+        "price": 6999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Early Bird | Lounge Right",
+        "availability": "http://schema.org/SoldOut",
+        "price": 4999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Phase 2 | Lounge Right",
+        "availability": "http://schema.org/InStock",
+        "price": 6999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Phase 2 | Fanpit Left",
+        "availability": "http://schema.org/SoldOut",
+        "price": 2999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Phase 3 | Fanpit Left",
+        "availability": "http://schema.org/SoldOut",
+        "price": 3499,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Phase 4 | Fanpit Left",
+        "availability": "http://schema.org/InStock",
+        "price": 3999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Early Bird | Fanpit Right",
+        "availability": "http://schema.org/SoldOut",
+        "price": 1999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Phase 1 | Fanpit Right",
+        "availability": "http://schema.org/SoldOut",
+        "price": 2499,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-24T14:00:00.000Z",
+        "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets",
+        "name": "Phase 2 | Fanpit Right",
+        "availability": "http://schema.org/SoldOut",
+        "price": 2999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-08-31T11:53:19.458Z"
+       }
+      ],
+      "url": "https://www.district.in/events/sunidhi-chauhan-live-nagpur-2026-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "Is there an age restriction for the event?",
+     "No, there is no age restrictions for the event. However, a valid ticket will be required for ages 5 and above"
+    ],
+    [
+     "Is there parking available?",
+     "Yes, parking will be available at the venue."
+    ],
+    [
+     "Can I get a refund if I can't attend the event?",
+     "No, tickets for this event are non-refundable."
+    ],
+    [
+     "Are there accommodations for individuals with disabilities?",
+     "No, there are no additional accommodations for individuals with disabilities."
+    ],
+    [
+     "What is the dress code for the event?",
+     "No, there is no specific dress code for this event."
+    ],
+    [
+     "Is the venue wheelchair accessible?",
+     "Yes, the venue is wheelchair accessible."
+    ],
+    [
+     "Will food, beverages & alcohol be available at the venue?",
+     "Yes, food, beverages, and alcohol will be available at the venue for purchase."
+    ],
+    [
+     "Is re-entry to the venue allowed?",
+     "No, re-entry is not allowed once you exit the venue."
+    ],
+    [
+     "Is there a designated smoking area?",
+     "No, a designated smoking area will not be available at the venue."
+    ],
+    [
+     "Are there group bookings available?",
+     "For group bookings of 15 or more tickets, please reach out to the District Corporate Sales team at bulkbooking@district.in."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+   "listedIn": [
+    "music-in-nagpur-book-tickets",
+    "upcoming-events-in-nagpur"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets#event",
+    "name": "Papon Live in Concert | Nagpur",
+    "description": "An Evening with Papon- Papon, one of India’s most powerful voices, brings a dynamic blend of folk, Bollywood hits, and soulful melodies to the stage. Get ready for an electrifying live performance filled with his chart-topping classics and innovative sounds. Known for his versatility, Papon seamlessly fuses traditional Indian music with modern genres, creating a unique auditory experience. His iconic tracks like Moh Moh Ke Dhaage and Jiyein Kyun have touched millions of hearts. Don’t miss this chance to witness an unforgettable evening of music and magic.",
+    "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01KY29H6MP6F0YVK3Y4QTBT6C7.jpg",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "Venue to be announced",
+     "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nagpur",
+      "addressCountry": "IN"
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "Sachi Entertainment"
+    },
+    "performer": [
+     {
+      "@type": "Person",
+      "name": "Papon",
+      "sameAs": [
+       "https://www.district.in/events/papon/artist",
+       "https://www.youtube.com/channel/UCmQxwXJd5E3iI0vzYnHvJgA",
+       "https://open.spotify.com/artist/2FPwX3Gh0w4Qr1v3zSTtcT",
+       "https://www.instagram.com/paponmusic"
+      ]
+     }
+    ],
+    "keywords": "Papon Live in Concert | Nagpur, All",
+    "startDate": "2027-01-30T13:30:00.000Z",
+    "endDate": "2027-01-30T16:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 999,
+     "highPrice": 4999,
+     "priceCurrency": "INR",
+     "offerCount": 4,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2027-01-16T13:30:00.000Z",
+       "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+       "name": "Early Bird | Diamond",
+       "availability": "http://schema.org/InStock",
+       "price": 4999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-07-22T05:41:05.479Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2027-01-16T13:30:00.000Z",
+       "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+       "name": "Early Bird | Platinum",
+       "availability": "http://schema.org/InStock",
+       "price": 2999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-07-22T05:41:05.479Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2027-01-16T13:30:00.000Z",
+       "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+       "name": "Early Bird | Gold",
+       "availability": "http://schema.org/InStock",
+       "price": 1499,
+       "priceCurrency": "INR",
+       "validFrom": "2026-07-22T05:41:05.479Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2027-01-16T13:30:00.000Z",
+       "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+       "name": "Early Bird | Silver",
+       "availability": "http://schema.org/InStock",
+       "price": 999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-07-22T05:41:05.479Z"
+      }
+     ],
+     "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets"
+    },
+    "doorTime": "01:00 PM"
+   },
+   "occurrences": [
+    {
+     "start": "2027-01-30T13:30:00.000Z",
+     "end": "2027-01-30T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 999,
+      "highPrice": 4999,
+      "priceCurrency": "INR",
+      "offerCount": 4,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2027-01-16T13:30:00.000Z",
+        "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+        "name": "Early Bird | Diamond",
+        "availability": "http://schema.org/InStock",
+        "price": 4999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-07-22T05:41:05.479Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2027-01-16T13:30:00.000Z",
+        "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+        "name": "Early Bird | Platinum",
+        "availability": "http://schema.org/InStock",
+        "price": 2999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-07-22T05:41:05.479Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2027-01-16T13:30:00.000Z",
+        "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+        "name": "Early Bird | Gold",
+        "availability": "http://schema.org/InStock",
+        "price": 1499,
+        "priceCurrency": "INR",
+        "validFrom": "2026-07-22T05:41:05.479Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2027-01-16T13:30:00.000Z",
+        "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets",
+        "name": "Early Bird | Silver",
+        "availability": "http://schema.org/InStock",
+        "price": 999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-07-22T05:41:05.479Z"
+       }
+      ],
+      "url": "https://www.district.in/events/papon-live-in-concert-nagpur-2027-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "Is there an age restriction for the event?",
+     "No, the event is open to attendees of all ages. However, a ticket is required for children aged 5 years and above."
+    ],
+    [
+     "Is there parking available?",
+     "Yes, limited paid parking is available at the venue."
+    ],
+    [
+     "Can I get a refund if I can't attend the event?",
+     "No, tickets are non-refundable under any circumstances."
+    ],
+    [
+     "What is the dress code for the event?",
+     "There is no specific dress code. Feel free to dress as you wish."
+    ],
+    [
+     "Is the venue wheelchair accessible?",
+     "Yes, the venue is wheelchair accessible. However, we recommend bringing your own wheelchairs to the concert."
+    ],
+    [
+     "Will food, beverages & alcohol be available at the venue?",
+     "Yes, food and beverages will be available at the venue for purchase."
+    ],
+    [
+     "Is re-entry to the venue allowed?",
+     "No, re-entry will not be permitted once you exit the venue."
+    ],
+    [
+     "Is there a designated smoking area?",
+     "No, smoking is not permitted within the venue premises."
+    ],
+    [
+     "Are there group bookings available?",
+     "For group bookings of 15 or more tickets, please reach out to the District Corporate Sales team at bulkbooking@district.in."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/--oct11-2026-buy-tickets",
+   "listedIn": [
+    "navratri-in-nagpur-book-tickets",
+    "upcoming-events-in-nagpur"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/--oct11-2026-buy-tickets#event",
+    "name": "Dholida 4.0 - Nagpur Gathers Again",
+    "description": "After three seasons of music, culture, and celebration, Dholida returns with its fourth edition, bringing together Garba, tradition, togetherness, and contemporary experiences.Dholida 4.0 is designed as more than a Garba celebration, creating an environment where culture, celebration, safety, and a sense of belonging come together. The event brings the community together to experience traditional Garba alongside a vibrant, new-age festive atmosphere.Highlights• 9 nights of Navratri Garba celebrations• Traditional Garba beats• High-energy Garba• Grand festive experiences• Culture and togethernessThe celebration brings Nagpur together for nine vibrant days of Garba, culture, festive energy, and shared experiences. Friends, families, and Garba groups can come together to enjoy the festivities and create memories through music and dance.Dholida 4.0, themed World Creation, celebrates the people, culture, traditions, and shared experiences that make Navratri special.",
+    "url": "https://www.district.in/events/--oct11-2026-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01M3SKMYAARSS01W3044KWH4MB.png",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "Halff Time Venue",
+     "address": "Khasra 54, Drugdhamna, Maharashtra 440021, India",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1650023,
+      "longitude": 78.94852190000002
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "HALFF TIME RECREATION (Maharashtra - 1)"
+    },
+    "keywords": "Dholida 4.0 - Nagpur Gathers Again, All",
+    "startDate": "2026-10-11T12:30:00.000Z",
+    "endDate": "2026-10-19T16:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 0,
+     "highPrice": 0,
+     "priceCurrency": "INR",
+     "offerCount": 0,
+     "offers": [],
+     "url": "https://www.district.in/events/--oct11-2026-buy-tickets"
+    },
+    "doorTime": "11:45 AM"
+   },
+   "occurrences": [
+    {
+     "start": "2026-10-11T12:30:00.000Z",
+     "end": "2026-10-19T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 0,
+      "highPrice": 0,
+      "priceCurrency": "INR",
+      "offerCount": 0,
+      "offers": [],
+      "url": "https://www.district.in/events/--oct11-2026-buy-tickets"
+     }
+    },
+    {
+     "start": "2026-10-12T12:30:00.000Z",
+     "end": "2026-10-12T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 0,
+      "highPrice": 0,
+      "priceCurrency": "INR",
+      "offerCount": 0,
+      "offers": [],
+      "url": "https://www.district.in/events/--oct11-2026-buy-tickets"
+     }
+    },
+    {
+     "start": "2026-10-13T12:30:00.000Z",
+     "end": "2026-10-13T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 400,
+      "highPrice": 3000,
+      "priceCurrency": "INR",
+      "offerCount": 3,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-13T04:30:00.000Z",
+        "url": "https://www.district.in/events/--oct11-2026-buy-tickets",
+        "name": "Season Pass",
+        "availability": "http://schema.org/InStock",
+        "price": 3000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-10-06T12:03:52.297Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-13T04:30:00.000Z",
+        "url": "https://www.district.in/events/--oct11-2026-buy-tickets",
+        "name": "Season Pass",
+        "availability": "http://schema.org/InStock",
+        "price": 3000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-10-06T12:03:52.297Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-13T04:30:00.000Z",
+        "url": "https://www.district.in/events/--oct11-2026-buy-tickets",
+        "name": "Day Passes",
+        "availability": "http://schema.org/InStock",
+        "price": 400,
+        "priceCurrency": "INR",
+        "validFrom": "2026-10-06T12:03:52.297Z"
+       }
+      ],
+      "url": "https://www.district.in/events/--oct11-2026-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "How long does Dholida 4.0 - Nagpur Gathers Again last?",
+     "Dholida 4.0 - Nagpur Gathers Again has a total duration of 9 Days."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/ghar-an-open-mic-for-words-by-tape-a-tale-nagpur-oct25-2026-buy-tickets",
+   "listedIn": [
+    "performances-in-nagpur-book-tickets",
+    "upcoming-events-in-nagpur"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/ghar-an-open-mic-for-words-by-tape-a-tale-nagpur-oct25-2026-buy-tickets#event",
+    "name": "Ghar: An Open Mic for Words by Tape A Tale | Nagpur",
+    "description": "Ghar is Tape A Tale's open mic event: a warm, welcoming home for your words. You can come, share your stories or poems, or just sit back and listen to people.At Ghar, you'll always find a space for your art and a family to share it with.P.S. Ghar is a non-biased, chit-based open mic, and we stay true to this format. It's a safe, welcoming space where you'll find a home in the warmth of stories, poems, and the beautiful people you'll meet! ❤️",
+    "url": "https://www.district.in/events/ghar-an-open-mic-for-words-by-tape-a-tale-nagpur-oct25-2026-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01M3PGXJERB5FMFP5GME49FN02.jpg",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "Mauji - The Time Cafe",
+     "address": "Gool Villa, 128, New Colony, Nagpur, Maharashtra 440001, India",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1691449,
+      "longitude": 79.0819929
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "Tape A Tale"
+    },
+    "keywords": "Ghar: An Open Mic for Words by Tape A Tale | Nagpur, All",
+    "startDate": "2026-10-25T10:30:00.000Z",
+    "endDate": "2026-10-25T12:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 200,
+     "highPrice": 200,
+     "priceCurrency": "INR",
+     "offerCount": 1,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-25T10:30:00.000Z",
+       "url": "https://www.district.in/events/ghar-an-open-mic-for-words-by-tape-a-tale-nagpur-oct25-2026-buy-tickets",
+       "name": "Regular Ticket",
+       "availability": "http://schema.org/InStock",
+       "price": 200,
+       "priceCurrency": "INR",
+       "validFrom": "2026-09-30T15:59:44.099Z"
+      }
+     ],
+     "url": "https://www.district.in/events/ghar-an-open-mic-for-words-by-tape-a-tale-nagpur-oct25-2026-buy-tickets"
+    },
+    "doorTime": "10:20 AM"
+   },
+   "occurrences": [
+    {
+     "start": "2026-10-25T10:30:00.000Z",
+     "end": "2026-10-25T12:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 200,
+      "highPrice": 200,
+      "priceCurrency": "INR",
+      "offerCount": 1,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-25T10:30:00.000Z",
+        "url": "https://www.district.in/events/ghar-an-open-mic-for-words-by-tape-a-tale-nagpur-oct25-2026-buy-tickets",
+        "name": "Regular Ticket",
+        "availability": "http://schema.org/InStock",
+        "price": 200,
+        "priceCurrency": "INR",
+        "validFrom": "2026-09-30T15:59:44.099Z"
+       }
+      ],
+      "url": "https://www.district.in/events/ghar-an-open-mic-for-words-by-tape-a-tale-nagpur-oct25-2026-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "How long does Ghar: An Open Mic for Words by Tape A Tale | Nagpur last?",
+     "Ghar: An Open Mic for Words by Tape A Tale | Nagpur has a total duration of 2 Hours."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+   "listedIn": [
+    "comedy-shows-in-nagpur-book-tickets"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets#event",
+    "name": "Jamie Lever India Tour 2026 | Nagpur",
+    "description": "The Jamie Lever Show is a lively, light hearted comedy experience that brings together observational and slice of life humour, situational comedy, mimicry, characters, and singing.Drawing from everyday experiences and relatable situations, Jamie transforms familiar moments into hilarious stories and performances. Her ability to move effortlessly between mimicry, characters, voices, comedy, and music keeps the show engaging and entertaining.With its clean, family friendly humour, the show is designed for audiences of all ages bringing together comedy, music, and plenty of laughter in one fun filled experience.",
+    "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+    "image": "https://cdn.district.in/assets/events/publisher/event_cover_image_horizontal/01M461ZX9ZY507DQXCHYF7ECCJ.jpeg",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "Vasatrao Deshpande Sabhagruh, Civil Lines",
+     "address": "5328+23M, Manas Chowk, Sahu Colony, Sitabuldi, Nagpur, Maharashtra 440001, India",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.150095,
+      "longitude": 79.0651723
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "CALL TO ACTION LLP"
+    },
+    "performer": [
+     {
+      "@type": "Person",
+      "name": "Jamie Lever",
+      "sameAs": [
+       "https://www.district.in/events/jamie-lever/artist",
+       "https://www.instagram.com/its_jamielever",
+       "https://www.youtube.com/channel/UCynkGrCTAykLzHXvwEUaUgQ"
+      ]
+     }
+    ],
+    "keywords": "Jamie Lever India Tour 2026 | Nagpur, All",
+    "startDate": "2026-11-13T14:30:00.000Z",
+    "endDate": "2026-11-13T16:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 799,
+     "highPrice": 1799,
+     "priceCurrency": "INR",
+     "offerCount": 4,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T14:30:00.000Z",
+       "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+       "name": "Early Bird | Fanpit",
+       "availability": "http://schema.org/InStock",
+       "price": 1799,
+       "priceCurrency": "INR",
+       "validFrom": "2026-10-05T15:41:29.401Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T14:30:00.000Z",
+       "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+       "name": "Early Bird | Platinum",
+       "availability": "http://schema.org/InStock",
+       "price": 1499,
+       "priceCurrency": "INR",
+       "validFrom": "2026-10-05T15:41:29.401Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T14:30:00.000Z",
+       "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+       "name": "Early Bird | Gold",
+       "availability": "http://schema.org/InStock",
+       "price": 999,
+       "priceCurrency": "INR",
+       "validFrom": "2026-10-05T15:41:29.401Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-11-13T14:30:00.000Z",
+       "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+       "name": "Early Bird | Silver",
+       "availability": "http://schema.org/InStock",
+       "price": 799,
+       "priceCurrency": "INR",
+       "validFrom": "2026-10-05T15:41:29.401Z"
+      }
+     ],
+     "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets"
+    },
+    "doorTime": "02:15 PM"
+   },
+   "occurrences": [
+    {
+     "start": "2026-11-13T14:30:00.000Z",
+     "end": "2026-11-13T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 799,
+      "highPrice": 1799,
+      "priceCurrency": "INR",
+      "offerCount": 4,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T14:30:00.000Z",
+        "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+        "name": "Early Bird | Fanpit",
+        "availability": "http://schema.org/InStock",
+        "price": 1799,
+        "priceCurrency": "INR",
+        "validFrom": "2026-10-05T15:41:29.401Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T14:30:00.000Z",
+        "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+        "name": "Early Bird | Platinum",
+        "availability": "http://schema.org/InStock",
+        "price": 1499,
+        "priceCurrency": "INR",
+        "validFrom": "2026-10-05T15:41:29.401Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T14:30:00.000Z",
+        "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+        "name": "Early Bird | Gold",
+        "availability": "http://schema.org/InStock",
+        "price": 999,
+        "priceCurrency": "INR",
+        "validFrom": "2026-10-05T15:41:29.401Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-11-13T14:30:00.000Z",
+        "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets",
+        "name": "Early Bird | Silver",
+        "availability": "http://schema.org/InStock",
+        "price": 799,
+        "priceCurrency": "INR",
+        "validFrom": "2026-10-05T15:41:29.401Z"
+       }
+      ],
+      "url": "https://www.district.in/events/jamie-lever-india-tour-2026-nagpur-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "Is there an age restriction for the event?",
+     "Yes, the event is open for attendees aged 5 years and above."
+    ],
+    [
+     "Is there parking available?",
+     "No, parking will not be available at the venue."
+    ],
+    [
+     "Can I get a refund if I can't attend the event?",
+     "No, tickets for this event are non-refundable."
+    ],
+    [
+     "Are there accommodations for individuals with disabilities?",
+     "No, there are no additional accommodations for individuals with disabilities."
+    ],
+    [
+     "Is the venue wheelchair accessible?",
+     "No, the venue is not wheelchair accessible."
+    ],
+    [
+     "Will food, beverages & alcohol be available at the venue?",
+     "No, food, beverages, and alcohol will not be available at the venue."
+    ],
+    [
+     "Is re-entry to the venue allowed?",
+     "No, re-entry is not allowed once you exit the venue."
+    ],
+    [
+     "Are there group bookings available?",
+     "For group bookings of 15 or more tickets, please reach out to the District Corporate Sales team at bulkbooking@district.in."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/fresh-humor-hour-mar23-2026-buy-tickets",
+   "listedIn": [
+    "comedy-shows-in-nagpur-book-tickets"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/fresh-humor-hour-mar23-2026-buy-tickets#event",
+    "name": "Fresh Humor Hour",
+    "description": "Stand-up Comedy Open Mic featuring some of the best talent in the city!Chill vibes and fun times! That didn't rhyme, because it didn't need to.",
+    "url": "https://www.district.in/events/fresh-humor-hour-mar23-2026-buy-tickets",
+    "image": "https://cdn.district.in/events/cd-media/image/upload/v1774175345/boowmxtwsilkpjd3amnn.png",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "The Comedy Remedy Club",
+     "address": "Sangam Apartment, Central Bazar Road, Abhyankar Nagar, Nagpur, Maharashtra 440010, India",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1277763,
+      "longitude": 79.0578093
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "Mayank Bhandarkar"
+    },
+    "keywords": "Fresh Humor Hour, All",
+    "startDate": "2026-10-12T14:30:00.000Z",
+    "endDate": "2026-10-12T15:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 0,
+     "highPrice": 0,
+     "priceCurrency": "INR",
+     "offerCount": 0,
+     "offers": [],
+     "url": "https://www.district.in/events/fresh-humor-hour-mar23-2026-buy-tickets"
+    },
+    "doorTime": "02:20 PM"
+   },
+   "occurrences": [
+    {
+     "start": "2026-10-12T14:30:00.000Z",
+     "end": "2026-10-12T15:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 0,
+      "highPrice": 0,
+      "priceCurrency": "INR",
+      "offerCount": 0,
+      "offers": [],
+      "url": "https://www.district.in/events/fresh-humor-hour-mar23-2026-buy-tickets"
+     }
+    },
+    {
+     "start": "2026-10-12T15:30:00.000Z",
+     "end": "2026-10-12T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 0,
+      "highPrice": 0,
+      "priceCurrency": "INR",
+      "offerCount": 0,
+      "offers": [],
+      "url": "https://www.district.in/events/fresh-humor-hour-mar23-2026-buy-tickets"
+     }
+    },
+    {
+     "start": "2026-10-13T14:30:00.000Z",
+     "end": "2026-10-13T15:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 50,
+      "highPrice": 50,
+      "priceCurrency": "INR",
+      "offerCount": 1,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-13T14:30:00.000Z",
+        "url": "https://www.district.in/events/fresh-humor-hour-mar23-2026-buy-tickets",
+        "name": "Regular Ticket",
+        "availability": "http://schema.org/InStock",
+        "price": 50,
+        "priceCurrency": "INR",
+        "validFrom": "2026-03-23T08:07:05.562Z"
+       }
+      ],
+      "url": "https://www.district.in/events/fresh-humor-hour-mar23-2026-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "What language will Fresh Humor Hour be in?",
+     "Fresh Humor Hour will be in Hindi, English, Marathi."
+    ],
+    [
+     "How long does Fresh Humor Hour last?",
+     "Fresh Humor Hour has a total duration of 1 Hour."
+    ],
+    [
+     "What is the minimum age to book tickets for Fresh Humor Hour?",
+     "Tickets for Fresh Humor Hour are required for guests aged 18 years and above."
+    ],
+    [
+     "What is the entry age limit for Fresh Humor Hour?",
+     "Entry to Fresh Humor Hour is permitted only for guests aged 18 years and above."
+    ],
+    [
+     "Is Fresh Humor Hour an indoor or outdoor event?",
+     "Fresh Humor Hour is an indoor event."
+    ],
+    [
+     "What is the seating arrangement at Fresh Humor Hour?",
+     "Fresh Humor Hour offers a Seated arrangement."
+    ],
+    [
+     "Is Fresh Humor Hour suitable for kids?",
+     "No, Fresh Humor Hour is not suitable for kids."
+    ],
+    [
+     "Are pets allowed at Fresh Humor Hour?",
+     "Yes, pets are welcome at Fresh Humor Hour."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/timezone-virtuous-retail-mall-nagpur-buy-tickets",
+   "listedIn": [
+    "arcades-in-nagpur-book-tickets",
+    "bowling-in-nagpur-book-tickets"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/timezone-virtuous-retail-mall-nagpur-buy-tickets#event",
+    "name": "Timezone | Virtuous Retail Mall - Nagpur",
+    "description": "🎮 Step Into the Fun, Level Up your Game at Timezone!Get ready for non-stop excitement at Timezone, your ultimate destination for games, thrills, and unforgettable memories! Whether you're a high-score hunter, a claw machine champion, or just in it for the laughs, there's something for everyone. Swipe your Powercard, collect Powertickets, and unlock epic prizes at the Prize Shop. From classic arcade favourites to cutting-edge experiences, Timezone is where good times roll and fun never ends. Bring your crew, challenge your skills, and let the games begin!",
+    "url": "https://www.district.in/events/timezone-virtuous-retail-mall-nagpur-buy-tickets",
+    "image": "https://cdn.district.in/events/cd-media/image/upload/v1766493691/wo6v0hwhtatfdir2pdbq.jpg",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "Timezone Vr Mall - Arcade Games, Bowling, Arcade Games Kids Birthday Party Venue",
+     "address": "Vr Mall, Medical Rd, Medical Chowk, Rambagh Layout, Untkhana, Nagpur, Maharashtra 440003, India",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1328866,
+      "longitude": 79.09689999999999
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "TIMEZONE ENTERTAINMENT PRIVATE LIMITED"
+    },
+    "keywords": "Timezone | Virtuous Retail Mall - Nagpur, All",
+    "startDate": "2026-10-12T05:30:00.000Z",
+    "endDate": "2026-10-12T16:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 0,
+     "highPrice": 0,
+     "priceCurrency": "INR",
+     "offerCount": 0,
+     "offers": [],
+     "url": "https://www.district.in/events/timezone-virtuous-retail-mall-nagpur-buy-tickets"
+    }
+   },
+   "occurrences": [
+    {
+     "start": "2026-10-12T05:30:00.000Z",
+     "end": "2026-10-12T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 0,
+      "highPrice": 0,
+      "priceCurrency": "INR",
+      "offerCount": 0,
+      "offers": [],
+      "url": "https://www.district.in/events/timezone-virtuous-retail-mall-nagpur-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "How long does Timezone | Virtuous Retail Mall - Nagpur last?",
+     "Timezone | Virtuous Retail Mall - Nagpur has a total duration of 2 Hours."
+    ],
+    [
+     "What is the minimum age to book tickets for Timezone | Virtuous Retail Mall - Nagpur?",
+     "Tickets for Timezone | Virtuous Retail Mall - Nagpur are required for guests aged All ages years and above."
+    ],
+    [
+     "What is the entry age limit for Timezone | Virtuous Retail Mall - Nagpur?",
+     "Entry to Timezone | Virtuous Retail Mall - Nagpur is permitted only for guests aged All ages years and above."
+    ],
+    [
+     "Is Timezone | Virtuous Retail Mall - Nagpur an indoor or outdoor event?",
+     "Timezone | Virtuous Retail Mall - Nagpur is an indoor event."
+    ],
+    [
+     "Is Timezone | Virtuous Retail Mall - Nagpur suitable for kids?",
+     "Yes, Timezone | Virtuous Retail Mall - Nagpur is kid-friendly and welcomes attendees of all ages."
+    ],
+    [
+     "Are pets allowed at Timezone | Virtuous Retail Mall - Nagpur?",
+     "No, pets are not allowed at Timezone | Virtuous Retail Mall - Nagpur."
+    ],
+    [
+     "Is Wheelchair accessible available at Timezone | Virtuous Retail Mall - Nagpur?",
+     "Yes, Wheelchair accessible is available at Timezone | Virtuous Retail Mall - Nagpur."
+    ]
+   ]
+  },
+  {
+   "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+   "listedIn": [
+    "arcades-in-nagpur-book-tickets",
+    "bowling-in-nagpur-book-tickets"
+   ],
+   "event": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": "https://www.district.in/events/xplore-2026-buy-tickets#event",
+    "name": "Xplore",
+    "description": "Xplore Nagpur (officially known as Xplore Trampoline and Amusement Park or Xplore - Game Zone) is billed as one of the largest indoor entertainment hubs in Nagpur. It’s designed as a one-stop destination for indoor adventure, gaming, and family outings, catering to both kids and adults.Here is a breakdown of what the park has to offer:Key AttractionsTrampoline Park: This is the main draw of the venue, featuring a massive interconnected trampoline arena where visitors can jump, flip, and play dodgeball or basketball.Arcade &amp; VR Gaming: A large section is dedicated to classic arcade games, ticket redemption games, and modern Virtual Reality (VR) simulations.Action &amp; Sports: It features a laser tag arena, augmented reality (AR) cricket, bumper cars, and a dedicated bowling alley.Thrill Rides: For adrenaline seekers, the park includes unique indoor attractions like a Giant Swing, Sky Roller, Sky Cycling, and a Rocket Ejector.Kid's Yard: A separate, safe soft-play area tailored specifically for younger children.",
+    "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+    "image": "https://cdn.district.in/events/cd-media/image/upload/v1771580295/qf3yyurk3em4shvfg8zv.png",
+    "eventStatus": "EventScheduled",
+    "location": {
+     "@type": "Place",
+     "name": "Xplore Trampoline and Amusement Park",
+     "address": "C-49, Central MIDC, Wadi Rd, Hingna, Nagpur, Maharashtra 440016, India",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.1458511,
+      "longitude": 79.0038247
+     }
+    },
+    "eventAttendanceMode": "OfflineEventAttendanceMode",
+    "organizer": {
+     "@type": "Organization",
+     "name": "JSTCL ENTERTAINMENT (Maharashtra - 1)"
+    },
+    "keywords": "Xplore, All",
+    "startDate": "2026-10-13T06:00:00.000Z",
+    "endDate": "2026-10-13T16:30:00.000Z",
+    "offers": {
+     "@type": "AggregateOffer",
+     "lowPrice": 2000,
+     "highPrice": 9000,
+     "priceCurrency": "INR",
+     "offerCount": 5,
+     "offers": [
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-13T16:30:00.000Z",
+       "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+       "name": "Game Card | 2100 Credits",
+       "availability": "http://schema.org/InStock",
+       "price": 2000,
+       "priceCurrency": "INR",
+       "validFrom": "2026-03-13T09:21:57.636Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-13T15:30:00.000Z",
+       "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+       "name": "Game Card | 3800 Credits",
+       "availability": "http://schema.org/InStock",
+       "price": 3500,
+       "priceCurrency": "INR",
+       "validFrom": "2026-03-13T09:21:57.636Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-13T16:30:00.000Z",
+       "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+       "name": "Game Card | 5500 Credits",
+       "availability": "http://schema.org/InStock",
+       "price": 5000,
+       "priceCurrency": "INR",
+       "validFrom": "2026-03-13T09:21:57.636Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-13T16:30:00.000Z",
+       "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+       "name": "Game Card | 8000 Credits",
+       "availability": "http://schema.org/InStock",
+       "price": 7000,
+       "priceCurrency": "INR",
+       "validFrom": "2026-03-13T09:21:57.636Z"
+      },
+      {
+       "@type": "Offer",
+       "availabilityEnds": "2026-10-13T16:30:00.000Z",
+       "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+       "name": "Game Card | 10500 Credits",
+       "availability": "http://schema.org/InStock",
+       "price": 9000,
+       "priceCurrency": "INR",
+       "validFrom": "2026-03-13T09:21:57.636Z"
+      }
+     ],
+     "url": "https://www.district.in/events/xplore-2026-buy-tickets"
+    }
+   },
+   "occurrences": [
+    {
+     "start": "2026-10-13T06:00:00.000Z",
+     "end": "2026-10-13T16:30:00.000Z",
+     "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 2000,
+      "highPrice": 9000,
+      "priceCurrency": "INR",
+      "offerCount": 5,
+      "offers": [
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-13T16:30:00.000Z",
+        "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+        "name": "Game Card | 2100 Credits",
+        "availability": "http://schema.org/InStock",
+        "price": 2000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-03-13T09:21:57.636Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-13T15:30:00.000Z",
+        "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+        "name": "Game Card | 3800 Credits",
+        "availability": "http://schema.org/InStock",
+        "price": 3500,
+        "priceCurrency": "INR",
+        "validFrom": "2026-03-13T09:21:57.636Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-13T16:30:00.000Z",
+        "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+        "name": "Game Card | 5500 Credits",
+        "availability": "http://schema.org/InStock",
+        "price": 5000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-03-13T09:21:57.636Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-13T16:30:00.000Z",
+        "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+        "name": "Game Card | 8000 Credits",
+        "availability": "http://schema.org/InStock",
+        "price": 7000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-03-13T09:21:57.636Z"
+       },
+       {
+        "@type": "Offer",
+        "availabilityEnds": "2026-10-13T16:30:00.000Z",
+        "url": "https://www.district.in/events/xplore-2026-buy-tickets",
+        "name": "Game Card | 10500 Credits",
+        "availability": "http://schema.org/InStock",
+        "price": 9000,
+        "priceCurrency": "INR",
+        "validFrom": "2026-03-13T09:21:57.636Z"
+       }
+      ],
+      "url": "https://www.district.in/events/xplore-2026-buy-tickets"
+     }
+    }
+   ],
+   "faq": [
+    [
+     "What language will Xplore be in?",
+     "Xplore will be in English, Hindi, Hinglish."
+    ],
+    [
+     "How long does Xplore last?",
+     "Xplore has a total duration of 1 Day."
+    ],
+    [
+     "What is the minimum age to book tickets for Xplore?",
+     "Tickets for Xplore are required for guests aged All ages years and above."
+    ],
+    [
+     "What is the entry age limit for Xplore?",
+     "Entry to Xplore is permitted only for guests aged All ages years and above."
+    ],
+    [
+     "Is Xplore an indoor or outdoor event?",
+     "Xplore is an indoor event."
+    ],
+    [
+     "What is the seating arrangement at Xplore?",
+     "Xplore offers a Seated & Standing arrangement."
+    ],
+    [
+     "Is Xplore suitable for kids?",
+     "Yes, Xplore is kid-friendly and welcomes attendees of all ages."
+    ],
+    [
+     "Are pets allowed at Xplore?",
+     "No, pets are not allowed at Xplore."
+    ],
+    [
+     "Is Free water stations available at Xplore?",
+     "Yes, Free water stations is available at Xplore."
+    ],
+    [
+     "Is Free parking available at Xplore?",
+     "Yes, Free parking is available at Xplore."
+    ]
+   ]
+  }
+ ]
+}

@@ -318,7 +318,7 @@ export const ruleFromRow = (r: T.SlotRulesTable): SlotRule => ({
 export const blockToRow = (x: Block): T.BlocksTable => ({ ...x });
 export const blockFromRow = (r: T.BlocksTable): Block => ({ ...r });
 
-export const couponToRow = (c: Coupon & { id: string }): T.CouponsTable => ({
+export const couponToRow = (c: Coupon & { id: string; active?: boolean; createdAt?: string | null; updatedAt?: string | null }): T.CouponsTable => ({
   id: c.id,
   code: c.code.toUpperCase(),
   type: c.type,
@@ -329,7 +329,12 @@ export const couponToRow = (c: Coupon & { id: string }): T.CouponsTable => ({
   firstBookingOnly: b(c.firstBookingOnly),
   minSubtotal: toPaise(c.minSubtotal ?? 0),
   validUntil: c.validUntil ?? null,
-  active: 1,
+  active: b(c.active ?? true),
+  validFrom: c.validFrom ?? null,
+  totalLimit: c.totalLimit ?? null,
+  cityId: c.cityId ?? null,
+  createdAt: c.createdAt ?? null,
+  updatedAt: c.updatedAt ?? null,
 });
 export const couponFromRow = (r: T.CouponsTable): Coupon => ({
   code: r.code,
@@ -341,6 +346,16 @@ export const couponFromRow = (r: T.CouponsTable): Coupon => ({
   firstBookingOnly: isTrue(r.firstBookingOnly),
   minSubtotal: fromPaise(r.minSubtotal),
   validUntil: r.validUntil,
+  validFrom: r.validFrom ?? null,
+  totalLimit: r.totalLimit == null ? null : num(r.totalLimit),
+  cityId: r.cityId ?? null,
+});
+export const couponRecordFromRow = (r: T.CouponsTable) => ({
+  ...couponFromRow(r),
+  id: r.id,
+  active: isTrue(r.active),
+  createdAt: r.createdAt ?? null,
+  updatedAt: r.updatedAt ?? null,
 });
 
 // ---------- bookings ----------

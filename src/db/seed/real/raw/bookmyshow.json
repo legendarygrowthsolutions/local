@@ -1,0 +1,4679 @@
+{
+ "source": "in.bookmyshow.com",
+ "crawledAt": "2026-10-12T16:40:00.000Z",
+ "events": [
+  {
+   "k": "events/sharon-verma-live-in-nagpur/ET00513357",
+   "url": "https://in.bookmyshow.com/events/sharon-verma-live-in-nagpur/ET00513357",
+   "about": "Talent Comuna and Fullonn Entertainment bring Sharon Verma Live to Nagpur, an evening of sharp, unfiltered stand-up comedy at Vasantrao Deshpande Hall on 25th October 2026. Sharon takes the stage for a full-length solo set built on everyday observations, family chaos and the small absurdities of growing up in India, the kind of material that lands because you have lived it. Doors open ahead of the 8:30 PM start, so arrive early to settle in and grab your seats. Whether you are a regular at comedy shows or coming for your first one, this is a night out designed to leave you laughing well after the lights come up.",
+   "meta": {
+    "category": "Comedy Shows",
+    "genre": "Comedy",
+    "tags": "age-bucket-16-to-21,age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,age-bucket-55-plus,outdoor-events",
+    "type": "multiple_venues,multiple_dates,multiple_ticket_category,nonseated",
+    "language": "Hindi,English",
+    "format": "offline",
+    "label": "Sharon Verma"
+   },
+   "events": [
+    {
+     "type": "ComedyEvent",
+     "name": "SHARON VERMA LIVE IN NAGPUR ",
+     "start": "2026-10-25T20:30:00+05:30",
+     "end": "2026-10-25T22:00:00+05:30",
+     "door": "20:30",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-sharon-verma-live-in-nagpur-0-2026-8-20-t-12-0-21.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-sharon-verma-live-in-nagpur-0-2026-8-20-t-12-0-21.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Vasantrao Deshpande Hall: Nagpur",
+      "addr": "Amdar Niwas, Temple Road, Civil Lines, Nagpur, Maharashtra 440001, India",
+      "pin": "440001",
+      "lat": 21.1505,
+      "lng": 79.0653
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Sharon Verma"
+     ],
+     "offers": [
+      [
+       "PREMIUM FINAL PHASE",
+       1699,
+       "InStock"
+      ],
+      [
+       "GOLD",
+       1399,
+       "InStock"
+      ],
+      [
+       "SILVER",
+       999,
+       "InStock"
+      ],
+      [
+       "PRIME FINAL PHASE",
+       1999,
+       "InStock"
+      ],
+      [
+       "PREMIUM PHASE 2",
+       1699,
+       "InStock"
+      ]
+     ],
+     "low": 999,
+     "high": 1999
+    }
+   ]
+  },
+  {
+   "k": "events/oversmartgiri-by-aditya-gundeti/ET00473415",
+   "url": "https://in.bookmyshow.com/events/oversmartgiri-by-aditya-gundeti/ET00473415",
+   "about": "This is a one of a kind show which is a combination of standup storytelling along with character comedy.\nCome witness some crazy stuff as Aditya takes you on a ride with his funny stories. This show will be closed by Vikas PT sir: a state board school PT sir with who has issues with..well everyone.",
+   "meta": {
+    "category": "Comedy Shows",
+    "genre": "Comedy",
+    "tags": "outdoor-events,age-bucket-16-to-21,age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,age-bucket-55-plus",
+    "type": "multiple_venues,multiple_dates,multiple_ticket_category,nonseated",
+    "language": "Hindi",
+    "format": "offline",
+    "label": "Aditya Gundeti"
+   },
+   "events": [
+    {
+     "type": "ComedyEvent",
+     "name": "OVERSMARTGIRI by Aditya Gundeti",
+     "start": "2026-10-17T19:00:00+05:30",
+     "end": "2026-10-17T20:30:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Habitat: Mumbai",
+      "addr": "1st Floor, OYO Townhouse (Hotel Unicontinental), Road Number 3, Khar West, Mumbai, Maharashtra 400052, India",
+      "pin": "400052",
+      "lat": 19.0705,
+      "lng": 72.8398
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aditya Gundeti"
+     ],
+     "offers": [
+      [
+       "STANDARD TICKET",
+       499,
+       "SoldOut"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "OVERSMARTGIRI by Aditya Gundeti",
+     "start": "2026-10-31T18:00:00+05:30",
+     "end": "2026-10-31T19:30:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Tamarind, Chitnavis Centre, Civil Lines: Nagpur",
+      "addr": "56, Temple Road, Dobhi Nagar, Nagpur, Maharashtra 440001, India",
+      "pin": "440001",
+      "lat": 21.1481,
+      "lng": 79.0702
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aditya Gundeti"
+     ],
+     "offers": [
+      [
+       "STANDARD TICKET",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "OVERSMARTGIRI by Aditya Gundeti",
+     "start": "2026-11-01T19:00:00+05:30",
+     "end": "2026-11-01T20:30:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "WOW Crest: Indore",
+      "addr": "PU - 3 Commercial, Plot No. 106, AB Road, Scheme 54 PU4, Indore, Madhya Pradesh 452010, India",
+      "pin": "452010",
+      "lat": 22.7488,
+      "lng": 75.8942
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aditya Gundeti"
+     ],
+     "offers": [
+      [
+       "STANDARD TICKET",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "OVERSMARTGIRI by Aditya Gundeti",
+     "start": "2026-11-14T19:00:00+05:30",
+     "end": "2026-11-14T20:30:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Space: Bhubaneswar",
+      "addr": "Hotel Kanchan, Behind Sai International School, Patia, Bhubaneswar, Odisha 751024, India",
+      "pin": "751024",
+      "lat": 20.3453,
+      "lng": 85.8167
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aditya Gundeti"
+     ],
+     "offers": [
+      [
+       "STANDARD TICKET",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "OVERSMARTGIRI by Aditya Gundeti",
+     "start": "2026-11-15T18:00:00+05:30",
+     "end": "2026-11-15T19:30:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Satire Club: Kolkata",
+      "addr": "ASO - 221 and 222, Acton area llC, Astra Towers, South, Newtown, Kolkata, West Bengal 700161, India",
+      "pin": "700161",
+      "lat": 22.6213,
+      "lng": 88.4648
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aditya Gundeti"
+     ],
+     "offers": [
+      [
+       "STANDARD TICKET",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "OVERSMARTGIRI by Aditya Gundeti",
+     "start": "2026-11-28T19:00:00+05:30",
+     "end": "2026-11-28T20:30:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Jaipur Comedy Club: Jaipur",
+      "addr": "B-16, Basement, Jawahar Lal Nehru Marg, Below MBA Chai Wala, Behind WTP, Malviya Nagar, Jaipur, Rajasthan 302017, India",
+      "pin": "302017",
+      "lat": 26.852,
+      "lng": 75.8051
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aditya Gundeti"
+     ],
+     "offers": [
+      [
+       "STANDARD TICKET",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "OVERSMARTGIRI by Aditya Gundeti",
+     "start": "2026-11-29T18:00:00+05:30",
+     "end": "2026-11-29T19:30:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-oversmartgiri-by-aditya-gundeti-0-2025-12-1-t-10-53-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Laugh Club: Chandigarh",
+      "addr": "SCO 34, First Floor, Madhya Marg, Sector 26, Chandigarh, Punjab 160019, India",
+      "pin": "160019",
+      "lat": 30.7258,
+      "lng": 76.8051
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aditya Gundeti"
+     ],
+     "offers": [
+      [
+       "STANDARD TICKET",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    }
+   ]
+  },
+  {
+   "k": "events/unforgettable-melodies-of-s-d-r-d-burman/et2klw4gve",
+   "url": "https://in.bookmyshow.com/events/unforgettable-melodies-of-s-d-r-d-burman/et2klw4gve",
+   "about": "S D Burman brought with him the melody & sweetness of his land in music. His music is a combination of Indian music and flavour of Bengal’s folk music. He was worshipper of music & culture. His son R D Burman, who followed his footsteps and created a whole new world of music. He was master in Indian as well as Western music and his music is characterised by the beautiful blend of these two. In this show, the singers will sing songs composed by S D and R D Burman.",
+   "meta": {
+    "category": "Music Shows",
+    "genre": "Bollywood,Folk,Tribute",
+    "tags": "age-bucket-16-to-21,age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,age-bucket-55-plus,outdoor-events",
+    "type": "multiple_venues,multiple_dates,multiple_ticket_category,seated",
+    "language": "Hindi",
+    "format": "offline",
+    "label": "Sarang Joshi,Niketa Joshi,Sagar Madhumatke,Isha Ranade,Arvind Patil,Suresh Iyer"
+   },
+   "events": [
+    {
+     "type": "MusicEvent",
+     "name": "Unforgettable Melodies of S D & R D Burman",
+     "start": "2026-10-24T17:30:00+05:30",
+     "end": "2026-10-24T20:30:00+05:30",
+     "door": "17:30",
+     "duration": "PT3H",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-unforgettable-melodies-of-s-d-r-d-burman-0-2026-9-23-t-17-17-57.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-unforgettable-melodies-of-s-d-r-d-burman-0-2026-9-23-t-17-17-58.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Vasantrao Deshpande Hall: Nagpur",
+      "addr": "Amdar Niwas, Temple Road, Civil Lines, Nagpur, Maharashtra 440001, India",
+      "pin": "440001",
+      "lat": 21.1505,
+      "lng": 79.0653
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "Row W to Z",
+       300,
+       "InStock"
+      ],
+      [
+       "Row K to V",
+       500,
+       "InStock"
+      ],
+      [
+       "Row A to J",
+       700,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 700
+    }
+   ]
+  },
+  {
+   "k": "events/ghar-an-open-mic-for-words-by-tape-a-tale/ET00377836",
+   "url": "https://in.bookmyshow.com/events/ghar-an-open-mic-for-words-by-tape-a-tale/ET00377836",
+   "about": "We organize monthly open mics where you can come and perform your stories and pieces. It will be like a little warm home for your words, and a place for our community to bond, give and receive feedback, and have a beautiful time overall\nHow the open mic works:\n1) Get tickets, come to the venue\n2) Put your name in the hat lying on the stage if you wish to perform (if you want to come and only listen, you are welcome with open arms and heart)\n3) Our host will pick 10 people during the show at random who will get to perform at the event\n4) You will get a 5-minute slot to perform a story (fiction/non-fiction) or a poem\n5) We will declare a performer of the night at the end of every session.",
+   "meta": null,
+   "events": [
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T15:00:00+05:30",
+     "end": "2026-10-25T16:30:00+05:30",
+     "door": "15:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Circle: Ranchi",
+      "addr": "First Floor, Mangal Tower, 104, Kantatoli, Ranchi, Jharkhand 834001, India",
+      "pin": "834001",
+      "lat": 23.3656,
+      "lng": 85.3473
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       200,
+       "InStock"
+      ]
+     ],
+     "low": 200,
+     "high": 200
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T16:00:00+05:30",
+     "end": "2026-10-25T17:30:00+05:30",
+     "door": "16:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Kreativ Beings: Patna",
+      "addr": "1st floor, 13, AN Path, Block - A, Patliputra Colony, Patna, Bihar 800013, India",
+      "pin": "800013",
+      "lat": 25.621,
+      "lng": 85.1102
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       200,
+       "InStock"
+      ]
+     ],
+     "low": 200,
+     "high": 200
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T16:00:00+05:30",
+     "end": "2026-10-25T17:30:00+05:30",
+     "door": "16:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Mic Loft Studio: Pune",
+      "addr": "Shop No. 6, 2nd Floor, Old Mundhwa Road, Tukaram Nagar, Kharadi, Pune, Maharashtra 411014, India",
+      "pin": "411014",
+      "lat": 18.5484,
+      "lng": 73.9304
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENRTY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T17:00:00+05:30",
+     "end": "2026-10-25T18:30:00+05:30",
+     "door": "17:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Madhyantar Films: Ahmedabad",
+      "addr": "Dev Atelier, A-216, 100 Feet Anand Nagar Road, Above Mr D.I.Y, Opposite Dev Aurum Commercial Complex, Satellite, Ahmedabad, Gujarat 380015, India",
+      "pin": "380015",
+      "lat": 23.0129,
+      "lng": 72.5143
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T16:00:00+05:30",
+     "end": "2026-10-25T17:30:00+05:30",
+     "door": "16:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Mauji - The Time Cafe: Nagpur",
+      "addr": "Gool Villa, 128, New Colony, Nagpur, Maharashtra 440001, India",
+      "pin": "440001",
+      "lat": 21.1692,
+      "lng": 79.082
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       200,
+       "InStock"
+      ]
+     ],
+     "low": 200,
+     "high": 200
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T18:30:00+05:30",
+     "end": "2026-10-25T20:00:00+05:30",
+     "door": "18:30",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "House of Arts: Delhi",
+      "addr": "3rd Floor, G-16B, Hudson Ln, Block G, Vijay Nagar, Delhi, NCR 110009, India",
+      "pin": "110009",
+      "lat": 28.6945,
+      "lng": 77.204
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T19:00:00+05:30",
+     "end": "2026-10-25T20:30:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Mukti Manch: Andheri West",
+      "addr": "Ground floor, Bharati house, 19, Aram Nagar Part 1, Aram Nagar, Versova, Andheri West, Mumbai, Maharashtra 400061, India",
+      "pin": "400061",
+      "lat": 19.1315,
+      "lng": 72.8138
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T15:30:00+05:30",
+     "end": "2026-10-25T17:00:00+05:30",
+     "door": "15:30",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Maah: Jaipur",
+      "addr": "s-18-19, Adinath Nagar, Jaipur, Rajasthan 302017, India",
+      "pin": "302017",
+      "lat": 26.8527,
+      "lng": 75.801
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTR FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T15:00:00+05:30",
+     "end": "2026-10-25T16:30:00+05:30",
+     "door": "15:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Laugh Club: Chandigarh",
+      "addr": "SCO 34, First Floor, Madhya Marg, Sector 26, Chandigarh, Punjab 160019, India",
+      "pin": "160019",
+      "lat": 30.7258,
+      "lng": 76.8051
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-11-01T16:00:00+05:30",
+     "end": "2026-11-01T17:30:00+05:30",
+     "door": "16:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "TOT Studio: Delhi",
+      "addr": "C-110, Block D, Dayanand Colony, Lajpat Nagar 4, New Delhi, Delhi, NCR 110024, India",
+      "pin": "110024",
+      "lat": 28.5606,
+      "lng": 77.2459
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T16:00:00+05:30",
+     "end": "2026-10-25T17:30:00+05:30",
+     "door": "16:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Tapri - The Teafe: Dehradun",
+      "addr": "5th Floor, MJ Tower, 55,Rajpur Road, Opposite St Joseph Academy, Dehradun, Uttarakhand 248001, India",
+      "pin": "248001",
+      "lat": 30.3316,
+      "lng": 78.0479
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-24T16:00:00+05:30",
+     "end": "2026-10-24T17:30:00+05:30",
+     "door": "16:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "TAG Comedy Club: Bengaluru",
+      "addr": "1022, 1st floor, Besides Chai Nagri, 80 Feet Rd, 4th Block, S.T. Bed, S T Bed Layout, Koramangala, Bengaluru, Karnataka 560034, India",
+      "pin": "560034",
+      "lat": 12.9307,
+      "lng": 77.6331
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T15:00:00+05:30",
+     "end": "2026-10-25T16:30:00+05:30",
+     "door": "15:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Nerds Of Comedy: Gurugram",
+      "addr": "14, Sector 30 M Wide Main Road, Block C, Sushant Lok Phase I, Sector 43, Gurugram (Gurgaon), NCR 122003, India",
+      "pin": "122003",
+      "lat": 28.4595,
+      "lng": 77.0791
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-18T16:00:00+05:30",
+     "end": "2026-10-18T17:30:00+05:30",
+     "door": "16:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Jashn Studios: Mumbai",
+      "addr": "7th Floor, 705 - N Square, 24th Road, Off Linking Road, Near CityWalk, Mumbai, Maharashtra 400052, India",
+      "pin": "400052",
+      "lat": 19.0666,
+      "lng": 72.8334
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-11-01T18:00:00+05:30",
+     "end": "2026-11-01T19:30:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Mixbuzz Audio: Vadodara",
+      "addr": "FF-4 Pragati apartments lane, before kalyan jwellers, Chakli Cir, Vadodara, Gujarat 390007, India",
+      "pin": "390007",
+      "lat": 22.3092,
+      "lng": 73.1662
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-10-25T16:00:00+05:30",
+     "end": "2026-10-25T17:30:00+05:30",
+     "door": "16:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "House of AMP Comedy Club: Noida",
+      "addr": "Shop No. 6 First Floor, Commercial Complex, Sector 76 Road, Near Sector 75 Road, Amarpali Silicon City, Sector 76, Greater Noida, NCR 201316, India",
+      "pin": "201316",
+      "lat": 28.5683,
+      "lng": 77.3835
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       200,
+       "InStock"
+      ]
+     ],
+     "low": 200,
+     "high": 200
+    },
+    {
+     "type": "Event",
+     "name": "Ghar - An Open Mic For Words By Tape A Tale",
+     "start": "2026-11-22T16:00:00+05:30",
+     "end": "2026-11-22T17:30:00+05:30",
+     "door": "16:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Hinglish"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-ghar-an-open-mic-for-words-by-tape-a-tale-0-2026-5-25-t-7-4-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Comedy Theatre - Hauz Khass Village: Delhi",
+      "addr": "No. 31, 2nd Floor, Sardar Inderjit Singh Bhatia Road, Hauz Khas Village, Deer Park, Hauz Khas, Delhi, NCR 110016, India",
+      "pin": "110016",
+      "lat": 28.5546,
+      "lng": 77.195
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ENTRY FOR ONE REGULAR",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 300
+    }
+   ]
+  },
+  {
+   "k": "events/interact-law-2026-27/ET00508383",
+   "url": "https://in.bookmyshow.com/events/interact-law-2026-27/ET00508383",
+   "about": "You are cordially invited to join an interactive session on \"PERCEPTION AND REALITY OF LEGAL STUDIES\"\n(A WORKSHOP FOR LAW ASPIRANTS)\nEminent Speakers\nPanel Discussion\nQ&A Session\nQuiz\nFOLLOWED BY FREE BUFFET LUNCH (VEG & NON-VEG)",
+   "meta": null,
+   "events": [
+    {
+     "type": "EducationEvent",
+     "name": "InterAct Law 2026-27",
+     "start": "2026-12-22T09:30:00+05:30",
+     "end": "2026-12-22T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-interact-law-2026-27-0-2026-7-20-t-16-57-13.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-interact-law-2026-27-0-2026-7-20-t-16-57-13.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel Maurya: Patna",
+      "addr": "Fraser Road, South Gandhi Maidan, Patna, Bihar 800001, India",
+      "pin": "800001",
+      "lat": 25.6156,
+      "lng": 85.1421
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "InterAct Law 2026-27",
+     "start": "2026-12-24T09:30:00+05:30",
+     "end": "2026-12-24T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-interact-law-2026-27-0-2026-7-20-t-16-57-13.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-interact-law-2026-27-0-2026-7-20-t-16-57-13.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel Centre Point: Nagpur",
+      "addr": "24, Central Bazar Road, Ramdaspeth, Gandhi bagh, Nagpur, Maharashtra 440010, India",
+      "pin": "440010",
+      "lat": 21.1348,
+      "lng": 79.0764
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "InterAct Law 2026-27",
+     "start": "2027-01-07T09:30:00+05:30",
+     "end": "2027-01-07T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-interact-law-2026-27-0-2026-7-20-t-16-57-13.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-interact-law-2026-27-0-2026-7-20-t-16-57-13.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Park Hotel: Kolkata",
+      "addr": "17, Park Street, Taltala, Kolkata, West Bengal 700016, India",
+      "pin": "700016",
+      "lat": 22.5543,
+      "lng": 88.3518
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "InterAct Law 2026-27",
+     "start": "2027-01-10T09:30:00+05:30",
+     "end": "2027-01-10T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-interact-law-2026-27-0-2026-7-20-t-16-57-13.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-interact-law-2026-27-0-2026-7-20-t-16-57-13.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Sayaji Hotel: Indore",
+      "addr": "H/1, Ground floor, Scheme No.54, Vijay Nagar, Indore, Madhya Pradesh 452010, India",
+      "pin": "452010",
+      "lat": 22.7514,
+      "lng": 75.8893
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    }
+   ]
+  },
+  {
+   "k": "events/sham-e-malang-by-swantay-sukh-nagpur/ET00451445",
+   "url": "https://in.bookmyshow.com/events/sham-e-malang-by-swantay-sukh-nagpur/ET00451445",
+   "about": "Shaam-e-Baithak Presented by Swantay Sukh (Nagpur Edition)\nStep into a soulful evening where words meet music and strangers become a beautiful audience.\nShaam-e-Baithak curated by Swantay Sukh is not just an open mic. It is an experience of art, connection and pure vibes.\nWhether you are a poet, singer or storyteller, this stage is yours. Bring your self-written pieces or perform your favorite classics and let your voice be heard.\nWhat makes it special?\nAn enchanting live jamming session with Harmonium, Tabla and multiple instruments where around 20 talented artists come together to create magic on stage. Feel the energy of real-time jugalbandi and spontaneous musical moments.\nMeet like-minded people who share your love for art, culture and creativity.\nSit back as an audience or step up as a performer. Either way, you will leave with unforgettable memories.\nEvery performer receives a special gift as a token of appreciation.\nWarm, friendly and aesthetic environment.\nPerfect place to express, connect and unwind.\nLimited passes available. Book now and be a part of this magical baithak!",
+   "meta": null,
+   "events": [
+    {
+     "type": "ComedyEvent",
+     "name": "Sham E baithak by Swantay Sukh Nagpur",
+     "start": "2026-10-25T17:30:00+05:30",
+     "end": "2026-10-25T20:00:00+05:30",
+     "door": "17:30",
+     "duration": "PT2H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Marathi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-sham-e-baithak-by-swantay-sukh-nagpur-0-2026-5-30-t-7-30-40.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-sham-e-baithak-by-swantay-sukh-nagpur-0-2026-5-30-t-7-30-41.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "A Thursday Cafe: Nagpur",
+      "addr": "Ved Solitaire, M1, 198, Cement Road, Dharampeth Extension, Shivaji Nagar, Nagpur, Maharashtra 440010, India",
+      "pin": "440010",
+      "lat": 21.138,
+      "lng": 79.0584
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "SUPER FAN (ENTRY FOR 1)",
+       100,
+       "InStock"
+      ],
+      [
+       "PERFORMER POETRY",
+       250,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD AUDIENCE FOR 1",
+       50,
+       "InStock"
+      ],
+      [
+       "PERFORMER COMEDY",
+       250,
+       "InStock"
+      ],
+      [
+       "PERFORMER SINGING",
+       250,
+       "InStock"
+      ],
+      [
+       "PERFORMER STORYTELLING",
+       250,
+       "InStock"
+      ]
+     ],
+     "low": 50,
+     "high": 250
+    }
+   ]
+  },
+  {
+   "k": "events/kullu-on-tour-by-aaditya-kulshreshth/ET00513409",
+   "url": "https://in.bookmyshow.com/events/kullu-on-tour-by-aaditya-kulshreshth/ET00513409",
+   "about": "Kullu on Tour is Aaditya Kulshreshth aka Kullu stand up comedy show which has his first hand stories and experiences.\nYou have seen Kullu in Traitors Season 2, Tanmay reacts, vlogs with Sahiba Bali, and almost every possible podcast on the Internet.\nBringing you an all new show with so many new stories and jokes.",
+   "meta": {
+    "category": "Comedy Shows",
+    "genre": "Comedy",
+    "tags": "age-bucket-16-to-21,age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,age-bucket-55-plus,outdoor-events",
+    "type": "multiple_venues,multiple_dates,multiple_ticket_category,nonseated",
+    "language": "Hindi,English",
+    "format": "offline",
+    "label": "Aaditya Kulshreshth"
+   },
+   "events": [
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-11-13T20:00:00+05:30",
+     "end": "2026-11-13T21:30:00+05:30",
+     "door": "20:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Ravindra Bhawan (Anjani Sabhagruha): Bhopal",
+      "addr": "Rajbhavan Road, Near, Sardar Vallabh Bhai Patel Polytechnic Chouraha, Professors Colony, Bhopal, Madhya Pradesh 462002, India",
+      "pin": "462002",
+      "lat": 23.2428,
+      "lng": 77.3985
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ],
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ],
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-11-14T20:00:00+05:30",
+     "end": "2026-11-14T21:30:00+05:30",
+     "door": "20:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Anand Mohan Mathur Auditorium: Indore",
+      "addr": "Anand Mohan Mathur Auditorium, Vijay Nagar, Indore, Madhya Pradesh 452001, India",
+      "pin": "452001",
+      "lat": 22.7555,
+      "lng": 75.8809
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ],
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ],
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-11-15T18:00:00+05:30",
+     "end": "2026-11-15T19:30:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Parwana Bhawan: Nagpur",
+      "addr": "Kingsway Hospital, Mohan Nagar, Nagpur, Maharashtra 440001, India",
+      "pin": "440001",
+      "lat": 21.1546,
+      "lng": 79.0849
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ],
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ],
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-11-20T20:00:00+05:30",
+     "end": "2026-11-20T21:30:00+05:30",
+     "door": "20:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Atal Bihari Vajpayee Sabhagar: Udaipur",
+      "addr": "1096, 100 Feet Rd, Ambika Nagar, Sector 4, Gyan Nagar, Hiran Magri, Udaipur, Rajasthan 313002, India",
+      "pin": "313002",
+      "lat": 24.5652,
+      "lng": 73.7294
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ],
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ],
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-11-21T19:00:00+05:30",
+     "end": "2026-11-21T20:30:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel Menaal Residency: Kota",
+      "addr": "Kilo-2, N. H. No. 12, Girdharpura, Kota, Rajasthan 324008, India",
+      "pin": "324008",
+      "lat": 25.2102,
+      "lng": 75.8249
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ],
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ],
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-11-28T19:00:00+05:30",
+     "end": "2026-11-28T20:30:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Kedarnath Sahni Auditorium: Delhi",
+      "addr": "J.L Nehru Marg, SKD Basti, Press Enclave, Ajmere Gate, Delhi, NCR 110002, India",
+      "pin": "110002",
+      "lat": 28.6409,
+      "lng": 77.2274
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ],
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ],
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-12-06T19:30:00+05:30",
+     "end": "2026-12-06T21:00:00+05:30",
+     "door": "19:30",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "GD Birla Sabhaghar: Kolkata",
+      "addr": "29 Ashutosh Chowdhury Avenue, Ballygunge, Near Birla Mandir, Kolkata, West Bengal 700019, India",
+      "pin": "700019",
+      "lat": 22.5303,
+      "lng": 88.3647
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ],
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ],
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-12-11T19:30:00+05:30",
+     "end": "2026-12-11T21:00:00+05:30",
+     "door": "19:30",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Indian Academy Of Fine Arts: Amritsar",
+      "addr": "Madan Mohan, M.M Malviya Road, INA Colony, Amritsar, Punjab 143001, India",
+      "pin": "143001",
+      "lat": 31.6389,
+      "lng": 74.8751
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ],
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ],
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-12-12T19:00:00+05:30",
+     "end": "2026-12-12T20:30:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Guru Nanak Bhawan: Ludhiana",
+      "addr": "NH 95, Jila Kacheri Area, Model Gram, Ludhiana, Punjab 141001, India",
+      "pin": "141001",
+      "lat": 30.9011,
+      "lng": 75.8387
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ],
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ],
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-12-13T19:00:00+05:30",
+     "end": "2026-12-13T20:30:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Punjab Arts Council: Chandigarh",
+      "addr": "Rose Garden, Kala Bhavan, Sector 16B, Chandigarh, Punjab 160015, India",
+      "pin": "160015",
+      "lat": 30.7482,
+      "lng": 76.7815
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ],
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ],
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    },
+    {
+     "type": "ComedyEvent",
+     "name": "Kullu on Tour by Aaditya Kulshreshth",
+     "start": "2026-12-19T18:00:00+05:30",
+     "end": "2026-12-19T19:30:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kullu-on-tour-by-aaditya-kulshreshth-0-2026-8-20-t-16-12-37.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Merchants Chamber Auditorium: Kanpur",
+      "addr": "14/77, Civil Lines, Permat, Kanpur, Uttar Pradesh 208001, India",
+      "pin": "208001",
+      "lat": 26.4821,
+      "lng": 80.3435
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Aaditya Kulshreshth"
+     ],
+     "offers": [
+      [
+       "SILVER TICKET",
+       799,
+       "InStock"
+      ],
+      [
+       "GOLD TICKET",
+       999,
+       "InStock"
+      ],
+      [
+       "PLATINUM TICKET",
+       1299,
+       "InStock"
+      ]
+     ],
+     "low": 799,
+     "high": 1299
+    }
+   ]
+  },
+  {
+   "k": "events/shiksha-samagam-2026-27/ET00504933",
+   "url": "https://in.bookmyshow.com/events/shiksha-samagam-2026-27/ET00504933",
+   "about": "You are cordially invited to join an interactive session on \"FUTURE, SCOPE AND REALITIES OF BUSINESS MANAGEMENT EDUCATION\"\n(A WORKSHOP FOR MBA ASPIRANTS)\nEminent Speakers\nPanel Discussion\nQ&A Session\nQuiz\nManagement Games\nFOLLOWED BY FREE BUFFET LUNCH (VEG & NON-VEG)\nEntry by carrying CAT_MAT_CMAT or any MBA Exam's Admit Card or Score Card (Soft Copy)",
+   "meta": null,
+   "events": [
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2026-12-16T09:30:00+05:30",
+     "end": "2026-12-16T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel Alcor: Jamshedpur",
+      "addr": "Holding No. 4, Ram Das Bhatta, Bistupur, Jamshedpur, Jharkhand 831001, India",
+      "pin": "831001",
+      "lat": 22.7941,
+      "lng": 86.1765
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2026-12-18T09:30:00+05:30",
+     "end": "2026-12-18T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel Capitol Hill: Ranchi",
+      "addr": "Mahatma Gandhi Marg and Main Road, Maulana Azad Colony, Hindpiri, Ranchi, Jharkhand 834001, India",
+      "pin": "834001",
+      "lat": 23.3594,
+      "lng": 85.3251
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2026-12-20T09:30:00+05:30",
+     "end": "2026-12-20T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel Maurya: Patna",
+      "addr": "Fraser Road, South Gandhi Maidan, Patna, Bihar 800001, India",
+      "pin": "800001",
+      "lat": 25.6156,
+      "lng": 85.1421
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-01-05T09:30:00+05:30",
+     "end": "2027-01-05T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Park Hotel: Kolkata",
+      "addr": "17, Park Street, Taltala, Kolkata, West Bengal 700016, India",
+      "pin": "700016",
+      "lat": 22.5543,
+      "lng": 88.3518
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-01-17T09:30:00+05:30",
+     "end": "2027-01-17T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Radisson Blu: Gorakhpur",
+      "addr": "Airport Road, Mohaddipur Road, Mohaddipur, Gorakhpur, Uttar Pradesh 273008, India",
+      "pin": "273008",
+      "lat": 26.7499,
+      "lng": 83.398
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-01-19T09:30:00+05:30",
+     "end": "2027-01-19T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel Taj: Varanasi",
+      "addr": "Nadesar Palace Grounds, Taj Hotel, Varanasi, Uttar Pradesh 221002, India",
+      "pin": "221002",
+      "lat": 25.3371,
+      "lng": 82.9925
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-01-21T09:30:00+05:30",
+     "end": "2027-01-21T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel The Landmark: Kanpur",
+      "addr": "Plot no.10,The  Mall, Civil Lines, Kanpur, Uttar Pradesh 208001, India",
+      "pin": "208001",
+      "lat": 26.4744,
+      "lng": 80.348
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-01-29T09:30:00+05:30",
+     "end": "2027-01-29T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Taj Mahal: Lucknow",
+      "addr": "Vipin Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010, India",
+      "pin": "226010",
+      "lat": 26.852,
+      "lng": 80.9713
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-02-04T09:30:00+05:30",
+     "end": "2027-02-04T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel Radisson City Centre: Jaipur",
+      "addr": "Khasa Kothi Flyover, MI Road, D Circle, Gopalbari, Jaipur, Rajasthan 302001, India",
+      "pin": "302001",
+      "lat": 26.9197,
+      "lng": 75.7948
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-02-07T09:30:00+05:30",
+     "end": "2027-02-07T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Hotel Courtyard Marriott: Bhopal",
+      "addr": "DB City Hall, K-2, Hoshangabad Rd, Arera Hills, Opposite Hypercity, Zone-I, Bhopal, Madhya Pradesh 462011, India",
+      "pin": "462011",
+      "lat": 23.2315,
+      "lng": 77.4288
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-02-09T09:30:00+05:30",
+     "end": "2027-02-09T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Sayaji Hotel: Indore",
+      "addr": "H/1, Ground floor, Scheme No.54, Vijay Nagar, Indore, Madhya Pradesh 452010, India",
+      "pin": "452010",
+      "lat": 22.7514,
+      "lng": 75.8893
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-02-18T09:30:00+05:30",
+     "end": "2027-02-18T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Gateway Hotel Ambad: Nashik",
+      "addr": "P-17, Mumbai - Agra Road, MIDC Ambad, Nashik, Maharashtra 422010, India",
+      "pin": "422010",
+      "lat": 19.9574,
+      "lng": 73.7543
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-02-20T09:30:00+05:30",
+     "end": "2027-02-20T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Four Points by Sheraton Hotel: Pune",
+      "addr": "5th Mile Stone, Nagar Road, Clover Park, Viman Nagar, Pune, Maharashtra 411014, India",
+      "pin": "411014",
+      "lat": 18.563,
+      "lng": 73.9223
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-02-22T09:30:00+05:30",
+     "end": "2027-02-22T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Radisson Blu Hotel: Nagpur",
+      "addr": "7, Wardha Road, Near The Creative Kitchen, Nagpur, Maharashtra 440015, India",
+      "pin": "440015",
+      "lat": 21.1059,
+      "lng": 79.0692
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "EducationEvent",
+     "name": "Shiksha Samagam 2026-27",
+     "start": "2027-02-24T09:30:00+05:30",
+     "end": "2027-02-24T13:30:00+05:30",
+     "door": "09:30",
+     "duration": "PT4H",
+     "lang": [
+      "English",
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-shiksha-samagam-2026-27-0-2026-6-26-t-9-30-8.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Radisson Blu MBD Hotel: Noida",
+      "addr": "L2, Beside Centrestage Mall, Sector 18, Noida, NCR 201301, India",
+      "pin": "201301",
+      "lat": 28.5685,
+      "lng": 77.3227
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    }
+   ]
+  },
+  {
+   "k": "events/vipul-goyal-live-in-nagpur/ET00391343",
+   "url": "https://in.bookmyshow.com/events/vipul-goyal-live-in-nagpur/ET00391343",
+   "about": "Humorously Yours Vipul Goyal will be bringing over an hour of his best jokes, making this the best way to start your weekend.\nVipul's stand-up is relatable for all groups and persuasions - young and old, loaded or broke, desi or NRI.\nBook your tickets now!\nSeating will be first come first serve basis.",
+   "meta": {
+    "category": "Comedy Shows",
+    "genre": "Comedy",
+    "tags": "age-bucket-55-plus,age-bucket-16-to-21,age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,outdoor-events",
+    "type": "single_venue,single_date,single_ticket_category,nonseated",
+    "language": "Hindi,English",
+    "format": "offline",
+    "label": "Vipul Goyal"
+   },
+   "events": [
+    {
+     "type": "ComedyEvent",
+     "name": "Vipul Goyal Live in Nagpur",
+     "start": "2026-11-29T18:15:00+05:30",
+     "end": "2026-11-29T19:25:00+05:30",
+     "door": "18:15",
+     "duration": "PT1H10M",
+     "lang": [
+      "Hindi",
+      "English"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-vipul-goyal-live-in-nagpur-0-2024-8-23-t-10-55-28.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-vipul-goyal-live-in-nagpur-0-2024-8-23-t-10-55-28.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Chitnavis Center: Nagpur",
+      "addr": "56, Temple Road, Dobhi Nagar, Civil Lines, Nagpur, Maharashtra 440001, India",
+      "pin": "440001",
+      "lat": 21.1479,
+      "lng": 79.0701
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Vipul Goyal"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD",
+       899,
+       "InStock"
+      ]
+     ],
+     "low": 899,
+     "high": 899
+    }
+   ]
+  },
+  {
+   "k": "events/open-mic-by-exploreyou/ET00521891",
+   "url": "https://in.bookmyshow.com/events/open-mic-by-exploreyou/ET00521891",
+   "about": "One can Explore in the group of unknowns so gear up & come out of your shell and Explore Yourself. The ExploreYou Name itself suggests that we are here to provide the platform to the Unexplored Talent. This is an open mic event for Rapping, Comedy, Storytelling, Poetry, Singing, Playing Instrument, Mimicry, Card Magician.This Event is all about Exploring Talent & Socializing like never before.",
+   "meta": null,
+   "events": [
+    {
+     "type": "ComedyEvent",
+     "name": "Open Mic By ExploreYou",
+     "start": "2026-11-01T16:30:00+05:30",
+     "end": "2026-11-01T18:00:00+05:30",
+     "door": "16:30",
+     "duration": "PT1H30M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Marathi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-open-mic-by-exploreyou-0-2026-10-11-t-8-42-53.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-open-mic-by-exploreyou-0-2026-10-11-t-8-42-53.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "A Thursday Cafe: Nagpur",
+      "addr": "Ved Solitaire, M1, 198, Cement Road, Dharampeth Extension, Shivaji Nagar, Nagpur, Maharashtra 440010, India",
+      "pin": "440010",
+      "lat": 21.138,
+      "lng": 79.0584
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "PERFORMER CARD MAGICIAN",
+       250,
+       "InStock"
+      ],
+      [
+       "PERFORMER STORYTELLING",
+       250,
+       "InStock"
+      ],
+      [
+       "PERFORMER MIMICRY",
+       250,
+       "InStock"
+      ],
+      [
+       "PERFORMER SINGING",
+       250,
+       "InStock"
+      ],
+      [
+       "PERFORMER RAPPING",
+       250,
+       "InStock"
+      ],
+      [
+       "PERFORMER POETRY",
+       250,
+       "InStock"
+      ],
+      [
+       "AUDIENCE PASS",
+       100,
+       "InStock"
+      ],
+      [
+       "PERFORMER COMEDY",
+       250,
+       "InStock"
+      ],
+      [
+       "PERFORMER BEATBOXING",
+       250,
+       "InStock"
+      ]
+     ],
+     "low": 100,
+     "high": 250
+    }
+   ]
+  },
+  {
+   "k": "events/jus-jumpin-vr-nagpur/ET00437446",
+   "url": "https://in.bookmyshow.com/events/jus-jumpin-vr-nagpur/ET00437446",
+   "about": "Jus Jumpin is a vibrant kids' play area located in VR Nagpur, offering a fun-filled and safe environment for children to enjoy. Designed to provide endless entertainment, it features a variety of attractions, including trampolines, slides, ball pits, and interactive play zones that keep kids engaged for hours. With a focus on safety and hygiene, the play area is well-maintained and supervised by trained staff, ensuring a secure and enjoyable experience for children of all ages.\nPerfect for birthday parties, playdates, or just a fun day out, Jus Jumpin is an ideal destination for kids to burn off energy while developing social and motor skills. The facility also offers comfortable seating for parents, allowing them to relax while their little ones explore and play. Conveniently located in VR Nagpur, Jus Jumpin is a go-to spot for families looking to combine shopping and entertainment. Whether it's a weekend outing or a special celebration, Jus Jumpin promises laughter, excitement, and memorable moments for kids and parents alike!",
+   "meta": null,
+   "events": [
+    {
+     "type": "ChildrensEvent",
+     "name": "Jus Jumpin VR Mall Nagpur",
+     "start": "2026-10-13T11:00:00+05:30",
+     "end": "2026-10-13T12:00:00+05:30",
+     "door": "12:00",
+     "duration": "PT1H",
+     "lang": [
+      "English"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-jus-jumpin-vr-nagpur-0-2025-3-10-t-14-36-4.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-jus-jumpin-vr-nagpur-0-2025-3-10-t-14-36-4.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Jus Jumpin, VR Mall: Nagpur",
+      "addr": "VR, Rambagh Layout, Untkhana, Nagpur, Maharashtra 440003, India",
+      "pin": "440003",
+      "lat": 21.1328,
+      "lng": 79.0966
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "90 mintues",
+       600,
+       "InStock"
+      ],
+      [
+       "60 mintues",
+       500,
+       "InStock"
+      ],
+      [
+       "Unlimited",
+       1099,
+       "InStock"
+      ],
+      [
+       "120 mintues",
+       700,
+       "InStock"
+      ]
+     ],
+     "low": 500,
+     "high": 1099
+    }
+   ]
+  },
+  {
+   "k": "plays/farewell-an-entropy-of-separation/ET00481604",
+   "url": "https://in.bookmyshow.com/plays/farewell-an-entropy-of-separation/ET00481604",
+   "about": "The mind seeks familiarity over newness, and family becomes our first place of comfort and safety. But what if this familiarity is shaped by pain? What if the same patterns repeat in every relationship, mistaken for security? Science says genes and cells never truly die. They live on through generations. But what if, beyond biology, it is the social structure that shapes us? This is a story of generations, of long suppressed truths, of wounds conceived as love. Come, let`s bid a farewell to all the dramas and traumas inherited, carried forward, and lived through generations.\nNote - The performance includes one interval.\nPlease note - Strictly no late entry will be permitted.",
+   "meta": {
+    "category": "Theatre",
+    "genre": "Adult,Drama,Romantic,Tragedy",
+    "tags": "age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,age-bucket-55-plus,age-bucket-16-to-21,outdoor-events",
+    "type": "multiple_venues,multiple_dates,multiple_ticket_category,nonseated",
+    "language": "Hindi",
+    "format": "offline",
+    "label": "Kshitij Sharma,Sarthak Runwal"
+   },
+   "events": [
+    {
+     "type": "TheaterEvent",
+     "name": "Farewell : An Entropy of Separation",
+     "start": "2026-10-17T15:30:00+05:30",
+     "end": "2026-10-17T17:50:00+05:30",
+     "door": "15:30",
+     "duration": "PT2H20M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "18+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-farewell-an-entropy-of-separation-0-2026-8-1-t-8-32-41.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-farewell-an-entropy-of-separation-0-2026-8-1-t-8-32-41.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Rangbhoomi Spaces & Events:Hyderabad",
+      "addr": "Opposite Zonal Municipal Office, ALIND Employees Colony, Serilingampalle (M), Hyderabad, Telangana 500133, India",
+      "pin": "500133",
+      "lat": 17.4708,
+      "lng": 78.3307
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Kshitij Sharma",
+      "Sarthak Runwal"
+     ],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       700,
+       "SoldOut"
+      ]
+     ],
+     "low": 700,
+     "high": 700
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Farewell : An Entropy of Separation",
+     "start": "2026-10-24T15:00:00+05:30",
+     "end": "2026-10-24T17:20:00+05:30",
+     "door": "15:00",
+     "duration": "PT2H20M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "18+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-farewell-an-entropy-of-separation-0-2026-8-1-t-8-32-41.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-farewell-an-entropy-of-separation-0-2026-8-1-t-8-32-41.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Rangmandap: Nagpur",
+      "addr": "Kasturba Bhavan Plot 349/2, Bajaj Nagar, Nagpur, Maharashtra 440022, India",
+      "pin": "440022",
+      "lat": 21.1269,
+      "lng": 79.0596
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Kshitij Sharma",
+      "Sarthak Runwal"
+     ],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       900,
+       "InStock"
+      ]
+     ],
+     "low": 900,
+     "high": 900
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Farewell : An Entropy of Separation",
+     "start": "2026-12-06T18:00:00+05:30",
+     "end": "2026-12-06T20:20:00+05:30",
+     "door": "18:00",
+     "duration": "PT2H20M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "18+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-farewell-an-entropy-of-separation-0-2026-8-1-t-8-32-41.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-farewell-an-entropy-of-separation-0-2026-8-1-t-8-32-41.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Kaifi Azmi Auditorium: Lucknow",
+      "addr": "Sector 12 R K Puram, Police Colony, Sector 12, RK Puram, Gurudwara Road, Balmikinagar, Lucknow, Uttar Pradesh 226006, India",
+      "pin": "226006",
+      "lat": 26.867,
+      "lng": 80.963
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Kshitij Sharma",
+      "Sarthak Runwal"
+     ],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       1000,
+       "InStock"
+      ]
+     ],
+     "low": 1000,
+     "high": 1000
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Farewell : An Entropy of Separation",
+     "start": "2027-01-31T11:00:00+05:30",
+     "end": "2027-01-31T13:20:00+05:30",
+     "door": "15:30",
+     "duration": "PT2H20M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "18+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-farewell-an-entropy-of-separation-0-2026-8-1-t-8-32-41.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-farewell-an-entropy-of-separation-0-2026-8-1-t-8-32-41.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Box: Pune",
+      "addr": "At Rescon Manufacturing Co Pvt Ltd, 43/1, Karve Road, Near Palande Courier and SBI, Pandurang Colony, Erandwane, Pune, Maharashtra 411038, India",
+      "pin": "411038",
+      "lat": 18.5059,
+      "lng": 73.8283
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Kshitij Sharma",
+      "Sarthak Runwal"
+     ],
+     "offers": [
+      [
+       "TICKET FOR ONE",
+       900,
+       "SoldOut"
+      ]
+     ],
+     "low": 900,
+     "high": 900
+    }
+   ]
+  },
+  {
+   "k": "plays/eka-lagnachi-pudhchi-gosht/ET00086550",
+   "url": "https://in.bookmyshow.com/plays/eka-lagnachi-pudhchi-gosht/ET00086550",
+   "about": "Manoj & Manisha are happily married for over 18 years. But, in the quest of a few desires, their relationship has entered into midlife crisis. Eventually, they will find out if they are still in love with each other or are chasing new desires.\nWatch the laugh riot that is a journey of life… \"Eka Lagnachi Pudhachi Gosht\"",
+   "meta": {
+    "category": "Theatre",
+    "genre": "Comedy,Drama",
+    "tags": "age-bucket-16-to-21,age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,age-bucket-55-plus,age-bucket-8-to-15,outdoor-events",
+    "type": "multiple_venues,multiple_dates,multiple_ticket_category,seated",
+    "language": "Marathi",
+    "format": "offline",
+    "label": "Prashant Damle,Kavita Medhekar,Atul Todankar,Mrunal Chemburkar,Pratiksha Shivankar,Parag Dange"
+   },
+   "events": [
+    {
+     "type": "TheaterEvent",
+     "name": " Eka Lagnachi Pudhchi Gosht",
+     "start": "2026-10-16T21:30:00+05:30",
+     "end": "2026-10-17T00:00:00+05:30",
+     "door": "21:30",
+     "duration": "PT2H30M",
+     "lang": [
+      "Marathi"
+     ],
+     "age": "5+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Bal Gandharva Rang Mandir: Pune",
+      "addr": "Jhansi Rani Laxmibai Chowk, Shivajinagar, Pune, Maharashtra 411005, India",
+      "pin": "411005",
+      "lat": 18.522,
+      "lng": 73.8486
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Prashant Damle",
+      "Kavita Medhekar",
+      "Atul Todankar",
+      "Mrunal Chemburkar",
+      "Pratiksha Shivankar",
+      "Parag Dange"
+     ],
+     "offers": [
+      [
+       "Row 1 to 20",
+       500,
+       "InStock"
+      ],
+      [
+       "Balcony Row 21 to 29",
+       400,
+       "InStock"
+      ]
+     ],
+     "low": 400,
+     "high": 500
+    },
+    {
+     "type": "TheaterEvent",
+     "name": " Eka Lagnachi Pudhchi Gosht",
+     "start": "2026-10-17T21:30:00+05:30",
+     "end": "2026-10-18T00:00:00+05:30",
+     "door": "21:30",
+     "duration": "PT2H30M",
+     "lang": [
+      "Marathi"
+     ],
+     "age": "5+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Vithal Tupe Sabhagruh: Pune",
+      "addr": "4, Tupe Patil Road, Malwadi, Hadapsar, Pune, Maharashtra 411028, India",
+      "pin": "411028",
+      "lat": 18.5028,
+      "lng": 73.9364
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Prashant Damle",
+      "Kavita Medhekar",
+      "Atul Todankar",
+      "Mrunal Chemburkar",
+      "Pratiksha Shivankar",
+      "Parag Dange"
+     ],
+     "offers": [
+      [
+       "Balcony Row U to Y",
+       400,
+       "InStock"
+      ],
+      [
+       "Row A to T",
+       500,
+       "InStock"
+      ]
+     ],
+     "low": 400,
+     "high": 500
+    },
+    {
+     "type": "TheaterEvent",
+     "name": " Eka Lagnachi Pudhchi Gosht",
+     "start": "2026-10-23T21:00:00+05:30",
+     "end": "2026-10-23T23:30:00+05:30",
+     "door": "21:00",
+     "duration": "PT2H30M",
+     "lang": [
+      "Marathi"
+     ],
+     "age": "5+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Sant Dnyaneshwar Sanskrutik Bhavan: Amravati",
+      "addr": "State Highway 242, Morshi Road, Amravati, Maharashtra 444603, India",
+      "pin": "444603",
+      "lat": 20.9372,
+      "lng": 77.7662
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Prashant Damle",
+      "Kavita Medhekar",
+      "Atul Todankar",
+      "Mrunal Chemburkar",
+      "Pratiksha Shivankar",
+      "Parag Dange"
+     ],
+     "offers": [
+      [
+       "Row S to W",
+       500,
+       "InStock"
+      ],
+      [
+       "Balcony Row A to I",
+       300,
+       "InStock"
+      ],
+      [
+       "Row A to R",
+       826,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 826
+    },
+    {
+     "type": "TheaterEvent",
+     "name": " Eka Lagnachi Pudhchi Gosht",
+     "start": "2026-10-24T21:00:00+05:30",
+     "end": "2026-10-24T23:30:00+05:30",
+     "door": "21:00",
+     "duration": "PT2H30M",
+     "lang": [
+      "Marathi"
+     ],
+     "age": "5+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Priyadarshini Indira Gandhi Auditorium: Chandrapur",
+      "addr": "Civil Lines, Chandrapur - Jatpura Gate Road, Chandrapur, Maharashtra 442402, India",
+      "pin": "442402",
+      "lat": 19.9615,
+      "lng": 79.2952
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Prashant Damle",
+      "Kavita Medhekar",
+      "Atul Todankar",
+      "Mrunal Chemburkar",
+      "Pratiksha Shivankar",
+      "Parag Dange"
+     ],
+     "offers": [
+      [
+       "Row A to P",
+       826,
+       "InStock"
+      ],
+      [
+       "Row Q to X",
+       500,
+       "InStock"
+      ]
+     ],
+     "low": 500,
+     "high": 826
+    },
+    {
+     "type": "TheaterEvent",
+     "name": " Eka Lagnachi Pudhchi Gosht",
+     "start": "2026-10-25T13:30:00+05:30",
+     "end": "2026-10-25T16:00:00+05:30",
+     "door": "13:30",
+     "duration": "PT2H30M",
+     "lang": [
+      "Marathi"
+     ],
+     "age": "5+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-eka-lagnachi-pudhchi-gosht-0-2023-12-4-t-4-0-14.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Vasantrao Deshpande Hall: Nagpur",
+      "addr": "Amdar Niwas, Temple Road, Civil Lines, Nagpur, Maharashtra 440001, India",
+      "pin": "440001",
+      "lat": 21.1505,
+      "lng": 79.0653
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Prashant Damle",
+      "Kavita Medhekar",
+      "Atul Todankar",
+      "Mrunal Chemburkar",
+      "Pratiksha Shivankar",
+      "Parag Dange"
+     ],
+     "offers": [
+      [
+       "Row A to R",
+       826,
+       "InStock"
+      ],
+      [
+       "Row S to W",
+       500,
+       "InStock"
+      ],
+      [
+       "Row X to Z",
+       300,
+       "InStock"
+      ]
+     ],
+     "low": 300,
+     "high": 826
+    }
+   ]
+  },
+  {
+   "k": "plays/hi-dosti-tutaychi-naay/ET00515978",
+   "url": "https://in.bookmyshow.com/plays/hi-dosti-tutaychi-naay/ET00515978",
+   "about": "A couple who has just completed 25 years of marriage has applied for a divorce and has been directed by the Hon. court to a counsellor couple. It is a slice-of-life story.",
+   "meta": {
+    "category": "Theatre",
+    "genre": "Drama",
+    "tags": "age-bucket-16-to-21,age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,age-bucket-55-plus,fast-filling,must-attend,outdoor-events,unmissable-events",
+    "type": "multiple_venues,multiple_dates,multiple_ticket_category,seated",
+    "language": "Marathi",
+    "format": "offline",
+    "label": "Chinmayee Sumeet,Sumeet Raghavan,Shubhankar Ekbote,Amruta Vikas Bane"
+   },
+   "events": [
+    {
+     "type": "TheaterEvent",
+     "name": "Hi Dosti Tutaychi Naay",
+     "start": "2026-10-18T13:30:00+05:30",
+     "end": "2026-10-18T15:50:00+05:30",
+     "door": "13:30",
+     "duration": "PT2H20M",
+     "lang": [
+      "Marathi"
+     ],
+     "age": "3+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-hi-dosti-tutaychi-naay-1-2026-9-18-t-15-57-15.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-hi-dosti-tutaychi-naay-1-2026-9-18-t-15-57-15.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Vasantrao Deshpande Hall: Nagpur",
+      "addr": "Amdar Niwas, Temple Road, Civil Lines, Nagpur, Maharashtra 440001, India",
+      "pin": "440001",
+      "lat": 21.1505,
+      "lng": 79.0653
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "Row A to C",
+       999,
+       "InStock"
+      ],
+      [
+       "Row S to Z",
+       349,
+       "InStock"
+      ],
+      [
+       "Row L to R",
+       399,
+       "InStock"
+      ],
+      [
+       "Row G to K",
+       499,
+       "InStock"
+      ],
+      [
+       "Row D to F",
+       799,
+       "InStock"
+      ]
+     ],
+     "low": 349,
+     "high": 999
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Hi Dosti Tutaychi Naay",
+     "start": "2026-10-24T21:30:00+05:30",
+     "end": "2026-10-24T23:50:00+05:30",
+     "door": "21:30",
+     "duration": "PT2H20M",
+     "lang": [
+      "Marathi"
+     ],
+     "age": "3+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-hi-dosti-tutaychi-naay-1-2026-9-18-t-15-57-15.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-hi-dosti-tutaychi-naay-1-2026-9-18-t-15-57-15.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Vithal Tupe Sabhagruh: Pune",
+      "addr": "4, Tupe Patil Road, Malwadi, Hadapsar, Pune, Maharashtra 411028, India",
+      "pin": "411028",
+      "lat": 18.5028,
+      "lng": 73.9364
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "Row U to Y",
+       349,
+       "InStock"
+      ],
+      [
+       "Row J to T",
+       499,
+       "InStock"
+      ],
+      [
+       "Row A to I",
+       749,
+       "InStock"
+      ]
+     ],
+     "low": 349,
+     "high": 749
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Hi Dosti Tutaychi Naay",
+     "start": "2026-10-31T19:30:00+05:30",
+     "end": "2026-10-31T21:50:00+05:30",
+     "door": "19:30",
+     "duration": "PT2H20M",
+     "lang": [
+      "Marathi"
+     ],
+     "age": "3+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-hi-dosti-tutaychi-naay-1-2026-9-18-t-15-57-15.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-hi-dosti-tutaychi-naay-1-2026-9-18-t-15-57-15.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Buntara Bhavana: Pune",
+      "addr": "S No.104/Part, Near Mercedes Showroom Mumbai-Bangalore Highway,Village, Baner, Pune, Maharashtra 411045, India",
+      "pin": "411045",
+      "lat": 18.5644,
+      "lng": 73.7666
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "Row I to K",
+       1199,
+       "InStock"
+      ],
+      [
+       "Balcony Row A to H",
+       499,
+       "InStock"
+      ],
+      [
+       "Row E to H",
+       1399,
+       "InStock"
+      ],
+      [
+       "Row Q to W",
+       799,
+       "InStock"
+      ],
+      [
+       "Row C to D",
+       1699,
+       "InStock"
+      ],
+      [
+       "Row L to P",
+       999,
+       "InStock"
+      ],
+      [
+       "Row A to B",
+       1999,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 1999
+    }
+   ]
+  },
+  {
+   "k": "plays/mukul-sharma-live-a-poetry-storytelling-show/ET00468163",
+   "url": "https://in.bookmyshow.com/plays/mukul-sharma-live-a-poetry-storytelling-show/ET00468163",
+   "about": "Arz Kiya Hai by Mukul Sharma\nArz Kiya Hai is a live poetry and storytelling show by Mukul Sharma. Through heartfelt words and relatable stories, Mukul explores love, heartbreak, relationships and the emotions of everyday life.\nJoin us for an intimate evening of poetry, stories and meaningful conversations.",
+   "meta": {
+    "category": "Storytelling",
+    "genre": "Musical,Romantic",
+    "tags": "age-bucket-55-plus,age-bucket-8-to-15,age-bucket-16-to-21,age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,outdoor-events",
+    "type": "multiple_venues,multiple_dates,multiple_ticket_category,nonseated",
+    "language": "Hindi",
+    "format": "offline",
+    "label": "Mukul Sharma"
+   },
+   "events": [
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-10-30T19:00:00+05:30",
+     "end": "2026-10-30T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue to be Announced: Bikaner",
+      "addr": "Bikaner, Rajasthan India",
+      "lat": 28.0214,
+      "lng": 73.3195
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "REGULAR TICKET",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 499
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-01T19:00:00+05:30",
+     "end": "2026-11-01T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue To Be Announced: Jaipur",
+      "addr": "Jaipur, Rajasthan India"
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "REGULAR TICKET",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 499
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-13T19:00:00+05:30",
+     "end": "2026-11-13T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "House of AMP Comedy Club: Noida",
+      "addr": "Shop No. 6 First Floor, Commercial Complex, Sector 76 Road, Near Sector 75 Road, Amarpali Silicon City, Sector 76, Greater Noida, NCR 201316, India",
+      "pin": "201316",
+      "lat": 28.5683,
+      "lng": 77.3835
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD -1 PERSON",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 499
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-14T19:00:00+05:30",
+     "end": "2026-11-14T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue To Be Announced: Bengaluru",
+      "addr": "Bengaluru, Karnataka India"
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD -1 PERSON",
+       499,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 499
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-15T19:00:00+05:30",
+     "end": "2026-11-15T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Aaromale - Cafe and Creative Community: Hyderabad",
+      "addr": "A-72, Road Number 12, Giani Zail Singh Nagar, Film Nagar, Hyderabad, Telangana 500096, India",
+      "pin": "500096",
+      "lat": 17.4129,
+      "lng": 78.4065
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-20T18:00:00+05:30",
+     "end": "2026-11-20T19:15:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Space: Patia",
+      "addr": "Basement of hotel Kanchan, behind Sai international school, Patia, Bhubaneswar, Odisha 751024, India",
+      "pin": "751024",
+      "lat": 20.3453,
+      "lng": 85.8167
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-21T19:00:00+05:30",
+     "end": "2026-11-21T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Laughing Hyena Comedy Club: Kolkata",
+      "addr": "6/6, Poddar Nagar, Second Floor 391/122 Prince Anwar Shah Road, Above FNP Jadavpur, Near South City, Mall, Kolkata, West Bengal 700068, India",
+      "pin": "700068",
+      "lat": 22.5022,
+      "lng": 88.3639
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "REGULAR TICKET",
+       499,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "TICKET FOR 2",
+       799,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 799
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-22T18:00:00+05:30",
+     "end": "2026-11-22T19:15:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Club Elite: Guwahati",
+      "addr": "Hotel Palacio New Building, Jaya Nagar, Khanapara, Opposite To Taj Vivanta, Guwahati, Assam 781022, India",
+      "pin": "781022",
+      "lat": 26.1247,
+      "lng": 91.816
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-27T19:00:00+05:30",
+     "end": "2026-11-27T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Molecule: Meerut",
+      "addr": "Harsh Commercial Park,Garh Road, Ajanta Colony, Meerut, Uttar Pradesh 250004, India",
+      "pin": "250004",
+      "lat": 28.9624,
+      "lng": 77.7445
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-28T19:00:00+05:30",
+     "end": "2026-11-28T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The White Rabbit: Roorkee",
+      "addr": "Amrit Deewan Complex, Boat Club Road, near axis bank, Civil Lines, Roorkee, Uttarakhand 247667, India",
+      "pin": "247667",
+      "lat": 29.8691,
+      "lng": 77.8868
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-11-29T19:00:00+05:30",
+     "end": "2026-11-29T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue To Be Announced: Dehradun",
+      "addr": "Dehradun, Uttarakhand India"
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 499,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-12-05T18:00:00+05:30",
+     "end": "2026-12-05T19:15:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Khayaal Kalapremiyon Ka: Bhopal",
+      "addr": "B-11, Narmadapuram Road, Opposite Hong Kong Restaurant, Behind Indian Oil Petrol Pump, Vidya Nagar, Bhopal, Madhya Pradesh 462026, India",
+      "pin": "462026",
+      "lat": 23.1945,
+      "lng": 77.4484
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-12-12T19:00:00+05:30",
+     "end": "2026-12-12T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue To Be Announced: Delhi (NCR)",
+      "addr": "Delhi, NCR India"
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD -SINGLE ENTRY",
+       499,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 499
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-12-13T18:00:00+05:30",
+     "end": "2026-12-13T19:15:00+05:30",
+     "door": "18:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue To Be Announced: Chandigarh",
+      "addr": "Chandigarh, Punjab India"
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-12-19T19:00:00+05:30",
+     "end": "2026-12-19T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue To Be Announced: Surat",
+      "addr": "Surat, Gujarat India"
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-12-20T19:00:00+05:30",
+     "end": "2026-12-20T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue To Be Announced: Ahmedabad",
+      "addr": "Ahmedabad, Gujarat India"
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-12-25T19:00:00+05:30",
+     "end": "2026-12-25T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Jaamun: Jabalpur",
+      "addr": "Gupteshwar Road, Gupteshwar, Jabalpur, Madhya Pradesh 482001, India",
+      "pin": "482001",
+      "lat": 23.1471,
+      "lng": 79.9168
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-12-26T19:00:00+05:30",
+     "end": "2026-12-26T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue To Be Announced: Nagpur",
+      "addr": "Nagpur, Maharashtra 0, India",
+      "pin": "0",
+      "lat": 21.1458,
+      "lng": 79.0882
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2026-12-27T19:00:00+05:30",
+     "end": "2026-12-27T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Venue To Be Announced: Raipur",
+      "addr": "Raipur, Chhattisgarh India",
+      "lat": 21.2514,
+      "lng": 81.6296
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2027-01-01T19:00:00+05:30",
+     "end": "2027-01-01T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "The Liquid Room: Amritsar",
+      "addr": "SCO 34, D - Block, Ranjit Avenue, 97 Acre Scheme, Near Starbucks, Amritsar, Punjab 143001, India",
+      "pin": "143001",
+      "lat": 31.6551,
+      "lng": 74.856
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    },
+    {
+     "type": "TheaterEvent",
+     "name": "Mukul Sharma Live - A Poetry & Storytelling Show",
+     "start": "2027-01-02T19:00:00+05:30",
+     "end": "2027-01-02T20:15:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H15M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-mukul-sharma-live-a-poetry-storytelling-show-0-2026-9-17-t-17-56-24.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "One8 Commune: Ludhiana",
+      "addr": "5th and 8th Floor, Nexus, MBD Neopolis Mall, Rajguru Nagar Extension, New Sunder Nagar, Ludhiana, Punjab 141012, India",
+      "pin": "141012",
+      "lat": 30.8829,
+      "lng": 75.7815
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Mukul Sharma"
+     ],
+     "offers": [
+      [
+       "STUDENT TICKET",
+       399,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD COUPLE",
+       899,
+       "InStock"
+      ],
+      [
+       "EARLY BIRD - ONLY ENTRY",
+       499,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 899
+    }
+   ]
+  },
+  {
+   "k": "plays/lafzon-ke-darmiyan/ET00520552",
+   "url": "https://in.bookmyshow.com/plays/lafzon-ke-darmiyan/ET00520552",
+   "about": "Three Poets. One Story. A Musical Journey.\nExperience an evening where storytelling, poetry and live music.Come together to create an intimate and soulful journey.\nThe story unfolds through the words of Three celebrated poets, beautifully woven with live music, melodies and emotions. Each poem becomes a part of the narrative, taking you through love, life, longing, memories and the many shades of human experience.\nA unique live experience where stories are heard, poetry is felt, and music speaks what words sometimes cannot.\nCome for the story.\nFeel the poetry.\nLive the music.\nAn evening of words, melodies and emotions  created to stay with you long after the curtain falls.",
+   "meta": null,
+   "events": [
+    {
+     "type": "TheaterEvent",
+     "name": "Lafzon Ke Darmiyan",
+     "start": "2026-10-25T18:30:00+05:30",
+     "end": "2026-10-25T20:30:00+05:30",
+     "door": "18:30",
+     "duration": "PT2H",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "16+",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-lafzon-ke-darmiyan-0-2026-10-4-t-12-56-1.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-lafzon-ke-darmiyan-0-2026-10-4-t-12-56-1.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Rangmandap: Nagpur",
+      "addr": "Kasturba Bhavan Plot 349/2, Bajaj Nagar, Nagpur, Maharashtra 440022, India",
+      "pin": "440022",
+      "lat": 21.1269,
+      "lng": 79.0596
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "EARLY BIRD",
+       449,
+       "InStock"
+      ],
+      [
+       "PHASE 2",
+       649,
+       "InStock"
+      ],
+      [
+       "PHASE 1",
+       549,
+       "InStock"
+      ]
+     ],
+     "low": 449,
+     "high": 649
+    }
+   ]
+  },
+  {
+   "k": "plays/kahanibaaz-by-ashish-vidyarthi/ET00521436",
+   "url": "https://in.bookmyshow.com/plays/kahanibaaz-by-ashish-vidyarthi/ET00521436",
+   "about": "Kahaanibaaz by Ashish Vidyarthi is a captivating live storytelling show that takes audiences on an emotional and inspiring journey through stories drawn from life, experiences, and human connections. With his powerful voice, expressive narration, and natural warmth, Ashish Vidyarthi transforms simple moments into deeply relatable tales. The show blends humor, wisdom, and heartfelt emotions, creating a unique bond between the performer and the audience. Each story encourages reflection, positivity, and a fresh perspective on everyday life.",
+   "meta": {
+    "category": "Storytelling",
+    "genre": "Comedy",
+    "tags": "age-bucket-55-plus,age-bucket-8-to-15,age-bucket-16-to-21,age-bucket-22-to-30,age-bucket-31-to-45,age-bucket-46-to-55,outdoor-events",
+    "type": "multiple_venues,multiple_dates,multiple_ticket_category,nonseated",
+    "language": "Hindi",
+    "format": "offline",
+    "label": "Ashish Vidyarthi"
+   },
+   "events": [
+    {
+     "type": "TheaterEvent",
+     "name": "Kahanibaaz By Ashish Vidyarthi",
+     "start": "2026-12-19T19:30:00+05:30",
+     "end": "2026-12-19T21:00:00+05:30",
+     "door": "19:30",
+     "duration": "PT1H30M",
+     "lang": [
+      "Hindi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-kahanibaaz-by-ashish-vidyarthi-0-2026-10-8-t-13-59-4.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-kahanibaaz-by-ashish-vidyarthi-0-2026-10-8-t-13-59-4.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Raisoni Auditorium: Nagpur",
+      "addr": "Riaan Tower, Near Mangalwari Complex, Sadar, Nagpur, Maharashtra 440001, India",
+      "pin": "440001",
+      "lat": 21.1644,
+      "lng": 79.0821
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Ashish Vidyarthi"
+     ],
+     "offers": [
+      [
+       "PLATINUM",
+       999,
+       "InStock"
+      ],
+      [
+       "VIP",
+       1499,
+       "InStock"
+      ],
+      [
+       "SILVER",
+       399,
+       "InStock"
+      ],
+      [
+       "GOLD",
+       699,
+       "InStock"
+      ]
+     ],
+     "low": 399,
+     "high": 1499
+    }
+   ]
+  },
+  {
+   "k": "activities/rass-garba/ET00521496",
+   "url": "https://in.bookmyshow.com/activities/rass-garba/ET00521496",
+   "about": "Get ready to immerse yourself in the ultimate celebration of rhythm, devotion, and dance at the Rass garba Mahotsav Join us from October 11 to October 19 at Bhagwan Nagar, Nagpur for an unforgettable festive experience. Running daily from 6:00 PM to 10:00 PM, this vibrant event welcomes all garba lovers to celebrate the season with energetic beats, traditional music, and a joyful crowd. Secure your passes early on BookMyShow and be part of this grand celebration.",
+   "meta": null,
+   "events": [
+    {
+     "type": "Event",
+     "name": "Rass Garba ",
+     "start": "2026-10-13T18:00:00+05:30",
+     "end": "2026-10-13T22:00:00+05:30",
+     "door": "18:00",
+     "duration": "PT4H",
+     "lang": [
+      "Hindi",
+      "Marathi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-rass-garba-0-2026-10-8-t-18-49-12.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-rass-garba-0-2026-10-8-t-18-49-12.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Shri Ram Ground: Nagpur",
+      "addr": "Gali Number 1, Bhagwan Nagar, Kunjilal Peth, Rameshwari, Nagpur, Maharashtra 440027, India",
+      "pin": "440027",
+      "lat": 21.1123,
+      "lng": 79.094
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ONE DAY PASS",
+       130,
+       "InStock"
+      ]
+     ],
+     "low": 130,
+     "high": 130
+    }
+   ]
+  },
+  {
+   "k": "activities/royal-rasleela-garba/ET00519532",
+   "url": "https://in.bookmyshow.com/activities/royal-rasleela-garba/ET00519532",
+   "about": "Royal Rasleela is a Navratri Garba and Dandiya celebration at Royal Cliff Hotel & Resorts, Wathoda, Nagpur. - East Nagpur`s Biggest Garba\nExperience an evening filled with Garba, Dandiya, music, dance and festive celebrations with friends and family. The event welcomes guests of all age groups and offers a vibrant Navratri atmosphere for families, couples and groups.\nEvent Name: Royal Rasleela\nEvent Dates: 11th to 19th October\nEvent Timing: 6:45 PM to 10:30 PM\nVenue: Royal Cliff Hotel & Resorts, Wathoda, Nagpur\nAge Limit: All Age Groups\nLanguages: English, Hindi and Marathi",
+   "meta": null,
+   "events": [
+    {
+     "type": "Event",
+     "name": "Royal Rasleela - Garba ",
+     "start": "2026-10-13T18:45:00+05:30",
+     "end": "2026-10-13T22:30:00+05:30",
+     "door": "18:45",
+     "duration": "PT3H45M",
+     "lang": [
+      "English",
+      "Hindi",
+      "Marathi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-royal-rasleela-garba-0-2026-9-28-t-13-50-27.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-royal-rasleela-garba-0-2026-9-28-t-13-50-27.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Royal Cliff Hotel & Resorts: Nagpur",
+      "addr": "01, Sangharsh Nagar Chowk, Wathoda, Mankapur Ring Road, Beside Swaminarayan Temple, Nagpur, Maharashtra 440024, India",
+      "pin": "440024",
+      "lat": 21.1404,
+      "lng": 79.1457
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "9 DAYS ROYAL PASS+ BUFFET",
+       4999,
+       "InStock"
+      ],
+      [
+       "SINGLE DAY ENTRY ADMITS 1",
+       299,
+       "InStock"
+      ],
+      [
+       "9 DAYS PASS SINGLE ENTRY",
+       1299,
+       "InStock"
+      ],
+      [
+       "SINGLE DAY PASS (ADMIT 1)",
+       399,
+       "InStock"
+      ]
+     ],
+     "low": 299,
+     "high": 4999
+    }
+   ]
+  },
+  {
+   "k": "activities/sindhu-maharaj-garba-mahotsav-2026/ET00520545",
+   "url": "https://in.bookmyshow.com/activities/sindhu-maharaj-garba-mahotsav-2026/ET00520545",
+   "about": "Get ready to experience the vibrant spirit of Navratri at Sindhu Maharas Garba Mahotsav 2026, a grand celebration of Garba, music, culture and togetherness in North Nagpur!\n** below 10 year children's are free**\nFor the past five years, Sindhu Maharas Garba Mahotsav has been organised under the leadership of Virendra Kukreja, with the support and cooperation of Sindhu Sabha, bringing the community together through a vibrant celebration of tradition, culture and festive spirit.\nThe Mahotsav brings together thousands of Garba enthusiasts for an energetic festive experience filled with traditional Garba, Dandiya, live music and spectacular celebrations.\nPut on your best traditional attire, gather your Garba gang and get ready to dance to electrifying beats in a colourful and festive atmosphere. From energetic Garba rounds to memorable moments with friends and family, the Mahotsav promises an exciting celebration for everyone.\nCome, celebrate the tradition. Feel the energy. Dance your heart out at Sindhu Maharas Garba Mahotsav 2026!",
+   "meta": null,
+   "events": [
+    {
+     "type": "Event",
+     "name": "Sindhu Maharas Garba Mahotsav 2026",
+     "start": "2026-10-17T20:00:00+05:30",
+     "end": "2026-10-18T01:00:00+05:30",
+     "door": "20:00",
+     "duration": "PT5H",
+     "lang": [
+      "Hindi",
+      "Gujarati",
+      "Sindhi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-sindhu-maharaj-garba-mahotsav-2026-0-2026-10-4-t-11-2-52.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-sindhu-maharaj-garba-mahotsav-2026-0-2026-10-4-t-11-2-52.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Jhulelal Sports Park: Nagpur",
+      "addr": "Shambhu Nagar, Near Pyramid City, Jaripatka, Nagpur, Maharashtra 440014, India",
+      "pin": "440014",
+      "lat": 21.192,
+      "lng": 79.0864
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "ONE DAY PASS",
+       235,
+       "InStock"
+      ]
+     ],
+     "low": 235,
+     "high": 235
+    }
+   ]
+  },
+  {
+   "k": "activities/rass-garba-event/ET00521515",
+   "url": "https://in.bookmyshow.com/activities/rass-garba-event/ET00521515",
+   "about": "October 11-19, 2026\n7 PM-10 PM\nChakradhar Nagar Ground, Nagpur\nCentral India's biggest Garba Celebration",
+   "meta": null,
+   "events": [
+    {
+     "type": "Event",
+     "name": "Rass Garba Event",
+     "start": "2026-10-13T19:00:00+05:30",
+     "end": "2026-10-13T20:00:00+05:30",
+     "door": "19:00",
+     "duration": "PT1H",
+     "lang": [
+      "English",
+      "Hindi",
+      "Marathi"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-rass-garba-event-0-2026-10-8-t-20-13-59.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-rass-garba-event-0-2026-10-8-t-20-13-59.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Chakradhar Nagar Ground: Nagpur",
+      "addr": "Lane No 4, Chakradhar Nagar,Jawahar Nagar, Ayodhya nagar, Nagpur, Maharashtra 440024, India",
+      "pin": "440024",
+      "lat": 21.1206,
+      "lng": 79.1099
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "PHASE 1",
+       149,
+       "InStock"
+      ],
+      [
+       "GROUP 20 PERSON",
+       999,
+       "InStock"
+      ],
+      [
+       "SEASON PASS",
+       999,
+       "InStock"
+      ]
+     ],
+     "low": 149,
+     "high": 999
+    }
+   ]
+  },
+  {
+   "k": "activities/coscon-x-ota-tokyo/ET00517349",
+   "url": "https://in.bookmyshow.com/activities/coscon-x-ota-tokyo/ET00517349",
+   "about": "Get ready for a special Japanese anime and culture experience at COSCON\nThis year COSCON joins hands with OTA TOKYO to bring the famous Shibuya Halloween feeling to Nagpur\nCome dressed as your favourite anime character and enjoy cosplay music games Japanese food contest, live shows and much more!!",
+   "meta": null,
+   "events": [
+    {
+     "type": "Event",
+     "name": "COSCON X OTA TOKYO",
+     "start": "2026-11-21T11:00:00+05:30",
+     "end": "2026-11-21T21:00:00+05:30",
+     "door": "11:00",
+     "duration": "PT10H",
+     "lang": [
+      "English",
+      "Hindi",
+      "Japanese"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-coscon-x-ota-tokyo-0-2026-9-23-t-13-1-7.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-coscon-x-ota-tokyo-0-2026-9-23-t-13-1-7.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Sequel Toyota: Nagpur",
+      "addr": "P.No.44/4, Sequel Cars Pvt. Ltd, Wanjara Layout, Kamptee Road, Pili Nadi, Nagpur, Maharashtra 440026, India",
+      "pin": "440026",
+      "lat": 21.192,
+      "lng": 79.1292
+     },
+     "org": "BookMyShow",
+     "performer": [
+      "Kanapon"
+     ],
+     "offers": [
+      [
+       "REGULAR DAY 2 PASS",
+       169,
+       "InStock"
+      ]
+     ],
+     "low": 169,
+     "high": 169
+    }
+   ]
+  },
+  {
+   "k": "activities/timezone-virtuous-retail-mall-nagpur/ET00502262",
+   "url": "https://in.bookmyshow.com/activities/timezone-virtuous-retail-mall-nagpur/ET00502262",
+   "about": "Looking for places to visit or some fun things to do? Step into a realm of gaming excellence at Timezone. The venue hosts Arcade Games that cater to every age groups — from Virtual Rabbids & Dark Mars VR to Krazee Whirl, Bowling, and more! Challenge your friends, set high scores, and immerse yourself in a world of gaming wonder. Whip out your Timezone Powercard and rack up those Powertickets today and grab the most amazing merchandises from the Prize shop! Let the good times roll at Timezone.",
+   "meta": null,
+   "events": [
+    {
+     "type": "Event",
+     "name": "Timezone Virtuous Retail Mall Nagpur",
+     "start": "2026-10-13T11:00:00+05:30",
+     "end": "2026-10-13T13:00:00+05:30",
+     "door": "15:00",
+     "lang": [
+      "Multi-language"
+     ],
+     "age": "All age groups",
+     "img": [
+      "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-timezone-virtuous-retail-mall-nagpur-1-2026-9-29-t-16-41-25.jpg",
+      "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-timezone-virtuous-retail-mall-nagpur-1-2026-9-29-t-16-41-26.jpg"
+     ],
+     "status": "EventScheduled",
+     "loc": {
+      "name": "Timezone Virtuous Retail Mall: Nagpur",
+      "addr": "Rambagh Layout, Untkhana, Nagpur, Maharashtra 440003, India",
+      "pin": "440003",
+      "lat": 21.133,
+      "lng": 79.0965
+     },
+     "org": "BookMyShow",
+     "performer": [],
+     "offers": [
+      [
+       "Play Combo",
+       1061,
+       "InStock"
+      ],
+      [
+       "Super Credits",
+       1003,
+       "InStock"
+      ],
+      [
+       "Steal Deal",
+       590,
+       "InStock"
+      ]
+     ],
+     "low": 590,
+     "high": 1061
+    }
+   ]
+  }
+ ],
+ "attractions": [
+  {
+   "k": "activities/dreamasia-water-adventure-park-nagpur/ET00404517",
+   "url": "https://in.bookmyshow.com/activities/dreamasia-water-adventure-park-nagpur/ET00404517",
+   "about": "Your journey to Magic starts right here at Dreamasia Theme Park! Vidarbh’s best destination of fun and adventure, is located at Tarabodi, Katol road, right outside Nagpur city. From thrilling activities to chilling family attractions, Dreamasia has it all! This park combines aqua fun and ultimate adventure with Wavy Wonder Water Park and Active Adventure Park. Experience the true thrill with 40+ attractions and 11 Zones! This park offers adrenaline-pumping adventure rides and attractions, thrilling water slides, and family and kid-friendly attractions like the wave pool, lazy river, rain dance, and more! Double up on the entertainment with our special Evening Entertainment show with mesmerizing performances! Enjoy top-notch services for convenience and scrumptious food that will take your taste buds for a ride! If you’re a thrill-seeker looking to have a fantastic retreat, Dreamasia is the perfect spot for you! Whether you’re a family, a fun friend group, or a big squad, we are happy to welcome everyone! So, get your ticket now and enter a magical world of fantasy! Free entry for individuals below 3.3 feet in height. No entry is allowed for stags.",
+   "ld": {
+    "@context": "https://schema.org",
+    "@type": "AmusementPark",
+    "name": "Dreamasia Water & Adventure Park Nagpur",
+    "url": "https://in.bookmyshow.com/activities/dreamasia-water-adventure-park-nagpur/ET00404517",
+    "description": "Why book only on BookMyShow? Top Bank Offers: Get top bank offers to save more Zero Booking Fee: Pay no extra charges on your tickets Same Prices: No hidden markups, guaranteed All Prices are Inclusive of Taxes: What you see is what you pay Exclusive Group Offers & Combos: Enjoy added value when booking together Your journey to Magic starts right here at Dreamasia Theme Park! Vidarbh’s best destination of fun and adventure, is located at Tarabodi, Katol road, right outside Nagpur city. From thrilling activities to chilling family attractions, Dreamasia has it all! This park combines aqua fun and ultimate adventure with Wavy Wonder Water Park and Active Adventure Park. Experience the true thrill with 40+ attractions and 11 Zones! This park offers adrenaline-pumping adventure rides and attractions, thrilling water slides, and family and kid-friendly attractions like the wave pool, lazy river, rain dance, and more! Double up on the entertainment with our special Evening Entertainment show with mesmerizing performances! Enjoy top-notch services for convenience and scrumptious food that will take your taste buds for a ride! If you’re a thrill-seeker looking to have a fantastic retreat, Dreamasia is the perfect spot for you! Whether you’re a family, a fun friend group, or a big squad, we are happy to welcome everyone! So, get your ticket now and enter a magical world of fantasy! Free entry for individuals below 3.3 feet in height. No entry is allowed for stags.",
+    "isAccessibleForFree": false,
+    "touristType": [
+     "Families with Children",
+     "Friends",
+     "Couples"
+    ],
+    "availableLanguage": [
+     "Multi-language"
+    ],
+    "openingHoursSpecification": [
+     {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+       "Monday",
+       "Tuesday",
+       "Wednesday",
+       "Thursday",
+       "Friday",
+       "Saturday",
+       "Sunday"
+      ],
+      "opens": "10:00",
+      "closes": "20:00"
+     }
+    ],
+    "image": [
+     "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-dreamasia-water-adventure-park-nagpur-0-2026-5-20-t-11-17-21.jpg",
+     "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-dreamasia-water-adventure-park-nagpur-0-2025-6-18-t-6-9-30.jpg"
+    ],
+    "address": {
+     "@type": "PostalAddress",
+     "addressCountry": "IN",
+     "addressLocality": "Nagpur",
+     "addressRegion": "MH",
+     "postalCode": "441302",
+     "streetAddress": "Tarabodi, Katol Road, Nagpur, Maharashtra 441302, India"
+    },
+    "geo": {
+     "@type": "GeoCoordinates",
+     "latitude": 21.2437,
+     "longitude": 78.7103
+    },
+    "offers": {
+     "@type": "AggregateOffer",
+     "url": "https://in.bookmyshow.com/activities/dreamasia-water-adventure-park-nagpur/ET00404517",
+     "priceCurrency": "INR",
+     "lowPrice": 799,
+     "highPrice": 3496,
+     "availability": "https://schema.org/InStock"
+    }
+   },
+   "img": [
+    "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-dreamasia-water-adventure-park-nagpur-0-2026-5-20-t-11-17-21.jpg",
+    "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-dreamasia-water-adventure-park-nagpur-0-2025-6-18-t-6-9-30.jpg"
+   ]
+  },
+  {
+   "k": "activities/lighthouse-waterpark-monsoon-is-here/ET00502982",
+   "url": "https://in.bookmyshow.com/activities/lighthouse-waterpark-monsoon-is-here/ET00502982",
+   "about": "Important Information\nTicket Pricing and Height Criteria\nAdult Ticket Rs.399\nChildren between 2.5 feet and 4.3 feet height Rs.399\nChildren below 2.5 feet height have free entry.\nStag Entry Strictly Prohibited (Boys-only groups are not allowed).\nNo Cancellation and No Refund.\nCostumes are included in the ticket price. A refundable security deposit of Rs.100 per costume is required at the time of issue.\nAbout Lighthouse Waterpark and Resort\nCentral India largest ocean-themed Waterpark and Resort, located on NH-44, Mansar, approximately 40 km from Nagpur.\nA perfect destination for families, couples and corporate groups seeking fun, adventure and relaxation.\nAttractions Include\nWaterpark\n15+ Thrilling Water Slides, Wave Pool, Rain Dance, Waterfall, Live DJ, Kids Play Area, Family Pool, Tots Pool and more.\nAmusement Park\n10+ Exciting Rides including the Water Shoot Roller Coaster.\nSuvi Bird Park\nHome to 1000+ Birds along with a Cultural Park.\nInternational Mermaid Show\nNagpur one-and-only Mermaid Show.\nCultural Park\nEnjoy cultural activities and entertainment throughout the day.\nVisitor Advisory\nDuring weekends, holidays and summer season, heavy footfall may lead to queues at ticket counters and entry gates. Entry waiting time may vary between 5 to 30 minutes depending on the crowd.",
+   "ld": {
+    "@context": "https://schema.org",
+    "@type": "AmusementPark",
+    "name": "Lighthouse Waterpark ",
+    "url": "https://in.bookmyshow.com/activities/lighthouse-waterpark-monsoon-is-here/ET00502982",
+    "description": "Book online tickets for Lighthouse Waterpark in Nagpur on BookMyShow which is  amusement-parks event",
+    "isAccessibleForFree": false,
+    "touristType": [
+     "Families with Children",
+     "Friends",
+     "Couples"
+    ],
+    "availableLanguage": [
+     "English",
+     "Hindi",
+     "Marathi"
+    ],
+    "openingHoursSpecification": [
+     {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+       "Monday",
+       "Tuesday",
+       "Wednesday",
+       "Thursday",
+       "Friday",
+       "Saturday",
+       "Sunday"
+      ],
+      "opens": "10:00",
+      "closes": "20:00"
+     }
+    ],
+    "image": [
+     "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-lighthouse-waterpark-0-2026-9-16-t-15-0-20.jpg",
+     "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-lighthouse-waterpark-0-2026-9-16-t-15-0-20.jpg"
+    ],
+    "address": {
+     "@type": "PostalAddress",
+     "addressCountry": "IN",
+     "addressLocality": "Nagpur",
+     "addressRegion": "MH",
+     "postalCode": "441401",
+     "streetAddress": "NH 44, Mansar, Next to Suvi Bird Park, Nagpur, Maharashtra 441401, India"
+    },
+    "geo": {
+     "@type": "GeoCoordinates",
+     "latitude": 21.3901,
+     "longitude": 79.2588
+    },
+    "offers": {
+     "@type": "AggregateOffer",
+     "url": "https://in.bookmyshow.com/activities/lighthouse-waterpark-monsoon-is-here/ET00502982",
+     "priceCurrency": "INR",
+     "lowPrice": 399,
+     "highPrice": 599,
+     "availability": "https://schema.org/InStock"
+    }
+   },
+   "img": [
+    "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-lighthouse-waterpark-0-2026-9-16-t-15-0-20.jpg",
+    "https://assets-in.bmscdn.com/nmcms/events/banner/mobile/media-mobile-lighthouse-waterpark-0-2026-9-16-t-15-0-20.jpg"
+   ]
+  }
+ ]
+}

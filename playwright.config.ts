@@ -23,7 +23,7 @@ export default defineConfig({
   ],
   webServer: {
     // A fresh, seeded database for every run.
-    command: `tsx scripts/db.ts reset && next start -p ${PORT}`,
+    command: `tsx scripts/db.ts reset --demo && next start -p ${PORT}`,
     port: PORT,
     reuseExistingServer: false,
     env: {

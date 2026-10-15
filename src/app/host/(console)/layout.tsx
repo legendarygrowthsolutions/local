@@ -15,7 +15,7 @@ export default async function HostConsoleLayout({ children }: { children: React.
       hasVenues={venues.length > 0 || ctx.host.type === "venue"}
       memberships={ctx.memberships.map((m) => ({ id: m.host.id, brandName: m.host.brandName, role: m.member.role }))}
       userName={ctx.user.name ?? ctx.user.phone}
-      citySlug={city?.slug ?? "mumbai"}
+      citySlug={city?.slug ?? "nagpur"}
     >
       {children}
     </HostShell>

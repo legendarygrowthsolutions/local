@@ -101,7 +101,7 @@ export function LoginFlow() {
                 <br />
                 in <span className="text-brand">your city.</span>
               </h1>
-              <p className="text-[15px] leading-[1.45] text-muted lg:text-lg">Events, meetups, workshops and courts — discover and book in a tap.</p>
+              <p className="text-[15px] leading-[1.45] text-muted lg:text-lg">Events, meetups, workshops and courts. Find something and book it in a tap.</p>
             </div>
             </div>
             <div className="mt-auto flex flex-col gap-5 lg:mt-0 lg:rounded-[28px] lg:border lg:border-line lg:bg-surface lg:p-8 lg:shadow-[0_24px_64px_-32px_rgb(12_35_38/0.25)]">

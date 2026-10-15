@@ -112,7 +112,7 @@ export function ApplyForm({ cities, defaults, phone }: { cities: { id: string; n
         </h1>
         <p className="text-sm leading-[1.45] text-muted">
           {step === 0
-            ? "Listing is free. Paid ticketing unlocks after KYC. Every host is reviewed by our team."
+            ? "Listing is free. You can sell paid tickets after KYC. Every host is reviewed by our team."
             : step === 1
               ? `A few details so our team can verify you. We'll contact you on +91 ${phone}.`
               : "Check everything before you send it."}
@@ -291,9 +291,9 @@ export function ApplyForm({ cities, defaults, phone }: { cities: { id: string; n
                 ["Brand", v.brandName],
                 ["City", cities.find((c) => c.id === v.cityId)?.name],
                 ["Contact", `${v.contactName} · +91 ${phone}`],
-                ["Socials", [v.instagram, v.website].filter(Boolean).join(" · ") || "—"],
-                ["Selling tickets", v.wantsPaid ? "Yes — verification needed" : "No, free listings"],
-                ["Documents", v.documents.map((d) => d.fileName).join(", ") || "—"],
+                ["Socials", [v.instagram, v.website].filter(Boolean).join(" · ") || "-"],
+                ["Selling tickets", v.wantsPaid ? "Yes, verification needed" : "No, free listings"],
+                ["Documents", v.documents.map((d) => d.fileName).join(", ") || "-"],
               ].map(([k, val]) => (
                 <div key={k} className="flex justify-between gap-4 px-4 py-3 text-sm">
                   <dt className="text-muted">{k}</dt>

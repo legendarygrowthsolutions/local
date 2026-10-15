@@ -97,7 +97,7 @@ export default async function MePage() {
                 </>
               )}
             </span>
-            <span className="text-[13px] text-feature-muted">{isHost ? `${hostOf.host.brandName} · ${hostOf.member.role}` : hostOf ? "Check your application status" : "List events or your venue — free listing"}</span>
+            <span className="text-[13px] text-feature-muted">{isHost ? `${hostOf.host.brandName} · ${hostOf.member.role}` : hostOf ? "Check your application status" : "List your events or venue for free"}</span>
           </span>
           <span className="relative grid size-9 place-items-center rounded-full bg-spark text-spark-ink" aria-hidden>
             <ChevronRight className="size-5" />

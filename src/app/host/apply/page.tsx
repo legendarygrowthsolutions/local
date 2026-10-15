@@ -72,9 +72,6 @@ export default async function HostApply({ searchParams }: { searchParams: Promis
       <Button asChild size="lg" block>
         <Link href={user ? "/onboarding?next=/host/apply" : "/login?next=/host/apply"}>Log in to apply</Link>
       </Button>
-      {process.env.NODE_ENV !== "production" && (
-        <p className="text-center text-xs text-subtle">Development: demo owners 90000 00002 (events) and 90000 00003 (courts); manager 90000 00004.</p>
-      )}
     </Shell>
   );
 }

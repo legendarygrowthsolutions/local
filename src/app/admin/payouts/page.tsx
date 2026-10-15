@@ -1,9 +1,10 @@
 import { requireAdminPage } from "@/lib/guards";
 import Link from "next/link";
-import { adminPayouts } from "@/services/admin";
+import { adminPayouts } from "@/services/payouts";
+import { DuePayouts, PayoutHistory } from "@/components/admin/payout-ledger";
 import { AdminPage } from "@/components/admin/page-bits";
 import { formatINR } from "@/lib/pricing";
-import { formatDate } from "@/lib/time";
+import { formatDate, istParts } from "@/lib/time";
 import { cn } from "@/lib/utils";
 
 export const metadata = { title: "Payouts & fees" };
@@ -11,51 +12,26 @@ export const metadata = { title: "Payouts & fees" };
 export default async function PayoutsPage() {
   await requireAdminPage();
   const d = await adminPayouts();
+  const today = istParts().ymd;
   return (
-    <AdminPage title="Payouts & fees" sub="Hosts are paid weekly for bookings made Monday to Sunday, on the following Wednesday. Attendees pay the convenience fee." wide>
+    <AdminPage
+      title="Payouts & fees"
+      sub="Hosts are paid by hand each week for bookings made Monday to Sunday, on the following Wednesday. Send the money, then record it here with the UTR. Coupons and the convenience fee sit with the platform, so hosts get the full ticket value less refunds."
+      wide
+    >
       <div className="grid gap-4 sm:grid-cols-3">
-        <Stat label={`This cycle · ${d.current.label}`} value={formatINR(d.current.net)} sub={`Pays out ${formatDate(d.current.payoutDate)}`} />
-        <Stat label={`Last cycle · ${d.previous.label}`} value={formatINR(d.previous.net)} sub={d.previous.paid ? `Paid ${formatDate(d.previous.payoutDate)}` : `Pays out ${formatDate(d.previous.payoutDate)}`} />
-        <Stat dark label="Platform fees · this cycle" value={formatINR(d.current.fees)} sub="Convenience fee + GST collected" />
+        <Stat dark label="Due to hosts" value={formatINR(d.dueTotal)} sub={d.due.length ? `${d.due.length} ${d.due.length === 1 ? "payout" : "payouts"} to send` : "All caught up"} />
+        <Stat label={`This week so far · ${d.current.label}`} value={formatINR(d.current.net)} sub={`Due ${formatDate(d.current.dueOn)}`} />
+        <Stat label="Platform fees · this week" value={formatINR(d.current.fees)} sub={`Convenience fee + GST. Coupons cost ${formatINR(d.current.couponCost)}`} />
       </div>
 
-      <section className="overflow-x-auto rounded-2xl border border-[#e6e6e1] bg-surface">
-        <h2 className="px-5 pb-1 pt-4 font-display text-lg font-bold">Host payouts</h2>
-        {d.rows.length === 0 ? (
-          <p className="px-5 pb-5 text-sm text-muted">No paid bookings in the last two cycles.</p>
-        ) : (
-          <table className="w-full min-w-[720px] text-sm">
-            <thead>
-              <tr className="text-left text-xs text-muted">
-                {["Host", "KYC", "Bookings", "Gross", "Refunds", "Net this cycle", "Last cycle"].map((h) => (
-                  <th key={h} className="border-b border-[#e6e6e1] px-5 py-2.5 font-semibold">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {d.rows.map((r) => (
-                <tr key={r.id} className="border-b border-line last:border-0">
-                  <td className="px-5 py-3">
-                    <Link href={`/admin/hosts?tab=approved&id=${r.id}`} className="font-semibold hover:text-brand-ink">
-                      {r.brandName}
-                    </Link>
-                    <span className="block text-xs text-muted">{r.city}</span>
-                  </td>
-                  <td className="px-5 py-3">
-                    <span className={cn("rounded-full px-2 py-0.5 text-xs font-bold", r.kycStatus === "verified" ? "bg-free-tint text-free" : "bg-warn-tint text-warn")}>{r.kycStatus === "verified" ? "Verified" : "On hold"}</span>
-                  </td>
-                  <td className="px-5 py-3 tabular-nums">{r.current.bookings}</td>
-                  <td className="px-5 py-3 tabular-nums">{formatINR(r.current.gross)}</td>
-                  <td className="px-5 py-3 tabular-nums text-muted">{r.current.refunds ? `− ${formatINR(r.current.refunds)}` : "—"}</td>
-                  <td className="px-5 py-3 font-semibold tabular-nums">{formatINR(r.current.net)}</td>
-                  <td className="px-5 py-3 tabular-nums text-muted">{formatINR(r.previous.net)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+      <section className="rounded-2xl border border-[#e6e6e1] bg-surface">
+        <h2 className="px-5 pb-1 pt-4 font-display text-lg font-bold">Due for payout</h2>
+        <DuePayouts rows={d.due} today={today} />
+      </section>
+
+      <section className="rounded-2xl border border-[#e6e6e1] bg-surface">
+        <PayoutHistory rows={d.history} />
       </section>
 
       <section className="overflow-x-auto rounded-2xl border border-[#e6e6e1] bg-surface">
@@ -83,8 +59,8 @@ export default async function PayoutsPage() {
                     {f.name}
                   </Link>
                 </td>
-                <td className="px-5 py-3">{f.pricing === "free" ? "—" : [f.convenienceFeePct ? `${f.convenienceFeePct}%` : null, f.convenienceFeeFlat ? formatINR(f.convenienceFeeFlat) : null].filter(Boolean).join(" + ") || "None"}</td>
-                <td className="px-5 py-3">{f.pricing === "free" ? "—" : `${f.gstOnFeePct}%`}</td>
+                <td className="px-5 py-3">{f.pricing === "free" ? "Nil" : [f.convenienceFeePct ? `${f.convenienceFeePct}%` : null, f.convenienceFeeFlat ? formatINR(f.convenienceFeeFlat) : null].filter(Boolean).join(" + ") || "None"}</td>
+                <td className="px-5 py-3">{f.pricing === "free" ? "Nil" : `${f.gstOnFeePct}%`}</td>
                 <td className="px-5 py-3">{f.absorbFeeAllowed ? "Yes" : "No"}</td>
               </tr>
             ))}

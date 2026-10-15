@@ -44,7 +44,7 @@ export function MyBookings({ city }: { city?: { slug: string; name: string } }) 
         <EmptyState
           icon={<Ticket className="size-5" />}
           title={tab === "upcoming" ? "No plans yet" : tab === "past" ? "Nothing here yet" : "No cancellations"}
-          body={tab === "upcoming" ? "Find something fun this weekend — your tickets will show up here." : undefined}
+          body={tab === "upcoming" ? "Your tickets will show up here once you book something." : undefined}
           action={
             tab === "upcoming" ? (
               <Button asChild size="sm">

@@ -1,23 +1,32 @@
 /**
  * Database CLI (dialect follows DATABASE_URL; defaults to SQLite at ./data/local.db).
  *   npm run db:migrate   apply pending migrations
- *   npm run db:seed      seed demo data (only into an empty database)
- *   npm run db:reset     drop everything, migrate, seed (SQLite file is recreated)
- *   npm run db:ensure    migrate, and seed if empty — used by `npm run dev`
+ *   npm run db:seed      load the reference data (launch city, areas, categories, templates) into an empty database
+ *   npm run db:demo      load the reference data plus the DEVELOPMENT demo dataset (fake users, hosts, bookings)
+ *   npm run db:reset     drop everything, migrate, load reference data (add --demo for the demo dataset)
+ *   npm run db:ensure    migrate, and load reference data if empty — used by `npm run dev`
  *   npm run db:schema    write db/schema.sql (SQLite DDL snapshot, for reference)
+ *
+ * The demo dataset is for local development and the test suites only. It refuses to run when
+ * NODE_ENV=production.
  */
 import { existsSync, rmSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { sql } from "kysely";
 import { createDb, databaseUrl, dialectName } from "../src/db/client";
 import { migrateToLatest, migrations } from "../src/db/migrate";
-import { seedDatabase } from "../src/db/seed";
+import { seedDemo, seedReference } from "../src/db/seed";
 
 const cmd = process.argv[2] ?? "ensure";
+const demo = cmd === "demo" || process.argv.includes("--demo");
+if (demo && process.env.NODE_ENV === "production") {
+  console.error("refusing to load the demo dataset with NODE_ENV=production");
+  process.exit(1);
+}
 const url = databaseUrl();
 
-async function isEmpty(db: ReturnType<typeof createDb>) {
-  const row = await db.selectFrom("cities").select((eb) => eb.fn.countAll<number>().as("n")).executeTakeFirst();
+async function isEmpty(db: ReturnType<typeof createDb>, table: "cities" | "users" = "cities") {
+  const row = await db.selectFrom(table).select((eb) => eb.fn.countAll<number>().as("n")).executeTakeFirst();
   return Number(row?.n ?? 0) === 0;
 }
 
@@ -47,9 +56,13 @@ async function main() {
       console.log("wrote db/schema.sql");
       return;
     }
-    if (await isEmpty(db)) {
-      const r = await seedDatabase(db);
-      console.log(`seeded: ${r.listings} listings, ${r.venues} venues, ${r.bookings} bookings, ${r.views} view-days`);
+    if (demo) {
+      if (await isEmpty(db, "users")) {
+        const r = await seedDemo(db);
+        console.log(`seeded demo data: ${r.listings} listings, ${r.venues} venues, ${r.bookings} bookings, ${r.views} view-days`);
+      } else console.log("database already has users; use `npm run db:reset -- --demo` to start over");
+    } else if (await isEmpty(db)) {
+      console.log(`seeded reference data: ${await seedReference(db)} rows`);
     } else if (cmd === "seed") {
       console.log("database already has data; use `npm run db:reset` to start over");
     }

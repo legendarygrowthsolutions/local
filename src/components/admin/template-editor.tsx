@@ -74,7 +74,7 @@ export function TemplateEditor({
     setSaving(true);
     try {
       const r = await api<{ template: JourneyTemplate }>(id ? `/api/admin/templates/${id}` : "/api/admin/templates", { method: id ? "PUT" : "POST", body: full });
-      toast.success(id ? "Template saved — journeys update straight away" : "Template created");
+      toast.success(id ? "Template saved. Booking flows update straight away." : "Template created");
       router.push(`/admin/templates?id=${r.template.id}`);
       router.refresh();
     } catch (e) {
@@ -98,7 +98,7 @@ export function TemplateEditor({
           <Seg className="md:col-span-3 md:max-w-xl" label="Booking mode" value={t.bookingMode} disabled={!!id && usage.total > 0} onChange={(v) => set({ bookingMode: v as TemplateInput["bookingMode"] })} options={[["none", "Info only"], ["rsvp", "Free RSVP"], ["ticketed", "Ticketed"], ["slot", "Slot booking"], ["registration", "Registration"]]} />
           <Seg label="Schedule" value={t.schedule} onChange={(v) => set({ schedule: v as TemplateInput["schedule"] })} options={[["single", "Single"], ["multi_day", "Multi-day"], ["recurring", "Recurring"], ["date_range", "Range"], ...(t.bookingMode === "slot" ? ([["open_hours", "Hours"]] as [string, string][]) : [])]} />
           <Seg label="Pricing" value={t.pricing} onChange={(v) => set({ pricing: v as TemplateInput["pricing"] })} options={[["free", "Free"], ["paid", "Paid"], ["both", "Both"]]} />
-          <Seg label="Ticket scope" value={t.ticketScope ?? ""} onChange={(v) => set({ ticketScope: (v || null) as TemplateInput["ticketScope"] })} options={[["per_session", "Per day"], ["pass", "Pass"], ["both", "Both"], ["", "—"]]} />
+          <Seg label="Ticket scope" value={t.ticketScope ?? ""} onChange={(v) => set({ ticketScope: (v || null) as TemplateInput["ticketScope"] })} options={[["per_session", "Per day"], ["pass", "Pass"], ["both", "Both"], ["", "None"]]} />
         </div>
       </section>
 

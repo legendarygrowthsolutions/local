@@ -4,7 +4,7 @@ import type {
   Booking, Category, CategoryInput, City, CityInput, Host, JourneyTemplate, Listing, TemplateInput, User, Venue,
 } from "@/contracts";
 import { repo } from "@/repositories";
-import { addDays, formatDate, formatWhen, istParts } from "@/lib/time";
+import { formatWhen, istParts } from "@/lib/time";
 import { ServiceError, badRequest, conflict, notFound } from "./errors";
 import { applyListing, listingInputFor, resolveHostContext } from "./host";
 import { cancelWithRefund } from "./payments";
@@ -205,7 +205,7 @@ export async function listModeration(tab: ModerationTab, cityId?: string, now = 
       id: l.id,
       kind: "event",
       title: l.title,
-      hostName: host?.brandName ?? "—",
+      hostName: host?.brandName ?? "-",
       hostKyc: host?.kycStatus ?? "none",
       cityName: city(l.cityId)?.name ?? "",
       citySlug: city(l.cityId)?.slug ?? "",
@@ -234,9 +234,9 @@ export async function listModeration(tab: ModerationTab, cityId?: string, now = 
       details: [
         ["Venue", `${l.venueName}, ${areas.find((a) => a.id === l.areaId)?.name ?? ""}`],
         ["Address", l.address],
-        ["Tickets", lt.length ? lt.map((t) => `${t.name} ₹${t.price}${t.qty < 9999 ? ` × ${t.qty}` : ""}`).join(", ") : "—"],
+        ["Tickets", lt.length ? lt.map((t) => `${t.name} ₹${t.price}${t.qty < 9999 ? ` × ${t.qty}` : ""}`).join(", ") : "-"],
         ["Age · language", `${l.ageLimit} · ${l.languages.join(", ")}`],
-        ["Questions", l.formFields.map((f) => f.label).join(", ") || "—"],
+        ["Questions", l.formFields.map((f) => f.label).join(", ") || "-"],
       ],
     });
   }
@@ -250,17 +250,17 @@ export async function listModeration(tab: ModerationTab, cityId?: string, now = 
       id: v.id,
       kind: "venue",
       title: v.name,
-      hostName: host?.brandName ?? "—",
+      hostName: host?.brandName ?? "-",
       hostKyc: host?.kycStatus ?? "none",
       cityName: city(v.cityId)?.name ?? "",
       citySlug: city(v.cityId)?.slug ?? "",
       areaName: areas.find((a) => a.id === v.areaId)?.name ?? "",
       categoryLabel: `Sports · ${v.sports.join(", ")}`,
-      templateName: v.templateId === "tpl_court_30" ? "Court slots — 30 min" : "Court slots — hourly",
+      templateName: templates.find((t) => t.id === v.templateId)?.name ?? "Court slots",
       summary: v.summary,
       description: v.description,
       whenLabel: `${vr.length} courts · ${v.hoursLabel}`,
-      priceLabel: prices.length ? `₹${Math.min(...prices)}+/hr` : "—",
+      priceLabel: prices.length ? `₹${Math.min(...prices)}+/hr` : "-",
       media: v.media,
       status: v.status,
       featured: v.featuredRank !== null,
@@ -278,7 +278,7 @@ export async function listModeration(tab: ModerationTab, cityId?: string, now = 
       details: [
         ["Address", v.address],
         ["Courts", vr.map((r) => `${r.name} (${r.sport}, ${r.slotLengthMins}m)`).join(", ")],
-        ["Amenities", v.amenities.join(", ") || "—"],
+        ["Amenities", v.amenities.join(", ") || "-"],
       ],
     });
   }
@@ -375,24 +375,24 @@ function mergeOperational(rev: ListingInput, cur: ListingInput): ListingInput {
 /** Human-readable before → after for the fields an edit touches. */
 function revisionChanges(cur: ListingInput, next: ListingInput, areas: { id: string; name: string }[], cats: { id: string; name: string }[]): [string, string, string][] {
   const out: [string, string, string][] = [];
-  const add = (label: string, a: unknown, b: unknown, fmt: (v: never) => string = (v) => String(v ?? "—")) => {
+  const add = (label: string, a: unknown, b: unknown, fmt: (v: never) => string = (v) => String(v ?? "-")) => {
     if (JSON.stringify(a) !== JSON.stringify(b)) out.push([label, fmt(a as never), fmt(b as never)]);
   };
   const area = (id: string) => areas.find((a) => a.id === id)?.name ?? id;
-  const cat = (id: string | null) => (id ? (cats.find((c) => c.id === id)?.name ?? id) : "—");
+  const cat = (id: string | null) => (id ? (cats.find((c) => c.id === id)?.name ?? id) : "-");
   if (cur.kind === "event" && next.kind === "event") {
     add("Title", cur.title, next.title);
     add("Summary", cur.summary, next.summary);
     add("Description", cur.description, next.description, (v: string) => (v.length > 140 ? v.slice(0, 140) + "…" : v));
-    add("Category", [cur.categoryId, cur.subcategoryId], [next.categoryId, next.subcategoryId], (v: [string, string | null]) => [cat(v[0]), cat(v[1])].filter((x) => x !== "—").join(" · "));
+    add("Category", [cur.categoryId, cur.subcategoryId], [next.categoryId, next.subcategoryId], (v: [string, string | null]) => [cat(v[0]), cat(v[1])].filter((x) => x !== "-").join(" · "));
     add("Booking type", cur.templateId, next.templateId);
     add("Venue", cur.venueName, next.venueName);
     add("Area", cur.areaId, next.areaId, area);
     add("Address", cur.address, next.address);
     add("Photos", cur.media, next.media, (v: string[]) => `${v.length} photo${v.length === 1 ? "" : "s"}`);
-    add("Tickets", cur.tickets.map((t) => [t.name, t.price, t.isPass, t.description]), next.tickets.map((t) => [t.name, t.price, t.isPass, t.description]), (v: [string, number][]) => v.map(([n, p]) => `${n} ₹${p}`).join(", ") || "—");
+    add("Tickets", cur.tickets.map((t) => [t.name, t.price, t.isPass, t.description]), next.tickets.map((t) => [t.name, t.price, t.isPass, t.description]), (v: [string, number][]) => v.map(([n, p]) => `${n} ₹${p}`).join(", ") || "-");
     add("Age · languages", [cur.ageLimit, cur.languages], [next.ageLimit, next.languages], (v: [string, string[]]) => `${v[0]} · ${v[1].join(", ")}`);
-    add("Questions", cur.formFields.map((f) => f.label), next.formFields.map((f) => f.label), (v: string[]) => v.join(", ") || "—");
+    add("Questions", cur.formFields.map((f) => f.label), next.formFields.map((f) => f.label), (v: string[]) => v.join(", ") || "-");
     add("External link", cur.externalUrl, next.externalUrl);
   } else if (cur.kind === "venue" && next.kind === "venue") {
     add("Name", cur.name, next.name);
@@ -401,7 +401,7 @@ function revisionChanges(cur: ListingInput, next: ListingInput, areas: { id: str
     add("Area", cur.areaId, next.areaId, area);
     add("Address", cur.address, next.address);
     add("Photos", cur.media, next.media, (v: string[]) => `${v.length} photo${v.length === 1 ? "" : "s"}`);
-    add("Amenities", cur.amenities, next.amenities, (v: string[]) => v.join(", ") || "—");
+    add("Amenities", cur.amenities, next.amenities, (v: string[]) => v.join(", ") || "-");
     add("Booking type", cur.templateId, next.templateId);
     add("Courts", cur.courts.map((c) => [c.name, c.sport, c.priceBase, c.pricePeak]), next.courts.map((c) => [c.name, c.sport, c.priceBase, c.pricePeak]), (v: [string, string, number, number][]) =>
       v.map(([n, s, b, p]) => `${n} (${s}) ₹${b}/₹${p}`).join(", "),
@@ -623,7 +623,7 @@ export async function adminUsers(q?: string) {
           name: u.name,
           phone: u.phone,
           role: u.role,
-          city: cities.find((c) => c.id === u.cityId)?.name ?? "—",
+          city: cities.find((c) => c.id === u.cityId)?.name ?? "-",
           createdAt: u.createdAt,
           bookings: counts.get(u.id) ?? 0,
           hostRoles: ms.map((m, i) => `${hosts[i]?.brandName ?? "?"} (${m.role})`),
@@ -644,61 +644,6 @@ export async function setUserRole(actor: User, id: string, role: "user" | "admin
 // Payouts & fees (platform view of the weekly host payout cycle, same rules as the host console)
 // ---------------------------------------------------------------------------
 
-const PAYOUT_COUNTED: Booking["status"][] = ["confirmed", "checked_in", "requested", "refunded", "cancelled"];
-
-export async function adminPayouts(now = new Date()) {
-  // Two weekly cycles back from this Monday, plus margin.
-  const [hosts, listings, venues, bookings, templates, cities] = await Promise.all([
-    repo.hosts.list(),
-    repo.listings.listAll(),
-    repo.venues.listAll(),
-    createdSince(now, 15),
-    repo.templates.list(),
-    repo.cities.list(),
-  ]);
-  const today = istParts(now).ymd;
-  const wd = new Date(today + "T00:00:00Z").getUTCDay();
-  const monday = addDays(today, -((wd + 6) % 7));
-  const cycle = (from: string) => ({ from, to: addDays(from, 6), payoutDate: addDays(from, 9) });
-  const current = cycle(monday);
-  const previous = cycle(addDays(monday, -7));
-  const sum = (list: Booking[], from: string, to: string) => {
-    const inCycle = list.filter((b) => {
-      const d = istParts(new Date(b.createdAt)).ymd;
-      return d >= from && d <= to && PAYOUT_COUNTED.includes(b.status);
-    });
-    const gross = inCycle.reduce((s, b) => s + b.price.subtotal - b.price.discount, 0);
-    const refunds = inCycle.filter((b) => b.status === "refunded").reduce((s, b) => s + b.price.subtotal - b.price.discount, 0);
-    const fees = inCycle.filter((b) => b.status !== "refunded").reduce((s, b) => s + b.price.convenienceFee + b.price.gstOnFee, 0);
-    return { bookings: inCycle.length, gross: round2(gross), refunds: round2(refunds), net: round2(gross - refunds), fees: round2(fees) };
-  };
-  const rows = hosts
-    .filter((h) => h.status === "approved")
-    .map((h) => {
-      const lids = new Set(listings.filter((l) => l.hostId === h.id).map((l) => l.id));
-      const vids = new Set(venues.filter((v) => v.hostId === h.id).map((v) => v.id));
-      const mine = bookings.filter((b) => (b.listingId && lids.has(b.listingId)) || (b.venueId && vids.has(b.venueId)));
-      return {
-        id: h.id,
-        brandName: h.brandName,
-        city: cities.find((c) => c.id === h.cityId)?.name ?? "",
-        kycStatus: h.kycStatus,
-        current: sum(mine, current.from, current.to),
-        previous: sum(mine, previous.from, previous.to),
-      };
-    })
-    .filter((r) => r.current.bookings + r.previous.bookings > 0)
-    .sort((a, b) => b.current.net - a.current.net);
-  const label = (c: { from: string; to: string }) => `${formatDate(c.from).split(", ")[1]} – ${formatDate(c.to).split(", ")[1]}`;
-  return {
-    current: { ...current, label: label(current), net: round2(rows.reduce((s, r) => s + r.current.net, 0)), fees: round2(rows.reduce((s, r) => s + r.current.fees, 0)) },
-    previous: { ...previous, label: label(previous), net: round2(rows.reduce((s, r) => s + r.previous.net, 0)), paid: previous.payoutDate <= today },
-    rows,
-    fees: templates.map((t) => ({ id: t.id, name: t.name, pricing: t.pricing, ...t.fees })),
-  };
-}
-
-const round2 = (n: number) => Math.round(n * 100) / 100;
 
 // ---------------------------------------------------------------------------
 // Homepage & banners: what each city's home leads with

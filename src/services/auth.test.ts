@@ -75,6 +75,24 @@ describe("verifyOtp", () => {
     expect(await code(verifyOtp(phone, devCode!, ip, sec(t0, 6)))).toMatchObject({ status: 400, code: "otp_expired" });
   });
 
+  it("SUPERADMIN_PHONES promotes those numbers to admin on sign-in, new or existing", async () => {
+    const a = fresh();
+    const b = fresh();
+    const existing = await repo.users.insert({ id: `u_sa_${seq}`, phone: b.phone, name: "Existing", gender: null, dob: null, cityId: null, interests: [], role: "user", saved: [], following: [], createdAt: new Date().toISOString() });
+    process.env.SUPERADMIN_PHONES = `+91 ${a.phone}, ${b.phone}`;
+    try {
+      const ra = await verifyOtp(a.phone, (await sendOtp(a.phone, a.ip)).devCode!, a.ip);
+      expect(ra.user.role).toBe("admin");
+      const rb = await verifyOtp(b.phone, (await sendOtp(b.phone, b.ip)).devCode!, b.ip);
+      expect(rb.user).toMatchObject({ id: existing.id, role: "admin" });
+    } finally {
+      delete process.env.SUPERADMIN_PHONES;
+    }
+    // Anyone else stays a regular user.
+    const c = fresh();
+    expect((await verifyOtp(c.phone, (await sendOtp(c.phone, c.ip)).devCode!, c.ip)).user.role).toBe("user");
+  });
+
   it("logs an existing user in (not new)", async () => {
     const ip = "10.1.2.3";
     const { devCode } = await sendOtp("9876543210", ip);

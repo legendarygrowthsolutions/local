@@ -1,18 +1,18 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
-import { fixtures, hasHorizontalOverflow, listingFor, login } from "./helpers";
+import { hasHorizontalOverflow, login, nagpur } from "./helpers";
 
-const event = listingFor("tpl_ticket_single");
-const venue = fixtures.venues.find((v) => v.cityId === "c_mumbai")!;
+const event = nagpur.listing("tpl_ticket_single");
+const venue = nagpur.venues[0];
 
 const PUBLIC = [
   ["city picker", "/city"],
-  ["home", "/mumbai"],
-  ["category", "/mumbai/events"],
-  ["sub-category", "/mumbai/sports/pickleball"],
-  ["search", "/mumbai/search?when=weekend"],
-  ["event detail", `/mumbai/e/${event.slug}`],
-  ["venue detail", `/mumbai/v/${venue.slug}`],
+  ["home", "/nagpur"],
+  ["category", "/nagpur/events"],
+  ["sub-category", "/nagpur/sports/pickleball"],
+  ["search", "/nagpur/search?when=weekend"],
+  ["event detail", `/nagpur/e/${event.slug}`],
+  ["venue detail", `/nagpur/v/${venue.slug}`],
   ["login", "/login"],
   ["booking: tickets", `/book/e/${event.id}`],
   ["booking: slots", `/book/v/${venue.id}`],
@@ -35,21 +35,21 @@ for (const [name, path] of PUBLIC) {
 
 test("signed-in areas — user, host, admin", async ({ page }) => {
   await login(page, "9876543210");
-  for (const path of ["/me", "/me/bookings"]) {
+  for (const path of ["/me", "/me/bookings", "/legal"]) {
     await page.goto(path);
     await page.waitForLoadState("networkidle");
     expect(await audit(page), path).toEqual([]);
     expect(await hasHorizontalOverflow(page), path).toBe(false);
   }
   await login(page, "9000000003");
-  for (const path of ["/host", "/host/listings", "/host/bookings", "/host/checkin", "/host/slots", "/host/listings/new"]) {
+  for (const path of ["/host", "/host/listings", "/host/bookings", "/host/checkin", "/host/slots", "/host/listings/new", "/host/payouts"]) {
     await page.goto(path);
     await page.waitForLoadState("networkidle");
     expect(await audit(page), path).toEqual([]);
     expect(await hasHorizontalOverflow(page), path).toBe(false);
   }
   await login(page, "9000000001");
-  for (const path of ["/admin", "/admin/hosts", "/admin/listings", "/admin/templates", "/admin/cities", "/admin/bookings"]) {
+  for (const path of ["/admin", "/admin/hosts", "/admin/listings", "/admin/templates", "/admin/cities", "/admin/bookings", "/admin/payouts", "/admin/coupons"]) {
     await page.goto(path);
     await page.waitForLoadState("networkidle");
     expect(await audit(page), path).toEqual([]);

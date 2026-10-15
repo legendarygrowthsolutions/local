@@ -14,6 +14,12 @@ export interface Coupon {
   minSubtotal?: number;
   /** Last moment the code can be used (ISO), null = no expiry. */
   validUntil?: string | null;
+  /** First moment the code can be used (ISO), null = straight away. */
+  validFrom?: string | null;
+  /** Redemptions allowed across all accounts (null = unlimited). */
+  totalLimit?: number | null;
+  /** Only for bookings in this city (null = every city). */
+  cityId?: string | null;
 }
 
 const r2 = (n: number) => Math.round(n * 100) / 100;

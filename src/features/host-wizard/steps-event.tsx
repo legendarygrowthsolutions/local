@@ -128,7 +128,7 @@ export function EventSetup({ v, set, errors, catalog, host }: P) {
                   onClick={() => set(applyTemplate(v, t, locked))}
                   className={cn("inline-flex h-9 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg px-3 text-[13px] font-semibold transition-colors disabled:opacity-50", on ? "bg-surface text-ink shadow-[0_1px_2px_rgba(20,18,31,.08)]" : "text-muted")}
                 >
-                  {t.name.replace(/^Ticketed — /, "")}
+                  {t.name.replace(/^Ticketed \((.*)\)$/, "$1")}
                   {disabled && <Lock className="size-3" aria-hidden />}
                 </button>
               );

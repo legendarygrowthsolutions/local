@@ -21,16 +21,26 @@ const nowIso = () => new Date().toISOString();
 // (superadmin edits). Cached per process; local writes invalidate, the TTL bounds staleness
 // when several app instances share one database.
 const REF_TTL_MS = 30_000;
-const refCache = new Map<string, { at: number; value: unknown }>();
+// Held on globalThis, per database: Next loads separate module instances for route handlers and pages,
+// and an admin write through an API route must invalidate what pages read too.
+type RefCache = Map<string, { at: number; value: unknown }>;
+const g = globalThis as typeof globalThis & { __localRefCaches?: Map<string, RefCache> };
+function refCache(): RefCache {
+  const caches = (g.__localRefCaches ??= new Map());
+  const url = process.env.DATABASE_URL ?? "";
+  if (!caches.has(url)) caches.set(url, new Map());
+  return caches.get(url)!;
+}
 async function cached<T>(key: string, load: () => Promise<T>): Promise<T> {
-  const hit = refCache.get(key);
+  const hit = refCache().get(key);
   if (hit && Date.now() - hit.at < REF_TTL_MS) return structuredClone(hit.value) as T;
   const value = await load();
-  refCache.set(key, { at: Date.now(), value });
+  refCache().set(key, { at: Date.now(), value });
   return structuredClone(value);
 }
 const invalidate = (prefix: string) => {
-  for (const k of refCache.keys()) if (k.startsWith(prefix)) refCache.delete(k);
+  const cache = refCache();
+  for (const k of cache.keys()) if (k.startsWith(prefix)) cache.delete(k);
 };
 
 // ---------- holds ----------
@@ -448,9 +458,9 @@ export const sqlRepository: Repository = {
       let q = db()
         .selectFrom("bookings as b")
         .select((eb) => eb.fn.countAll<number>().as("n"))
-        .where("b.userId", "=", userId)
         .where("b.couponCode", "=", couponCode)
         .where((eb) => holdsInventory(eb, now));
+      if (userId) q = q.where("b.userId", "=", userId);
       if (exceptId) q = q.where("b.id", "!=", exceptId);
       return Number((await q.executeTakeFirst())?.n ?? 0);
     },
@@ -615,6 +625,21 @@ export const sqlRepository: Repository = {
     update: async (id, patch) => {
       await db().updateTable("payments").set(patch).where("id", "=", id).execute();
     },
+    refundTotals: async (bookingIds) => {
+      const out = new Map<string, number>();
+      if (!bookingIds.length) return out;
+      for (let i = 0; i < bookingIds.length; i += 500) {
+        const rows = await db()
+          .selectFrom("payments")
+          .select(["bookingId", (eb) => eb.fn.sum<number>("amount").as("total")])
+          .where("status", "=", "refund")
+          .where("bookingId", "in", bookingIds.slice(i, i + 500))
+          .groupBy("bookingId")
+          .execute();
+        for (const r of rows) out.set(r.bookingId, M.fromPaise(Number(r.total)));
+      }
+      return out;
+    },
     listByBooking: async (bookingId) =>
       (await db().selectFrom("payments").selectAll().where("bookingId", "=", bookingId).orderBy("createdAt").execute()).map(({ orderId, ...p }) => ({
         ...p,
@@ -700,8 +725,99 @@ export const sqlRepository: Repository = {
       const r = await db().selectFrom("coupons").selectAll().where("code", "=", code.trim().toUpperCase()).where("active", "=", 1).executeTakeFirst();
       return r ? M.couponFromRow(r) : null;
     },
+    byId: async (id) => {
+      const r = await db().selectFrom("coupons").selectAll().where("id", "=", id).executeTakeFirst();
+      return r ? M.couponRecordFromRow(r) : null;
+    },
+    list: async () => (await db().selectFrom("coupons").selectAll().orderBy("code").execute()).map(M.couponRecordFromRow),
+    insert: async (c) => {
+      await db().insertInto("coupons").values(M.couponToRow(c)).execute();
+      return c;
+    },
+    update: async (id, c) => {
+      const { id: _id, ...row } = M.couponToRow(c);
+      void _id;
+      await db().updateTable("coupons").set(row).where("id", "=", id).execute();
+      const r = await db().selectFrom("coupons").selectAll().where("id", "=", id).executeTakeFirst();
+      return r ? M.couponRecordFromRow(r) : null;
+    },
+    remove: async (id) => {
+      await db().deleteFrom("coupons").where("id", "=", id).execute();
+    },
+    usage: async () => {
+      const rows = await db()
+        .selectFrom("bookings")
+        .select(["couponCode", (eb) => eb.fn.countAll<number>().as("uses"), (eb) => eb.fn.sum<number>("discount").as("discount")])
+        .where("couponCode", "is not", null)
+        .where("status", "in", [...SETTLED, "refunded", "cancelled"])
+        .groupBy("couponCode")
+        .execute();
+      return new Map(rows.map((r) => [r.couponCode!, { uses: Number(r.uses), discount: M.fromPaise(Number(r.discount ?? 0)) }]));
+    },
+  },
+
+  payoutAccounts: {
+    get: async (hostId) => {
+      const r = await db().selectFrom("hostPayoutAccounts").selectAll().where("hostId", "=", hostId).executeTakeFirst();
+      return r ? payoutAccountFromRow(r) : null;
+    },
+    list: async (hostIds) => {
+      if (!hostIds.length) return new Map();
+      const rows = await db().selectFrom("hostPayoutAccounts").selectAll().where("hostId", "in", hostIds).execute();
+      return new Map(rows.map((r) => [r.hostId, payoutAccountFromRow(r)]));
+    },
+    upsert: async (hostId, a, by) => {
+      const row = { method: a.method, holderName: a.holderName, accountNumber: a.accountNumber, ifsc: a.ifsc, bankName: a.bankName, upiId: a.upiId, updatedAt: a.updatedAt, updatedBy: by };
+      const res = await db().updateTable("hostPayoutAccounts").set(row).where("hostId", "=", hostId).executeTakeFirst();
+      if (Number(res.numUpdatedRows) === 0) await db().insertInto("hostPayoutAccounts").values({ hostId, ...row }).execute();
+    },
+  },
+
+  payouts: {
+    list: async (filter = {}) => {
+      let q = db().selectFrom("payouts").selectAll();
+      if (filter.hostId) q = q.where("hostId", "=", filter.hostId);
+      return (await q.orderBy("paidOn", "desc").orderBy("createdAt", "desc").execute()).map(payoutFromRow);
+    },
+    byId: async (id) => {
+      const r = await db().selectFrom("payouts").selectAll().where("id", "=", id).executeTakeFirst();
+      return r ? payoutFromRow(r) : null;
+    },
+    insert: async (p) => {
+      await db()
+        .insertInto("payouts")
+        .values({
+          ...p,
+          gross: M.toPaise(p.gross),
+          refunds: M.toPaise(p.refunds),
+          deductions: M.toPaise(p.deductions),
+          adjustment: M.toPaise(p.adjustment),
+          amount: M.toPaise(p.amount),
+        })
+        .execute();
+    },
+    void: async (id, by, reason, at) => {
+      await db().updateTable("payouts").set({ voidedAt: at, voidedBy: by, voidReason: reason }).where("id", "=", id).where("voidedAt", "is", null).execute();
+    },
   },
 };
+
+function payoutAccountFromRow(r: import("@/db/tables").HostPayoutAccountsTable): import("@/contracts").PayoutAccount {
+  return { method: r.method as "bank" | "upi", holderName: r.holderName, accountNumber: r.accountNumber, ifsc: r.ifsc, bankName: r.bankName, upiId: r.upiId, updatedAt: r.updatedAt };
+}
+
+function payoutFromRow(r: import("@/db/tables").PayoutsTable): import("../types").PayoutRecord {
+  return {
+    ...r,
+    bookings: Number(r.bookings),
+    gross: M.fromPaise(r.gross),
+    refunds: M.fromPaise(r.refunds),
+    deductions: M.fromPaise(r.deductions),
+    adjustment: M.fromPaise(r.adjustment),
+    amount: M.fromPaise(r.amount),
+    method: r.method as import("../types").PayoutRecord["method"],
+  };
+}
 
 function revisionFromRow(r: import("@/db/tables").ListingRevisionsTable): import("../types").ListingRevision {
   return { ...r, kind: r.kind as "event" | "venue", status: r.status as "pending" | "approved" | "rejected", input: JSON.parse(r.input) };

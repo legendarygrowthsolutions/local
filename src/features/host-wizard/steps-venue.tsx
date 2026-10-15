@@ -233,7 +233,7 @@ export function VenueCourts({ v, set, errors, catalog }: P) {
           <span className="grid size-[18px] place-items-center rounded bg-ink text-white" aria-hidden>
             <Check className="size-3" strokeWidth={3} />
           </span>
-          Blocking slots for walk-ins and maintenance is always on — use Slots &amp; calendar once you&apos;re live.
+          You can always block slots for walk-ins and maintenance from Slots &amp; calendar once you&apos;re live.
         </p>
       </section>
     </>
@@ -264,7 +264,7 @@ export function VenuePricing({ v, host }: P) {
     <Card title="What players pay" sub="Set base and peak prices per court in Booking setup. 30-minute slots are charged pro rata.">
       {locked && (
         <p className="flex items-center gap-2 rounded-xl bg-warn-tint px-3 py-2 text-sm text-warn">
-          <Lock className="size-4" /> Paid court bookings unlock once your verification is complete.
+          <Lock className="size-4" /> You can take paid court bookings once your verification is complete.
         </p>
       )}
       <div className="overflow-x-auto">

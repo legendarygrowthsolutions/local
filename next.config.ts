@@ -4,7 +4,7 @@ const isDev = process.env.NODE_ENV !== "production";
 // Checkout script origin (overridable for the provider test suite's local stand-in).
 const checkoutOrigin = process.env.RAZORPAY_CHECKOUT_SRC ? new URL(process.env.RAZORPAY_CHECKOUT_SRC).origin : "https://checkout.razorpay.com";
 
-// The only third party is Razorpay Checkout (loaded on the payment screen). Inline scripts are Next's hydration payload (no nonce, so
+// Third parties: Razorpay Checkout (script on the payment screen) and the Google Maps embed (iframe). Inline scripts are Next's hydration payload (no nonce, so
 // pages stay statically optimisable); 'unsafe-eval' is only needed by React Refresh in dev.
 const csp = [
   "default-src 'self'",
@@ -13,7 +13,8 @@ const csp = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   `connect-src 'self' https://api.razorpay.com https://lumberjack.razorpay.com${checkoutOrigin === "https://checkout.razorpay.com" ? "" : ` ${checkoutOrigin}`}${isDev ? " ws:" : ""}`,
-  "frame-src https://api.razorpay.com https://checkout.razorpay.com",
+  // Google Maps Embed on listing pages (NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY).
+  "frame-src https://api.razorpay.com https://checkout.razorpay.com https://www.google.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -37,8 +38,14 @@ const nextConfig: NextConfig = {
   // Native driver; loaded by Node at runtime rather than bundled.
   serverExternalPackages: ["better-sqlite3"],
   images: {
-    // Only our own uploads are optimised (ids are opaque, no query strings).
+    // Our own uploads (ids are opaque, no query strings)…
     localPatterns: [{ pathname: "/media/**", search: "" }],
+    // …and artwork for listings imported from District, BookMyShow and KheloMore (scripts/crawl).
+    remotePatterns: [
+      { protocol: "https", hostname: "cdn.district.in" },
+      { protocol: "https", hostname: "assets-in.bmscdn.com" },
+      { protocol: "https", hostname: "**.khelomore.com" },
+    ],
     minimumCacheTTL: 31536000,
   },
   async headers() {

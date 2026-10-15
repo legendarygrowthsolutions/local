@@ -29,9 +29,9 @@ export function HostDetail({ host }: { host: Row }) {
   const facts: [string, React.ReactNode][] = [
     ["Host type", host.typeLabel],
     ["City", host.cityName],
-    ["Wants paid ticketing", host.wantsPaid ? "Yes" : "No — free only"],
-    ["Instagram", host.instagram ?? "—"],
-    ["GSTIN", host.gstin ?? "—"],
+    ["Wants paid ticketing", host.wantsPaid ? "Yes" : "No, free listings only"],
+    ["Instagram", host.instagram ?? "Not added"],
+    ["GSTIN", host.gstin ?? "Not added"],
     [host.type === "venue" ? "Courts" : "Expected events / mo", host.expectedPerMonth],
   ];
   const busy = decide.isPending;
@@ -72,7 +72,7 @@ export function HostDetail({ host }: { host: Row }) {
           </span>
         </div>
         {host.documents.length === 0 ? (
-          <p className="rounded-xl bg-field p-3 text-sm text-muted">No documents — this host only wants free listings.</p>
+          <p className="rounded-xl bg-field p-3 text-sm text-muted">No documents. This host only wants free listings.</p>
         ) : (
           <ul className="grid gap-2 xl:grid-cols-2">
             {host.documents.map((d) => (
@@ -107,7 +107,7 @@ export function HostDetail({ host }: { host: Row }) {
             ))}
           </ul>
         )}
-        <p className="text-xs text-subtle">Open each file to check it. Verifying PAN and bank proof marks KYC verified and unlocks paid ticketing.</p>
+        <p className="text-xs text-subtle">Open each file to check it. Verifying PAN and bank proof marks KYC verified, so the host can sell paid tickets.</p>
       </div>
 
       {host.instagram && (
@@ -143,7 +143,7 @@ export function HostDetail({ host }: { host: Row }) {
         </div>
       ) : (
         <div className="flex flex-wrap items-center gap-3 border-t border-line pt-5 text-sm text-muted">
-          <span>Approved host. Owner: {host.owner?.name ?? "—"}.</span>
+          <span>Approved host. Owner: {host.owner?.name ?? "Not set"}.</span>
           <Button size="sm" variant="danger" className="ml-auto" disabled={busy || !note.trim()} onClick={() => decide.mutate({ decision: "rejected" })}>
             Suspend
           </Button>

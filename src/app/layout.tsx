@@ -12,7 +12,7 @@ const sans = DM_Sans({ variable: "--font-dm-sans", subsets: ["latin"], display: 
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: `${SITE_NAME} — Everything to do in your city`, template: `%s | ${SITE_NAME}` },
+  title: { default: `${SITE_NAME} | Everything to do in your city`, template: `%s | ${SITE_NAME}` },
   description: "Events, workshops, meetups, exhibitions and sports courts near you. Discover and book in seconds.",
   applicationName: SITE_NAME,
   openGraph: { siteName: SITE_NAME, locale: "en_IN", type: "website" },

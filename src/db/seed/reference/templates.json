@@ -1,0 +1,615 @@
+[
+ {
+  "id": "tpl_info",
+  "name": "Info only",
+  "description": "Free listing, no booking. Directions, calendar and an external link.",
+  "allowedCategories": [
+   "events",
+   "exhibitions",
+   "meetups"
+  ],
+  "bookingMode": "none",
+  "schedule": "single",
+  "pricing": "free",
+  "ticketScope": null,
+  "steps": [],
+  "rules": {
+   "seatHoldMins": 0,
+   "waitlist": false,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 6,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 0,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "none",
+   "hoursBefore": 0,
+   "refundPct": 0
+  },
+  "ctaLabel": "Get directions",
+  "active": true
+ },
+ {
+  "id": "tpl_rsvp",
+  "name": "Free RSVP",
+  "description": "Register with an optional capacity cap and host approval.",
+  "allowedCategories": [
+   "meetups",
+   "events",
+   "workshops"
+  ],
+  "bookingMode": "rsvp",
+  "schedule": "single",
+  "pricing": "free",
+  "ticketScope": null,
+  "steps": [
+   {
+    "type": "pick_session",
+    "required": false,
+    "config": {}
+   },
+   {
+    "type": "attendee_form",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "confirmation",
+    "required": true,
+    "config": {}
+   }
+  ],
+  "rules": {
+   "seatHoldMins": 0,
+   "waitlist": false,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 2,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 0,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "full_until",
+   "hoursBefore": 0,
+   "refundPct": 100
+  },
+  "ctaLabel": "RSVP",
+  "active": true
+ },
+ {
+  "id": "tpl_ticket_single",
+  "name": "Ticketed (single day)",
+  "description": "Ticket tiers for one show, with a seat hold during checkout.",
+  "allowedCategories": [
+   "events",
+   "workshops"
+  ],
+  "bookingMode": "ticketed",
+  "schedule": "single",
+  "pricing": "paid",
+  "ticketScope": null,
+  "steps": [
+   {
+    "type": "pick_tickets",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "attendee_form",
+    "required": false,
+    "config": {}
+   },
+   {
+    "type": "review",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "payment",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "confirmation",
+    "required": true,
+    "config": {}
+   }
+  ],
+  "rules": {
+   "seatHoldMins": 10,
+   "waitlist": true,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 6,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 3.75,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "full_until",
+   "hoursBefore": 48,
+   "refundPct": 100
+  },
+  "ctaLabel": "Book tickets",
+  "active": true
+ },
+ {
+  "id": "tpl_ticket_multi",
+  "name": "Ticketed (multi-day)",
+  "description": "Day tickets plus a season pass for festivals.",
+  "allowedCategories": [
+   "events"
+  ],
+  "bookingMode": "ticketed",
+  "schedule": "multi_day",
+  "pricing": "paid",
+  "ticketScope": "both",
+  "steps": [
+   {
+    "type": "pick_session",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_pass",
+    "required": false,
+    "config": {}
+   },
+   {
+    "type": "pick_tickets",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "attendee_form",
+    "required": false,
+    "config": {}
+   },
+   {
+    "type": "review",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "payment",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "confirmation",
+    "required": true,
+    "config": {}
+   }
+  ],
+  "rules": {
+   "seatHoldMins": 10,
+   "waitlist": true,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 8,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 3.75,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "full_until",
+   "hoursBefore": 72,
+   "refundPct": 100
+  },
+  "ctaLabel": "Book tickets",
+  "active": true
+ },
+ {
+  "id": "tpl_recurring",
+  "name": "Recurring workshop",
+  "description": "Weekly sessions, booked per session.",
+  "allowedCategories": [
+   "workshops"
+  ],
+  "bookingMode": "ticketed",
+  "schedule": "recurring",
+  "pricing": "paid",
+  "ticketScope": "per_session",
+  "steps": [
+   {
+    "type": "pick_session",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_tickets",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "attendee_form",
+    "required": false,
+    "config": {}
+   },
+   {
+    "type": "review",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "payment",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "confirmation",
+    "required": true,
+    "config": {}
+   }
+  ],
+  "rules": {
+   "seatHoldMins": 10,
+   "waitlist": false,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 4,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 2.5,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "full_until",
+   "hoursBefore": 24,
+   "refundPct": 100
+  },
+  "ctaLabel": "Book a seat",
+  "active": true
+ },
+ {
+  "id": "tpl_timed_entry",
+  "name": "Timed-entry exhibition",
+  "description": "A date range with entry windows each day.",
+  "allowedCategories": [
+   "exhibitions"
+  ],
+  "bookingMode": "ticketed",
+  "schedule": "date_range",
+  "pricing": "paid",
+  "ticketScope": "per_session",
+  "steps": [
+   {
+    "type": "pick_session",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_tickets",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "review",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "payment",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "confirmation",
+    "required": true,
+    "config": {}
+   }
+  ],
+  "rules": {
+   "seatHoldMins": 10,
+   "waitlist": false,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 8,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 2.5,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "full_until",
+   "hoursBefore": 24,
+   "refundPct": 100
+  },
+  "ctaLabel": "Book entry",
+  "active": true
+ },
+ {
+  "id": "tpl_court_60",
+  "name": "Court slots (hourly)",
+  "description": "Courts and turfs booked in 60-minute slots.",
+  "allowedCategories": [
+   "sports"
+  ],
+  "bookingMode": "slot",
+  "schedule": "open_hours",
+  "pricing": "paid",
+  "ticketScope": null,
+  "steps": [
+   {
+    "type": "pick_sport",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_session",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_resource",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_slots",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "review",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "payment",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "confirmation",
+    "required": true,
+    "config": {}
+   }
+  ],
+  "rules": {
+   "seatHoldMins": 8,
+   "waitlist": false,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 1,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 2,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "full_until",
+   "hoursBefore": 6,
+   "refundPct": 100
+  },
+  "ctaLabel": "Book a slot",
+  "active": true
+ },
+ {
+  "id": "tpl_court_30",
+  "name": "Court slots (30 min)",
+  "description": "Courts booked in 30-minute slots.",
+  "allowedCategories": [
+   "sports"
+  ],
+  "bookingMode": "slot",
+  "schedule": "open_hours",
+  "pricing": "paid",
+  "ticketScope": null,
+  "steps": [
+   {
+    "type": "pick_sport",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_session",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_resource",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_slots",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "review",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "payment",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "confirmation",
+    "required": true,
+    "config": {}
+   }
+  ],
+  "rules": {
+   "seatHoldMins": 8,
+   "waitlist": false,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 1,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 2,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "full_until",
+   "hoursBefore": 6,
+   "refundPct": 100
+  },
+  "ctaLabel": "Book a slot",
+  "active": true
+ },
+ {
+  "id": "tpl_competition",
+  "name": "Competition (teams)",
+  "description": "Divisions, a team form and an entry fee.",
+  "allowedCategories": [
+   "competitions"
+  ],
+  "bookingMode": "registration",
+  "schedule": "single",
+  "pricing": "both",
+  "ticketScope": null,
+  "steps": [
+   {
+    "type": "pick_tickets",
+    "required": true,
+    "config": {
+     "label": "Division"
+    }
+   },
+   {
+    "type": "team_details",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "review",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "payment",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "confirmation",
+    "required": true,
+    "config": {}
+   }
+  ],
+  "rules": {
+   "seatHoldMins": 10,
+   "waitlist": false,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 1,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 2.5,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "partial",
+   "hoursBefore": 72,
+   "refundPct": 50
+  },
+  "ctaLabel": "Register",
+  "active": true
+ },
+ {
+  "id": "tpl_ticket_dates",
+  "name": "Ticketed (pick a date)",
+  "description": "Paid entry on several dates or slots; buyers pick one, the same tickets apply to every date.",
+  "allowedCategories": [
+   "events",
+   "activities",
+   "meetups"
+  ],
+  "bookingMode": "ticketed",
+  "schedule": "recurring",
+  "pricing": "paid",
+  "ticketScope": "per_session",
+  "steps": [
+   {
+    "type": "pick_session",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "pick_tickets",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "attendee_form",
+    "required": false,
+    "config": {}
+   },
+   {
+    "type": "review",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "payment",
+    "required": true,
+    "config": {}
+   },
+   {
+    "type": "confirmation",
+    "required": true,
+    "config": {}
+   }
+  ],
+  "rules": {
+   "seatHoldMins": 10,
+   "waitlist": false,
+   "hostApprovalPerBooking": false,
+   "transferable": false,
+   "maxPerOrder": 10,
+   "minPerOrder": 1
+  },
+  "fees": {
+   "convenienceFeePct": 5,
+   "convenienceFeeFlat": 0,
+   "gstOnFeePct": 18,
+   "absorbFeeAllowed": true
+  },
+  "cancellation": {
+   "policy": "none",
+   "hoursBefore": 0,
+   "refundPct": 0
+  },
+  "ctaLabel": "Book tickets",
+  "active": true
+ }
+]

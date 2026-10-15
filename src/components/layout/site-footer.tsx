@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Category, City } from "@/contracts";
+import { COMPANY } from "@/lib/utils";
 
 /** City × category links for internal linking (PLAN §5 SEO), laid out as wireframe 18's footer. Desktop only: phones have the tab bar. */
 export function SiteFooter({ cities, categories }: { cities: City[]; categories: Category[]; current?: string }) {
@@ -29,10 +30,15 @@ export function SiteFooter({ cities, categories }: { cities: City[]; categories:
           <Link href="/legal#terms" className={link}>
             Terms
           </Link>
+          <Link href="/legal#refunds" className={link}>
+            Refunds
+          </Link>
           <Link href="/legal#privacy" className={link}>
             Privacy
           </Link>
-          <p className="mt-4 text-xs text-subtle">© {new Date().getFullYear()} local.</p>
+          <p className="mt-4 text-xs text-subtle">
+            © {new Date().getFullYear()} {COMPANY.legalName}
+          </p>
         </div>
       </div>
     </footer>

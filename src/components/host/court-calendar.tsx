@@ -114,7 +114,7 @@ export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
                                 : "border border-line-strong hover:border-brand",
                         )}
                       >
-                        <span className="truncate font-semibold">{blocked ? s.block!.reason : booked ? (s.booking?.customer ?? "Booked") : s.isPast ? "—" : "Free"}</span>
+                        <span className="truncate font-semibold">{blocked ? s.block!.reason : booked ? (s.booking?.customer ?? "Booked") : s.isPast ? "Past" : "Free"}</span>
                         <span className="flex shrink-0 items-center gap-0.5 text-muted">
                           {s.peak && !booked && !blocked && !s.isPast && <Zap className="size-3" />}
                           {isOwner && !booked && !blocked && !s.isPast && s.price !== null && formatINR(s.price)}
@@ -151,7 +151,7 @@ export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
                 { resourceId: sel.resourceId, date: data.date, startMins: sel.slot.startMins, endMins: sel.slot.startMins + sel.hours * (sel.slot.endMins - sel.slot.startMins), reason },
                 {
                   onSuccess: () => {
-                    toast.success("Blocked — players can't book it");
+                    toast.success("Blocked. Players can't book it now.");
                     setSel(null);
                   },
                   onError: (e) => toast.error(e.message),

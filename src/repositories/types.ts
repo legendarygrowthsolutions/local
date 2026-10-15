@@ -1,4 +1,4 @@
-import type { ListingInput } from "@/contracts";
+import type { ListingInput, PayoutAccount } from "@/contracts";
 import type {
   Area, Block, Booking, Category, City, Host, HostMember, JourneyTemplate, Listing, Resource, Session, SlotRule, TicketType, User, Venue,
 } from "@/contracts";
@@ -23,6 +23,37 @@ export interface ListingRevision {
   note: string | null;
   createdAt: string;
   decidedAt: string | null;
+}
+
+export interface CouponRecord extends Coupon {
+  id: string;
+  active: boolean;
+  createdAt: string | null;
+  updatedAt: string | null;
+}
+
+/** A payout made to a host by hand (bank transfer, UPI, cheque), kept as a permanent record. Money in rupees. */
+export interface PayoutRecord {
+  id: string;
+  hostId: string;
+  cycleFrom: string;
+  cycleTo: string;
+  bookings: number;
+  gross: number;
+  refunds: number;
+  deductions: number;
+  adjustment: number;
+  amount: number;
+  method: "bank_transfer" | "upi" | "cheque" | "other";
+  reference: string;
+  paidOn: string;
+  paidTo: string;
+  notes: string | null;
+  recordedBy: string;
+  createdAt: string;
+  voidedAt: string | null;
+  voidedBy: string | null;
+  voidReason: string | null;
 }
 
 export interface PaymentRecord {
@@ -135,7 +166,8 @@ export interface Repository {
     /** Filtered, paged search (newest first). `q` matches code, title, venue, attendee and customer name/phone. */
     search(opts: { q?: string; statuses?: Booking["status"][]; excludeStatuses?: Booking["status"][]; cityId?: string; offset: number; limit: number }): Promise<{ total: number; items: Booking[] }>;
     /** This user's bookings that used `couponCode` and count as redemptions (held, paid or attended), excluding `exceptId`. */
-    countCouponUses(userId: string, couponCode: string, exceptId?: string): Promise<number>;
+    /** Bookings holding or settled with this coupon: one account's (userId) or everyone's (null). */
+    countCouponUses(userId: string | null, couponCode: string, exceptId?: string): Promise<number>;
     /** Whether the user has any settled booking (requested / confirmed / checked in / refunded), excluding `exceptId`. */
     hasSettledBooking(userId: string, exceptId?: string): Promise<boolean>;
     /** Expire this user's unpaid holds on a listing or venue (they're starting over). */
@@ -178,6 +210,8 @@ export interface Repository {
     insert(p: PaymentRecord): Promise<void>;
     listByBooking(bookingId: string): Promise<PaymentRecord[]>;
     byOrderId(orderId: string): Promise<PaymentRecord | null>;
+    /** Total refunded per booking (rupees), for bookings that had any refund. */
+    refundTotals(bookingIds: string[]): Promise<Map<string, number>>;
     update(id: string, patch: Partial<Pick<PaymentRecord, "status" | "ref" | "method">>): Promise<void>;
   };
   views: {
@@ -186,7 +220,26 @@ export interface Repository {
     totals(targetIds: string[], fromDay: string, toDay: string): Promise<number>;
   };
   coupons: {
+    /** An active coupon by code (what checkout uses). */
     byCode(code: string): Promise<Coupon | null>;
+    byId(id: string): Promise<CouponRecord | null>;
+    list(): Promise<CouponRecord[]>;
+    insert(c: CouponRecord): Promise<CouponRecord>;
+    update(id: string, c: CouponRecord): Promise<CouponRecord | null>;
+    remove(id: string): Promise<void>;
+    /** Redemptions per code: paid or free bookings that kept the coupon (not holds, not expired). */
+    usage(): Promise<Map<string, { uses: number; discount: number }>>;
+  };
+  payoutAccounts: {
+    get(hostId: string): Promise<PayoutAccount | null>;
+    list(hostIds: string[]): Promise<Map<string, PayoutAccount>>;
+    upsert(hostId: string, a: PayoutAccount, by: string): Promise<void>;
+  };
+  payouts: {
+    list(filter?: { hostId?: string }): Promise<PayoutRecord[]>;
+    byId(id: string): Promise<PayoutRecord | null>;
+    insert(p: PayoutRecord): Promise<void>;
+    void(id: string, by: string, reason: string, at: string): Promise<void>;
   };
   revisions: {
     /** The pending revision for a listing/venue, if any. */

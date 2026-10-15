@@ -5,21 +5,22 @@ import { expect, test, type Page } from "@playwright/test";
 import { providerEnv } from "../../playwright.providers.config";
 
 const FAKE = "http://localhost:3299";
-const fx = (name: string) => JSON.parse(readFileSync(join(process.cwd(), "src/db/seed/fixtures", `${name}.json`), "utf8"));
-const listings = fx("listings") as { id: string; templateId: string; status: string; cityId: string }[];
-const sessions = fx("sessions") as { listingId: string; startsAt: string }[];
-const anchor = (fx("meta") as { anchor: string }).anchor;
-const tickets = fx("ticketTypes") as { id: string; listingId: string; sessionId: string | null; price: number; qty: number; sold: number; isPass: boolean }[];
+// Nagpur is the live city and carries imported listings with real, absolute dates (scripts/crawl).
+const nagpur = JSON.parse(readFileSync(join(process.cwd(), "src/db/seed/real/nagpur.json"), "utf8")) as {
+  listings: { id: string; templateId: string; status: string }[];
+  sessions: { listingId: string; startsAt: string }[];
+  ticketTypes: { id: string; listingId: string; sessionId: string | null; price: number; qty: number; sold: number; isPass: boolean }[];
+};
 
 /** A live single-day ticketed listing with a paid, general ticket, 3+ days out (so it's refundable). */
 function paidTicket() {
-  // Seed dates are shifted so the fixture anchor becomes today; offsets from the anchor are offsets from today.
-  const farOut = (id: string) => sessions.filter((x) => x.listingId === id).every((x) => x.startsAt.slice(0, 10) >= new Date(Date.parse(anchor) + 3 * 86_400_000).toISOString().slice(0, 10));
-  for (const l of listings.filter((x) => x.templateId === "tpl_ticket_single" && x.status === "live" && farOut(x.id))) {
-    const t = tickets.find((x) => x.listingId === l.id && x.price > 0 && !x.isPass && x.qty - x.sold > 5);
+  const cutoff = new Date(Date.now() + 3 * 86_400_000).toISOString().slice(0, 10);
+  const farOut = (id: string) => nagpur.sessions.filter((x) => x.listingId === id).every((x) => x.startsAt.slice(0, 10) >= cutoff);
+  for (const l of nagpur.listings.filter((x) => x.templateId === "tpl_ticket_single" && x.status === "live" && farOut(x.id))) {
+    const t = nagpur.ticketTypes.find((x) => x.listingId === l.id && x.price > 0 && !x.isPass && x.qty - x.sold > 5);
     if (t) return { listingId: l.id, ticketTypeId: t.id };
   }
-  throw new Error("no paid ticket in fixtures");
+  throw new Error("no upcoming paid ticket among imported Nagpur listings — re-run the crawl (scripts/crawl/README.md)");
 }
 const uniquePhone = () => `9${String(Date.now()).slice(-9)}`;
 

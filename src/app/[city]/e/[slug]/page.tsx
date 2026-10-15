@@ -28,7 +28,7 @@ async function load(params: Params) {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const d = await load(params);
-  const title = `${d.listing.title} — ${d.listing.venueName}, ${d.area.name}`;
+  const title = `${d.listing.title} at ${d.listing.venueName}, ${d.area.name}`;
   return {
     title,
     description: `${d.listing.summary} ${d.card.whenLabel}. ${d.card.priceLabel}. Book on local.`,
@@ -48,9 +48,11 @@ export default async function EventPage({ params }: { params: Params }) {
   const soldOut = card.urgency === "Sold out";
   const ctaHref = bookable ? `/book/e/${listing.id}` : `https://www.google.com/maps/search/?api=1&query=${listing.lat},${listing.lng}`;
   const multi = sessions.length > 1;
+  // Workshops run in batches; shows, garba nights and day passes just have dates.
+  const batches = d.category.slug === "workshops";
   const dateFact =
     template.schedule === "recurring"
-      ? { icon: <Repeat />, title: card.whenLabel, sub: `${sessions.length} upcoming batches · next ${formatDate(f.ymd)}` }
+      ? { icon: <Repeat />, title: card.whenLabel, sub: `${sessions.length} upcoming ${batches ? "batches" : "dates"} · next ${formatDate(f.ymd)}` }
       : template.schedule === "date_range"
         ? { icon: <CalendarDays />, title: card.whenLabel, sub: "Closed Mondays · pick an entry window" }
         : template.schedule === "multi_day"
@@ -103,7 +105,7 @@ export default async function EventPage({ params }: { params: Params }) {
             </Section>
 
             {multi && template.schedule !== "multi_day" && (
-              <Section title={template.schedule === "recurring" ? "Upcoming batches" : "Upcoming dates"}>
+              <Section title={template.schedule === "recurring" && batches ? "Upcoming batches" : "Upcoming dates"}>
                 <div className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 md:mx-0 md:flex-wrap md:px-0">
                   {[...new Map(sessions.map((s) => [fromISO(s.startsAt).ymd, s])).values()].slice(0, 10).map((s) => (
                     <span key={s.id} className={cn("shrink-0 rounded-xl border border-line bg-surface px-3 py-2 text-sm", s.remaining === 0 && "text-subtle line-through")}>
@@ -130,9 +132,11 @@ export default async function EventPage({ params }: { params: Params }) {
               </Section>
             )}
 
-            <Section title="Things to know">
-              <ThingsToKnow items={listing.thingsToKnow} />
-            </Section>
+            {listing.thingsToKnow.length > 0 && (
+              <Section title="Things to know">
+                <ThingsToKnow items={listing.thingsToKnow} />
+              </Section>
+            )}
 
             <Section title="Location">
               <MapCard lat={listing.lat} lng={listing.lng} label={listing.venueName} address={listing.address} />

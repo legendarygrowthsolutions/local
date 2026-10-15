@@ -68,25 +68,29 @@ export function About({ text }: { text: string }) {
   return <ReadMore paragraphs={text.split("\n\n")} />;
 }
 
-/** Static map placeholder + Google Maps deep link (Maps JS lands with real keys in phase 2). */
+/**
+ * Location card: an embedded Google Map when NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY is set (Maps Embed API,
+ * free and unmetered), plus a Google Maps directions link either way.
+ */
 export function MapCard({ lat, lng, label, address }: { lat: number; lng: number; label: string; address: string }) {
   const href = directionsUrl(lat, lng);
+  const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY;
   return (
     <div className="overflow-hidden rounded-2xl border border-line bg-surface">
-      <div className="relative h-40 bg-[#EEF0EA]" aria-hidden>
-        <svg className="absolute inset-0 size-full" viewBox="0 0 400 160" preserveAspectRatio="xMidYMid slice">
-          <path d="M-10 120 C 80 90, 140 140, 230 100 S 360 60, 420 80" stroke="#fff" strokeWidth="14" fill="none" />
-          <path d="M120 -10 L 160 180" stroke="#fff" strokeWidth="10" />
-          <path d="M290 -10 C 270 60, 310 110, 280 180" stroke="#fff" strokeWidth="8" fill="none" />
-          <rect x="20" y="20" width="70" height="44" rx="6" fill="#E2E6DC" />
-          <rect x="190" y="18" width="80" height="50" rx="6" fill="#E2E6DC" />
-          <rect x="320" y="110" width="70" height="40" rx="6" fill="#DCE6E2" />
-        </svg>
-        <span className="absolute left-1/2 top-1/2 grid size-11 -translate-x-1/2 -translate-y-full place-items-center rounded-full bg-brand text-white shadow-[0_6px_20px_rgba(91,46,255,.35)]">
+      {key && (
+        <iframe
+          title={`Map of ${label}`}
+          src={`https://www.google.com/maps/embed/v1/place?key=${encodeURIComponent(key)}&q=${lat},${lng}&zoom=15`}
+          className="block h-48 w-full border-0"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      )}
+      <div className="flex items-center gap-3 p-4">
+        <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-tint text-brand" aria-hidden>
           <MapPin className="size-5" />
         </span>
-      </div>
-      <div className="flex items-center gap-3 p-4">
         <div className="min-w-0 flex-1">
           <p className="truncate font-semibold">{label}</p>
           <p className="line-clamp-2 text-sm text-muted">{address}</p>

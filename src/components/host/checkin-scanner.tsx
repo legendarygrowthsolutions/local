@@ -3,16 +3,14 @@
 import { AnimatePresence, m } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
-import { Camera, CameraOff, CircleAlert, CircleCheck, Clock, FlaskConical, ScanLine } from "lucide-react";
+import { Camera, CameraOff, CircleAlert, CircleCheck, Clock, ScanLine } from "lucide-react";
 import { useCheckIn, type CheckInResult } from "@/lib/api/host-hooks";
-import { api } from "@/lib/api/client";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { formatRange } from "@/lib/time";
 import { cn } from "@/lib/utils";
 import { bookingCodeFromQr, useQrCamera, type CameraState } from "./use-qr-camera";
 
-const IS_DEV = process.env.NODE_ENV !== "production";
 
 const CAMERA_HINT: Record<CameraState, string> = {
   idle: "Point the camera at the QR code on the guest's ticket",
@@ -32,7 +30,6 @@ const TONE: Record<CheckInResult["result"], { cls: string; icon: typeof CircleCh
 
 export function CheckInScanner() {
   const [code, setCode] = useState("");
-  const [scanning, setScanning] = useState(false);
   const [history, setHistory] = useState<CheckInResult[]>([]);
   const checkIn = useCheckIn();
   const last = checkIn.data;
@@ -55,18 +52,6 @@ export function CheckInScanner() {
   });
   const live = cameraState === "scanning" || cameraState === "starting";
 
-  // Development only: check in the next booking due today without a camera.
-  const simulate = async () => {
-    setScanning(true);
-    try {
-      const [{ code: next }] = await Promise.all([api<{ code: string | null }>("/api/host/checkin/next"), new Promise((r) => setTimeout(r, 900))]);
-      if (next) run(next);
-      else toast("Everyone booked for today is already checked in");
-    } finally {
-      setScanning(false);
-    }
-  };
-
   return (
     <div className="flex flex-col gap-5">
       <div className="relative aspect-square overflow-hidden rounded-[28px] bg-feature">
@@ -77,7 +62,7 @@ export function CheckInScanner() {
             <span key={c} className={cn("absolute size-12 border-white", c)} />
           ))}
           <AnimatePresence>
-            {(scanning || cameraState === "scanning") && (
+            {cameraState === "scanning" && (
               <m.span
                 initial={{ top: "5%", opacity: 0 }}
                 animate={{ top: ["5%", "92%", "5%"], opacity: 1 }}
@@ -90,7 +75,7 @@ export function CheckInScanner() {
         </div>
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 p-5 text-center text-white">
           <p className="text-sm text-feature-muted [text-shadow:0_1px_4px_rgba(0,0,0,.5)]" aria-live="polite">
-            {scanning ? "Looking for a QR code…" : CAMERA_HINT[cameraState]}
+            {CAMERA_HINT[cameraState]}
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             {live ? (
@@ -100,11 +85,6 @@ export function CheckInScanner() {
             ) : (
               <Button variant="onDark" onClick={startCamera} disabled={cameraState === "unsupported"}>
                 <Camera className="size-4" /> Scan with camera
-              </Button>
-            )}
-            {IS_DEV && !live && (
-              <Button variant="onDark" onClick={simulate} loading={scanning} disabled={checkIn.isPending}>
-                <FlaskConical className="size-4" /> Simulate a scan
               </Button>
             )}
           </div>
@@ -129,7 +109,7 @@ export function CheckInScanner() {
             autoCapitalize="characters"
           />
         </label>
-        <Button type="submit" size="lg" loading={checkIn.isPending && !scanning} disabled={!code.trim()}>
+        <Button type="submit" size="lg" loading={checkIn.isPending} disabled={!code.trim()}>
           Check in
         </Button>
       </form>

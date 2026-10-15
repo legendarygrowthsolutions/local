@@ -164,7 +164,7 @@ export function ListingWizard({
             r.pendingReview
               ? "Changes sent for review. Your listing stays live as it is until they're approved."
               : r.status === "review"
-                ? "Sent for review — we usually approve within a day"
+                ? "Sent for review. We usually approve within a day."
                 : r.status === "live"
                   ? "Changes are live"
                   : "Draft saved",
@@ -382,12 +382,12 @@ function Review({ input, catalog, errors, onJump, isLive }: { input: ListingInpu
     cardWhen = first ? `${formatDate(first.date)} · ${formatMins(first.startMins, { compact: true })}${input.sessions.length > 1 ? ` · ${input.sessions.length} dates` : ""}` : "No dates";
     cardPrice = tpl?.bookingMode === "rsvp" || tpl?.bookingMode === "none" || !prices.length || Math.max(...prices) === 0 ? "Free" : `${formatINR(Math.min(...prices))}${prices.length > 1 ? " onwards" : ""}`;
     rows = [
-      ["Category", [cat?.name, sub?.name].filter(Boolean).join(" · ") || "—", "basics"],
-      ["Where", `${input.venueName || "—"}, ${area?.name ?? "—"}`, "location"],
-      ["Photos", input.media.length ? `${input.media.length} added` : "None — artwork will be generated", "location"],
-      ["Booking type", tpl?.name ?? "—", "setup"],
+      ["Category", [cat?.name, sub?.name].filter(Boolean).join(" · ") || "-", "basics"],
+      ["Where", `${input.venueName || "-"}, ${area?.name ?? "-"}`, "location"],
+      ["Photos", input.media.length ? `${input.media.length} added` : "None, we'll add artwork for you", "location"],
+      ["Booking type", tpl?.name ?? "-", "setup"],
       ["Dates", `${input.sessions.length} ${input.sessions.length === 1 ? "date" : "dates"}`, "setup"],
-      ...(tpl && (tpl.bookingMode === "ticketed" || tpl.bookingMode === "registration") ? ([["Tickets", input.tickets.map((t) => `${t.name} ${formatINR(t.price, { free: "Free" })}`).join(", ") || "—", "tickets"]] as [string, string, StepId][]) : []),
+      ...(tpl && (tpl.bookingMode === "ticketed" || tpl.bookingMode === "registration") ? ([["Tickets", input.tickets.map((t) => `${t.name} ${formatINR(t.price, { free: "Free" })}`).join(", ") || "-", "tickets"]] as [string, string, StepId][]) : []),
       ["Things to know", `${input.thingsToKnow.length} points`, "policies"],
       ["Questions", `${input.formFields.length}`, "policies"],
     ];
@@ -397,11 +397,11 @@ function Review({ input, catalog, errors, onJump, isLive }: { input: ListingInpu
     cardWhen = `${input.courts.length} courts · ${formatMins(input.openMins, { compact: true })} – ${formatMins(input.closeMins, { compact: true })}`;
     cardPrice = `${formatINR(Math.min(...input.courts.map((c) => c.priceBase)))}/hr onwards`;
     rows = [
-      ["Where", `${area?.name ?? "—"} · ${input.address || "—"}`, "location"],
+      ["Where", `${area?.name ?? "-"} · ${input.address || "-"}`, "location"],
       ["Courts", input.courts.map((c) => `${c.name} (${c.sport.replace("-", " ")}, ${c.slotLengthMins}m)`).join(", "), "courts"],
       ["Booking window", `${input.advanceDays} days ahead · up to ${input.maxMins / 60} h`, "courts"],
       ["Peak", [input.peakWeekdayEvenings && "weekday evenings", input.peakWeekends && "weekends"].filter(Boolean).join(", ") || "None", "pricing"],
-      ["Amenities", input.amenities.join(", ") || "—", "location"],
+      ["Amenities", input.amenities.join(", ") || "-", "location"],
     ];
   }
   return (

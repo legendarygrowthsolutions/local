@@ -58,7 +58,7 @@ async function holdOnce(userId: string, req: HoldRequest, now: Date): Promise<Bo
     const ra = avail.resources.find((r) => r.resource.id === resource.id)!;
     const v = validateRange(ra.slots, { startMins: req.slots.startMins, endMins: req.slots.endMins }, ra.rule);
     if (!v.ok) throw conflict(v.reason, "slot_unavailable");
-    if (coupon) await assertCouponUsable(userId, coupon, v.price, { now });
+    if (coupon) await assertCouponUsable(userId, coupon, v.price, { now, cityId: venue.cityId });
     const startsAt = toISO(req.slots.date, req.slots.startMins);
     const endsAt = toISO(req.slots.date, req.slots.endMins);
     const sportName = (await repo.categories.list()).find((c) => c.slug === resource.sport && c.parentId === "cat_sports")?.name ?? resource.sport;
@@ -145,7 +145,7 @@ async function holdOnce(userId: string, req: HoldRequest, now: Date): Promise<Bo
   }
 
   const subtotal = items.reduce((s, i) => s + i.qty * i.unitPrice, 0);
-  if (coupon) await assertCouponUsable(userId, coupon, subtotal, { now });
+  if (coupon) await assertCouponUsable(userId, coupon, subtotal, { now, cityId: listing.cityId });
   const price = computePrice(subtotal, tpl.fees, coupon);
   const free = price.total === 0;
   // Free places are confirmed straight away, so one booking per person per date.
@@ -198,7 +198,7 @@ export async function payBooking(userId: string, id: string, req: PayRequest, no
     // Re-check one-per-account coupons: parallel holds could each have applied the same code.
     if (b.couponCode && req.outcome === "success") {
       const coupon = await repo.coupons.byCode(b.couponCode);
-      if (coupon) await assertCouponUsable(userId, coupon, b.price.subtotal, { bookingId: b.id, now });
+      if (coupon) await assertCouponUsable(userId, coupon, b.price.subtotal, { bookingId: b.id, now, cityId: b.cityId });
     }
     const ref = `pay_test_${randomCode(12, "abcdefghijkmnpqrstuvwxyz23456789")}`;
     await repo.payments.insert({
@@ -236,7 +236,7 @@ export async function cancelQuote(b: Booking, now = new Date()): Promise<CancelQ
   const policy = tpl?.cancellation ?? { policy: "none", hoursBefore: 0, refundPct: 0 };
   const hoursLeft = (start - now.getTime()) / 3_600_000;
   const refundBase = b.price.total - b.price.convenienceFee - b.price.gstOnFee;
-  if (b.price.total === 0) return { allowed: true, refundAmount: 0, refundPct: 0, reason: "Free booking — cancel anytime" };
+  if (b.price.total === 0) return { allowed: true, refundAmount: 0, refundPct: 0, reason: "Free booking, cancel anytime" };
   if (policy.policy === "none") return { allowed: false, refundAmount: 0, refundPct: 0, reason: "This booking is non-refundable" };
   if (hoursLeft < policy.hoursBefore)
     return { allowed: false, refundAmount: 0, refundPct: 0, reason: `Cancellations close ${policy.hoursBefore} h before the start` };
@@ -322,7 +322,7 @@ export async function applyCoupon(userId: string, id: string, code: string | nul
   if (code) await rateLimit(`coupon:${userId}`, 15, 10 * 60_000, "Too many coupon attempts. Please wait a few minutes.");
   const coupon = code ? await repo.coupons.byCode(code) : null;
   if (code && !coupon) throw badRequest("That coupon code isn't valid", "coupon_invalid");
-  if (coupon) await assertCouponUsable(userId, coupon, b.price.subtotal, { bookingId: b.id });
+  if (coupon) await assertCouponUsable(userId, coupon, b.price.subtotal, { bookingId: b.id, cityId: b.cityId });
   const tplId = b.listingId ? (await repo.listings.byId(b.listingId))?.templateId : (await repo.venues.byId(b.venueId!))?.templateId;
   const tpl = (await repo.templates.byId(tplId!))!;
   return repo.bookings.update(id, { couponCode: coupon?.code ?? null, price: computePrice(b.price.subtotal, tpl.fees, coupon) });

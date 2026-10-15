@@ -67,6 +67,35 @@ export const HostProfilePatchSchema = z.object({
   email: z.string().trim().email().or(z.literal("")).optional(),
 });
 
+/** Where a host's payouts are sent. Kept apart from the public host profile. */
+export const PayoutAccountInputSchema = z
+  .object({
+    method: z.enum(["bank", "upi"]),
+    holderName: z.string().trim().min(2, "Enter the account holder's name").max(80),
+    accountNumber: z.string().trim().max(20).optional(),
+    ifsc: z.string().trim().toUpperCase().max(11).optional(),
+    bankName: z.string().trim().max(60).optional(),
+    upiId: z.string().trim().max(60).optional(),
+  })
+  .superRefine((v, ctx) => {
+    if (v.method === "bank") {
+      if (!/^\d{9,18}$/.test(v.accountNumber ?? "")) ctx.addIssue({ code: "custom", path: ["accountNumber"], message: "Enter a 9 to 18 digit account number" });
+      if (!/^[A-Z]{4}0[A-Z0-9]{6}$/.test(v.ifsc ?? "")) ctx.addIssue({ code: "custom", path: ["ifsc"], message: "Enter a valid IFSC, like HDFC0001234" });
+      if (!v.bankName) ctx.addIssue({ code: "custom", path: ["bankName"], message: "Enter the bank's name" });
+    } else if (!/^[\w.-]{2,}@[a-zA-Z]{2,}$/.test(v.upiId ?? "")) ctx.addIssue({ code: "custom", path: ["upiId"], message: "Enter a valid UPI ID, like name@okbank" });
+  });
+export type PayoutAccountInput = z.infer<typeof PayoutAccountInputSchema>;
+
+export interface PayoutAccount {
+  method: "bank" | "upi";
+  holderName: string;
+  accountNumber: string | null;
+  ifsc: string | null;
+  bankName: string | null;
+  upiId: string | null;
+  updatedAt: string;
+}
+
 // ---------- Listing wizard payloads ----------
 
 const minsSchema = z.number().int().min(0).max(1440 * 3);

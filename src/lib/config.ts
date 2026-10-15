@@ -36,6 +36,13 @@ export const config = {
     }
     return p === "test" ? "test" : "none";
   },
+  /**
+   * Mobile numbers (10 digits, comma-separated) that become superadmins when they sign in. This is
+   * how the first admin gets in on a fresh database; after that, admins can promote others at /admin/users.
+   */
+  superadminPhones(): Set<string> {
+    return new Set((process.env.SUPERADMIN_PHONES ?? "").split(",").map((p) => p.replace(/\D/g, "").slice(-10)).filter((p) => p.length === 10));
+  },
   /** Ceiling on OTP sends across all numbers per hour (backstop against SMS pumping). */
   otpGlobalHourlyCap: Number(process.env.OTP_GLOBAL_HOURLY_CAP) || 2000,
   /** Secure cookies everywhere except plain-http local development. */

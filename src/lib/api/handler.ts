@@ -91,3 +91,10 @@ export async function requireAdmin() {
   if (u.role !== "admin") throw forbidden("Superadmins only");
   return u;
 }
+
+/** A CSV download. Never cached: it holds account data. */
+export function csvResponse(csv: string, filename: string) {
+  return new Response("﻿" + csv, {
+    headers: { "content-type": "text/csv; charset=utf-8", "content-disposition": `attachment; filename="${filename}"`, "cache-control": "no-store" },
+  });
+}

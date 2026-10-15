@@ -1,0 +1,12 @@
+[
+ {
+  "id": "c_nagpur",
+  "slug": "nagpur",
+  "name": "Nagpur",
+  "state": "Maharashtra",
+  "lat": 21.1458,
+  "lng": 79.0882,
+  "active": true,
+  "tagline": "Orange City, after hours"
+ }
+]

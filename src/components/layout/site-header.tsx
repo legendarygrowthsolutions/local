@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { slug: "events", label: "Events" },
   { slug: "sports", label: "Sports" },
-  { slug: "workshops", label: "Workshops" },
+  { slug: "activities", label: "Activities" },
   { slug: "meetups", label: "Meetups" },
 ];
 

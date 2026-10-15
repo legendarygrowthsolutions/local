@@ -62,3 +62,51 @@ export const AreaInputSchema = z.object({
 export const RefundSchema = z.object({ refundPct: z.union([z.literal(0), z.literal(50), z.literal(100)]), reason: z.string().trim().max(200).optional() });
 
 export const UserRoleSchema = z.object({ role: z.enum(["user", "admin"]) });
+
+// ---------- Coupons ----------
+const ymd = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Use a date like 2026-12-31");
+
+export const CouponInputSchema = z
+  .object({
+    code: z.string().trim().toUpperCase().regex(/^[A-Z0-9]{4,20}$/, "Use 4 to 20 letters or digits, no spaces"),
+    description: z.string().trim().min(4, "Add a short description").max(120),
+    type: z.enum(["pct", "flat"]),
+    value: z.number().positive("Enter a discount above zero"),
+    /** Cap on a percentage discount, in rupees. Ignored for flat coupons. */
+    maxDiscount: z.number().min(0).max(100000),
+    minSubtotal: z.number().min(0).max(1000000),
+    perUserLimit: z.number().int().min(1).max(100).nullable(),
+    totalLimit: z.number().int().min(1).max(1000000).nullable(),
+    firstBookingOnly: z.boolean(),
+    cityId: z.string().max(60).nullable(),
+    /** Dates in IST, inclusive. */
+    validFrom: ymd.nullable(),
+    validUntil: ymd.nullable(),
+    active: z.boolean(),
+  })
+  .superRefine((v, ctx) => {
+    if (v.type === "pct" && v.value > 100) ctx.addIssue({ code: "custom", path: ["value"], message: "A percentage can't be more than 100" });
+    if (v.type === "pct" && v.maxDiscount <= 0) ctx.addIssue({ code: "custom", path: ["maxDiscount"], message: "Set the most a percentage coupon can take off" });
+    if (v.type === "flat" && v.value > 100000) ctx.addIssue({ code: "custom", path: ["value"], message: "That discount is too large" });
+    if (v.validFrom && v.validUntil && v.validUntil < v.validFrom) ctx.addIssue({ code: "custom", path: ["validUntil"], message: "The end date is before the start date" });
+  });
+export type CouponInput = z.infer<typeof CouponInputSchema>;
+
+// ---------- Payouts ----------
+const rupees = z.number().min(0).max(100000000);
+
+export const PayoutInputSchema = z.object({
+  hostId: z.string().max(60),
+  cycleFrom: ymd,
+  /** TDS or any other amount withheld, in rupees. */
+  deductions: rupees,
+  /** Manual correction (can be negative), in rupees. */
+  adjustment: z.number().min(-100000000).max(100000000),
+  method: z.enum(["bank_transfer", "upi", "cheque", "other"]),
+  reference: z.string().trim().min(4, "Enter the UTR or transaction reference").max(60),
+  paidOn: ymd,
+  notes: z.string().trim().max(500).optional(),
+});
+export type PayoutInput = z.infer<typeof PayoutInputSchema>;
+
+export const PayoutVoidSchema = z.object({ reason: z.string().trim().min(4, "Say why this record is being voided").max(300) });

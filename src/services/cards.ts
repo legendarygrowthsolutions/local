@@ -32,7 +32,12 @@ export function listingCard(l: Listing, inv: ListingInventory, ctx: CardContext,
   const badge = tpl.schedule === "multi_day" || tpl.schedule === "date_range" ? dateBadge(firstYmd, lastYmd) : dateBadge(firstYmd);
   if (tpl.schedule === "recurring") {
     const p = fromISO(next.startsAt);
-    whenLabel = `Every ${WEEKDAYS_LONG[p.weekday]} · ${formatMins(p.mins, { compact: true })}`;
+    const time = formatMins(p.mins, { compact: true });
+    const days = [...new Set(inv.upcoming.map((s) => fromISO(s.startsAt).ymd))];
+    const weekdays = new Set(inv.upcoming.map((s) => fromISO(s.startsAt).weekday));
+    if (days.length > 1 && weekdays.size === 1) whenLabel = `Every ${WEEKDAYS_LONG[p.weekday]} · ${time}`;
+    else if (days.length >= 7) whenLabel = `Daily till ${formatDate(lastYmd).split(", ")[1]} · ${time}`;
+    else if (days.length > 1) whenLabel = `${formatDay(days[0], now)} – ${formatDate(lastYmd).split(", ")[1]} · ${time}`;
   } else if (tpl.schedule === "date_range") {
     const last = fromISO(inv.upcoming[inv.upcoming.length - 1].startsAt).ymd;
     const first = fromISO(next.startsAt).ymd;

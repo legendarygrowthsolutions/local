@@ -55,7 +55,7 @@ export function HostShell({ host, role, hasVenues, memberships, userName, citySl
         <span className={cn("rounded-md px-2 py-0.5 text-[11px] font-extrabold", role === "owner" ? "bg-brand text-white" : "bg-ink text-white")}>{role.toUpperCase()}</span>
         <span className="truncate text-xs text-brand-ink">{userName}</span>
       </span>
-      <span className="text-[11px] leading-[1.35] text-brand-ink">Managers see bookings &amp; check-in only — no revenue or payouts.</span>
+      <span className="text-[11px] leading-[1.35] text-brand-ink">Managers see bookings &amp; check-in only, not revenue or payouts.</span>
     </div>
   );
 

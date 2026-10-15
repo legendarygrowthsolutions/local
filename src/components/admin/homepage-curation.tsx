@@ -17,7 +17,7 @@ export function HomepageCuration({ featured, candidates }: { featured: Row[]; ca
       <section className="rounded-2xl border border-[#e6e6e1] bg-surface p-5">
         <h2 className="mb-3 font-display text-lg font-bold">Featured now</h2>
         {featured.length === 0 ? (
-          <p className="text-sm text-muted">Nothing featured — the home page falls back to what&apos;s on this weekend.</p>
+          <p className="text-sm text-muted">Nothing featured. The home page shows what&apos;s on this weekend instead.</p>
         ) : (
           <ol className="flex flex-col gap-2">
             {featured.map((r, i) => (

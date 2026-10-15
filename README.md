@@ -6,7 +6,8 @@ Everything to do in your city: events, workshops, meetups, exhibitions, competit
 
 ```bash
 npm install
-npm run dev          # http://localhost:3000 — creates and seeds ./data/local.db on first run
+npm run dev          # http://localhost:3000 — creates ./data/local.db with reference data on first run
+npm run db:demo      # optional: load the demo dataset (fake users, hosts, listings, bookings) for local work
 npm test             # unit + backend integration tests (each file gets its own temp SQLite database)
 npm run test:postgres  # the same suite on Postgres (in-process PGlite), to keep the SQL portable
 npm run test:libsql    # …on libSQL (Turso's engine, local file)
@@ -22,10 +23,12 @@ The backend is plain SQL through [Kysely](https://kysely.dev), so it runs on any
 
 ```bash
 npm run db:migrate   # apply pending migrations
-npm run db:seed      # seed the demo dataset (only into an empty database)
-npm run db:reset     # wipe, migrate and seed again (dates re-anchor to today)
+npm run db:seed      # load reference data (launch city, areas, categories, journey templates) into an empty database
+npm run db:demo      # reference data + the DEVELOPMENT demo dataset (refuses NODE_ENV=production)
+npm run db:reset     # wipe, migrate, load reference data (`npm run db:reset -- --demo` for the demo dataset)
 npm run db:schema    # regenerate db/schema.sql, a readable snapshot of the schema
 npm run fixtures     # regenerate the seed fixtures in src/db/seed/fixtures (deterministic)
+npm run crawl        # refresh Nagpur's real listings from District + KheloMore (BookMyShow: see scripts/crawl/README.md)
 ```
 
 | `DATABASE_URL` | Driver |
@@ -38,9 +41,15 @@ npm run fixtures     # regenerate the seed fixtures in src/db/seed/fixtures (det
 
 The full test suite is verified on all four engines: SQLite, Postgres, MySQL 8 and libSQL.
 
-The server applies pending migrations itself when it starts (`src/instrumentation.ts`; set `DB_AUTO_MIGRATE=0` to run them yourself). Seeding is always a deliberate step. Seeded events are anchored to the day you seed, so run `npm run db:reset` to bring the demo data back around today.
+When the server starts it applies pending migrations and, on a brand-new database, loads the reference data (`src/instrumentation.ts`; set `DB_AUTO_MIGRATE=0` to run both yourself).
+
+**Production data:** a production database contains only the reference data (`src/db/seed/reference/`): Nagpur and its areas, the category tree and the journey templates. Users, hosts, listings, bookings and coupons only come from real people using the app. The demo dataset (`src/db/seed/fixtures`, plus the crawled Nagpur listings in `src/db/seed/real`) is for local development and the test suites only, and is never loaded automatically. Demo events are anchored to the day you seed, so run `npm run db:reset -- --demo` to bring them back around today.
 
 ## Trying it
+
+On a fresh database, set `SUPERADMIN_PHONES` to your number and sign in: you're the superadmin. Hosts apply at `/host/apply`, and you approve them and their listings at `/admin`.
+
+With the demo dataset loaded (`npm run db:demo`):
 
 - **Login:** any 10-digit mobile starting 6–9. In development no SMS is sent: the code is shown on the login screen (tap it to sign in) and printed in the server log.
   - Demo user with bookings: `9876543210`. A new number walks you through profile setup.
@@ -54,6 +63,11 @@ The server applies pending migrations itself when it starts (`src/instrumentatio
 - **Coupons:** `LOCAL10` (10% up to ₹200), `FIRST100` (₹100 off your first booking, once per account, orders from ₹200).
 - **Check-in:** `/host/checkin` scans ticket QR codes with the camera (Chrome / Edge / Android) or takes the code typed in.
 
+## Coupons and payouts
+
+- **Coupons** (`/admin/coupons`): percentage or flat, with a cap, minimum order, per-person and overall limits, first-booking-only, a city, and start and end dates (IST, whole days). They are checked when applied and again at payment. A used coupon can't be renamed or deleted, only paused. The platform funds the discount, so hosts are paid the full ticket value.
+- **Payouts** are sent by hand. Hosts add their bank account or UPI ID at `/host/payouts`. Each week, `/admin/payouts` lists what's owed per host: bookings made Monday to Sunday, ticket value less the refunded share, due the following Wednesday. Send the money, then record it with the method, UTR or reference, date paid, any TDS or adjustment, and a note. Records are never deleted: a wrong one is voided with a reason, and the week shows as due again. Both sides can download CSVs: all payout records, and the bookings behind any week.
+
 ## Architecture
 
 ```
@@ -66,7 +80,8 @@ services/* ──► repositories (interface) ──► sql/ (Kysely) ──► 
 |---|---|
 | `src/db/migrations` | schema, written once with Kysely's schema builder so it runs on every dialect |
 | `src/db/client.ts` | picks the dialect from `DATABASE_URL`; `withTransaction()` for atomic sections |
-| `src/db/seed` | fixtures + seeder (demo hosts' sales, other players' court bookings, two weeks of views) |
+| `src/db/seed` | `reference/` + `seedReference`: the production seed (city, areas, categories, templates). `fixtures/`, `real/` + `seedDemo`: the dev/test demo dataset (demo hosts' sales, other players' court bookings, two weeks of views, Nagpur's crawled listings) |
+| `scripts/crawl` | District / BookMyShow / KheloMore crawlers and the builder that turns them into `src/db/seed/real/nagpur.json` |
 | `src/db/mappers.ts` | row ↔ domain: money in integer paise, booleans 0/1, JSON in TEXT, instants in UTC |
 | `src/repositories` | data-access interface and its SQL implementation |
 | `src/services` | business logic: discovery, inventory, availability, bookings, auth, host, admin, media |
@@ -91,7 +106,12 @@ Set `DEV=1` to run the whole app without any provider accounts: login codes are 
 
 ### Going live
 
-1. Set `AUTH_SECRET`, a production `DATABASE_URL`, and `TRUSTED_IP_HEADER` if you're behind a proxy.
+1. Set `AUTH_SECRET`, a production `DATABASE_URL`, `NEXT_PUBLIC_SITE_URL` (canonical URLs, sitemap, OG images; read at build time), and `TRUSTED_IP_HEADER` if you're behind a proxy.
+   - `SUPERADMIN_PHONES`: the mobile number(s) that become superadmin on sign-in. That's how the first admin gets in; promote others at `/admin/users`.
+   - `NEXT_PUBLIC_SUPPORT_EMAIL`: the support and grievance address shown in the terms and privacy policy (`/legal`). Defaults to `support@` your domain. The legal copy names Legendary Growth Solutions LLP, Nagpur (`COMPANY` in `src/lib/utils.ts`), and is a draft for your lawyer to review.
+   - Optional: `NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY` (Maps Embed API) shows a map on listing pages; without it they show the address and a directions link.
+   - Leave `DEV` unset.
+   - Deploy and start: migrations and the reference data load on first start. Never run `db:demo` against production.
 2. **Login codes:** `OTP_PROVIDER=msg91` (India; needs a DLT-approved OTP template) or `twilio` (SMS, plus WhatsApp with an approved template). Both are built and tested against their APIs; they only need your account keys.
 3. **Payments:** `PAYMENT_PROVIDER=razorpay` with your keys and webhook secret. Then point a Razorpay webhook at `/api/payments/razorpay/webhook`.
    - The server creates the order for the exact hold total.

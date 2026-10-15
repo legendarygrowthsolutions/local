@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { afterAll, beforeAll } from "vitest";
 import { closeDb, rootDb } from "@/db/client";
 import { migrateToLatest } from "@/db/migrate";
-import { seedDatabase } from "@/db/seed";
+import { seedDemo } from "@/db/seed";
 import type { User } from "@/contracts";
 import { repo } from "@/repositories";
 
@@ -22,13 +22,14 @@ async function mysqlAdmin(statement: string) {
 }
 
 /**
- * Give the calling test file its own migrated + seeded database. `rootDb()` reads DATABASE_URL
+ * Give the calling test file its own migrated database, seeded with the demo dataset. `rootDb()` reads DATABASE_URL
  * lazily, so pointing the env at a fresh database before the first query is enough.
  * TEST_DB picks the engine: unset → SQLite file, postgres → in-process PGlite,
  * mysql → a throwaway database on TEST_MYSQL_URL, libsql → libSQL's embedded engine on a file.
- * Returns the seed anchor (`now`).
+ * Service tests run against every demo city, so the cities hidden for launch are switched back on
+ * unless `launchCities` is set. Returns the seed anchor (`now`).
  */
-export function setupTestDb(now = new Date()) {
+export function setupTestDb(now = new Date(), { launchCities = false } = {}) {
   const dir = mkdtempSync(join(tmpdir(), "local-test-"));
   const kind = process.env.TEST_DB ?? "sqlite";
   const mysqlDb = `local_test_${process.pid}_${Math.random().toString(36).slice(2, 8)}`;
@@ -41,7 +42,8 @@ export function setupTestDb(now = new Date()) {
   beforeAll(async () => {
     if (kind === "mysql") await mysqlAdmin(`create database \`${mysqlDb}\` character set utf8mb4`);
     await migrateToLatest(rootDb());
-    await seedDatabase(rootDb(), now);
+    await seedDemo(rootDb(), now);
+    if (!launchCities) for (const c of await repo.cities.listAll()) if (!c.active) await repo.cities.update(c.id, { active: true });
   }, 60_000);
   afterAll(async () => {
     await closeDb();

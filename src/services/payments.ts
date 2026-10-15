@@ -19,7 +19,7 @@ async function ownHold(userId: string, id: string, now: Date) {
   if (!HOLDING.includes(b.status)) throw conflict("This booking can't be paid for");
   if (b.couponCode) {
     const coupon = await repo.coupons.byCode(b.couponCode);
-    if (coupon) await assertCouponUsable(userId, coupon, b.price.subtotal, { bookingId: b.id, now });
+    if (coupon) await assertCouponUsable(userId, coupon, b.price.subtotal, { bookingId: b.id, now, cityId: b.cityId });
   }
   return b;
 }

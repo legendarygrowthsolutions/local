@@ -17,11 +17,18 @@ async function err(p: Promise<unknown>) {
   return null;
 }
 
+// Only categories with something on show; Nagpur carries the imported (real) listings.
+const HOME_CATEGORIES: Record<string, string[]> = {
+  mumbai: ["events", "sports", "workshops", "meetups", "exhibitions", "competitions"],
+  pune: ["events", "sports", "workshops", "meetups", "exhibitions", "competitions"],
+  nagpur: ["events", "sports", "meetups", "competitions", "activities"],
+};
+
 describe("getHome", () => {
   it.each(["mumbai", "pune", "nagpur"])("%s has rails, categories and quick filters", async (city) => {
     const home = await getHome(city, null);
     expect(home.city.slug).toBe(city);
-    expect(home.categories.map((c) => c.slug)).toEqual(["events", "sports", "workshops", "meetups", "exhibitions", "competitions"]);
+    expect(home.categories.map((c) => c.slug)).toEqual(HOME_CATEGORIES[city]);
     expect(home.rails.length).toBeGreaterThanOrEqual(3);
     expect(home.rails.map((r) => r.id)).toContain("play");
     for (const r of home.rails) {

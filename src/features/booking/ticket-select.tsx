@@ -279,9 +279,10 @@ function SessionPicker({ d, selected, onPick }: { d: ListingDetail; selected: S 
   // multi_day + recurring: cards
   return (
     <section className="flex flex-col gap-3" aria-label="Choose a date">
-      <h2 className="font-display text-xl font-bold">{tpl.schedule === "recurring" ? "Pick a batch" : "Pick a day"}</h2>
+      <h2 className="font-display text-xl font-bold">{tpl.schedule === "recurring" ? (d.category.slug === "workshops" ? "Pick a batch" : "Pick a date") : "Pick a day"}</h2>
       <div className={cn("grid gap-2", tpl.schedule === "multi_day" ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-1 sm:grid-cols-2")} role="radiogroup">
-        {d.sessions.slice(0, 8).map((s) => {
+        {/* Daily runs (water parks, arcades) list a month of dates. */}
+        {d.sessions.slice(0, 31).map((s) => {
           const active = s.id === selected?.id;
           const p = fromISO(s.startsAt);
           return (
@@ -335,7 +336,7 @@ function RsvpQty({ d, draft, patch }: { d: ListingDetail; draft: Draft; patch: (
     <section className="flex flex-col gap-3">
       <h2 className="font-display text-xl font-bold">How many people?</h2>
       {t.remaining === 0 ? (
-        <p className="rounded-2xl bg-field p-4 text-sm text-muted">This one is full. Check back — spots open up when people cancel.</p>
+        <p className="rounded-2xl bg-field p-4 text-sm text-muted">This one is full. Check back later, as spots open up when people cancel.</p>
       ) : (
         <div className="flex gap-2" role="radiogroup">
           {opts.map((n) => (

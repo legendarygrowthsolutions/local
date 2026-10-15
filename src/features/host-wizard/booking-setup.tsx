@@ -88,8 +88,8 @@ export function BookingModes({
           );
         })}
       </div>
-      {event && !cat && <p className="text-sm text-danger">Choose a category in Basics first — booking journeys depend on it.</p>}
-      {locked && <p className="text-xs text-muted">Paid journeys unlock once your PAN and bank details are verified.</p>}
+      {event && !cat && <p className="text-sm text-danger">Choose a category in Basics first. The booking types depend on it.</p>}
+      {locked && <p className="text-xs text-muted">You can use paid booking types once your PAN and bank details are verified.</p>}
     </div>
   );
 }

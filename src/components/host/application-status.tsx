@@ -13,14 +13,14 @@ export function ApplicationStatus({ host }: { host: { brandName: string; status:
   const steps = [
     { label: "Submitted", sub: formatDate(fromISO(host.submittedAt).ymd), done: true },
     { label: changes ? "Changes requested" : "In review", sub: changes ? "Action needed" : "Usually within a day", done: changes || rejected, warn: changes || rejected },
-    { label: rejected ? "Not approved" : "Approved", sub: "Your console unlocks", done: false },
+    { label: rejected ? "Not approved" : "Approved", sub: "You get the host console", done: false },
   ];
   return (
     <div className="flex flex-col gap-6">
       <div>
         <p className="text-sm font-semibold text-brand">{host.brandName}</p>
-        <h1 className="mt-1 font-display text-[32px] font-bold leading-tight">{changes ? "A small fix needed" : rejected ? "Application not approved" : "Thanks — we're reviewing it"}</h1>
-        <p className="mt-2 text-muted">{changes ? "The local. team asked for a change before approving." : "We check every host so attendees can book with confidence. The console unlocks once you're approved."}</p>
+        <h1 className="mt-1 font-display text-[32px] font-bold leading-tight">{changes ? "A small fix needed" : rejected ? "Application not approved" : "Thanks, we're reviewing it"}</h1>
+        <p className="mt-2 text-muted">{changes ? "The local. team asked for a change before approving." : "We check every host so attendees can book with confidence. You get the host console once you're approved."}</p>
       </div>
       <ol className="flex flex-col gap-0 rounded-2xl border border-line bg-surface p-5">
         {steps.map((s, i) => (
@@ -52,7 +52,7 @@ export function ApplicationStatus({ host }: { host: { brandName: string; status:
           <Link href="/host/apply?edit=1">Update application</Link>
         </Button>
       )}
-      {host.wantsPaid && <p className="text-sm text-muted">Paid ticketing unlocks once your PAN and bank details are verified. Free listings can go live as soon as you&apos;re approved.</p>}
+      {host.wantsPaid && <p className="text-sm text-muted">You can sell paid tickets once your PAN and bank details are verified. Free listings can go live as soon as you&apos;re approved.</p>}
 
       {host.status === "pending" && (
         <p className="flex items-start gap-2 rounded-2xl border border-dashed border-line-strong p-4 text-sm text-muted">

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const city = await getCity(slug);
   if (!city) return {};
   return {
-    title: `Things to do in ${city.name} — events, workshops & sports`,
+    title: `Things to do in ${city.name}: events, workshops & sports`,
     description: `Discover the best events, workshops, meetups, exhibitions and sports courts in ${city.name}. Book tickets and slots in seconds on local.`,
     alternates: { canonical: abs(`/${city.slug}`) },
     openGraph: { title: `Things to do in ${city.name}`, url: abs(`/${city.slug}`) },

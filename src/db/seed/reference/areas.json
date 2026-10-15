@@ -1,0 +1,178 @@
+[
+ {
+  "id": "a_nagpur_dharampeth",
+  "cityId": "c_nagpur",
+  "slug": "dharampeth",
+  "name": "Dharampeth",
+  "lat": 21.1418,
+  "lng": 79.064
+ },
+ {
+  "id": "a_nagpur_civil-lines",
+  "cityId": "c_nagpur",
+  "slug": "civil-lines",
+  "name": "Civil Lines",
+  "lat": 21.1594,
+  "lng": 79.0767
+ },
+ {
+  "id": "a_nagpur_sitabuldi",
+  "cityId": "c_nagpur",
+  "slug": "sitabuldi",
+  "name": "Sitabuldi",
+  "lat": 21.1438,
+  "lng": 79.0821
+ },
+ {
+  "id": "a_nagpur_manish-nagar",
+  "cityId": "c_nagpur",
+  "slug": "manish-nagar",
+  "name": "Manish Nagar",
+  "lat": 21.087,
+  "lng": 79.079
+ },
+ {
+  "id": "a_nagpur_ramdaspeth",
+  "cityId": "c_nagpur",
+  "slug": "ramdaspeth",
+  "name": "Ramdaspeth",
+  "lat": 21.135,
+  "lng": 79.071
+ },
+ {
+  "id": "a_nagpur_wardha-road",
+  "cityId": "c_nagpur",
+  "slug": "wardha-road",
+  "name": "Wardha Road",
+  "lat": 21.1,
+  "lng": 79.07
+ },
+ {
+  "id": "a_nagpur_sadar",
+  "cityId": "c_nagpur",
+  "slug": "sadar",
+  "name": "Sadar",
+  "lat": 21.163,
+  "lng": 79.082
+ },
+ {
+  "id": "a_nagpur_pratap-nagar",
+  "cityId": "c_nagpur",
+  "slug": "pratap-nagar",
+  "name": "Pratap Nagar",
+  "lat": 21.118,
+  "lng": 79.051
+ },
+ {
+  "id": "a_nagpur_medical-square",
+  "cityId": "c_nagpur",
+  "slug": "medical-square",
+  "name": "Medical Square",
+  "lat": 21.133,
+  "lng": 79.097
+ },
+ {
+  "id": "a_nagpur_jaripatka",
+  "cityId": "c_nagpur",
+  "slug": "jaripatka",
+  "name": "Jaripatka",
+  "lat": 21.183,
+  "lng": 79.087
+ },
+ {
+  "id": "a_nagpur_wathoda",
+  "cityId": "c_nagpur",
+  "slug": "wathoda",
+  "name": "Wathoda",
+  "lat": 21.139,
+  "lng": 79.147
+ },
+ {
+  "id": "a_nagpur_nandanvan",
+  "cityId": "c_nagpur",
+  "slug": "nandanvan",
+  "name": "Nandanvan",
+  "lat": 21.142,
+  "lng": 79.131
+ },
+ {
+  "id": "a_nagpur_manewada",
+  "cityId": "c_nagpur",
+  "slug": "manewada",
+  "name": "Manewada",
+  "lat": 21.106,
+  "lng": 79.098
+ },
+ {
+  "id": "a_nagpur_besa",
+  "cityId": "c_nagpur",
+  "slug": "besa",
+  "name": "Besa",
+  "lat": 21.068,
+  "lng": 79.095
+ },
+ {
+  "id": "a_nagpur_hingna",
+  "cityId": "c_nagpur",
+  "slug": "hingna",
+  "name": "Hingna",
+  "lat": 21.1,
+  "lng": 78.975
+ },
+ {
+  "id": "a_nagpur_koradi-road",
+  "cityId": "c_nagpur",
+  "slug": "koradi-road",
+  "name": "Koradi Road",
+  "lat": 21.21,
+  "lng": 79.075
+ },
+ {
+  "id": "a_nagpur_kamptee-road",
+  "cityId": "c_nagpur",
+  "slug": "kamptee-road",
+  "name": "Kamptee Road",
+  "lat": 21.19,
+  "lng": 79.125
+ },
+ {
+  "id": "a_nagpur_mankapur",
+  "cityId": "c_nagpur",
+  "slug": "mankapur",
+  "name": "Mankapur",
+  "lat": 21.183,
+  "lng": 79.05
+ },
+ {
+  "id": "a_nagpur_bajaj-nagar",
+  "cityId": "c_nagpur",
+  "slug": "bajaj-nagar",
+  "name": "Bajaj Nagar",
+  "lat": 21.127,
+  "lng": 79.06
+ },
+ {
+  "id": "a_nagpur_wadi",
+  "cityId": "c_nagpur",
+  "slug": "wadi",
+  "name": "Wadi",
+  "lat": 21.163,
+  "lng": 78.99
+ },
+ {
+  "id": "a_nagpur_mihan",
+  "cityId": "c_nagpur",
+  "slug": "mihan",
+  "name": "MIHAN",
+  "lat": 21.03,
+  "lng": 79.03
+ },
+ {
+  "id": "a_nagpur_outskirts",
+  "cityId": "c_nagpur",
+  "slug": "outskirts",
+  "name": "Outskirts",
+  "lat": 21.1458,
+  "lng": 79.0882
+ }
+]

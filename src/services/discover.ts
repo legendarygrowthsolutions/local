@@ -220,6 +220,19 @@ export async function getHome(citySlug: string, user: User | null, now = new Dat
     { id: "free", title: "Free this week", subtitle: "No tickets, no excuses", href: `/${city.slug}/search?price=free&when=week`, layout: "carousel" },
     events.filter((e) => e.card.priceFrom === null && [...(e.dates as Set<string>)].some((d) => week.has(d))).sort(bySoon).map((e) => e.card),
   );
+  // One rail per event genre that has enough on, then days out.
+  const eventsCat = ctx.categories.find((c) => c.slug === "events" && c.parentId === null);
+  const GENRE_TITLES: Record<string, string> = { music: "Live music", comedy: "Stand-up & comedy", theatre: "Plays & storytelling", festivals: "Garba & festivals", "open-mics": "Open mics & poetry" };
+  for (const sub of ctx.categories.filter((c) => c.parentId === eventsCat?.id).sort((a, b) => a.sort - b.sort)) {
+    push(
+      { id: `genre-${sub.slug}`, title: GENRE_TITLES[sub.slug] ?? sub.name, href: `/${city.slug}/events/${sub.slug}`, layout: "carousel" },
+      events.filter((e) => e.subSlugs.includes(sub.slug)).sort(bySoon).map((e) => e.card),
+    );
+  }
+  push(
+    { id: "activities", title: "Days out", subtitle: "Water parks, arcades and trampolines", href: `/${city.slug}/activities`, layout: "carousel" },
+    events.filter((e) => e.card.categorySlug === "activities").map((e) => e.card),
+  );
   push(
     { id: "workshops", title: "Learn something new", subtitle: "Workshops worth a weekend morning", href: `/${city.slug}/workshops`, layout: "carousel" },
     events.filter((e) => e.card.categorySlug === "workshops").sort(bySoon).map((e) => e.card),
@@ -235,7 +248,8 @@ export async function getHome(citySlug: string, user: User | null, now = new Dat
 
   return {
     city,
-    categories: ctx.categories.filter((c) => c.parentId === null),
+    // Only categories with something on in this city.
+    categories: ctx.categories.filter((c) => c.parentId === null && entries.some((e) => e.card.categorySlug === c.slug)),
     featured,
     quickFilters: [
       { id: "weekend", label: "This weekend", href: `/${city.slug}/search?when=weekend`, items: inWeekend },

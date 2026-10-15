@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
-import { fixtures, listingFor, login, uniquePhone } from "./helpers";
+import { listingFor, login, nagpur, showCity, uniquePhone } from "./helpers";
 
 test.describe("user golden paths", () => {
   test("new user books tickets: login at checkout → profile → review → failed then successful payment → ticket", async ({ page }) => {
-    const event = listingFor("tpl_ticket_single", "c_pune");
-    await page.goto(`/pune/e/${event.slug}`);
+    const event = nagpur.listing("tpl_ticket_single");
+    await page.goto(`/nagpur/e/${event.slug}`);
     await expect(page.getByRole("heading", { level: 1, name: event.title })).toBeVisible();
     await page.getByRole("link", { name: /book tickets/i }).last().click();
     await expect(page).toHaveURL(/\/book\/e\//);
@@ -62,7 +62,7 @@ test.describe("user golden paths", () => {
 
   test("demo user books a court slot and cancels it for a refund", async ({ page }) => {
     await login(page, "9876543210");
-    const venue = fixtures.venues.find((v) => v.cityId === "c_nagpur")!;
+    const venue = nagpur.venues[0];
     await page.goto(`/book/v/${venue.id}`);
     // Tomorrow has a full day of future slots
     await page.getByRole("radio").nth(1).click();
@@ -86,18 +86,25 @@ test.describe("user golden paths", () => {
   });
 
   test("free RSVP confirms without payment, once per person", async ({ page }) => {
-    await login(page, uniquePhone());
-    await page.request.patch("/api/me", { data: { name: "RSVP Tester", gender: "na", dob: "1994-05-05" } });
-    const rsvp = listingFor("tpl_rsvp", "c_nagpur");
-    const book = async () => {
-      await page.goto(`/book/e/${rsvp.id}`);
-      await page.getByRole("button", { name: /^continue$/i }).last().click();
-      await page.getByRole("button", { name: /confirm rsvp/i }).last().click();
-    };
-    await book();
-    await expect(page.getByRole("heading", { name: /You.re in!|Request sent!/ })).toBeVisible();
-    // A second free place for the same date is refused.
-    await book();
-    await expect(page.getByText("You already have a place for this date")).toBeVisible();
+    // No free RSVPs among Nagpur's imported listings; use a demo one in Mumbai, switched on for the test.
+    await showCity(page, "mumbai", true);
+    try {
+      await login(page, uniquePhone());
+      await page.request.patch("/api/me", { data: { name: "RSVP Tester", gender: "na", dob: "1994-05-05" } });
+      const rsvp = listingFor("tpl_rsvp", "c_mumbai");
+      const book = async () => {
+        await page.goto(`/book/e/${rsvp.id}`);
+        await page.getByRole("button", { name: /^continue$/i }).last().click();
+        await page.getByRole("button", { name: /confirm rsvp/i }).last().click();
+      };
+      await book();
+      await expect(page.getByRole("heading", { name: /You.re in!|Request sent!/ })).toBeVisible();
+      // A second free place for the same date is refused.
+      await book();
+      await expect(page.getByText("You already have a place for this date")).toBeVisible();
+    } finally {
+      await showCity(page, "mumbai", false);
+    }
   });
+
 });

@@ -4,7 +4,7 @@ import { Logo } from "@/components/ui/logo";
 
 export const HOST_POINTS = [
   { icon: CalendarCheck, title: "List for free", body: "Free events and RSVPs go live as soon as you're approved." },
-  { icon: IndianRupee, title: "Sell tickets and slots", body: "Paid ticketing unlocks once PAN and bank details are verified. Attendees pay the convenience fee." },
+  { icon: IndianRupee, title: "Sell tickets and slots", body: "You can sell paid tickets once your PAN and bank details are verified. Attendees pay the convenience fee." },
   { icon: ShieldCheck, title: "Your team, your rules", body: "Owners see revenue and payouts; managers handle bookings and check-in." },
 ];
 
@@ -41,7 +41,7 @@ export function ApplyLayout({ children }: { children: React.ReactNode }) {
             ))}
           </ul>
         </div>
-        <p className="relative mt-12 text-xs text-feature-muted">Mumbai · Pune · Nagpur — more cities soon</p>
+        <p className="relative mt-12 text-xs text-feature-muted">Live in Nagpur. More cities soon.</p>
       </aside>
       <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-5 pb-7 pt-4 lg:max-w-[520px] lg:justify-center lg:px-8 lg:py-16">{children}</main>
     </div>

@@ -8,6 +8,7 @@ import type {
 import { repo } from "@/repositories";
 import { generateSlots } from "@/lib/slots/engine";
 import { addDays, formatDate, formatMins, formatWhen, fromISO, istParts, toISO, todayIST } from "@/lib/time";
+import { hostPayouts } from "./payouts";
 import { ServiceError, badRequest, conflict, notFound } from "./errors";
 
 // ---------------------------------------------------------------------------
@@ -209,21 +210,26 @@ export async function listHostListings(ctx: HostContext, now = new Date()): Prom
     });
   }
   const today = istParts(now).ymd;
+  const rules = await repo.venues.slotRules(resources.map((r) => r.id));
   for (const v of venues) {
     const vr = resources.filter((r) => r.venueId === v.id);
     const week = new Set(Array.from({ length: 7 }, (_, i) => addDays(today, i)));
     const vb = bookings.filter((b) => b.venueId === v.id && COUNTED.includes(b.status));
     const weekB = vb.filter((b) => week.has(fromISO(b.startsAt).ymd));
-    const hoursPerDay = 17;
+    // Bookable court-hours in the coming week, from each court's own opening hours.
+    const weeklyHours = vr.reduce((sum, r) => {
+      const rule = rules.find((x) => x.resourceId === r.id);
+      return sum + (rule ? Math.max(0, rule.closeMins - rule.openMins) / 60 : 0) * 7;
+    }, 0);
     rows.push({
       id: v.id,
       kind: "venue",
       title: v.name,
       status: v.status,
       whenLabel: `${vr.length} ${vr.length === 1 ? "court" : "courts"} · ${v.hoursLabel}`,
-      templateName: v.templateId === "tpl_court_30" ? "Court slots — 30 min" : "Court slots — hourly",
+      templateName: templates.find((t) => t.id === v.templateId)?.name ?? "Court slots",
       sold: weekB.length,
-      capacity: vr.length * hoursPerDay * 7,
+      capacity: Math.round(weeklyHours),
       soldLabel: `${weekB.length} this week`,
       revenue: money(ctx, vb.reduce((s, b) => s + b.price.subtotal - b.price.discount, 0)),
       publicHref: v.status === "live" ? `/${citySlug(v.cityId)}/v/${v.slug}` : null,
@@ -252,7 +258,6 @@ export async function hostDashboard(ctx: HostContext, now = new Date()) {
   const payouts = ctx.isOwner ? await hostPayouts(ctx, now) : null;
   const rows = await listHostListings(ctx, now);
   const recent = [...bookings]
-    .filter((b) => !b.seeded || new Date(b.createdAt).getTime() > t - 3 * 86_400_000)
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
     .slice(0, 6)
     .map((b) => bookingRow(ctx, b, now));
@@ -317,8 +322,8 @@ async function validateEvent(ctx: HostContext, input: EventListingInput, tpl: Jo
   if (["multi_day", "recurring"].includes(tpl.schedule) && n < 2) throw badRequest("Add at least two dates");
   const paidTickets = input.tickets.some((t) => t.price > 0);
   if (["ticketed", "registration"].includes(tpl.bookingMode) && input.tickets.length === 0) throw badRequest(tpl.bookingMode === "registration" ? "Add at least one division" : "Add at least one ticket type");
-  if (paidTickets && tpl.pricing === "free") throw badRequest("This booking type is free — remove ticket prices");
-  if (paidTickets && ctx.host.kycStatus !== "verified") throw new ServiceError(403, "kyc_required", "Paid ticketing unlocks once your PAN and bank details are verified. You can publish free listings meanwhile.");
+  if (paidTickets && tpl.pricing === "free") throw badRequest("This booking type is free. Remove the ticket prices.");
+  if (paidTickets && ctx.host.kycStatus !== "verified") throw new ServiceError(403, "kyc_required", "You can sell paid tickets once your PAN and bank details are verified. You can publish free listings meanwhile.");
   for (const t of input.tickets) if (t.sessionIndex !== null && (t.sessionIndex < 0 || t.sessionIndex >= n)) throw badRequest(`“${t.name}” points at a date that doesn't exist`);
   return { cat, area };
 }
@@ -496,7 +501,7 @@ async function saveVenue(ctx: HostContext, input: VenueInput, submit: boolean, i
   if (ctx.host.type !== "venue") throw badRequest("Only venue hosts can list courts");
   if (input.closeMins <= input.openMins) throw badRequest("Closing time must be after opening time");
   const paid = input.courts.some((c) => c.priceBase > 0 || c.pricePeak > 0);
-  if (paid && ctx.host.kycStatus !== "verified") throw new ServiceError(403, "kyc_required", "Paid court bookings unlock once your PAN and bank details are verified.");
+  if (paid && ctx.host.kycStatus !== "verified") throw new ServiceError(403, "kyc_required", "You can take paid court bookings once your PAN and bank details are verified.");
   const area = await repo.areas.byId(input.areaId);
   if (!area || area.cityId !== ctx.host.cityId) throw badRequest("Choose an area in your city");
   const sportCats = (await repo.categories.list()).filter((c) => c.parentId === "cat_sports");
@@ -706,16 +711,6 @@ export async function checkIn(ctx: HostContext, code: string, now = new Date()) 
   return { result: "ok" as const, booking: { ...row(), status: "checked_in" as const }, message: `${b.items.reduce((s, i) => s + i.qty, 0)} admitted` };
 }
 
-/** Next booking due for check-in today — powers the mock scanner's "simulate scan". */
-export async function nextToScan(ctx: HostContext, now = new Date()) {
-  const { items } = await hostBookings(ctx, { when: "today", limit: Infinity }, now);
-  const t = now.getTime();
-  const due = items
-    .filter((b) => b.status === "confirmed" && new Date(b.endsAt).getTime() > t && new Date(b.startsAt).getTime() - 3 * 3_600_000 <= t)
-    .sort((a, b) => a.startsAt.localeCompare(b.startsAt));
-  return due[0]?.code ?? null;
-}
-
 // ---------------------------------------------------------------------------
 // Court schedule & blocks
 // ---------------------------------------------------------------------------
@@ -789,49 +784,6 @@ export async function removeBlock(ctx: HostContext, id: string) {
 // ---------------------------------------------------------------------------
 // Payouts (owner only)
 // ---------------------------------------------------------------------------
-
-export async function hostPayouts(ctx: HostContext, now = new Date()) {
-  assertOwner(ctx);
-  const { listings, venues } = await targets(ctx);
-  const all = await repo.bookings.listForTargets(listings.map((l) => l.id), venues.map((v) => v.id));
-  const today = istParts(now).ymd;
-  // Weekly cycles Mon–Sun by booking date; paid out the following Wednesday.
-  const wd = new Date(today + "T00:00:00Z").getUTCDay();
-  const thisMonday = addDays(today, -((wd + 6) % 7));
-  const cycles = Array.from({ length: 5 }, (_, i) => {
-    const from = addDays(thisMonday, -7 * i);
-    const to = addDays(from, 6);
-    const inCycle = all.filter((b) => {
-      const d = istParts(new Date(b.createdAt)).ymd;
-      return d >= from && d <= to;
-    });
-    const sales = inCycle.filter((b) => COUNTED.includes(b.status) || b.status === "refunded" || b.status === "cancelled");
-    const gross = sales.reduce((s, b) => s + b.price.subtotal - b.price.discount, 0);
-    const refunds = inCycle.filter((b) => b.status === "refunded").reduce((s, b) => s + b.price.subtotal - b.price.discount, 0);
-    const payoutDate = addDays(to, 3);
-    return {
-      id: `po_${from}`,
-      from,
-      to,
-      label: `${formatDate(from).split(", ")[1]} – ${formatDate(to).split(", ")[1]}`,
-      bookings: sales.length,
-      gross: Math.round(gross * 100) / 100,
-      refunds: Math.round(refunds * 100) / 100,
-      net: Math.round((gross - refunds) * 100) / 100,
-      payoutDate,
-      status: payoutDate <= today ? ("paid" as const) : i === 0 ? ("accruing" as const) : ("scheduled" as const),
-      utr: payoutDate <= today ? `UTR${from.replace(/-/g, "")}${ctx.host.id.slice(-3).toUpperCase()}` : null,
-    };
-  });
-  const next = cycles.find((c) => c.status !== "paid") ?? cycles[0];
-  return {
-    bank: ctx.host.documents.some((d) => d.kind === "bank") ? "HDFC Bank ···· 4321" : null,
-    kycStatus: ctx.host.kycStatus,
-    next: { amount: next.net, date: next.payoutDate, label: next.label },
-    cycles,
-    lifetime: Math.round(cycles.reduce((s, c) => s + c.net, 0) * 100) / 100,
-  };
-}
 
 // ---------------------------------------------------------------------------
 // Team & settings (owner only)

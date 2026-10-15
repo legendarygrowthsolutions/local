@@ -40,7 +40,7 @@ export default async function UsersPage({ searchParams }: { searchParams: Promis
                 </td>
                 <td className="px-3 py-3">{u.city}</td>
                 <td className="px-3 py-3 tabular-nums">{u.bookings}</td>
-                <td className="px-3 py-3 text-ink-2">{u.hostRoles.join(", ") || "—"}</td>
+                <td className="px-3 py-3 text-ink-2">{u.hostRoles.join(", ") || "None"}</td>
                 <td className="px-3 py-3 text-muted">{formatDate(fromISO(u.createdAt).ymd, true)}</td>
                 <td className="px-4 py-3">
                   <RoleToggle id={u.id} admin={u.role === "admin"} self={u.id === me?.id} />

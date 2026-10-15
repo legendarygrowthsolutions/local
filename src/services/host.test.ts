@@ -8,8 +8,9 @@ import { decideListing, listModeration } from "./admin";
 import { getListingDetail, searchListings } from "./discover";
 import { getAvailability } from "./availability";
 import { ServiceError } from "./errors";
+import { hostPayouts } from "./payouts";
 import {
-  addBlock, applyAsHost, checkIn, getListingInput, hostBookings, hostDashboard, hostPayouts, inviteMember, listHostListings, removeBlock, removeMember, resolveHostContext, saveListing,
+  addBlock, applyAsHost, checkIn, getListingInput, hostBookings, hostDashboard, inviteMember, listHostListings, removeBlock, removeMember, resolveHostContext, saveListing,
 } from "./host";
 
 setupTestDb();

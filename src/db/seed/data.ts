@@ -21,6 +21,24 @@ import blocks from "./fixtures/blocks.json";
 import users from "./fixtures/users.json";
 import bookings from "./fixtures/bookings.json";
 import coupons from "./fixtures/coupons.json";
+import nagpur from "./real/nagpur.json";
+
+/** Real listings crawled from District, BookMyShow and KheloMore (scripts/crawl). */
+export interface ImportedData {
+  areas: Area[];
+  categories: Category[];
+  templates: JourneyTemplate[];
+  hosts: Host[];
+  listings: Listing[];
+  sessions: Session[];
+  ticketTypes: TicketType[];
+  venues: Venue[];
+  resources: Resource[];
+  slotRules: SlotRule[];
+}
+
+/** Cities whose generated demo listings, venues and hosts are replaced by imported, real ones. */
+const IMPORTED_CITIES = new Set(["c_nagpur"]);
 
 export interface SeedData {
   cities: City[];
@@ -66,26 +84,42 @@ function shiftDates<T>(value: T, days: number): T {
   return value;
 }
 
-/** Fixtures re-anchored to `now` (the generator writes them relative to an anchor day). */
+/** Fixtures re-anchored to `now` (the generator writes them relative to an anchor day), minus demo content for imported cities. */
 export function loadSeedData(now = new Date()): SeedData {
   const shift = daysBetween(meta.anchor, todayIST(now));
   const c = <T,>(v: unknown): T => shiftDates(structuredClone(v), shift) as T;
+
+  const demoListings = c<Listing[]>(listings).filter((l) => !IMPORTED_CITIES.has(l.cityId));
+  const demoVenues = c<Venue[]>(venues).filter((v) => !IMPORTED_CITIES.has(v.cityId));
+  const listingIds = new Set(demoListings.map((l) => l.id));
+  const venueIds = new Set(demoVenues.map((v) => v.id));
+  const demoResources = c<Resource[]>(resources).filter((r) => venueIds.has(r.venueId));
+  const resourceIds = new Set(demoResources.map((r) => r.id));
+  // Approved demo hosts there go too; pending applications stay so the admin queue has something in it.
+  const demoHosts = c<Host[]>(hosts).filter((h) => !IMPORTED_CITIES.has(h.cityId) || h.status !== "approved");
+  const hostIds = new Set(demoHosts.map((h) => h.id));
+
   return {
     cities: c(cities),
     areas: c(areas),
     categories: c(categories),
     templates: c(templates),
-    hosts: c(hosts),
-    hostMembers: c(hostMembers),
-    listings: c(listings),
-    sessions: c(sessions),
-    ticketTypes: c(ticketTypes),
-    venues: c(venues),
-    resources: c(resources),
-    slotRules: c(slotRules),
-    blocks: c(blocks),
+    hosts: demoHosts,
+    hostMembers: c<HostMember[]>(hostMembers).filter((m) => hostIds.has(m.hostId)),
+    listings: demoListings,
+    sessions: c<Session[]>(sessions).filter((s) => listingIds.has(s.listingId)),
+    ticketTypes: c<TicketType[]>(ticketTypes).filter((t) => listingIds.has(t.listingId)),
+    venues: demoVenues,
+    resources: demoResources,
+    slotRules: c<SlotRule[]>(slotRules).filter((r) => resourceIds.has(r.resourceId)),
+    blocks: c<Block[]>(blocks).filter((b) => resourceIds.has(b.resourceId)),
     users: c(users),
-    bookings: c(bookings),
+    bookings: c<Booking[]>(bookings).filter((b) => (!b.listingId || listingIds.has(b.listingId)) && (!b.venueId || venueIds.has(b.venueId))),
     coupons: c(coupons),
   };
+}
+
+/** Imported listings keep their real, absolute dates (never re-anchored). */
+export function loadImportedData(): ImportedData {
+  return structuredClone(nagpur) as unknown as ImportedData;
 }

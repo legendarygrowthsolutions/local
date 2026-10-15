@@ -24,7 +24,7 @@ export default defineConfig({
   webServer: [
     { command: "node tests/providers/fake-providers.mjs", port: FAKE, reuseExistingServer: false, env: { ...providerEnv, FAKE_PROVIDERS_PORT: String(FAKE) } },
     {
-      command: `tsx scripts/db.ts reset && next start -p ${PORT}`,
+      command: `tsx scripts/db.ts reset --demo && next start -p ${PORT}`,
       port: PORT,
       reuseExistingServer: false,
       timeout: 90_000,

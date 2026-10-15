@@ -86,7 +86,7 @@ export default async function AdminBookingsPage({ searchParams }: { searchParams
                   </td>
                   <td className="px-3 py-3 text-ink-2">{formatWhen(b.startsAt)}</td>
                   <td className="px-3 py-3 tabular-nums">{formatINR(b.ticketValue, { free: "Free" })}</td>
-                  <td className="px-3 py-3 tabular-nums text-muted">{b.fees ? formatINR(b.fees) : "—"}</td>
+                  <td className="px-3 py-3 tabular-nums text-muted">{b.fees ? formatINR(b.fees) : "Nil"}</td>
                   <td className="px-3 py-3">
                     <BookingStatusPill status={b.status} />
                   </td>
