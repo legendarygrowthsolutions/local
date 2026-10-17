@@ -8,6 +8,8 @@ import { formatWhen, istParts } from "@/lib/time";
 import { ServiceError, badRequest, conflict, notFound } from "./errors";
 import { applyListing, listingInputFor, resolveHostContext } from "./host";
 import { cancelWithRefund } from "./payments";
+import { queueNotification } from "./notifications";
+import { newId } from "@/lib/crypto";
 import type { ListingInput } from "@/contracts";
 
 export const forbidden = () => new ServiceError(403, "forbidden", "Superadmins only");
@@ -602,6 +604,8 @@ export async function adminRefund(id: string, refundPct: 0 | 50 | 100) {
   if (!["confirmed", "requested", "checked_in"].includes(b.status)) throw conflict("Only confirmed bookings can be cancelled");
   const amount = r2(((b.price.subtotal - b.price.discount) * refundPct) / 100);
   await cancelWithRefund(id, [b.status], amount, "support_refund");
+  await repo.bookingEvents.insert({ id: newId("be"), bookingId: id, kind: "cancelled", actorUserId: null, actorRole: "admin", data: { refundAmount: amount, refundPct }, createdAt: new Date().toISOString() });
+  queueNotification(id, "cancelled", { actor: "admin", refundAmount: amount });
   return { refundAmount: amount };
 }
 

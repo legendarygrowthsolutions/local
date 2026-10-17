@@ -66,6 +66,8 @@ export const HostSchema = z.object({
   ),
   reviewNote: z.string().nullable(),
   submittedAt: z.string(),
+  /** Owner-set operational settings (alerts, rescheduling, extras, permissions). Null = defaults. */
+  settings: z.unknown().nullable().optional(),
 });
 export type Host = z.infer<typeof HostSchema>;
 export type HostDocument = Host["documents"][number];

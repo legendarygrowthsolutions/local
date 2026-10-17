@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { m } from "motion/react";
 import {
-  CalendarRange, ExternalLink, LayoutDashboard, ListChecks, Menu, ScanLine, Settings, Ticket, Users, Wallet,
+  BarChart3, CalendarRange, ExternalLink, LayoutDashboard, ListChecks, Menu, ScanLine, Settings, Ticket, Users, Wallet,
   type LucideIcon,
 } from "lucide-react";
 import { Sheet } from "@/components/ui/sheet";
@@ -32,6 +32,7 @@ const NAV: NavItem[] = [
   { href: "/host/bookings", label: "Bookings", icon: Ticket },
   { href: "/host/slots", label: "Slots & calendar", icon: CalendarRange, venue: true },
   { href: "/host/checkin", label: "Check-in scanner", icon: ScanLine },
+  { href: "/host/reports", label: "Reports", icon: BarChart3 },
   { href: "/host/payouts", label: "Payouts", icon: Wallet, owner: true },
   { href: "/host/team", label: "Team (owner / manager)", icon: Users, owner: true },
   { href: "/host/settings", label: "Settings", icon: Settings, owner: true },

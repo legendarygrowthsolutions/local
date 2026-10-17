@@ -47,7 +47,7 @@ describe("holdBooking — ticketed listings", () => {
     // tpl_ticket_single: 3.75% fee + 18% GST on the fee
     expect(b.price).toEqual({ subtotal: 199, discount: 0, convenienceFee: 7.46, gstOnFee: 1.34, total: 207.8 });
     expect(new Date(b.holdExpiresAt!).getTime()).toBe(now.getTime() + 10 * 60_000);
-    expect(await repo.bookings.byId(b.id)).toEqual({ ...b, seeded: false, checkedInAt: null });
+    expect(await repo.bookings.byId(b.id)).toEqual({ ...b, seeded: false, checkedInAt: null, source: "online", paymentMethod: null, amountDue: 0, notes: null, rescheduledCount: 0, rescheduledFrom: null, createdBy: null, groupId: null });
     const inv = (await loadInventory([listing])).get(listing.id)!;
     expect(inv.tickets[0].remaining).toBe(8);
   });

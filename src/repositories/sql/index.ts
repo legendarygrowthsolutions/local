@@ -6,7 +6,7 @@ import * as M from "@/db/mappers";
 import type { BookingItemsTable, BookingsTable } from "@/db/tables";
 import { fromISO } from "@/lib/time";
 import type { TakenRange } from "@/lib/slots/engine";
-import type { PaymentRecord, Repository } from "../types";
+import type { BookingEvent, NotificationRecord, PaymentRecord, Repository } from "../types";
 
 type PaymentRecordStatus = PaymentRecord["status"];
 
@@ -318,19 +318,20 @@ export const sqlRepository: Repository = {
     slotRules: async (ids) => (ids.length ? (await db().selectFrom("slotRules").selectAll().where("resourceId", "in", ids).execute()).map(M.ruleFromRow) : []),
     blocks: async (ids) =>
       ids.length ? (await db().selectFrom("blocks").selectAll().where("resourceId", "in", ids).orderBy("startsAt").execute()).map(M.blockFromRow) : [],
-    taken: async (resourceIds, date) => {
+    taken: async (resourceIds, date, exceptBookingId) => {
       if (!resourceIds.length) return [];
       const now = nowIso();
       // Event times are stored as "YYYY-MM-DDTHH:MM:SS+05:30", so a day is a string range.
-      const rows = await db()
+      let q = db()
         .selectFrom("bookingItems as i")
         .innerJoin("bookings as b", "b.id", "i.bookingId")
         .select(["i.resourceId", "i.startsAt", "i.endsAt", "b.status"])
         .where("i.resourceId", "in", resourceIds)
         .where("i.startsAt", ">=", `${date}T00:00:00`)
         .where("i.startsAt", "<", `${date}T99`)
-        .where((eb) => holdsInventory(eb, now))
-        .execute();
+        .where((eb) => holdsInventory(eb, now));
+      if (exceptBookingId) q = q.where("b.id", "!=", exceptBookingId);
+      const rows = await q.execute();
       const out: TakenRange[] = [];
       for (const r of rows) {
         if (!r.resourceId || !r.startsAt || !r.endsAt) continue;
@@ -515,6 +516,7 @@ export const sqlRepository: Repository = {
       }
       return { byTicket, bySession };
     },
+    listByGroup: async (groupId) => loadBookings((q) => q.where("groupId", "=", groupId)),
     insert: async (bk) => {
       await withTransaction(async () => {
         await db().insertInto("bookings").values(M.bookingToRow(bk)).execute();
@@ -534,6 +536,35 @@ export const sqlRepository: Repository = {
       });
       return sqlRepository.bookings.byId(id);
     },
+  },
+
+  bookingEvents: {
+    insert: async (e) => {
+      await db().insertInto("bookingEvents").values({ id: e.id, bookingId: e.bookingId, kind: e.kind, actorUserId: e.actorUserId, actorRole: e.actorRole, data: JSON.stringify(e.data ?? {}), createdAt: e.createdAt }).execute();
+    },
+    listByBooking: async (bookingId) =>
+      (await db().selectFrom("bookingEvents").selectAll().where("bookingId", "=", bookingId).orderBy("createdAt").orderBy("id").execute()).map(eventFromRow),
+  },
+
+  notifications: {
+    tryInsert: async (n) => {
+      try {
+        await db().insertInto("notifications").values({ ...n }).execute();
+        return true;
+      } catch (e) {
+        if (/unique|duplicate/i.test(String((e as Error).message))) return false;
+        throw e;
+      }
+    },
+    update: async (id, patch) => {
+      await db().updateTable("notifications").set(patch).where("id", "=", id).execute();
+    },
+    listByBooking: async (bookingId) =>
+      (await db().selectFrom("notifications").selectAll().where("bookingId", "=", bookingId).orderBy("createdAt").orderBy("id").execute()).map(notificationFromRow),
+    listForBookings: async (bookingIds, limit = 50) =>
+      bookingIds.length
+        ? (await db().selectFrom("notifications").selectAll().where("bookingId", "in", bookingIds.slice(0, 500)).orderBy("createdAt", "desc").orderBy("id").limit(limit).execute()).map(notificationFromRow)
+        : [],
   },
 
   users: {
@@ -808,6 +839,17 @@ export const sqlRepository: Repository = {
     },
   },
 };
+
+function eventFromRow(r: import("@/db/tables").BookingEventsTable): BookingEvent {
+  let data: Record<string, unknown> = {};
+  try {
+    data = r.data ? (JSON.parse(r.data) as Record<string, unknown>) : {};
+  } catch {}
+  return { id: r.id, bookingId: r.bookingId, kind: r.kind as BookingEvent["kind"], actorUserId: r.actorUserId, actorRole: r.actorRole as BookingEvent["actorRole"], data, createdAt: r.createdAt };
+}
+function notificationFromRow(r: import("@/db/tables").NotificationsTable): NotificationRecord {
+  return { ...r, audience: r.audience as NotificationRecord["audience"], channel: r.channel as NotificationRecord["channel"], status: r.status as NotificationRecord["status"] };
+}
 
 function payoutAccountFromRow(r: import("@/db/tables").HostPayoutAccountsTable): import("@/contracts").PayoutAccount {
   return { method: r.method as "bank" | "upi", holderName: r.holderName, accountNumber: r.accountNumber, ifsc: r.ifsc, bankName: r.bankName, upiId: r.upiId, updatedAt: r.updatedAt };

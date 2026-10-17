@@ -11,6 +11,7 @@ export interface CategoriesTable { id: string; slug: string; name: string; singu
 export interface JourneyTemplatesTable {
   id: string; name: string; description: string; allowedCategories: Json; bookingMode: string; schedule: string; pricing: string;
   ticketScope: string | null; steps: Json; rules: Json; fees: Json; cancellation: Json; ctaLabel: string; sort: number; active: Bool;
+  reschedule: Json | null;
 }
 export interface UsersTable {
   id: string; phone: string; name: string | null; gender: string | null; dob: string | null; cityId: string | null; interests: Json;
@@ -22,6 +23,7 @@ export interface HostsTable {
   id: string; userId: string | null; type: string; slug: string; brandName: string; cityId: string; bio: string; instagram: string | null;
   kycStatus: string; status: string; since: string; contactName: string; contactPhone: string; email: string | null;
   website: string | null; gstin: string | null; expectedPerMonth: string; wantsPaid: Bool; reviewNote: string | null; submittedAt: string;
+  settings: Json | null;
 }
 export interface HostDocumentsTable { id: string; hostId: string; kind: string; fileName: string; mediaId: string | null; status: string; sort: number }
 export interface HostMembersTable {
@@ -71,6 +73,13 @@ export interface BookingsTable {
   venueName: string; status: string; subtotal: number; discount: number; convenienceFee: number; gstOnFee: number; total: number;
   couponCode: string | null; attendee: Json | null; startsAt: string; endsAt: string; holdExpiresAt: string | null; createdAt: string;
   paymentRef: string | null; seeded: Bool; checkedInAt: string | null;
+  source: string; paymentMethod: string | null; amountDue: number; notes: string | null; rescheduledCount: number; rescheduledFrom: string | null;
+  createdBy: string | null; groupId: string | null;
+}
+export interface BookingEventsTable { id: string; bookingId: string; kind: string; actorUserId: string | null; actorRole: string; data: Json | null; createdAt: string }
+export interface NotificationsTable {
+  id: string; bookingId: string; kind: string; dedupeKey: string; recipient: string; audience: string; channel: string; status: string;
+  provider: string; providerRef: string | null; error: string | null; body: string | null; createdAt: string;
 }
 export interface BookingItemsTable {
   id: string; bookingId: string; line: number; ticketTypeId: string | null; sessionId: string | null; resourceId: string | null;
@@ -117,4 +126,6 @@ export interface Database {
   listingViews: ListingViewsTable;
   media: MediaTable;
   listingRevisions: ListingRevisionsTable;
+  bookingEvents: BookingEventsTable;
+  notifications: NotificationsTable;
 }

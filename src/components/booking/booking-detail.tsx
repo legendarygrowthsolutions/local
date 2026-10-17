@@ -11,13 +11,16 @@ import { Button } from "@/components/ui/button";
 import { Sheet } from "@/components/ui/sheet";
 import { TicketActions, TicketCard } from "@/features/booking/ticket";
 import { PriceBreakdown } from "@/features/booking/price-breakdown";
+import { RescheduleSheet } from "./reschedule-sheet";
 import { formatINR } from "@/lib/pricing";
+import { formatWhen } from "@/lib/time";
 
 export function BookingDetail({ initial }: { initial: BookingView }) {
   const { data = initial } = useBooking(initial.id, initial);
   const b = data;
   const cancel = useCancelBooking(initial.id);
   const [open, setOpen] = useState(false);
+  const [moving, setMoving] = useState(false);
   const active = b.status === "confirmed" || b.status === "requested";
   return (
     <>
@@ -40,7 +43,20 @@ export function BookingDetail({ initial }: { initial: BookingView }) {
             <h2 className="mb-4 font-display text-lg font-bold">Payment</h2>
             <PriceBreakdown price={b.price} coupon={b.couponCode} />
             {b.paymentRef && <p className="mt-3 text-xs text-subtle">Ref {b.paymentRef}</p>}
+            {(b.amountDue ?? 0) > 0 && <p className="mt-3 rounded-xl bg-warn-tint px-3 py-2 text-sm font-semibold text-warn">{formatINR(b.amountDue!)} to pay at the venue</p>}
           </section>
+          {active && (b.reschedule.allowed || (b.rescheduledCount ?? 0) > 0) && (
+            <section className="flex flex-col gap-3 rounded-[24px] border border-line bg-surface p-5">
+              <h2 className="font-display text-lg font-bold">Change the time</h2>
+              {b.rescheduledFrom && <p className="text-sm text-muted">Moved from {formatWhen(b.rescheduledFrom)}.</p>}
+              <p className="text-sm text-muted">{b.reschedule.reason}</p>
+              {b.reschedule.allowed && (
+                <Button variant="secondary" onClick={() => setMoving(true)}>
+                  Move booking
+                </Button>
+              )}
+            </section>
+          )}
           {active && (
             <section className="flex flex-col gap-3 rounded-[24px] border border-line bg-surface p-5">
               <h2 className="font-display text-lg font-bold">Cancellation</h2>
@@ -86,6 +102,7 @@ export function BookingDetail({ initial }: { initial: BookingView }) {
       >
         <p className="pb-2 text-sm text-muted">{b.cancel.reason}</p>
       </Sheet>
+      <RescheduleSheet booking={b} open={moving} onOpenChange={setMoving} />
     </>
   );
 }

@@ -1,8 +1,10 @@
 "use client";
 
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { HostApplicationInput, HostMember, ListingInput } from "@/contracts";
+import type { AddChargeInput, BulkScheduleInput, ExtendBookingInput, HostApplicationInput, HostBookingInput, HostMember, HostSettings, ListingInput, PaymentMethod } from "@/contracts";
 import type { HostBookingRow, HostListingRow, TeamTarget } from "@/services/host";
+import type { BulkResult, HostBookingDetail } from "@/services/host-ops";
+import type { HostReport, ReportRange } from "@/services/reports";
 import { api, qs } from "./client";
 
 export const hostKeys = {
@@ -30,7 +32,7 @@ export function useHostListings(initial?: HostListingRow[]) {
   return useQuery({ queryKey: hostKeys.listings, queryFn: () => api<{ items: HostListingRow[] }>("/api/host/listings").then((r) => r.items), initialData: initial });
 }
 
-export function useHostBookings(p: { when: string; target?: string; q?: string }) {
+export function useHostBookings(p: { when: string; target?: string; q?: string; source?: string; due?: string }) {
   return useQuery({
     queryKey: hostKeys.bookings(p),
     queryFn: ({ signal }) => api<{ total: number; items: HostBookingRow[]; targets: { id: string; title: string }[] }>(`/api/host/bookings${qs(p)}`, { signal }),
@@ -59,7 +61,7 @@ export type ScheduleSlot = {
   peak: boolean;
   status: string;
   isPast: boolean;
-  booking: { code: string; customer: string; status: string } | null;
+  booking: { id: string; code: string; customer: string; status: string; source: "online" | "host"; amountDue: number | null } | null;
   block: { id: string; reason: string } | null;
 };
 export interface Schedule {
@@ -134,4 +136,97 @@ export function useUpdateHostProfile() {
 
 export function useSwitchHost() {
   return useMutation({ mutationFn: (hostId: string) => api("/api/host/switch", { body: { hostId } }) });
+}
+
+// ---------- Operations ----------
+
+const invalidateBookings = (qc: ReturnType<typeof useQueryClient>, id?: string) => {
+  qc.invalidateQueries({ queryKey: ["host", "bookings"] });
+  qc.invalidateQueries({ queryKey: ["host", "schedule"] });
+  qc.invalidateQueries({ queryKey: ["host", "reports"] });
+  if (id) qc.invalidateQueries({ queryKey: ["host", "booking", id] });
+};
+
+export function useHostSettings(initial?: HostSettings) {
+  return useQuery({ queryKey: ["host", "settings"] as const, queryFn: () => api<{ settings: HostSettings }>("/api/host/settings").then((r) => r.settings), initialData: initial });
+}
+
+export function useUpdateHostSettings() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (patch: Partial<HostSettings>) => api<{ settings: HostSettings }>("/api/host/settings", { method: "PATCH", body: patch }),
+    onSuccess: (r) => qc.setQueryData(["host", "settings"], r.settings),
+  });
+}
+
+export function useHostBookingDetail(id: string | null) {
+  return useQuery({
+    queryKey: ["host", "booking", id] as const,
+    queryFn: () => api<{ detail: HostBookingDetail }>(`/api/host/bookings/${id}`).then((r) => r.detail),
+    enabled: !!id,
+  });
+}
+
+export function useCreateHostBooking() {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: (v: HostBookingInput) => api<{ booking: { id: string; code: string } }>("/api/host/bookings", { body: v }), onSuccess: () => invalidateBookings(qc) });
+}
+
+export function useBulkSchedule() {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: (v: BulkScheduleInput) => api<BulkResult>("/api/host/bulk", { body: v }), onSuccess: () => invalidateBookings(qc) });
+}
+
+export function useExtendBooking(id: string) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: (v: ExtendBookingInput) => api<{ added: number; to: string }>(`/api/host/bookings/${id}/extend`, { body: v }), onSuccess: () => invalidateBookings(qc, id) });
+}
+
+export function useAddCharge(id: string) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: (v: AddChargeInput) => api<{ amount: number; label: string }>(`/api/host/bookings/${id}/charges`, { body: v }), onSuccess: () => invalidateBookings(qc, id) });
+}
+
+export function useRemoveCharge(id: string) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: (line: number) => api(`/api/host/bookings/${id}/charges/${line}`, { method: "DELETE" }), onSuccess: () => invalidateBookings(qc, id) });
+}
+
+export function useSettleDue(id: string) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: (v: { method: Exclude<PaymentMethod, "online" | "pay_later">; amount?: number }) => api<{ amount: number }>(`/api/host/bookings/${id}/settle`, { body: v }), onSuccess: () => invalidateBookings(qc, id) });
+}
+
+export function useHostCancel(id: string) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: (v: { refundPct?: 0 | 50 | 100; reason?: string; notify?: boolean }) => api<{ refundAmount: number }>(`/api/host/bookings/${id}/cancel`, { body: v }), onSuccess: () => invalidateBookings(qc, id) });
+}
+
+export function useHostReschedule(id: string) {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (v: { to: { date: string; startMins: number; resourceId?: string } | { sessionId: string }; notify?: boolean }) => api<{ from: string }>(`/api/host/bookings/${id}/reschedule`, { body: v }),
+    onSuccess: () => invalidateBookings(qc, id),
+  });
+}
+
+export function useSetBookingNotes(id: string) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: (notes: string) => api(`/api/host/bookings/${id}/notes`, { method: "PUT", body: { notes } }), onSuccess: () => invalidateBookings(qc, id) });
+}
+
+export function useHostReport(p: { range: ReportRange; from?: string; to?: string; target?: string }) {
+  return useQuery<HostReport>({
+    queryKey: ["host", "reports", p] as const,
+    queryFn: async ({ signal }) => (await api<{ report: HostReport }>(`/api/host/reports${qs(p)}`, { signal })).report,
+    placeholderData: keepPreviousData,
+  });
+}
+
+export function useHostListingInventory(listingId: string | null) {
+  return useQuery({
+    queryKey: ["host", "inventory", listingId] as const,
+    queryFn: () => api<{ sessions: { id: string; label: string; startsAt: string; endsAt: string; remaining: number }[]; tickets: { id: string; name: string; price: number | null; remaining: number; sessionId: string | null; isPass: boolean }[] }>(`/api/host/inventory${qs({ listing: listingId })}`),
+    enabled: !!listingId,
+  });
 }

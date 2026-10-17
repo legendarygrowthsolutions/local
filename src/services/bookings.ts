@@ -1,12 +1,15 @@
 import "server-only";
-import type { Booking, BookingItem, HoldRequest, PayRequest } from "@/contracts";
+import type { Booking, HoldRequest, Listing, PayRequest, RescheduleRequest } from "@/contracts";
 import { repo } from "@/repositories";
 import { computePrice } from "@/lib/pricing";
-import { validateRange } from "@/lib/slots/engine";
-import { formatMins, fromISO, toISO } from "@/lib/time";
-import { getAvailability } from "./availability";
+import { bookableDates } from "@/lib/slots/engine";
+import { dateStripParts, formatDay, fromISO } from "@/lib/time";
+import { buildCourtLine, buildTicketLines, courtItem, courtSlots } from "./booking-items";
 import { loadInventory } from "./inventory";
 import { toneFor } from "./cards";
+import { effectiveReschedule } from "./host-settings";
+import { queueNotification } from "./notifications";
+import { newId } from "@/lib/crypto";
 import { randomCode } from "@/lib/crypto";
 import { config } from "@/lib/config";
 import { badRequest, conflict, notFound, ServiceError } from "./errors";
@@ -27,7 +30,10 @@ export async function holdBooking(userId: string, req: HoldRequest, now = new Da
   await rateLimit(`hold:${userId}`, 30, 10 * 60_000, "You're doing that a lot. Please wait a few minutes.", now);
   for (let attempt = 0; ; attempt++) {
     try {
-      return await repo.transaction(() => holdOnce(userId, req, now));
+      const b = await repo.transaction(() => holdOnce(userId, req, now));
+      // Free places are confirmed on the spot; paid ones are confirmed by the payment.
+      if (b.status === "confirmed" || b.status === "requested") queueNotification(b.id, "confirmed", { actor: "guest" });
+      return b;
     } catch (e) {
       // A booking-code collision (unique index) is astronomically rare; just retry with a new code.
       if (attempt < 2 && /unique|duplicate/i.test(String((e as Error).message)) && /code/i.test(String((e as Error).message))) continue;
@@ -51,44 +57,25 @@ async function holdOnce(userId: string, req: HoldRequest, now: Date): Promise<Bo
     const venue = await repo.venues.byId(req.targetId);
     if (!venue || !(await isPublic(venue))) throw notFound("Venue not found");
     const tpl = (await repo.templates.byId(venue.templateId))!;
-    const resource = (await repo.venues.resources([venue.id])).find((r) => r.id === req.slots!.resourceId);
-    if (!resource) throw badRequest("Unknown court");
-    const avail = await getAvailability(venue.id, resource.sport, req.slots.date, now);
-    if (avail.date !== req.slots.date) throw badRequest("That date can't be booked yet");
-    const ra = avail.resources.find((r) => r.resource.id === resource.id)!;
-    const v = validateRange(ra.slots, { startMins: req.slots.startMins, endMins: req.slots.endMins }, ra.rule);
-    if (!v.ok) throw conflict(v.reason, "slot_unavailable");
-    if (coupon) await assertCouponUsable(userId, coupon, v.price, { now, cityId: venue.cityId });
-    const startsAt = toISO(req.slots.date, req.slots.startMins);
-    const endsAt = toISO(req.slots.date, req.slots.endMins);
-    const sportName = (await repo.categories.list()).find((c) => c.slug === resource.sport && c.parentId === "cat_sports")?.name ?? resource.sport;
-    const items: BookingItem[] = [
-      {
-        ticketTypeId: null,
-        sessionId: null,
-        resourceId: resource.id,
-        startsAt,
-        endsAt,
-        label: `${resource.name} · ${formatMins(req.slots.startMins, { compact: true })} – ${formatMins(req.slots.endMins, { compact: true })}`,
-        qty: 1,
-        unitPrice: v.price,
-      },
-    ];
+    const rule0 = (await repo.venues.slotRules((await repo.venues.resources([venue.id])).map((r) => r.id)))[0];
+    if (!rule0 || !bookableDates(rule0, now).includes(req.slots.date)) throw badRequest("That date can't be booked yet");
+    const line = await buildCourtLine(venue, req.slots, now);
+    if (coupon) await assertCouponUsable(userId, coupon, line.subtotal, { now, cityId: venue.cityId });
     return repo.bookings.insert({
       ...base,
       kind: "venue",
       listingId: null,
       venueId: venue.id,
       cityId: venue.cityId,
-      title: `${sportName} · ${resource.name}`,
+      title: line.title,
       venueName: venue.name,
       status: "held",
-      items,
-      price: computePrice(v.price, tpl.fees, coupon),
+      items: [line.item],
+      price: computePrice(line.subtotal, tpl.fees, coupon),
       couponCode: coupon?.code ?? null,
       attendee: req.attendee ?? null,
-      startsAt,
-      endsAt,
+      startsAt: line.startsAt,
+      endsAt: line.endsAt,
       holdExpiresAt: new Date(now.getTime() + tpl.rules.seatHoldMins * 60_000).toISOString(),
     });
   }
@@ -96,47 +83,7 @@ async function holdOnce(userId: string, req: HoldRequest, now: Date): Promise<Bo
   const listing = await repo.listings.byId(req.targetId);
   if (!listing || !(await isPublic(listing))) throw notFound("Listing not found");
   const tpl = (await repo.templates.byId(listing.templateId))!;
-  if (tpl.bookingMode === "none") throw badRequest("This listing doesn't take bookings");
-  const inv = (await loadInventory([listing], now)).get(listing.id)!;
-
-  const isPassOnly = (req.tickets ?? []).length > 0 && (req.tickets ?? []).every((t) => inv.tickets.find((x) => x.id === t.ticketTypeId)?.isPass);
-  const session = req.sessionId ? inv.upcoming.find((s) => s.id === req.sessionId) : inv.upcoming[0];
-  if (!session && !isPassOnly) throw conflict("That date is no longer available", "session_unavailable");
-
-  // One line per ticket type, so per-type limits can't be dodged by repeating a type.
-  const merged = new Map<string, number>();
-  for (const l of req.tickets ?? []) merged.set(l.ticketTypeId, (merged.get(l.ticketTypeId) ?? 0) + l.qty);
-  let lines = [...merged].map(([ticketTypeId, qty]) => ({ ticketTypeId, qty }));
-  if (tpl.bookingMode === "rsvp" && lines.length === 0) {
-    const t = inv.tickets[0];
-    if (t) lines = [{ ticketTypeId: t.id, qty: 1 }];
-  }
-  if (lines.length === 0) throw badRequest("Pick at least one ticket");
-
-  const total = lines.reduce((s, l) => s + l.qty, 0);
-  if (total > tpl.rules.maxPerOrder) throw badRequest(`You can book up to ${tpl.rules.maxPerOrder} per order`);
-  let nonPass = 0;
-  const items: BookingItem[] = [];
-  for (const line of lines) {
-    const t = inv.tickets.find((x) => x.id === line.ticketTypeId);
-    if (!t) throw badRequest("Unknown ticket type");
-    if (!t.isPass && t.sessionId && t.sessionId !== session?.id) throw badRequest(`${t.name} isn't valid for that date`);
-    if (line.qty > t.perOrderMax) throw badRequest(`Max ${t.perOrderMax} × ${t.name} per order`);
-    if (t.remaining < line.qty) throw conflict(`Only ${t.remaining} × ${t.name} left`, "sold_out");
-    if (!t.isPass) nonPass += line.qty;
-    const sess = t.isPass ? null : session!;
-    items.push({
-      ticketTypeId: t.id,
-      sessionId: sess?.id ?? null,
-      resourceId: null,
-      startsAt: sess?.startsAt ?? inv.upcoming[0]?.startsAt ?? null,
-      endsAt: sess?.endsAt ?? inv.upcoming[inv.upcoming.length - 1]?.endsAt ?? null,
-      label: t.name,
-      qty: line.qty,
-      unitPrice: t.price,
-    });
-  }
-  if (session && nonPass > session.remaining) throw conflict(`Only ${session.remaining} spots left for that date`, "sold_out");
+  const { items, subtotal, session, startsAt, endsAt } = await buildTicketLines(listing, tpl, req, now);
 
   const required = tpl.bookingMode === "rsvp" || tpl.bookingMode === "registration";
   if (required && !req.attendee?.name) throw badRequest("Add your details to continue");
@@ -144,7 +91,6 @@ async function holdOnce(userId: string, req: HoldRequest, now: Date): Promise<Bo
     if (!req.attendee?.answers?.[f.id]) throw badRequest(`${f.label} is required`);
   }
 
-  const subtotal = items.reduce((s, i) => s + i.qty * i.unitPrice, 0);
   if (coupon) await assertCouponUsable(userId, coupon, subtotal, { now, cityId: listing.cityId });
   const price = computePrice(subtotal, tpl.fees, coupon);
   const free = price.total === 0;
@@ -156,8 +102,6 @@ async function holdOnce(userId: string, req: HoldRequest, now: Date): Promise<Bo
     );
     if (dup) throw conflict("You already have a place for this date. Find it under My bookings.", "already_booked");
   }
-  const startsAt = items[0].startsAt ?? session!.startsAt;
-  const endsAt = items[0].endsAt ?? session!.endsAt;
   return repo.bookings.insert({
     ...base,
     kind: "listing",
@@ -191,7 +135,7 @@ export async function payBooking(userId: string, id: string, req: PayRequest, no
   await rateLimit(`pay:${userId}`, 20, 10 * 60_000, "Too many payment attempts. Please wait a few minutes.", now);
   if ("razorpayPaymentId" in req) return confirmCheckout(userId, id, req, now);
   if (config.paymentProvider() !== "test") throw new ServiceError(503, "payments_unavailable", "Payments aren't available right now. Please try again later.");
-  return repo.transaction(async () => {
+  const r = await repo.transaction(async () => {
     const b = await ownBooking(userId, id);
     if (b.status === "expired") throw new ServiceError(410, "hold_expired", "Your hold expired. Please pick your tickets again.");
     if (!ACTIVE_HOLD.includes(b.status)) throw conflict("This booking can't be paid for");
@@ -215,9 +159,11 @@ export async function payBooking(userId: string, id: string, req: PayRequest, no
       await repo.bookings.update(id, { status: "pending_payment" });
       return { outcome: "failed" as const, booking: (await repo.bookings.byId(id))! };
     }
-    const updated = await repo.bookings.update(id, { status: "confirmed", holdExpiresAt: null, paymentRef: ref });
+    const updated = await repo.bookings.update(id, { status: "confirmed", holdExpiresAt: null, paymentRef: ref, paymentMethod: "online" });
     return { outcome: "success" as const, booking: updated! };
   });
+  if (r.outcome === "success") queueNotification(id, "confirmed", { actor: "guest" });
+  return r;
 }
 
 export interface CancelQuote {
@@ -254,7 +200,177 @@ export async function cancelBooking(userId: string, id: string, now = new Date()
   const q = await cancelQuote(b, now);
   if (!q.allowed) throw conflict(q.reason, "cancel_not_allowed");
   const booking = await cancelWithRefund(id, [b.status], q.refundAmount, "guest_cancelled", now);
+  await repo.bookingEvents.insert({ id: newId("be"), bookingId: id, kind: "cancelled", actorUserId: userId, actorRole: "guest", data: { refundAmount: q.refundAmount }, createdAt: now.toISOString() });
+  queueNotification(id, "cancelled", { actor: "guest", refundAmount: q.refundAmount });
   return { booking, refundAmount: q.refundAmount };
+}
+
+// ---------------------------------------------------------------------------
+// Rescheduling
+// ---------------------------------------------------------------------------
+
+export interface RescheduleQuote {
+  allowed: boolean;
+  reason: string;
+  /** How the guest picks the new time: a court slot of the same length, or another date of the listing. */
+  mode: "slot" | "session" | null;
+  movesLeft: number;
+  policy: { hoursBefore: number; maxTimes: number };
+}
+
+/** What the applicable policy (host override, else booking type) says about moving this booking now. */
+export async function rescheduleQuote(b: Booking, now = new Date()): Promise<RescheduleQuote> {
+  const none = (reason: string, policy = { hoursBefore: 0, maxTimes: 0 }): RescheduleQuote => ({ allowed: false, reason, mode: null, movesLeft: 0, policy });
+  if (b.status !== "confirmed" && b.status !== "requested") return none("This booking can't be moved");
+  const start = new Date(b.startsAt).getTime();
+  if (start <= now.getTime()) return none("This booking has already started");
+  const target = b.listingId ? await repo.listings.byId(b.listingId) : await repo.venues.byId(b.venueId!);
+  const host = target ? await repo.hosts.byId(target.hostId) : null;
+  const tpl = target ? await repo.templates.byId(target.templateId) : null;
+  if (!target || !host || !tpl) return none("This booking can't be moved");
+  const policy = effectiveReschedule(host, tpl);
+  const pol = { hoursBefore: policy.hoursBefore, maxTimes: policy.maxTimes };
+  if (!policy.allowed) return none("Rescheduling isn't available for this booking", pol);
+  const mode: RescheduleQuote["mode"] = b.kind === "venue" ? "slot" : "session";
+  if (mode === "session") {
+    const inv = (await loadInventory([target as Listing], now)).get(target.id);
+    if (!inv || inv.upcoming.filter((s) => s.id !== b.items[0]?.sessionId).length === 0) return none("There's no other date to move to", pol);
+    if (b.items.some((i) => i.ticketTypeId && inv.tickets.find((t) => t.id === i.ticketTypeId)?.sessionId)) return none("These tickets are for a specific date", pol);
+  }
+  const used = b.rescheduledCount ?? 0;
+  if (used >= policy.maxTimes) return none(policy.maxTimes === 1 ? "This booking has already been moved once" : `This booking has already been moved ${policy.maxTimes} times`, pol);
+  const hoursLeft = (start - now.getTime()) / 3_600_000;
+  if (hoursLeft < policy.hoursBefore) return none(`Changes close ${policy.hoursBefore} h before the start`, pol);
+  return {
+    allowed: true,
+    reason: mode === "slot" ? "Move to another slot of the same length at the same or a lower price. Any difference isn't refunded." : "Move to another date. Your tickets stay the same.",
+    mode,
+    movesLeft: policy.maxTimes - used,
+    policy: pol,
+  };
+}
+
+/**
+ * Move a booking. Availability is re-checked and the booking updated in one transaction. Guests are
+ * bound by the policy; the host console passes `byHost` (any time, any number of moves, courts of
+ * the same sport, and no price ceiling since they settle differences by hand).
+ */
+export async function rescheduleBooking(
+  id: string,
+  req: RescheduleRequest,
+  who: { userId: string | null; byHost?: { ctxUserId: string } },
+  now = new Date(),
+): Promise<{ booking: Booking; from: string }> {
+  const result = await repo.transaction(async () => {
+    const b = await repo.bookings.byId(id);
+    if (!b || (who.userId && b.userId !== who.userId)) throw notFound("Booking not found");
+    if (!who.byHost) {
+      const q = await rescheduleQuote(b, now);
+      if (!q.allowed) throw conflict(q.reason, "reschedule_not_allowed");
+    } else if (b.status !== "confirmed" && b.status !== "requested") throw conflict("This booking can't be moved");
+    const from = b.startsAt;
+    let patch: Partial<Booking>;
+    if ("sessionId" in req) {
+      if (b.kind !== "venue" && b.listingId) {
+        const listing = (await repo.listings.byId(b.listingId))!;
+        const tpl = (await repo.templates.byId(listing.templateId))!;
+        const ticketLines = b.items.filter((i) => i.ticketTypeId);
+        if (ticketLines.some((i) => i.sessionId === req.sessionId)) throw badRequest("That's the date you already have");
+        const lines = await buildTicketLines(listing, tpl, { sessionId: req.sessionId, tickets: ticketLines.map((i) => ({ ticketTypeId: i.ticketTypeId!, qty: i.qty })) }, now, { ignoreOrderLimits: true });
+        if (Math.abs(lines.subtotal - ticketLines.reduce((s, i) => s + i.qty * i.unitPrice, 0)) > 0.005) throw conflict("Those tickets are priced differently on that date", "price_changed");
+        patch = { items: [...lines.items, ...b.items.filter((i) => !i.ticketTypeId)], startsAt: lines.startsAt, endsAt: lines.endsAt };
+      } else throw badRequest("Pick a slot for this booking");
+    } else {
+      const court = courtItem(b);
+      if (b.kind !== "venue" || !court || !b.venueId) throw badRequest("Pick a date for this booking");
+      const venue = (await repo.venues.byId(b.venueId))!;
+      const mins = (new Date(court.endsAt!).getTime() - new Date(court.startsAt!).getTime()) / 60_000;
+      const resourceId = req.resourceId ?? court.resourceId!;
+      if (resourceId !== court.resourceId) {
+        const [a, c] = await Promise.all([repo.venues.resources([venue.id]).then((rs) => rs.find((r) => r.id === court.resourceId)), repo.venues.resources([venue.id]).then((rs) => rs.find((r) => r.id === resourceId))]);
+        if (!a || !c || a.sport !== c.sport) throw badRequest("Pick a court for the same sport");
+      }
+      const rule0 = (await repo.venues.slotRules([resourceId]))[0];
+      if (!who.byHost && (!rule0 || !bookableDates(rule0, now).includes(req.date))) throw badRequest("That date can't be booked yet");
+      const line = await buildCourtLine(venue, { resourceId, date: req.date, startMins: req.startMins, endMins: req.startMins + mins }, now, { exceptBookingId: b.id, wholeDay: !!who.byHost, advanceDays: who.byHost ? 365 : undefined, ignoreMax: !!who.byHost });
+      if (line.startsAt === court.startsAt && line.item.resourceId === court.resourceId) throw badRequest("That's the slot you already have");
+      if (!who.byHost && line.subtotal > court.unitPrice + 0.005) throw conflict("Pick a slot at the same or a lower price", "price_changed");
+      if (who.byHost && new Date(line.endsAt).getTime() <= now.getTime()) throw badRequest("That time has already passed");
+      // Keep the price the guest paid; the court line records the new time at the original rate.
+      patch = { items: [{ ...line.item, unitPrice: court.unitPrice }, ...b.items.filter((i) => i !== court)], startsAt: line.startsAt, endsAt: line.endsAt, title: line.title };
+    }
+    const updated = (await repo.bookings.update(b.id, { ...patch, rescheduledCount: (b.rescheduledCount ?? 0) + 1, rescheduledFrom: b.rescheduledFrom ?? from }))!;
+    await repo.bookingEvents.insert({
+      id: newId("be"),
+      bookingId: b.id,
+      kind: "rescheduled",
+      actorUserId: who.byHost?.ctxUserId ?? who.userId,
+      actorRole: who.byHost ? "host" : "guest",
+      data: { from, to: updated.startsAt },
+      createdAt: now.toISOString(),
+    });
+    return { booking: updated, from };
+  });
+  queueNotification(id, "rescheduled", { actor: who.byHost ? "host" : "guest", dedupe: `rescheduled:${result.booking.rescheduledCount}`, oldStartsAt: result.from });
+  return result;
+}
+
+export interface RescheduleOptions {
+  quote: RescheduleQuote;
+  /** Court bookings: dates in the public window and that date's slots for the same court. */
+  dates: { date: string; label: string; weekday: string; day: string }[];
+  date: string | null;
+  durationMins: number;
+  maxPrice: number;
+  slots: { startMins: number; endMins: number; price: number; peak: boolean; ok: boolean; why: string | null; current: boolean }[];
+  /** Listing bookings: other dates with room for the same tickets. */
+  sessions: { id: string; startsAt: string; endsAt: string; label: string; remaining: number; ok: boolean; current: boolean }[];
+}
+
+/** Everything the guest needs to pick a new time, with each option marked possible or not and why. */
+export async function rescheduleOptions(userId: string, id: string, date?: string, now = new Date()): Promise<RescheduleOptions> {
+  const b = await ownBooking(userId, id);
+  const quote = await rescheduleQuote(b, now);
+  const empty: RescheduleOptions = { quote, dates: [], date: null, durationMins: 0, maxPrice: 0, slots: [], sessions: [] };
+  if (!quote.allowed) return empty;
+  if (quote.mode === "slot") {
+    const court = courtItem(b)!;
+    const venue = (await repo.venues.byId(b.venueId!))!;
+    const resource = (await repo.venues.resources([venue.id])).find((r) => r.id === court.resourceId)!;
+    const rule = (await repo.venues.slotRules([resource.id]))[0];
+    const dates = bookableDates(rule, now);
+    const day = date && dates.includes(date) ? date : dates[0];
+    const durationMins = (new Date(court.endsAt!).getTime() - new Date(court.startsAt!).getTime()) / 60_000;
+    const all = await courtSlots(resource, rule, day, now, { exceptBookingId: b.id });
+    const cur = fromISO(court.startsAt!);
+    const slots = all.map((s) => {
+      const inside = all.filter((x) => x.startMins >= s.startMins && x.endMins <= s.startMins + durationMins);
+      const covered = inside.length ? inside[inside.length - 1].endMins - inside[0].startMins : 0;
+      const price = inside.reduce((sum, x) => sum + x.price, 0);
+      const current = cur.ymd === day && cur.mins === s.startMins;
+      let why: string | null = null;
+      if (current) why = "Your current slot";
+      else if (s.status === "past") why = "Past";
+      else if (covered !== durationMins || inside.some((x) => x.status !== "available")) why = s.status === "available" ? "Not enough free time after this" : "Taken";
+      else if (price > court.unitPrice + 0.005) why = "Costs more than your booking";
+      return { startMins: s.startMins, endMins: s.startMins + durationMins, price, peak: s.peak, ok: why === null, why, current };
+    });
+    return { ...empty, dates: dates.map((d) => ({ date: d, ...dateStripParts(d), label: formatDay(d, now) })), date: day, durationMins, maxPrice: court.unitPrice, slots };
+  }
+  const listing = (await repo.listings.byId(b.listingId!))!;
+  const inv = (await loadInventory([listing], now)).get(listing.id)!;
+  const qty = b.items.filter((i) => i.ticketTypeId).reduce((s, i) => s + i.qty, 0);
+  const currentId = b.items.find((i) => i.sessionId)?.sessionId ?? null;
+  return {
+    ...empty,
+    sessions: inv.upcoming.map((s) => ({ id: s.id, startsAt: s.startsAt, endsAt: s.endsAt, label: s.label, remaining: s.remaining, ok: s.id !== currentId && s.remaining >= qty, current: s.id === currentId })),
+  };
+}
+
+/** Guest-side: the booking must be theirs. */
+export async function rescheduleMyBooking(userId: string, id: string, req: RescheduleRequest, now = new Date()) {
+  await rateLimit(`reschedule:${userId}`, 10, 10 * 60_000, "Too many changes. Please wait a few minutes.", now);
+  return rescheduleBooking(id, req, { userId }, now);
 }
 
 export interface BookingView extends Booking {
@@ -263,6 +379,7 @@ export interface BookingView extends Booking {
   tone: number;
   dateYmd: string;
   cancel: CancelQuote;
+  reschedule: RescheduleQuote;
   /** "Event", "Meetup", "Workshop"… or "Court" (wireframe 15 overline) */
   kindLabel: string;
   /** Row heading: the listing title, or "Pickleball · Court 1" for courts */
@@ -295,6 +412,7 @@ async function toView(b: Booking, now: Date): Promise<BookingView> {
     tone: toneFor(b.listingId ?? b.venueId ?? b.id),
     dateYmd: fromISO(b.startsAt).ymd,
     cancel: await cancelQuote(b, now),
+    reschedule: await rescheduleQuote(b, now),
     kindLabel,
     heading,
   };

@@ -25,6 +25,16 @@ export const StepConfigSchema = z.object({
 });
 export type StepConfig = z.infer<typeof StepConfigSchema>;
 
+export const ReschedulePolicySchema = z.object({
+  allowed: z.boolean(),
+  /** Moves close this many hours before the start. */
+  hoursBefore: z.number().min(0).max(336),
+  /** How many times one booking can be moved. */
+  maxTimes: z.number().int().min(1).max(10),
+});
+export type ReschedulePolicy = z.infer<typeof ReschedulePolicySchema>;
+export const DEFAULT_RESCHEDULE: ReschedulePolicy = { allowed: false, hoursBefore: 24, maxTimes: 1 };
+
 export const JourneyTemplateSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -54,6 +64,12 @@ export const JourneyTemplateSchema = z.object({
     hoursBefore: z.number(),
     refundPct: z.number(),
   }),
+  /**
+   * Platform default for moving a booking to another slot or date (hosts can switch it off or
+   * tighten it in their settings). A move never costs more than the original; any difference the
+   * other way isn't refunded.
+   */
+  reschedule: ReschedulePolicySchema.default(DEFAULT_RESCHEDULE),
   ctaLabel: z.string(),
   active: z.boolean(),
 });

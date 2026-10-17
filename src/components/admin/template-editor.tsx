@@ -39,6 +39,7 @@ const BLANK: TemplateInput = {
   rules: { seatHoldMins: 10, waitlist: false, hostApprovalPerBooking: false, transferable: false, maxPerOrder: 6, minPerOrder: 1 },
   fees: { convenienceFeePct: 3.75, convenienceFeeFlat: 0, gstOnFeePct: 18, absorbFeeAllowed: true },
   cancellation: { policy: "full_until", hoursBefore: 48, refundPct: 100 },
+  reschedule: { allowed: false, hoursBefore: 24, maxTimes: 1 },
   ctaLabel: "Book tickets",
   active: true,
 };
@@ -195,7 +196,22 @@ export function TemplateEditor({
             ) : (
               <span />
             )}
+            <Select
+              label="Default rescheduling"
+              value={t.reschedule.allowed ? "on" : "off"}
+              onChange={(v) => set({ reschedule: { ...t.reschedule, allowed: v === "on" } })}
+              options={[["off", "Not allowed"], ["on", `Allowed till ${t.reschedule.hoursBefore} h, ${t.reschedule.maxTimes}×`]]}
+            />
+            {t.reschedule.allowed ? (
+              <div className="grid grid-cols-2 gap-2">
+                <Num label="Hours before" value={t.reschedule.hoursBefore} set={(n) => set({ reschedule: { ...t.reschedule, hoursBefore: n } })} max={336} />
+                <Num label="Max moves" value={t.reschedule.maxTimes} set={(n) => set({ reschedule: { ...t.reschedule, maxTimes: n } })} min={1} max={10} />
+              </div>
+            ) : (
+              <span />
+            )}
           </div>
+          <p className="text-xs text-muted">Hosts can switch rescheduling off or set their own limits in their settings. Moves never cost the guest more; a cheaper slot isn&apos;t refunded.</p>
           <div className="flex flex-col gap-1.5">
             <span className="text-xs text-ink-2">Allowed categories</span>
             <div className="flex flex-wrap gap-1.5">

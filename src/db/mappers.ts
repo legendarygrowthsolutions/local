@@ -1,6 +1,7 @@
 import type {
   Area, Block, Booking, BookingItem, Category, City, Host, HostDocument, HostMember, JourneyTemplate, Listing, Resource, Session, SlotRule, TicketType, User, Venue,
 } from "@/contracts";
+import { DEFAULT_RESCHEDULE } from "@/contracts";
 import type { Coupon } from "@/lib/pricing";
 import type * as T from "./tables";
 
@@ -61,6 +62,7 @@ export const templateToRow = (t: JourneyTemplate, sort = 0): T.JourneyTemplatesT
   rules: j(t.rules),
   fees: j(t.fees),
   cancellation: j(t.cancellation),
+  reschedule: j(t.reschedule ?? DEFAULT_RESCHEDULE),
   ctaLabel: t.ctaLabel,
   sort,
   active: b(t.active),
@@ -78,6 +80,7 @@ export const templateFromRow = (r: T.JourneyTemplatesTable): JourneyTemplate => 
   rules: pj(r.rules, {} as JourneyTemplate["rules"]),
   fees: pj(r.fees, {} as JourneyTemplate["fees"]),
   cancellation: pj(r.cancellation, {} as JourneyTemplate["cancellation"]),
+  reschedule: pj(r.reschedule, DEFAULT_RESCHEDULE),
   ctaLabel: r.ctaLabel,
   active: isTrue(r.active),
 });
@@ -88,7 +91,7 @@ export const templatePatch = (p: Partial<JourneyTemplate>) => {
 };
 const EMPTY_TEMPLATE = {
   id: "", name: "", description: "", allowedCategories: [], bookingMode: "none", schedule: "single", pricing: "free", ticketScope: null, steps: [],
-  rules: {}, fees: {}, cancellation: {}, ctaLabel: "", active: false,
+  rules: {}, fees: {}, cancellation: {}, reschedule: DEFAULT_RESCHEDULE, ctaLabel: "", active: false,
 } as unknown as JourneyTemplate;
 
 // ---------- users ----------
@@ -133,7 +136,8 @@ const EMPTY_USER: UserCore = { id: "", phone: "", name: null, gender: null, dob:
 export const hostToRow = (h: Host): T.HostsTable => {
   const { documents: _d, ...rest } = h;
   void _d;
-  return { ...rest, wantsPaid: b(h.wantsPaid), submittedAt: utc(rest.submittedAt) };
+  const { settings, ...row } = rest;
+  return { ...row, wantsPaid: b(h.wantsPaid), submittedAt: utc(rest.submittedAt), settings: settings == null ? null : j(settings) };
 };
 export const hostDocToRow = (hostId: string, d: HostDocument, sort: number): T.HostDocumentsTable => ({
   id: d.id,
@@ -144,8 +148,9 @@ export const hostDocToRow = (hostId: string, d: HostDocument, sort: number): T.H
   hostId,
   sort,
 });
-export const hostFromRow = (r: T.HostsTable, docs: T.HostDocumentsTable[]): Host => ({
+export const hostFromRow = ({ settings, ...r }: T.HostsTable, docs: T.HostDocumentsTable[]): Host => ({
   ...r,
+  ...(settings ? { settings: pj<unknown>(settings, null) } : {}),
   type: r.type as Host["type"],
   kycStatus: r.kycStatus as Host["kycStatus"],
   status: r.status as Host["status"],
@@ -162,6 +167,7 @@ export const hostPatch = (p: Partial<Host>) => {
 const EMPTY_HOST = {
   id: "", userId: null, type: "organiser", slug: "", brandName: "", cityId: "", bio: "", instagram: null, kycStatus: "none", status: "pending", since: "",
   contactName: "", contactPhone: "", email: null, website: null, gstin: null, expectedPerMonth: "", wantsPaid: false, documents: [], reviewNote: null, submittedAt: "",
+  settings: null,
 } as Host;
 
 export const memberToRow = (m: HostMember): T.HostMembersTable => ({ ...m, createdAt: utc(m.createdAt), scope: m.scope ? JSON.stringify(m.scope) : null });
@@ -390,6 +396,14 @@ export const bookingToRow = (x: Booking): T.BookingsTable => ({
   paymentRef: x.paymentRef,
   seeded: b(x.seeded),
   checkedInAt: x.checkedInAt ?? null,
+  source: x.source ?? "online",
+  paymentMethod: x.paymentMethod ?? null,
+  amountDue: toPaise(x.amountDue ?? 0),
+  notes: x.notes ?? null,
+  rescheduledCount: x.rescheduledCount ?? 0,
+  rescheduledFrom: x.rescheduledFrom ?? null,
+  createdBy: x.createdBy ?? null,
+  groupId: x.groupId ?? null,
 });
 export const itemToRow = (bookingId: string, it: BookingItem, line: number): T.BookingItemsTable => ({
   id: `${bookingId}_${line}`,
@@ -442,6 +456,14 @@ export const bookingFromRow = (r: T.BookingsTable, items: T.BookingItemsTable[])
   paymentRef: r.paymentRef,
   seeded: isTrue(r.seeded),
   checkedInAt: r.checkedInAt,
+  source: (r.source ?? "online") as Booking["source"],
+  paymentMethod: (r.paymentMethod ?? null) as Booking["paymentMethod"],
+  amountDue: fromPaise(r.amountDue ?? 0),
+  notes: r.notes ?? null,
+  rescheduledCount: num(r.rescheduledCount ?? 0),
+  rescheduledFrom: r.rescheduledFrom ?? null,
+  createdBy: r.createdBy ?? null,
+  groupId: r.groupId ?? null,
 });
 export const bookingPatch = (p: Partial<Booking>) => {
   const { items: _i, price, ...rest } = p;
@@ -454,5 +476,6 @@ export const bookingPatch = (p: Partial<Booking>) => {
 const EMPTY_BOOKING = {
   id: "", code: "", userId: "", kind: "listing", listingId: null, venueId: null, cityId: "", title: "", venueName: "", status: "held", items: [],
   price: { subtotal: 0, discount: 0, convenienceFee: 0, gstOnFee: 0, total: 0 }, couponCode: null, attendee: null, startsAt: "", endsAt: "",
-  holdExpiresAt: null, createdAt: "", paymentRef: null, seeded: false, checkedInAt: null,
+  holdExpiresAt: null, createdAt: "", paymentRef: null, seeded: false, checkedInAt: null, source: "online", paymentMethod: null, amountDue: 0, notes: null,
+  rescheduledCount: 0, rescheduledFrom: null, createdBy: null, groupId: null,
 } as Booking;

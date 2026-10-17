@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Download, Search } from "lucide-react";
+import { Download, Plus, Search } from "lucide-react";
 import { toast } from "sonner";
+import type { HostSettings } from "@/contracts";
 import { useCheckIn, useHostBookings } from "@/lib/api/host-hooks";
+import { BookingActionsSheet } from "./booking-actions-sheet";
+import { RecordBookingSheet } from "./record-booking-sheet";
 import { Chip } from "@/components/ui/chip";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -20,23 +23,28 @@ const WHEN = [
   { id: "past", label: "Past" },
 ];
 
-export function HostBookings({ isOwner }: { isOwner: boolean }) {
+export function HostBookings({ isOwner, settings }: { isOwner: boolean; settings: HostSettings }) {
   const sp = useSearchParams();
   const [when, setWhen] = useState(sp.get("when") ?? "upcoming");
   const [target, setTarget] = useState(sp.get("target") ?? "");
+  const [source, setSource] = useState(sp.get("source") ?? "");
+  const [due, setDue] = useState(sp.get("due") === "1");
+  const [open, setOpen] = useState<string | null>(null);
+  const [record, setRecord] = useState(false);
+  const canRecord = settings.hostBookings.enabled && (isOwner || settings.hostBookings.editBy === "all");
   const [qInput, setQInput] = useState("");
   const [q, setQ] = useState("");
   useEffect(() => {
     const t = setTimeout(() => setQ(qInput), 250);
     return () => clearTimeout(t);
   }, [qInput]);
-  const { data, error, isPending, isFetching, refetch } = useHostBookings({ when, target: target || undefined, q: q || undefined });
+  const { data, error, isPending, isFetching, refetch } = useHostBookings({ when, target: target || undefined, q: q || undefined, source: source || undefined, due: due ? "1" : undefined });
   const checkIn = useCheckIn();
 
   const exportCsv = () => {
     if (!data) return;
-    const head = ["Code", "Name", "Phone", "Listing", "Items", "Starts", "Status", ...(isOwner ? ["Amount"] : [])];
-    const lines = data.items.map((b) => [b.code, b.customer, b.phone, b.title, b.label, b.startsAt, b.status, ...(isOwner ? [String(b.amount ?? "")] : [])]);
+    const head = ["Code", "Name", "Phone", "Listing", "Items", "Starts", "Status", "Source", "Payment", ...(isOwner ? ["Amount", "Due"] : [])];
+    const lines = data.items.map((b) => [b.code, b.customer, b.phone, b.title, b.label, b.startsAt, b.status, b.source, b.paymentMethod ?? "", ...(isOwner ? [String(b.amount ?? ""), String(b.amountDue ?? "")] : [])]);
     const csv = [head, ...lines].map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(",")).join("\n");
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
@@ -69,6 +77,19 @@ export function HostBookings({ isOwner }: { isOwner: boolean }) {
         <Button variant="secondary" size="sm" onClick={exportCsv} disabled={!data?.items.length} className="h-10 rounded-full">
           <Download className="size-4" /> CSV
         </Button>
+        {canRecord && (
+          <Button size="sm" onClick={() => setRecord(true)} className="h-10 rounded-full">
+            <Plus className="size-4" /> Record
+          </Button>
+        )}
+      </div>
+      <div className="flex flex-wrap items-center gap-2">
+        <Chip active={source === ""} onClick={() => setSource("")} className="h-8 text-[13px]">All sources</Chip>
+        <Chip active={source === "online"} onClick={() => setSource("online")} className="h-8 text-[13px]">Online</Chip>
+        <Chip active={source === "host"} onClick={() => setSource("host")} className="h-8 text-[13px]">Recorded at venue</Chip>
+        {isOwner && (
+          <Chip active={due} onClick={() => setDue(!due)} className="h-8 text-[13px]">Amount due</Chip>
+        )}
       </div>
       <p className="text-sm text-muted" aria-live="polite">
         {data ? `${data.total} bookings${data.total > data.items.length ? ` · showing first ${data.items.length}` : ""}` : " "}
@@ -88,11 +109,16 @@ export function HostBookings({ isOwner }: { isOwner: boolean }) {
         <div className="overflow-hidden rounded-[20px] border border-line bg-surface">
           <ul className="divide-y divide-line">
             {data.items.map((b) => (
-              <li key={b.id} className={cn("grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 px-4 py-3 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.4fr)_140px_90px_110px_120px] md:px-5")}>
+              <li key={b.id} className={cn("grid cursor-pointer grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 px-4 py-3 hover:bg-field/40 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.4fr)_140px_90px_110px_120px] md:px-5")} onClick={() => setOpen(b.id)}>
                 <div className="min-w-0">
-                  <p className="truncate font-semibold">{b.customer}</p>
+                  <p className="truncate font-semibold">
+                    {b.customer}
+                    {b.source === "host" && <span className="ml-1.5 rounded bg-field px-1 align-middle text-[10px] font-bold text-muted">DESK</span>}
+                    {b.amountDue !== null && b.amountDue > 0 && <span className="ml-1.5 rounded bg-warn-tint px-1 align-middle text-[10px] font-bold text-warn">DUE {formatINR(b.amountDue)}</span>}
+                    {b.rescheduledCount > 0 && <span className="ml-1.5 rounded bg-field px-1 align-middle text-[10px] font-bold text-muted">MOVED</span>}
+                  </p>
                   <p className="truncate text-xs text-muted">
-                    {maskPhone(b.phone)} · <span className="font-mono">{b.code}</span>
+                    {maskPhone(b.phone) || "No number"} · <span className="font-mono">{b.code}</span>
                   </p>
                 </div>
                 <div className="min-w-0 max-md:col-span-2 max-md:row-start-2">
@@ -113,12 +139,13 @@ export function HostBookings({ isOwner }: { isOwner: boolean }) {
                       size="sm"
                       variant="soft"
                       loading={checkIn.isPending && checkIn.variables === b.code}
-                      onClick={() =>
+                      onClick={(e) => {
+                        e.stopPropagation();
                         checkIn.mutate(b.code, {
                           onSuccess: (r) => (r.result === "ok" ? toast.success(`${b.customer} checked in`) : toast(r.message)),
                           onError: (e) => toast.error(e.message),
-                        })
-                      }
+                        });
+                      }}
                     >
                       Check in
                     </Button>
@@ -131,6 +158,8 @@ export function HostBookings({ isOwner }: { isOwner: boolean }) {
           </ul>
         </div>
       )}
+      <BookingActionsSheet id={open} onClose={() => setOpen(null)} />
+      <RecordBookingSheet open={record} onOpenChange={setRecord} settings={settings} isOwner={isOwner} />
     </div>
   );
 }

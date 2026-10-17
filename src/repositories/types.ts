@@ -56,6 +56,34 @@ export interface PayoutRecord {
   voidReason: string | null;
 }
 
+/** Something that happened to a booking after it was made (an audit trail hosts and admins can read). */
+export interface BookingEvent {
+  id: string;
+  bookingId: string;
+  kind: "created" | "extended" | "charge_added" | "charge_removed" | "settled" | "rescheduled" | "cancelled" | "notes";
+  actorUserId: string | null;
+  actorRole: "guest" | "host" | "admin" | "system";
+  data: Record<string, unknown>;
+  createdAt: string;
+}
+
+/** One message attempt to one number. `status` is final: a failed send is not retried automatically. */
+export interface NotificationRecord {
+  id: string;
+  bookingId: string;
+  kind: string;
+  dedupeKey: string;
+  recipient: string;
+  audience: "guest" | "host";
+  channel: "sms" | "whatsapp";
+  status: "sent" | "failed" | "skipped";
+  provider: string;
+  providerRef: string | null;
+  error: string | null;
+  body: string | null;
+  createdAt: string;
+}
+
 export interface PaymentRecord {
   id: string;
   bookingId: string;
@@ -145,8 +173,8 @@ export interface Repository {
     resources(venueIds: string[]): Promise<Resource[]>;
     slotRules(resourceIds: string[]): Promise<SlotRule[]>;
     blocks(resourceIds: string[]): Promise<Block[]>;
-    /** Booked + held ranges for these resources on a date (includes other users). */
-    taken(resourceIds: string[], date: string): Promise<TakenRange[]>;
+    /** Booked + held ranges for these resources on a date (includes other users). `exceptBookingId` leaves one booking out (when moving it). */
+    taken(resourceIds: string[], date: string, exceptBookingId?: string): Promise<TakenRange[]>;
     listByHost(hostId: string): Promise<Venue[]>;
     insert(v: Venue): Promise<Venue>;
     update(id: string, patch: Partial<Venue>): Promise<Venue | null>;
@@ -179,8 +207,22 @@ export interface Repository {
     countLiveHolds(userId: string): Promise<number>;
     /** Active (held / pending / confirmed / checked-in) quantities, keyed by ticketTypeId and sessionId. */
     activeQuantities(listingIds: string[]): Promise<{ byTicket: Map<string, number>; bySession: Map<string, number> }>;
+    /** Bookings made together by one bulk action. */
+    listByGroup(groupId: string): Promise<Booking[]>;
     insert(b: Booking): Promise<Booking>;
     update(id: string, patch: Partial<Booking>): Promise<Booking | null>;
+  };
+  bookingEvents: {
+    insert(e: BookingEvent): Promise<void>;
+    listByBooking(bookingId: string): Promise<BookingEvent[]>;
+  };
+  notifications: {
+    /** Insert unless a row with the same (booking, dedupe key, recipient) exists; false when it did. */
+    tryInsert(n: NotificationRecord): Promise<boolean>;
+    update(id: string, patch: Partial<Pick<NotificationRecord, "status" | "providerRef" | "error" | "body" | "channel" | "provider">>): Promise<void>;
+    listByBooking(bookingId: string): Promise<NotificationRecord[]>;
+    /** Latest attempts across these bookings (for the host's activity view). */
+    listForBookings(bookingIds: string[], limit?: number): Promise<NotificationRecord[]>;
   };
   users: {
     list(): Promise<User[]>;

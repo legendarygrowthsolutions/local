@@ -3,7 +3,8 @@
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { AvailabilityPayload, Booking, City, HoldRequest, PayRequest, ProfileInput } from "@/contracts";
 import type { PublicUser } from "@/services/users";
-import type { BookingView } from "@/services/bookings";
+import type { BookingView, RescheduleOptions } from "@/services/bookings";
+import type { RescheduleRequest } from "@/contracts";
 import type { SearchResult } from "@/services/discover";
 import { api, qs } from "./client";
 
@@ -186,5 +187,26 @@ export function useApplyCoupon(id: string) {
   return useMutation({
     mutationFn: (code: string | null) => api<{ booking: Booking }>(`/api/bookings/${id}/coupon`, { body: { code } }).then((r) => r.booking),
     onSuccess: () => qc.invalidateQueries({ queryKey: keys.booking(id) }),
+  });
+}
+
+export function useRescheduleOptions(id: string, date?: string, enabled = true) {
+  return useQuery({
+    queryKey: ["booking", id, "reschedule", date] as const,
+    queryFn: ({ signal }) => api<RescheduleOptions>(`/api/bookings/${id}/reschedule/options${qs({ date })}`, { signal }),
+    placeholderData: (prev) => prev,
+    enabled,
+  });
+}
+
+export function useRescheduleBooking(id: string) {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (req: RescheduleRequest) => api<{ booking: BookingView; from: string }>(`/api/bookings/${id}/reschedule`, { body: req }),
+    onSuccess: (r) => {
+      qc.setQueryData(keys.booking(id), r.booking);
+      qc.invalidateQueries({ queryKey: keys.myBookings });
+      qc.invalidateQueries({ queryKey: ["booking", id, "reschedule"] });
+    },
   });
 }

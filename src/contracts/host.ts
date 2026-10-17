@@ -2,6 +2,7 @@ import { z } from "zod";
 import { HOST_SLUG_HINT, HOST_SLUG_RE } from "@/lib/slug";
 import { FormFieldSchema } from "./listing";
 import { PhoneSchema } from "./user";
+import { PaymentMethodSchema } from "./booking";
 
 export const HostRoleSchema = z.enum(["owner", "manager"]);
 export type HostRole = z.infer<typeof HostRoleSchema>;
@@ -203,3 +204,186 @@ export const BlockInputSchema = z.object({
 });
 
 export const CheckInSchema = z.object({ code: z.string().trim().min(4).max(20) });
+
+// ---------- Operations: settings, host bookings, bulk actions, edits ----------
+
+const ymdSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Pick a date");
+const minsOfDay = z.number().int().min(0).max(1440 * 2);
+
+/** Extras a host can add to a booking (equipment, lights, coaching). Prices in rupees. */
+export const HostExtraSchema = z.object({
+  id: z.string().max(40),
+  name: z.string().trim().min(1, "Name the extra").max(40),
+  price: z.number().min(0).max(100000),
+  /** Per booking (one-off) or per slot hour. */
+  per: z.enum(["booking", "hour"]).default("booking"),
+  active: z.boolean().default(true),
+});
+export type HostExtra = z.infer<typeof HostExtraSchema>;
+
+/**
+ * Owner-configurable operations. Every field has a default, so a host with no saved settings
+ * behaves sensibly; `HostSettingsSchema.parse({})` yields the defaults.
+ */
+export const HostSettingsSchema = z.object({
+  alerts: z
+    .object({
+      /** Message the team when a guest books, cancels or moves a booking. */
+      enabled: z.boolean().default(true),
+      newBooking: z.boolean().default(true),
+      cancellation: z.boolean().default(true),
+      reschedule: z.boolean().default(true),
+      /** Also alert for bookings the team itself records (walk-ins, bulk). Off by default: they already know. */
+      hostBookings: z.boolean().default(false),
+      channel: z.enum(["whatsapp", "sms"]).default("whatsapp"),
+      /** Who gets them, besides the owner's contact number. */
+      toManagers: z.boolean().default(true),
+      /** Extra numbers (front desk, coach). */
+      extraPhones: z.array(PhoneSchema).max(5).default([]),
+      /** No alerts between these hours (IST, minutes from midnight); null = always. Bookings made overnight are still confirmed to the guest. */
+      quietFromMins: z.number().int().min(0).max(1440).nullable().default(null),
+      quietToMins: z.number().int().min(0).max(1440).nullable().default(null),
+    })
+    .prefault({}),
+  guestMessages: z
+    .object({
+      /** Confirmations, changes and cancellations to the guest. Only switch off if you tell them yourself. */
+      enabled: z.boolean().default(true),
+      /** Also message guests for bookings the team records at the venue (when a phone number is given). */
+      forHostBookings: z.boolean().default(true),
+    })
+    .prefault({}),
+  reschedule: z
+    .object({
+      /** inherit = the booking type's platform default; off = never; custom = the values below. */
+      mode: z.enum(["inherit", "off", "custom"]).default("inherit"),
+      hoursBefore: z.number().min(0).max(336).default(4),
+      maxTimes: z.number().int().min(1).max(10).default(2),
+    })
+    .prefault({}),
+  hostBookings: z
+    .object({
+      /** Record walk-in and phone bookings from the console. */
+      enabled: z.boolean().default(true),
+      /** Payment methods the team may record. */
+      methods: z.array(PaymentMethodSchema.exclude(["online"])).min(1).default(["cash", "upi", "pay_later"]),
+      /** Who may change the price of a host booking or extension: owner only, or managers too. */
+      priceOverride: z.enum(["owner", "all"]).default("owner"),
+      /** Who may record bookings, extend them, add charges and cancel: owner only, or managers too. */
+      editBy: z.enum(["owner", "all"]).default("all"),
+      /** Hosts may book this many days ahead, beyond the public window. */
+      advanceDays: z.number().int().min(1).max(365).default(90),
+    })
+    .prefault({}),
+  extras: z.array(HostExtraSchema).max(30).default([]),
+  cancellation: z
+    .object({
+      /** Refund of the ticket value when the host cancels an online booking (always at least what the guest's own policy would give). */
+      hostCancelRefundPct: z.union([z.literal(0), z.literal(50), z.literal(100)]).default(100),
+    })
+    .prefault({}),
+});
+export type HostSettings = z.infer<typeof HostSettingsSchema>;
+/** Partial update: each section replaces the saved one. */
+export const HostSettingsPatchSchema = HostSettingsSchema.partial();
+
+const customerSchema = z.object({
+  name: z.string().trim().min(2, "Enter the guest's name").max(80),
+  /** Optional for walk-ins: without it the booking can't be messaged or found by the guest. */
+  phone: PhoneSchema.optional().or(z.literal("")),
+});
+
+export const HostBookingItemsSchema = z.union([
+  z.object({ kind: z.literal("venue"), resourceId: z.string().max(60), date: ymdSchema, startMins: minsOfDay, endMins: minsOfDay }),
+  z.object({ kind: z.literal("listing"), listingId: z.string().max(60), sessionId: z.string().max(60).nullable().optional(), tickets: z.array(z.object({ ticketTypeId: z.string().max(60), qty: z.number().int().min(1).max(100) })).min(1).max(20) }),
+]);
+
+/** POST /api/host/bookings — a booking recorded by the team (walk-in, phone, regular). */
+export const HostBookingInputSchema = z.object({
+  items: HostBookingItemsSchema,
+  customer: customerSchema,
+  paymentMethod: PaymentMethodSchema.exclude(["online"]),
+  /** Override the computed ticket value (rupees). Needs the price-override permission. */
+  price: z.number().min(0).max(1000000).optional(),
+  notes: z.string().trim().max(300).optional(),
+  /** Message the guest (if a phone was given) and the team according to settings. */
+  notify: z.boolean().default(true),
+});
+export type HostBookingInput = z.infer<typeof HostBookingInputSchema>;
+
+/** POST /api/host/bulk — book or block many slots at once. */
+export const BulkScheduleInputSchema = z
+  .object({
+    action: z.enum(["block", "book"]),
+    resourceIds: z.array(z.string().max(60)).min(1).max(30),
+    from: ymdSchema,
+    to: ymdSchema,
+    /** 0 = Sunday … 6 = Saturday. Empty = every day. */
+    weekdays: z.array(z.number().int().min(0).max(6)).max(7).default([]),
+    startMins: minsOfDay,
+    endMins: minsOfDay,
+    /** Skip slots that are already taken instead of failing the whole run. */
+    skipConflicts: z.boolean().default(true),
+    reason: z.string().trim().max(40).optional(),
+    customer: customerSchema.optional(),
+    paymentMethod: PaymentMethodSchema.exclude(["online"]).optional(),
+    /** Price per occurrence (rupees), overriding the slot price. Needs the price-override permission. */
+    price: z.number().min(0).max(1000000).optional(),
+    notes: z.string().trim().max(300).optional(),
+    notify: z.boolean().default(true),
+  })
+  .superRefine((v, ctx) => {
+    if (v.endMins <= v.startMins) ctx.addIssue({ code: "custom", path: ["endMins"], message: "End time must be after start time" });
+    if (v.to < v.from) ctx.addIssue({ code: "custom", path: ["to"], message: "End date must be on or after the start date" });
+    if (v.action === "book") {
+      if (!v.customer) ctx.addIssue({ code: "custom", path: ["customer"], message: "Who is this for?" });
+      if (!v.paymentMethod) ctx.addIssue({ code: "custom", path: ["paymentMethod"], message: "How are they paying?" });
+    }
+  });
+export type BulkScheduleInput = z.infer<typeof BulkScheduleInputSchema>;
+
+/** Money recorded against a booking by the team. */
+const collectSchema = z.object({ method: PaymentMethodSchema.exclude(["online", "pay_later"]) }).optional();
+
+/** POST /api/host/bookings/[id]/extend — add time to a court booking. */
+export const ExtendBookingSchema = z.object({
+  endMins: minsOfDay,
+  /** Override the price of the added time (rupees). Needs the price-override permission. */
+  price: z.number().min(0).max(1000000).optional(),
+  /** Record the extra as paid now (cash/UPI/card); otherwise it's added to the amount due. */
+  collect: collectSchema,
+  notify: z.boolean().default(true),
+});
+export type ExtendBookingInput = z.infer<typeof ExtendBookingSchema>;
+
+/** POST /api/host/bookings/[id]/charges — add an extra or a custom charge. */
+export const AddChargeSchema = z
+  .object({
+    extraId: z.string().max(40).optional(),
+    label: z.string().trim().max(60).optional(),
+    amount: z.number().min(0).max(1000000).optional(),
+    qty: z.number().int().min(1).max(50).default(1),
+    collect: collectSchema,
+    notify: z.boolean().default(false),
+  })
+  .refine((v) => v.extraId || (v.label && v.amount !== undefined), { message: "Pick an extra or enter a label and amount" });
+export type AddChargeInput = z.infer<typeof AddChargeSchema>;
+
+/** POST /api/host/bookings/[id]/settle — mark the amount due as collected. */
+export const SettleDueSchema = z.object({ method: PaymentMethodSchema.exclude(["online", "pay_later"]), amount: z.number().min(0).max(1000000).optional() });
+
+/** POST /api/host/bookings/[id]/cancel */
+export const HostCancelSchema = z.object({
+  /** Refund share of the ticket value for online payments; offline money is settled by hand. Owner only; defaults to the host's setting. */
+  refundPct: z.union([z.literal(0), z.literal(50), z.literal(100)]).optional(),
+  reason: z.string().trim().max(200).optional(),
+  notify: z.boolean().default(true),
+});
+
+/** POST /api/host/bookings/[id]/reschedule — the team moves a booking (policy limits don't apply to the host). */
+export const HostRescheduleSchema = z.object({
+  to: z.union([z.object({ date: ymdSchema, startMins: minsOfDay, resourceId: z.string().max(60).optional() }), z.object({ sessionId: z.string().max(60) })]),
+  notify: z.boolean().default(true),
+});
+
+export const BookingNotesSchema = z.object({ notes: z.string().trim().max(300) });

@@ -6,9 +6,11 @@ CREATE TABLE "auth_sessions" ("id" varchar(255) primary key, "user_id" varchar(2
 
 CREATE TABLE "blocks" ("id" varchar(255) primary key, "resource_id" varchar(255) not null, "starts_at" varchar(255) not null, "ends_at" varchar(255) not null, "reason" varchar(255) not null, constraint "blocks_resource_id_fk" foreign key ("resource_id") references "resources" ("id") on delete cascade);
 
+CREATE TABLE "booking_events" ("id" varchar(255) primary key, "booking_id" varchar(255) not null, "kind" varchar(255) not null, "actor_user_id" varchar(255), "actor_role" varchar(255) not null, "data" text, "created_at" varchar(255) not null, constraint "booking_events_booking_fk" foreign key ("booking_id") references "bookings" ("id") on delete cascade);
+
 CREATE TABLE "booking_items" ("id" varchar(255) primary key, "booking_id" varchar(255) not null, "line" integer not null, "ticket_type_id" varchar(255), "session_id" varchar(255), "resource_id" varchar(255), "starts_at" varchar(255), "ends_at" varchar(255), "label" varchar(255) not null, "qty" integer not null, "unit_price" integer not null, constraint "booking_items_booking_id_fk" foreign key ("booking_id") references "bookings" ("id") on delete cascade);
 
-CREATE TABLE "bookings" ("id" varchar(255) primary key, "code" varchar(255) not null unique, "user_id" varchar(255) not null, "kind" varchar(255) not null, "listing_id" varchar(255), "venue_id" varchar(255), "city_id" varchar(255) not null, "title" varchar(255) not null, "venue_name" varchar(255) not null, "status" varchar(255) not null, "subtotal" integer not null, "discount" integer not null, "convenience_fee" integer not null, "gst_on_fee" integer not null, "total" integer not null, "coupon_code" varchar(255), "attendee" text, "starts_at" varchar(255) not null, "ends_at" varchar(255) not null, "hold_expires_at" varchar(255), "created_at" varchar(255) not null, "payment_ref" varchar(255), "seeded" integer default 0 not null, "checked_in_at" varchar(255));
+CREATE TABLE "bookings" ("id" varchar(255) primary key, "code" varchar(255) not null unique, "user_id" varchar(255) not null, "kind" varchar(255) not null, "listing_id" varchar(255), "venue_id" varchar(255), "city_id" varchar(255) not null, "title" varchar(255) not null, "venue_name" varchar(255) not null, "status" varchar(255) not null, "subtotal" integer not null, "discount" integer not null, "convenience_fee" integer not null, "gst_on_fee" integer not null, "total" integer not null, "coupon_code" varchar(255), "attendee" text, "starts_at" varchar(255) not null, "ends_at" varchar(255) not null, "hold_expires_at" varchar(255), "created_at" varchar(255) not null, "payment_ref" varchar(255), "seeded" integer default 0 not null, "checked_in_at" varchar(255), "source" varchar(255) default 'online' not null, "payment_method" varchar(255), "amount_due" integer default 0 not null, "notes" text, "rescheduled_count" integer default 0 not null, "rescheduled_from" varchar(255), "created_by" varchar(255), "group_id" varchar(255));
 
 CREATE TABLE "categories" ("id" varchar(255) primary key, "slug" varchar(255) not null, "name" varchar(255) not null, "singular" varchar(255) not null, "parent_id" varchar(255), "icon" varchar(255) not null, "sort" integer default 0 not null, "blurb" text);
 
@@ -22,9 +24,9 @@ CREATE TABLE "host_members" ("id" varchar(255) primary key, "host_id" varchar(25
 
 CREATE TABLE "host_payout_accounts" ("host_id" varchar(255) primary key, "method" varchar(255) not null, "holder_name" varchar(255) not null, "account_number" varchar(255), "ifsc" varchar(255), "bank_name" varchar(255), "upi_id" varchar(255), "updated_at" varchar(255) not null, "updated_by" varchar(255), constraint "host_payout_accounts_host_fk" foreign key ("host_id") references "hosts" ("id") on delete cascade);
 
-CREATE TABLE "hosts" ("id" varchar(255) primary key, "user_id" varchar(255), "type" varchar(255) not null, "brand_name" varchar(255) not null, "city_id" varchar(255) not null, "bio" text not null, "instagram" varchar(255), "kyc_status" varchar(255) not null, "status" varchar(255) not null, "since" varchar(255) not null, "contact_name" varchar(255) not null, "contact_phone" varchar(255) not null, "email" varchar(255), "website" varchar(255), "gstin" varchar(255), "expected_per_month" varchar(255) not null, "wants_paid" integer default 0 not null, "review_note" text, "submitted_at" varchar(255) not null, "slug" varchar(255));
+CREATE TABLE "hosts" ("id" varchar(255) primary key, "user_id" varchar(255), "type" varchar(255) not null, "brand_name" varchar(255) not null, "city_id" varchar(255) not null, "bio" text not null, "instagram" varchar(255), "kyc_status" varchar(255) not null, "status" varchar(255) not null, "since" varchar(255) not null, "contact_name" varchar(255) not null, "contact_phone" varchar(255) not null, "email" varchar(255), "website" varchar(255), "gstin" varchar(255), "expected_per_month" varchar(255) not null, "wants_paid" integer default 0 not null, "review_note" text, "submitted_at" varchar(255) not null, "slug" varchar(255), "settings" text);
 
-CREATE TABLE "journey_templates" ("id" varchar(255) primary key, "name" varchar(255) not null, "description" text not null, "allowed_categories" text not null, "booking_mode" varchar(255) not null, "schedule" varchar(255) not null, "pricing" varchar(255) not null, "ticket_scope" varchar(255), "steps" text not null, "rules" text not null, "fees" text not null, "cancellation" text not null, "cta_label" varchar(255) not null, "sort" integer default 0 not null, "active" integer default 1 not null);
+CREATE TABLE "journey_templates" ("id" varchar(255) primary key, "name" varchar(255) not null, "description" text not null, "allowed_categories" text not null, "booking_mode" varchar(255) not null, "schedule" varchar(255) not null, "pricing" varchar(255) not null, "ticket_scope" varchar(255), "steps" text not null, "rules" text not null, "fees" text not null, "cancellation" text not null, "cta_label" varchar(255) not null, "sort" integer default 0 not null, "active" integer default 1 not null, "reschedule" text);
 
 CREATE TABLE "listing_revisions" ("id" varchar(255) primary key, "target_id" varchar(255) not null, "kind" varchar(255) not null, "host_id" varchar(255) not null, "submitted_by" varchar(255) not null, "input" text not null, "status" varchar(255) not null, "note" text, "created_at" varchar(255) not null, "decided_at" varchar(255));
 
@@ -35,6 +37,8 @@ CREATE TABLE "listing_views" ("target_id" varchar(255) not null, "day" varchar(2
 CREATE TABLE "listings" ("id" varchar(255) primary key, "host_id" varchar(255) not null, "city_id" varchar(255) not null, "area_id" varchar(255) not null, "category_id" varchar(255) not null, "subcategory_id" varchar(255), "template_id" varchar(255) not null, "slug" varchar(255) not null, "title" varchar(255) not null, "summary" text not null, "description" text not null, "media" text not null, "venue_name" varchar(255) not null, "address" text not null, "lat" double precision not null, "lng" double precision not null, "age_limit" varchar(255) not null, "languages" text not null, "tags" text not null, "things_to_know" text not null, "external_url" text, "status" varchar(255) not null, "featured_rank" integer, "form_fields" text not null, "created_at" varchar(255) not null, "review_note" text, constraint "listings_host_id_fk" foreign key ("host_id") references "hosts" ("id"), constraint "listings_city_slug_uq" unique ("city_id", "slug"));
 
 CREATE TABLE "media" ("id" varchar(255) primary key, "owner_id" varchar(255) not null, "content_type" varchar(255) not null, "private" integer default 0 not null, "bytes" integer not null, "data" text not null, "created_at" varchar(255) not null);
+
+CREATE TABLE "notifications" ("id" varchar(255) primary key, "booking_id" varchar(255) not null, "kind" varchar(255) not null, "dedupe_key" varchar(255) not null, "recipient" varchar(255) not null, "audience" varchar(255) not null, "channel" varchar(255) not null, "status" varchar(255) not null, "provider" varchar(255) not null, "provider_ref" varchar(255), "error" text, "body" text, "created_at" varchar(255) not null, constraint "notifications_booking_fk" foreign key ("booking_id") references "bookings" ("id") on delete cascade);
 
 CREATE TABLE "otp_codes" ("phone" varchar(255) primary key, "code_hash" varchar(255) not null, "expires_at" varchar(255) not null, "attempts" integer default 0 not null, "sent_at" varchar(255) not null);
 
@@ -64,6 +68,8 @@ CREATE INDEX "auth_sessions_user_idx" on "auth_sessions" ("user_id");
 
 CREATE INDEX "blocks_resource_idx" on "blocks" ("resource_id", "starts_at");
 
+CREATE INDEX "booking_events_booking_idx" on "booking_events" ("booking_id", "created_at");
+
 CREATE INDEX "booking_items_booking_idx" on "booking_items" ("booking_id");
 
 CREATE INDEX "booking_items_resource_idx" on "booking_items" ("resource_id", "starts_at");
@@ -75,6 +81,8 @@ CREATE INDEX "booking_items_ticket_idx" on "booking_items" ("ticket_type_id");
 CREATE INDEX "bookings_coupon_idx" on "bookings" ("user_id", "coupon_code");
 
 CREATE INDEX "bookings_created_idx" on "bookings" ("created_at");
+
+CREATE INDEX "bookings_group_idx" on "bookings" ("group_id");
 
 CREATE INDEX "bookings_hold_idx" on "bookings" ("status", "hold_expires_at");
 
@@ -103,6 +111,10 @@ CREATE INDEX "listing_sessions_listing_idx" on "listing_sessions" ("listing_id",
 CREATE INDEX "listings_city_status_idx" on "listings" ("city_id", "status");
 
 CREATE INDEX "listings_host_idx" on "listings" ("host_id");
+
+CREATE INDEX "notifications_booking_idx" on "notifications" ("booking_id", "created_at");
+
+CREATE UNIQUE INDEX "notifications_dedupe_uq" on "notifications" ("booking_id", "dedupe_key", "recipient");
 
 CREATE INDEX "payments_booking_idx" on "payments" ("booking_id");
 

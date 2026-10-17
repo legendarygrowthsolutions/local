@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Ban, Lock, Zap } from "lucide-react";
+import { Ban, CalendarRange, Lock, Plus, Zap } from "lucide-react";
 import { toast } from "sonner";
+import type { HostSettings } from "@/contracts";
 import { useAddBlock, useRemoveBlock, useSchedule, type ScheduleSlot } from "@/lib/api/host-hooks";
+import { BookingActionsSheet } from "./booking-actions-sheet";
+import { BulkSheet } from "./bulk-sheet";
+import { RecordBookingSheet, type RecordPreset } from "./record-booking-sheet";
 import { Sheet } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -14,7 +18,7 @@ import { cn } from "@/lib/utils";
 
 const REASONS = ["Maintenance", "Walk-in", "Coaching", "Private event"];
 
-export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
+export function CourtCalendar({ isOwner, settings }: { isOwner: boolean; settings: HostSettings }) {
   const [venue, setVenue] = useState<string | undefined>();
   const [date, setDate] = useState<string | undefined>();
   const { data, error, isPending, isFetching, refetch } = useSchedule(venue, date);
@@ -22,6 +26,15 @@ export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
   const remove = useRemoveBlock();
   const [sel, setSel] = useState<{ resourceId: string; resourceName: string; slot: ScheduleSlot; hours: number } | null>(null);
   const [reason, setReason] = useState(REASONS[0]);
+  const [record, setRecord] = useState<RecordPreset | null>(null);
+  const [recordOpen, setRecordOpen] = useState(false);
+  const [bulk, setBulk] = useState(false);
+  const [bookingId, setBookingId] = useState<string | null>(null);
+  const canRecord = settings.hostBookings.enabled && (isOwner || settings.hostBookings.editBy === "all");
+  const openRecord = (preset: RecordPreset | null) => {
+    setRecord(preset);
+    setRecordOpen(true);
+  };
 
   if (error) return <ErrorState error={error} onRetry={() => refetch()} />;
   if (isPending) return <Skeleton className="h-[480px] rounded-[20px]" />;
@@ -54,6 +67,16 @@ export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
             );
           })}
         </div>
+        {canRecord && (
+          <div className="flex gap-2">
+            <Button size="sm" variant="secondary" className="h-10 rounded-full" onClick={() => setBulk(true)}>
+              <CalendarRange className="size-4" /> Bulk
+            </Button>
+            <Button size="sm" className="h-10 rounded-full" onClick={() => openRecord({ venueId: data.venueId, date: data.date })}>
+              <Plus className="size-4" /> Record booking
+            </Button>
+          </div>
+        )}
       </div>
       <div className="flex flex-wrap items-center gap-4 text-xs text-muted">
         <Legend cls="border border-line-strong bg-surface" label="Free" />
@@ -97,7 +120,10 @@ export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
                         onClick={() => {
                           if (blocked)
                             return remove.mutate(s.block!.id, { onSuccess: () => toast.success("Slot unblocked"), onError: (e) => toast.error(e.message) });
-                          if (booked) return toast(`${s.booking?.customer ?? "Booked"} · ${s.booking?.code ?? "other channel"}`);
+                          if (booked) {
+                            if (s.booking?.id) return setBookingId(s.booking.id);
+                            return toast(`${s.booking?.customer ?? "Booked"} · ${s.booking?.code ?? "other channel"}`);
+                          }
                           if (s.isPast) return toast("That slot is in the past");
                           setSel({ resourceId: r.resource.id, resourceName: r.resource.name, slot: s, hours: 1 });
                         }}
@@ -116,6 +142,8 @@ export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
                       >
                         <span className="truncate font-semibold">{blocked ? s.block!.reason : booked ? (s.booking?.customer ?? "Booked") : s.isPast ? "Past" : "Free"}</span>
                         <span className="flex shrink-0 items-center gap-0.5 text-muted">
+                          {s.booking?.source === "host" && <span className="rounded bg-surface/70 px-1 text-[10px] font-bold">DESK</span>}
+                          {s.booking && (s.booking.amountDue ?? 0) > 0 && <span className="rounded bg-warn-tint px-1 text-[10px] font-bold text-warn">DUE</span>}
                           {s.peak && !booked && !blocked && !s.isPast && <Zap className="size-3" />}
                           {isOwner && !booked && !blocked && !s.isPast && s.price !== null && formatINR(s.price)}
                           {blocked && <Ban className="size-3" />}
@@ -138,12 +166,13 @@ export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
       <Sheet
         open={!!sel}
         onOpenChange={(o) => !o && setSel(null)}
-        title={`Block ${sel?.resourceName ?? ""}`}
-        description={sel ? `${formatDate(data.date)} from ${formatMins(sel.slot.startMins)}` : undefined}
+        title={`${sel?.resourceName ?? ""} · ${sel ? formatMins(sel.slot.startMins, { compact: true }) : ""}`}
+        description={sel ? `${formatDate(data.date)}. Book it for a guest, or block it.` : undefined}
         footer={
           <Button
             size="lg"
             block
+            variant={canRecord ? "secondary" : "primary"}
             loading={add.isPending}
             onClick={() =>
               sel &&
@@ -165,8 +194,21 @@ export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
       >
         {sel && (
           <div className="flex flex-col gap-5 pb-2">
+            {canRecord && (
+              <Button
+                size="lg"
+                block
+                onClick={() => {
+                  const preset = { venueId: data.venueId, resourceId: sel.resourceId, date: data.date, startMins: sel.slot.startMins };
+                  setSel(null);
+                  openRecord(preset);
+                }}
+              >
+                <Plus className="size-4" /> Book for a guest
+              </Button>
+            )}
             <div className="flex flex-col gap-2">
-              <span className="text-sm font-semibold">Reason</span>
+              <span className="text-sm font-semibold">Block reason</span>
               <div className="flex flex-wrap gap-2">
                 {REASONS.map((r) => (
                   <button key={r} type="button" onClick={() => setReason(r)} className={cn("h-10 rounded-full border px-4 text-sm font-semibold", reason === r ? "border-brand bg-brand text-white" : "border-line-strong")}>
@@ -191,6 +233,9 @@ export function CourtCalendar({ isOwner }: { isOwner: boolean }) {
           </div>
         )}
       </Sheet>
+      <RecordBookingSheet open={recordOpen} onOpenChange={setRecordOpen} preset={record} settings={settings} isOwner={isOwner} />
+      <BulkSheet open={bulk} onOpenChange={setBulk} schedule={data} settings={settings} isOwner={isOwner} />
+      <BookingActionsSheet id={bookingId} onClose={() => setBookingId(null)} />
     </div>
   );
 }

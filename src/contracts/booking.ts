@@ -34,6 +34,14 @@ export const PriceBreakdownSchema = z.object({
 });
 export type PriceBreakdown = z.infer<typeof PriceBreakdownSchema>;
 
+export const BookingSourceSchema = z.enum(["online", "host"]);
+export type BookingSource = z.infer<typeof BookingSourceSchema>;
+/** `online` = paid through the gateway; the rest are recorded by the host. */
+export const PaymentMethodSchema = z.enum(["online", "cash", "upi", "card", "pay_later", "complimentary"]);
+export type PaymentMethod = z.infer<typeof PaymentMethodSchema>;
+/** Methods a host can record for money taken at the venue. */
+export const OFFLINE_METHODS = ["cash", "upi", "card"] as const;
+
 export const AttendeeSchema = z.object({
   name: z.string().trim().max(80),
   phone: z.string().regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit mobile number"),
@@ -65,6 +73,21 @@ export const BookingSchema = z.object({
   /** Mirrors fixture "sold" counts / seeded court occupancy; excluded from inventory maths. */
   seeded: z.boolean().optional(),
   checkedInAt: z.string().nullable().optional(),
+  /** Where the booking came from: the guest online, or the host's console (walk-in, phone, bulk). */
+  source: BookingSourceSchema.optional(),
+  /** How the money was (or will be) collected. Online bookings use the gateway; host bookings record cash, UPI, pay-later or complimentary. */
+  paymentMethod: PaymentMethodSchema.nullable().optional(),
+  /** Still to be collected at the venue (pay-later bookings, extensions and charges added after payment). Rupees. */
+  amountDue: z.number().optional(),
+  /** Host-only note (e.g. "regular, pays monthly"). Never shown to the guest. */
+  notes: z.string().nullable().optional(),
+  rescheduledCount: z.number().optional(),
+  /** Original start, kept after the first move. */
+  rescheduledFrom: z.string().nullable().optional(),
+  /** Host team member who created a host booking. */
+  createdBy: z.string().nullable().optional(),
+  /** Links the bookings made by one bulk action. */
+  groupId: z.string().nullable().optional(),
 });
 export type Booking = z.infer<typeof BookingSchema>;
 
@@ -104,3 +127,10 @@ export const PayRequestSchema = z.union([
 ]);
 export type PayRequest = z.infer<typeof PayRequestSchema>;
 export type TestPayRequest = Extract<PayRequest, { outcome: string }>;
+
+/** Moving a booking: a new slot for courts (same duration), or another date for multi-date listings. */
+export const RescheduleRequestSchema = z.union([
+  z.object({ date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), startMins: z.number().int().min(0).max(1440 * 2), resourceId: z.string().max(60).optional() }),
+  z.object({ sessionId: z.string().max(60) }),
+]);
+export type RescheduleRequest = z.infer<typeof RescheduleRequestSchema>;

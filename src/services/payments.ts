@@ -9,6 +9,7 @@ import { fromPaise, toPaise } from "@/db/mappers";
 import { badRequest, conflict, notFound, ServiceError } from "./errors";
 import { rateLimit } from "./rate-limit";
 import { assertCouponUsable } from "./coupons";
+import { queueNotification } from "./notifications";
 
 const HOLDING: Booking["status"][] = ["held", "pending_payment"];
 
@@ -85,11 +86,12 @@ export async function settle(rec: PaymentRecord, paymentId: string, now = new Da
     if (b.paymentRef === p.id) return { outcome: "success" as const, booking: b, refund: false };
     await repo.payments.update(rec.id, { status: "success", ref: p.id, method: p.method ?? "checkout" });
     if (HOLDING.includes(b.status)) {
-      const booking = (await repo.bookings.update(b.id, { status: "confirmed", holdExpiresAt: null, paymentRef: p.id }))!;
-      return { outcome: "success" as const, booking, refund: false };
+      const booking = (await repo.bookings.update(b.id, { status: "confirmed", holdExpiresAt: null, paymentRef: p.id, paymentMethod: "online" }))!;
+      return { outcome: "success" as const, booking, refund: false, fresh: true };
     }
     return { outcome: "refunded" as const, booking: b, refund: true };
   });
+  if (result.outcome === "success" && "fresh" in result) queueNotification(rec.bookingId, "confirmed", { actor: "guest" });
   if (result.refund) {
     // Paid after the hold expired (or was cancelled): the seats may be gone, so return the money in full.
     const rf = await razorpay.refund(p.id, p.amount, { bookingId: rec.bookingId, reason: "hold_expired" });

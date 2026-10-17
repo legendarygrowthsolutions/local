@@ -33,7 +33,12 @@
    "refundPct": 0
   },
   "ctaLabel": "Get directions",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": false,
+   "hoursBefore": 24,
+   "maxTimes": 1
+  }
  },
  {
   "id": "tpl_rsvp",
@@ -85,7 +90,12 @@
    "refundPct": 100
   },
   "ctaLabel": "RSVP",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": false,
+   "hoursBefore": 24,
+   "maxTimes": 1
+  }
  },
  {
   "id": "tpl_ticket_single",
@@ -146,7 +156,12 @@
    "refundPct": 100
   },
   "ctaLabel": "Book tickets",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": false,
+   "hoursBefore": 24,
+   "maxTimes": 1
+  }
  },
  {
   "id": "tpl_ticket_multi",
@@ -216,7 +231,12 @@
    "refundPct": 100
   },
   "ctaLabel": "Book tickets",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": true,
+   "hoursBefore": 24,
+   "maxTimes": 1
+  }
  },
  {
   "id": "tpl_recurring",
@@ -281,7 +301,12 @@
    "refundPct": 100
   },
   "ctaLabel": "Book a seat",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": true,
+   "hoursBefore": 24,
+   "maxTimes": 1
+  }
  },
  {
   "id": "tpl_timed_entry",
@@ -341,7 +366,12 @@
    "refundPct": 100
   },
   "ctaLabel": "Book entry",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": true,
+   "hoursBefore": 24,
+   "maxTimes": 1
+  }
  },
  {
   "id": "tpl_court_60",
@@ -411,7 +441,12 @@
    "refundPct": 100
   },
   "ctaLabel": "Book a slot",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": true,
+   "hoursBefore": 4,
+   "maxTimes": 2
+  }
  },
  {
   "id": "tpl_court_30",
@@ -481,7 +516,12 @@
    "refundPct": 100
   },
   "ctaLabel": "Book a slot",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": true,
+   "hoursBefore": 4,
+   "maxTimes": 2
+  }
  },
  {
   "id": "tpl_competition",
@@ -543,7 +583,12 @@
    "refundPct": 50
   },
   "ctaLabel": "Register",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": false,
+   "hoursBefore": 24,
+   "maxTimes": 1
+  }
  },
  {
   "id": "tpl_ticket_dates",
@@ -610,6 +655,11 @@
    "refundPct": 0
   },
   "ctaLabel": "Book tickets",
-  "active": true
+  "active": true,
+  "reschedule": {
+   "allowed": true,
+   "hoursBefore": 24,
+   "maxTimes": 1
+  }
  }
 ]

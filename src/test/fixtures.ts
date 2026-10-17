@@ -103,6 +103,14 @@ export function bookingRow(patch: Partial<Booking> & Pick<Booking, "userId">): B
     paymentRef: null,
     seeded: false,
     checkedInAt: null,
+    source: "online",
+    paymentMethod: null,
+    amountDue: 0,
+    notes: null,
+    rescheduledCount: 0,
+    rescheduledFrom: null,
+    createdBy: null,
+    groupId: null,
     ...patch,
   };
 }

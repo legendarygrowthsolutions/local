@@ -153,11 +153,18 @@ export interface HostBookingRow {
   status: Booking["status"];
   amount: number | null;
   checkedInAt: string | null;
+  /** online = the guest booked and paid online; host = recorded by the team. */
+  source: "online" | "host";
+  paymentMethod: string | null;
+  /** Still to collect at the venue (owner only). */
+  amountDue: number | null;
+  rescheduledCount: number;
+  hasNotes: boolean;
 }
 
 const targets = hostTargets;
 
-function bookingRow(ctx: HostContext, b: Booking, now: Date): HostBookingRow {
+export function bookingRow(ctx: HostContext, b: Booking, now: Date): HostBookingRow {
   return {
     id: b.id,
     code: b.code,
@@ -173,6 +180,11 @@ function bookingRow(ctx: HostContext, b: Booking, now: Date): HostBookingRow {
     status: b.status,
     amount: money(ctx, b.price.subtotal - b.price.discount),
     checkedInAt: b.checkedInAt ?? null,
+    source: b.source ?? "online",
+    paymentMethod: b.paymentMethod ?? (b.paymentRef ? "online" : b.price.total === 0 ? "free" : null),
+    amountDue: money(ctx, b.amountDue ?? 0),
+    rescheduledCount: b.rescheduledCount ?? 0,
+    hasNotes: !!b.notes,
   };
 }
 
@@ -684,7 +696,7 @@ export async function getListingInput(ctx: HostContext, id: string): Promise<{ i
 
 export async function hostBookings(
   ctx: HostContext,
-  opts: { when?: "today" | "upcoming" | "past"; target?: string; q?: string; limit?: number },
+  opts: { when?: "today" | "upcoming" | "past"; target?: string; q?: string; limit?: number; source?: "online" | "host"; due?: boolean },
   now = new Date(),
 ) {
   assertApproved(ctx);
@@ -697,6 +709,8 @@ export async function hostBookings(
   const rows = all
     .filter((b) => !["held", "pending_payment", "expired", "failed"].includes(b.status))
     .filter((b) => !opts.target || b.listingId === opts.target || b.venueId === opts.target)
+    .filter((b) => !opts.source || (b.source ?? "online") === opts.source)
+    .filter((b) => !opts.due || (b.amountDue ?? 0) > 0)
     .filter((b) => {
       const ymd = fromISO(b.startsAt).ymd;
       if (when === "today") return ymd === today || (fromISO(b.endsAt).ymd >= today && ymd <= today);
@@ -772,7 +786,7 @@ export async function venueSchedule(ctx: HostContext, venueId: string | undefine
             peak: s.peak,
             status: s.status === "past" ? "available" : s.status,
             isPast,
-            booking: b ? { code: b.code, customer: b.attendee?.name ?? "Guest", status: b.status } : null,
+            booking: b ? { id: b.id, code: b.code, customer: b.attendee?.name ?? "Guest", status: b.status, source: b.source ?? "online", amountDue: money(ctx, b.amountDue ?? 0) } : null,
             block: blk ? { id: blk.id, reason: blk.reason } : null,
           };
         }),
