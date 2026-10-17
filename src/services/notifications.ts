@@ -20,7 +20,7 @@ import { DEFAULT_NOTIFICATIONS } from "./users";
  * configuration (templates per kind).
  */
 
-export type BookingEventName = "confirmed" | "cancelled" | "rescheduled" | "updated";
+export type BookingEventName = "confirmed" | "cancelled" | "rescheduled" | "updated" | "no_show";
 
 export interface NotifyOptions {
   /** Who caused it; the team isn't alerted about its own actions unless its settings say so. */
@@ -37,7 +37,7 @@ export interface NotifyOptions {
   host?: boolean;
 }
 
-const GUEST_KIND: Record<BookingEventName, MessageKind> = { confirmed: "guest_confirmed", cancelled: "guest_cancelled", rescheduled: "guest_rescheduled", updated: "guest_updated" };
+const GUEST_KIND: Record<BookingEventName, MessageKind> = { confirmed: "guest_confirmed", cancelled: "guest_cancelled", rescheduled: "guest_rescheduled", updated: "guest_updated", no_show: "guest_no_show" };
 const HOST_KIND: Partial<Record<BookingEventName, MessageKind>> = { confirmed: "host_new_booking", cancelled: "host_cancelled", rescheduled: "host_rescheduled" };
 
 const isMobile = (p: string | null | undefined): p is string => !!p && /^[6-9]\d{9}$/.test(p);

@@ -12,6 +12,7 @@ export const GET = route(async (req) => {
     q: p.get("q") ?? undefined,
     source: (p.get("source") as "online" | "host") || undefined,
     due: p.get("due") === "1",
+    pay: (p.get("pay") as "venue" | "online") || undefined,
   });
 });
 

@@ -433,6 +433,13 @@ export const sqlRepository: Repository = {
         .execute();
       return new Map(rows.map((r) => [r.userId, Number(r.n)]));
     },
+    noShowCounts: async (userIds) => {
+      if (userIds && !userIds.length) return new Map();
+      let q = db().selectFrom("bookings").select(["userId", (eb) => eb.fn.countAll<number>().as("n")]).where("status", "=", "no_show");
+      if (userIds) q = q.where("userId", "in", userIds);
+      const rows = await q.groupBy("userId").execute();
+      return new Map(rows.map((r) => [r.userId, Number(r.n)]));
+    },
     search: async ({ q, statuses, excludeStatuses, cityId, offset, limit }) => {
       await sweepHolds();
       const needle = q?.trim().toLowerCase();

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
-import { CalendarClock, Clock, IndianRupee, MessageSquare, Plus, Trash2, XCircle } from "lucide-react";
-import { useAddCharge, useExtendBooking, useHostBookingDetail, useHostCancel, useHostReschedule, useRemoveCharge, useSchedule, useSetBookingNotes, useSettleDue } from "@/lib/api/host-hooks";
+import { Banknote, CalendarClock, Clock, IndianRupee, MessageSquare, Plus, Trash2, UserX, XCircle } from "lucide-react";
+import { useAddCharge, useExtendBooking, useHostBookingDetail, useHostCancel, useHostReschedule, useMarkNoShow, useMarkPaid, useRemoveCharge, useSchedule, useSetBookingNotes, useSettleDue, useUndoNoShow } from "@/lib/api/host-hooks";
 import { Sheet } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 import { BookingStatusPill, maskPhone } from "./bits";
 import { Field, METHOD_LABEL, Seg, Toggle, inputCls } from "./ops-ui";
 
-type Mode = "view" | "extend" | "charge" | "settle" | "cancel" | "move" | "notes";
+type Mode = "view" | "extend" | "charge" | "settle" | "cancel" | "move" | "notes" | "paid" | "no_show";
 
 /** Everything the team can do with one booking: see it, extend it, add charges, collect, move, cancel. */
 export function BookingActionsSheet({ id, onClose }: { id: string | null; onClose: () => void }) {
@@ -42,6 +42,10 @@ export function BookingActionsSheet({ id, onClose }: { id: string | null; onClos
         <Cancel id={id} d={d} done={close} />
       ) : mode === "move" ? (
         <Move id={id} d={d} done={() => setMode("view")} />
+      ) : mode === "paid" ? (
+        <MarkPaid id={id} d={d} done={() => setMode("view")} />
+      ) : mode === "no_show" ? (
+        <NoShow id={id} d={d} done={() => setMode("view")} />
       ) : (
         <Notes id={id} d={d} done={() => setMode("view")} />
       )}
@@ -54,12 +58,21 @@ type Detail = NonNullable<ReturnType<typeof useHostBookingDetail>["data"]>;
 function View({ d, setMode }: { d: Detail; setMode: (m: Mode) => void }) {
   const b = d.booking;
   const remove = useRemoveCharge(b.id);
+  const undo = useUndoNoShow(b.id);
+  const unpaidAtVenue = d.payAtVenue && b.dueAtVenue;
   return (
     <div className="flex flex-col gap-4 pb-4">
       <div className="flex flex-wrap items-center gap-2 text-sm">
         <BookingStatusPill status={b.status} />
         <span className="rounded-full bg-field px-2.5 py-1 text-xs font-bold text-muted">{b.source === "host" ? "Recorded by team" : "Booked online"}</span>
-        {b.paymentMethod && <span className="rounded-full bg-field px-2.5 py-1 text-xs font-bold text-muted">{METHOD_LABEL[b.paymentMethod] ?? b.paymentMethod}</span>}
+        {d.payAtVenue ? (
+          <span className={cn("rounded-full px-2.5 py-1 text-xs font-bold", unpaidAtVenue || b.status === "no_show" ? "bg-urgent-tint text-urgent" : "bg-free-tint text-free")}>
+            {b.status === "no_show" ? "Pay at venue · never paid" : unpaidAtVenue ? "Pay at venue · unpaid" : b.status === "cancelled" ? "Pay at venue" : "Paid at venue"}
+          </span>
+        ) : (
+          b.paymentMethod && <span className="rounded-full bg-field px-2.5 py-1 text-xs font-bold text-muted">{METHOD_LABEL[b.paymentMethod] ?? b.paymentMethod}</span>
+        )}
+        {d.guestNoShows > 0 && <span className="rounded-full bg-danger-tint px-2.5 py-1 text-xs font-bold text-danger">{d.guestNoShows} no-show{d.guestNoShows === 1 ? "" : "s"}</span>}
         {d.rescheduledCount > 0 && <span className="rounded-full bg-warn-tint px-2.5 py-1 text-xs font-bold text-warn">Moved {d.rescheduledCount}×</span>}
         <span className="ml-auto font-mono text-xs text-muted">{b.code}</span>
       </div>
@@ -94,11 +107,28 @@ function View({ d, setMode }: { d: Detail; setMode: (m: Mode) => void }) {
           </li>
         )}
       </ul>
+      {unpaidAtVenue && (
+        <p className="rounded-xl bg-urgent-tint px-3 py-2.5 text-sm text-urgent">
+          <b>Collect in cash before letting them in.</b> The guest agreed to pay on arrival; local. collected nothing and isn&apos;t responsible if they don&apos;t pay. Mark paid once you have the money, or a no-show if they never come.
+        </p>
+      )}
+      {b.status === "no_show" && (
+        <div className="flex items-center justify-between gap-3 rounded-xl bg-danger-tint px-3 py-2.5 text-sm text-danger">
+          <span>Marked as a no-show. The guest has been told.</span>
+          {d.can.undoNoShow && (
+            <button type="button" className="shrink-0 font-bold underline" disabled={undo.isPending} onClick={() => undo.mutate(undefined, { onSuccess: () => toast.success("No-show undone"), onError: (e) => toast.error(e.message) })}>
+              Undo
+            </button>
+          )}
+        </div>
+      )}
       {d.notes && <p className="rounded-xl bg-field px-3 py-2 text-sm">{d.notes}</p>}
       <div className="grid grid-cols-2 gap-2">
+        {d.can.markPaid && <Action icon={Banknote} label="Mark as paid" onClick={() => setMode("paid")} primary />}
+        {d.can.noShow && <Action icon={UserX} label="No-show" danger onClick={() => setMode("no_show")} />}
         {d.can.extend && <Action icon={Clock} label="Add time" onClick={() => setMode("extend")} />}
         {d.can.edit && <Action icon={Plus} label="Add a charge" onClick={() => setMode("charge")} />}
-        {d.can.settle && <Action icon={IndianRupee} label="Collect due" onClick={() => setMode("settle")} />}
+        {d.can.settle && !d.can.markPaid && <Action icon={IndianRupee} label="Collect due" onClick={() => setMode("settle")} />}
         {d.can.reschedule && <Action icon={CalendarClock} label="Move booking" onClick={() => setMode("move")} />}
         <Action icon={MessageSquare} label={d.notes ? "Edit notes" : "Add notes"} onClick={() => setMode("notes")} />
         {d.can.cancel && <Action icon={XCircle} label="Cancel booking" danger onClick={() => setMode("cancel")} />}
@@ -125,9 +155,9 @@ function View({ d, setMode }: { d: Detail; setMode: (m: Mode) => void }) {
   );
 }
 
-function Action({ icon: Icon, label, onClick, danger }: { icon: typeof Clock; label: string; onClick: () => void; danger?: boolean }) {
+function Action({ icon: Icon, label, onClick, danger, primary }: { icon: typeof Clock; label: string; onClick: () => void; danger?: boolean; primary?: boolean }) {
   return (
-    <button type="button" onClick={onClick} className={cn("flex h-12 items-center gap-2 rounded-xl border px-3 text-sm font-semibold", danger ? "border-[#f1c6bc] text-danger hover:bg-danger-tint" : "border-line-strong hover:border-brand")}>
+    <button type="button" onClick={onClick} className={cn("flex h-12 items-center gap-2 rounded-xl border px-3 text-sm font-semibold", danger ? "border-[#f1c6bc] text-danger hover:bg-danger-tint" : primary ? "border-brand bg-brand text-white hover:bg-brand-ink" : "border-line-strong hover:border-brand")}>
       <Icon className="size-4" /> {label}
     </button>
   );
@@ -247,6 +277,40 @@ function Settle({ id, d, done }: { id: string; d: Detail; done: () => void }) {
       )}
       <Button size="lg" block loading={m.isPending} onClick={() => m.mutate({ method: method as "cash", amount: d.amountDue !== null && amount !== "" ? Number(amount) : undefined }, { onSuccess: (r) => (toast.success(`${formatINR(r.amount)} collected`), done()), onError: (e) => toast.error(e.message) })}>
         Mark as collected
+      </Button>
+    </div>
+  );
+}
+
+function MarkPaid({ id, d, done }: { id: string; d: Detail; done: () => void }) {
+  const [method, setMethod] = useState<"cash" | "upi" | "card">("cash");
+  const m = useMarkPaid(id);
+  return (
+    <div className="flex flex-col gap-4 pb-4">
+      <Back onClick={done} />
+      <p className="text-sm">{d.amountDue !== null ? `${formatINR(d.amountDue)} is due from this guest.` : "The guest agreed to pay the full ticket value at the venue."} Mark it paid once you have the money.</p>
+      <Seg label="Paid by" value={method} onChange={setMethod} options={[["cash", "Cash"], ["upi", "UPI"], ["card", "Card"]]} size="sm" />
+      <Button size="lg" block loading={m.isPending} onClick={() => m.mutate(method, { onSuccess: (r) => (toast.success(`${formatINR(r.amount)} collected`), done()), onError: (e) => toast.error(e.message) })}>
+        Mark as paid
+      </Button>
+    </div>
+  );
+}
+
+function NoShow({ id, d, done }: { id: string; d: Detail; done: () => void }) {
+  const m = useMarkNoShow(id);
+  const next = d.guestNoShows + 1;
+  return (
+    <div className="flex flex-col gap-4 pb-4">
+      <Back onClick={done} />
+      <p className="text-sm">
+        Mark <b>{d.booking.customer}</b> as a no-show for {formatWhen(d.booking.startsAt)}?{d.payAtVenue && d.booking.dueAtVenue ? " Nothing was collected for this booking." : ""}
+      </p>
+      <p className="text-sm text-muted">
+        The guest is told by message. This will be no-show {next} on their record{next >= d.noShowLimit ? `, so they can no longer choose to pay at the venue anywhere on local.` : `; after ${d.noShowLimit} they can no longer pay at the venue.`} You can undo this from the booking.
+      </p>
+      <Button size="lg" block className="bg-danger hover:bg-[#9a1d14]" loading={m.isPending} onClick={() => m.mutate(undefined, { onSuccess: () => (toast.success("Marked as a no-show"), done()), onError: (e) => toast.error(e.message) })}>
+        Mark as no-show
       </Button>
     </div>
   );

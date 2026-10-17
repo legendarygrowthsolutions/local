@@ -9,6 +9,7 @@ import { useBooking, usePay } from "@/lib/api/hooks";
 import { Button } from "@/components/ui/button";
 import { formatINR } from "@/lib/pricing";
 import { useCountdown } from "./hold-timer";
+import { PayAtVenueOption } from "./pay-at-venue";
 
 interface CheckoutOrder {
   keyId: string;
@@ -134,9 +135,12 @@ export function RazorpayCheckout({ initial, scriptSrc }: { initial: BookingView;
             </Button>
           </div>
         ) : (
-          <Button size="lg" block className="font-bold" loading={opening || pay.isPending} disabled={opening || pay.isPending} onClick={start}>
-            <Lock className="size-4" aria-hidden /> Pay {total}
-          </Button>
+          <>
+            <Button size="lg" block className="font-bold" loading={opening || pay.isPending} disabled={opening || pay.isPending} onClick={start}>
+              <Lock className="size-4" aria-hidden /> Pay {total}
+            </Button>
+            <PayAtVenueOption booking={booking} disabled={opening || pay.isPending} />
+          </>
         )}
       </div>
     </main>

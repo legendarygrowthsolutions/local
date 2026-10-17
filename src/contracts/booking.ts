@@ -10,6 +10,8 @@ export const BookingStatusSchema = z.enum([
   "cancelled",
   "refunded",
   "checked_in",
+  /** Confirmed but never turned up (marked by the host once the booking has started). Counts against pay-at-venue. */
+  "no_show",
 ]);
 export type BookingStatus = z.infer<typeof BookingStatusSchema>;
 
@@ -41,6 +43,8 @@ export const PaymentMethodSchema = z.enum(["online", "cash", "upi", "card", "pay
 export type PaymentMethod = z.infer<typeof PaymentMethodSchema>;
 /** Methods a host can record for money taken at the venue. */
 export const OFFLINE_METHODS = ["cash", "upi", "card"] as const;
+/** Lifetime no-shows after which a guest can no longer choose to pay at the venue. */
+export const NO_SHOW_LIMIT = 2;
 
 export const AttendeeSchema = z.object({
   name: z.string().trim().max(80),
@@ -90,6 +94,13 @@ export const BookingSchema = z.object({
   groupId: z.string().nullable().optional(),
 });
 export type Booking = z.infer<typeof BookingSchema>;
+
+/**
+ * A booking the guest made online and chose to pay for at the venue (host accepts cash). It never
+ * touched the gateway; `amountDue` says whether the host has collected yet.
+ */
+export const isPayAtVenue = (b: Pick<Booking, "source" | "paymentMethod" | "paymentRef">) =>
+  (b.source ?? "online") === "online" && !b.paymentRef && (OFFLINE_METHODS as readonly string[]).includes(b.paymentMethod ?? "");
 
 /** Request body for POST /api/bookings/hold */
 export const HoldRequestSchema = z.object({

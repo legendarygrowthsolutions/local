@@ -59,6 +59,13 @@ const SECTIONS: Section[] = [
         ],
       },
       {
+        h: "Paying at the venue",
+        p: [
+          "Some hosts let you book online and pay in cash when you arrive. If you choose this, the booking is confirmed without any payment to us, you pay the ticket value only (no convenience fee, no coupon) and entry is at the host's discretion until you have paid. The host collects the money; we don't, and we aren't a party to that payment. We aren't responsible if a host refuses entry for non-payment, and there's no refund from us for a pay-at-venue booking because nothing was paid to us.",
+          "If you don't turn up for a pay-at-venue booking, the host can record you as a no-show. After two no-shows on your account, across all hosts, the pay-at-venue option is withdrawn and you'll need to pay online.",
+        ],
+      },
+      {
         h: "Changes and cancellations by hosts",
         p: [
           "If a host cancels an event or a slot, you get a full refund of what you paid, including the convenience fee. If a host changes the date, time or venue in a material way, you can cancel for a full refund.",
@@ -68,6 +75,7 @@ const SECTIONS: Section[] = [
         h: "Hosts",
         p: [
           "Hosts must complete verification (PAN and bank details) before selling paid tickets, keep their listings accurate, honour every confirmed booking and follow the law, including permissions and licences for their event or venue. We may review, edit, pause or remove any listing, and suspend any host account, to protect guests.",
+          "A host who switches on cash at the venue accepts that money for those bookings is collected by the host alone, that we collect nothing and owe nothing for them, and that we aren't liable if a guest doesn't pay or doesn't turn up. Hosts must mark these bookings paid or no-show truthfully; no-show marks affect guests' accounts.",
           "Hosts are paid the ticket value of their bookings, less refunds, on a weekly cycle. Tax deducted at source, where it applies, is deducted and reported under the host's PAN.",
         ],
       },

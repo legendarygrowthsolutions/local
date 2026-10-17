@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet } from "@/components/ui/sheet";
 import { TicketActions, TicketCard } from "@/features/booking/ticket";
 import { PriceBreakdown } from "@/features/booking/price-breakdown";
+import { PAY_AT_VENUE_TERMS } from "@/features/booking/pay-at-venue";
 import { RescheduleSheet } from "./reschedule-sheet";
 import { formatINR } from "@/lib/pricing";
 import { formatWhen } from "@/lib/time";
@@ -43,7 +44,20 @@ export function BookingDetail({ initial }: { initial: BookingView }) {
             <h2 className="mb-4 font-display text-lg font-bold">Payment</h2>
             <PriceBreakdown price={b.price} coupon={b.couponCode} />
             {b.paymentRef && <p className="mt-3 text-xs text-subtle">Ref {b.paymentRef}</p>}
-            {(b.amountDue ?? 0) > 0 && <p className="mt-3 rounded-xl bg-warn-tint px-3 py-2 text-sm font-semibold text-warn">{formatINR(b.amountDue!)} to pay at the venue</p>}
+            {b.dueAtVenue ? (
+              (b.amountDue ?? 0) > 0 && active ? (
+                <div className="mt-3 flex flex-col gap-2">
+                  <p className="rounded-xl bg-urgent-tint px-3 py-2.5 text-sm font-semibold text-urgent">Pay {formatINR(b.amountDue!)} in cash at the venue. Entry only after payment.</p>
+                  <p className="text-xs text-muted">{PAY_AT_VENUE_TERMS[2]} {PAY_AT_VENUE_TERMS[3]}</p>
+                </div>
+              ) : b.status === "no_show" ? (
+                <p className="mt-3 rounded-xl bg-danger-tint px-3 py-2 text-sm font-semibold text-danger">The host marked this booking as a no-show. Nothing was paid.</p>
+              ) : (b.amountDue ?? 0) === 0 && (b.status === "confirmed" || b.status === "checked_in") ? (
+                <p className="mt-3 rounded-xl bg-free-tint px-3 py-2 text-sm font-semibold text-free">Paid at the venue</p>
+              ) : null
+            ) : (
+              (b.amountDue ?? 0) > 0 && <p className="mt-3 rounded-xl bg-warn-tint px-3 py-2 text-sm font-semibold text-warn">{formatINR(b.amountDue!)} to pay at the venue</p>
+            )}
           </section>
           {active && (b.reschedule.allowed || (b.rescheduledCount ?? 0) > 0) && (
             <section className="flex flex-col gap-3 rounded-[24px] border border-line bg-surface p-5">

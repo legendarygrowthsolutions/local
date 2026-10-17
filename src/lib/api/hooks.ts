@@ -158,6 +158,19 @@ export function usePay<R extends PayRequest = PayRequest>(id: string) {
   });
 }
 
+/** Confirm a hold to be paid in cash at the venue (no gateway). */
+export function usePayAtVenue(id: string) {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: () => api<{ outcome: "success"; booking: Booking }>(`/api/bookings/${id}/pay-at-venue`, { method: "POST" }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: keys.booking(id) });
+      qc.invalidateQueries({ queryKey: keys.myBookings });
+      qc.invalidateQueries({ queryKey: ["availability"] });
+    },
+  });
+}
+
 export function useMyBookings() {
   return useQuery({
     queryKey: keys.myBookings,

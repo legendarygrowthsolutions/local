@@ -1,5 +1,5 @@
 import "server-only";
-import type { Booking, HoldRequest, Listing, PayRequest, RescheduleRequest } from "@/contracts";
+import { isPayAtVenue, NO_SHOW_LIMIT, type Booking, type HoldRequest, type Listing, type PayRequest, type RescheduleRequest } from "@/contracts";
 import { repo } from "@/repositories";
 import { computePrice } from "@/lib/pricing";
 import { bookableDates } from "@/lib/slots/engine";
@@ -7,7 +7,7 @@ import { dateStripParts, formatDay, fromISO } from "@/lib/time";
 import { buildCourtLine, buildTicketLines, courtItem, courtSlots } from "./booking-items";
 import { loadInventory } from "./inventory";
 import { toneFor } from "./cards";
-import { effectiveReschedule } from "./host-settings";
+import { acceptsPayAtVenue, effectiveReschedule } from "./host-settings";
 import { queueNotification } from "./notifications";
 import { newId } from "@/lib/crypto";
 import { randomCode } from "@/lib/crypto";
@@ -166,6 +166,67 @@ export async function payBooking(userId: string, id: string, req: PayRequest, no
   return r;
 }
 
+// ---------------------------------------------------------------------------
+// Pay at the venue
+// ---------------------------------------------------------------------------
+
+export interface PayAtVenueQuote {
+  allowed: boolean;
+  /** Why not, in the guest's words; null when allowed. */
+  reason: string | null;
+  /** What the guest will owe at the desk: the ticket value, with no convenience fee. */
+  amount: number;
+  /** A coupon on the hold that won't apply (coupons are platform-funded and need an online payment). */
+  couponDropped: string | null;
+  /** Shown only when the host accepts cash: how many lifetime no-shows the guest has and the limit. */
+  noShows: number;
+  limit: number;
+}
+
+/**
+ * Whether this hold may be confirmed without paying online. The host must accept cash at the
+ * venue, there must be something to pay, and the guest must be under the lifetime no-show limit.
+ */
+export async function payAtVenueQuote(b: Booking): Promise<PayAtVenueQuote> {
+  const none = (reason: string, noShows = 0): PayAtVenueQuote => ({ allowed: false, reason, amount: 0, couponDropped: null, noShows, limit: NO_SHOW_LIMIT });
+  if (!ACTIVE_HOLD.includes(b.status)) return none("This booking can't be changed");
+  if (b.price.total <= 0) return none("This booking is free");
+  const target = b.listingId ? await repo.listings.byId(b.listingId) : await repo.venues.byId(b.venueId!);
+  const host = target ? await repo.hosts.byId(target.hostId) : null;
+  if (!host || !acceptsPayAtVenue(host)) return none("This host takes online payments only");
+  const noShows = (await repo.bookings.noShowCounts([b.userId])).get(b.userId) ?? 0;
+  if (noShows >= NO_SHOW_LIMIT) return none(`Pay at venue is switched off for your account after ${noShows} missed bookings. Please pay online.`, noShows);
+  return { allowed: true, reason: null, amount: b.price.subtotal, couponDropped: b.couponCode, noShows, limit: NO_SHOW_LIMIT };
+}
+
+/**
+ * Confirm a hold with payment to be made in cash at the venue. Nothing goes through the gateway: the
+ * booking is confirmed with the ticket value due, no convenience fee and no coupon. The host sees it
+ * flagged, collects on arrival and marks it paid or a no-show.
+ */
+export async function payAtVenue(userId: string, id: string, now = new Date()) {
+  await rateLimit(`pay:${userId}`, 20, 10 * 60_000, "Too many payment attempts. Please wait a few minutes.", now);
+  const booking = await repo.transaction(async () => {
+    const b = await ownBooking(userId, id);
+    if (b.status === "expired") throw new ServiceError(410, "hold_expired", "Your hold expired. Please pick your tickets again.");
+    const q = await payAtVenueQuote(b);
+    if (!q.allowed) throw conflict(q.reason!, "pay_at_venue_not_allowed");
+    const updated = (await repo.bookings.update(id, {
+      status: "confirmed",
+      holdExpiresAt: null,
+      paymentRef: null,
+      paymentMethod: "cash",
+      couponCode: null,
+      price: { subtotal: b.price.subtotal, discount: 0, convenienceFee: 0, gstOnFee: 0, total: q.amount },
+      amountDue: q.amount,
+    }))!;
+    await repo.bookingEvents.insert({ id: newId("be"), bookingId: id, kind: "pay_at_venue", actorUserId: userId, actorRole: "guest", data: { amount: q.amount, couponDropped: q.couponDropped }, createdAt: now.toISOString() });
+    return updated;
+  });
+  queueNotification(id, "confirmed", { actor: "guest" });
+  return { outcome: "success" as const, booking };
+}
+
 export interface CancelQuote {
   allowed: boolean;
   refundAmount: number;
@@ -183,6 +244,12 @@ export async function cancelQuote(b: Booking, now = new Date()): Promise<CancelQ
   const hoursLeft = (start - now.getTime()) / 3_600_000;
   const refundBase = b.price.total - b.price.convenienceFee - b.price.gstOnFee;
   if (b.price.total === 0) return { allowed: true, refundAmount: 0, refundPct: 0, reason: "Free booking, cancel anytime" };
+  if (isPayAtVenue(b)) {
+    // Nothing came through the gateway, so there's nothing to refund; the policy window still applies.
+    if (policy.policy !== "none" && hoursLeft < policy.hoursBefore) return { allowed: false, refundAmount: 0, refundPct: 0, reason: `Cancellations close ${policy.hoursBefore} h before the start` };
+    const paid = (b.amountDue ?? 0) <= 0;
+    return { allowed: true, refundAmount: 0, refundPct: 0, reason: paid ? "You paid at the venue, so any refund is between you and the host" : "Nothing has been paid yet, so there's nothing to refund. The spot is released for someone else." };
+  }
   if (policy.policy === "none") return { allowed: false, refundAmount: 0, refundPct: 0, reason: "This booking is non-refundable" };
   if (hoursLeft < policy.hoursBefore)
     return { allowed: false, refundAmount: 0, refundPct: 0, reason: `Cancellations close ${policy.hoursBefore} h before the start` };
@@ -199,7 +266,8 @@ export async function cancelBooking(userId: string, id: string, now = new Date()
   const b = await ownBooking(userId, id);
   const q = await cancelQuote(b, now);
   if (!q.allowed) throw conflict(q.reason, "cancel_not_allowed");
-  const booking = await cancelWithRefund(id, [b.status], q.refundAmount, "guest_cancelled", now);
+  let booking = await cancelWithRefund(id, [b.status], q.refundAmount, "guest_cancelled", now);
+  if ((b.amountDue ?? 0) > 0) booking = (await repo.bookings.update(id, { amountDue: 0 })) ?? booking;
   await repo.bookingEvents.insert({ id: newId("be"), bookingId: id, kind: "cancelled", actorUserId: userId, actorRole: "guest", data: { refundAmount: q.refundAmount }, createdAt: now.toISOString() });
   queueNotification(id, "cancelled", { actor: "guest", refundAmount: q.refundAmount });
   return { booking, refundAmount: q.refundAmount };
@@ -380,6 +448,10 @@ export interface BookingView extends Booking {
   dateYmd: string;
   cancel: CancelQuote;
   reschedule: RescheduleQuote;
+  /** For an unpaid hold: whether the guest may confirm now and pay in cash on arrival. */
+  payAtVenue: PayAtVenueQuote;
+  /** Booked online, to be paid (or already paid) in cash at the venue. */
+  dueAtVenue: boolean;
   /** "Event", "Meetup", "Workshop"… or "Court" (wireframe 15 overline) */
   kindLabel: string;
   /** Row heading: the listing title, or "Pickleball · Court 1" for courts */
@@ -413,6 +485,8 @@ async function toView(b: Booking, now: Date): Promise<BookingView> {
     dateYmd: fromISO(b.startsAt).ymd,
     cancel: await cancelQuote(b, now),
     reschedule: await rescheduleQuote(b, now),
+    payAtVenue: ACTIVE_HOLD.includes(b.status) ? await payAtVenueQuote(b) : { allowed: false, reason: null, amount: 0, couponDropped: null, noShows: 0, limit: NO_SHOW_LIMIT },
+    dueAtVenue: isPayAtVenue(b),
     kindLabel,
     heading,
   };
@@ -428,7 +502,7 @@ export async function listMyBookings(userId: string, now = new Date()) {
   const t = now.getTime();
   return {
     upcoming: views.filter((b) => (b.status === "confirmed" || b.status === "requested") && new Date(b.endsAt).getTime() > t).sort((a, b) => a.startsAt.localeCompare(b.startsAt)),
-    past: views.filter((b) => b.status === "checked_in" || ((b.status === "confirmed" || b.status === "requested") && new Date(b.endsAt).getTime() <= t)).sort((a, b) => b.startsAt.localeCompare(a.startsAt)),
+    past: views.filter((b) => b.status === "checked_in" || b.status === "no_show" || ((b.status === "confirmed" || b.status === "requested") && new Date(b.endsAt).getTime() <= t)).sort((a, b) => b.startsAt.localeCompare(a.startsAt)),
     cancelled: views.filter((b) => b.status === "cancelled" || b.status === "refunded").sort((a, b) => b.startsAt.localeCompare(a.startsAt)),
   };
 }

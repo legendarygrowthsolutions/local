@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
-import type { HostSettings } from "@/contracts";
+import { NO_SHOW_LIMIT, type HostSettings } from "@/contracts";
 import { useHostSettings, useUpdateHostSettings } from "@/lib/api/host-hooks";
 import { Button } from "@/components/ui/button";
 import { Field, Seg, Toggle, inputCls, timeOptions } from "./ops-ui";
@@ -25,6 +25,7 @@ export function HostOperationsSettings({ initial, templateReschedule }: { initia
   return (
     <div className="flex flex-col gap-6">
       <AlertsCard s={s.alerts} g={s.guestMessages} onSave={(a, g) => update.mutate({ alerts: a, guestMessages: g }, { onSuccess: () => toast.success("Messaging saved"), onError: (e) => toast.error(e.message) })} saving={update.isPending} />
+      <PayAtVenueCard s={s.payAtVenue} onSave={(v) => save("payAtVenue", v, v.enabled ? "Cash at the venue switched on" : "Cash at the venue switched off")} saving={update.isPending} />
       <HostBookingsCard s={s.hostBookings} c={s.cancellation} onSave={(hb, c) => update.mutate({ hostBookings: hb, cancellation: c }, { onSuccess: () => toast.success("Console permissions saved"), onError: (e) => toast.error(e.message) })} saving={update.isPending} />
       <RescheduleCard s={s.reschedule} tpl={templateReschedule} onSave={(v) => save("reschedule", v, "Rescheduling saved")} saving={update.isPending} />
       <ExtrasCard s={s.extras} onSave={(v) => save("extras", v, "Extras saved")} saving={update.isPending} />
@@ -107,6 +108,44 @@ function AlertsCard({ s, g, onSave, saving }: { s: HostSettings["alerts"]; g: Ho
       </div>
       <Button className="w-fit" loading={saving} onClick={() => onSave(a, gm)}>
         Save messaging
+      </Button>
+    </section>
+  );
+}
+
+/** What the host takes on by accepting cash. Enabling the setting is the host's acceptance of this. */
+export const PAY_AT_VENUE_HOST_TERMS = [
+  "Guests who choose this pay you directly, in cash, when they arrive. local. collects nothing for these bookings, so there's no convenience fee and no payout: the money is yours on the day.",
+  "Entry is on payment. Mark each booking paid once you've collected, or a no-show if the guest never came. That's how we know who turned up.",
+  "local. isn't responsible if a guest doesn't pay, pays less, or doesn't turn up. There's no recourse through us for money owed on a pay-at-venue booking.",
+  `A guest with ${NO_SHOW_LIMIT} no-shows on record (at any host) can't choose pay at venue again; they must pay online.`,
+];
+
+function PayAtVenueCard({ s, onSave, saving }: { s: HostSettings["payAtVenue"]; onSave: (v: HostSettings["payAtVenue"]) => void; saving: boolean }) {
+  const [v, setV] = useState(s);
+  return (
+    <section className={card}>
+      <div>
+        <h2 className="font-display text-lg font-bold">Cash at the venue</h2>
+        <p className="text-sm text-muted">Let guests book online and pay you in cash when they arrive, instead of paying through local.</p>
+      </div>
+      <div className="rounded-xl border border-line px-4">
+        <Toggle label="Accept cash at the venue" sub="Adds a “Pay at the venue” option at checkout for all your events and courts" on={v.enabled} set={(x) => setV({ ...v, enabled: x })} />
+      </div>
+      <div className="flex flex-col gap-2 rounded-xl bg-warn-tint p-4 text-sm text-ink-2">
+        <p className="font-semibold text-warn">Before you switch this on</p>
+        <ul className="flex flex-col gap-1.5">
+          {PAY_AT_VENUE_HOST_TERMS.map((t) => (
+            <li key={t} className="flex gap-2">
+              <span className="mt-[7px] size-1.5 flex-none rounded-full bg-warn" aria-hidden />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="text-xs text-muted">Switching this on means you accept the above.</p>
+      </div>
+      <Button className="w-fit" loading={saving} onClick={() => onSave(v)}>
+        {v.enabled ? "Save and accept cash" : "Save"}
       </Button>
     </section>
   );

@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Download, Plus, Search } from "lucide-react";
 import { toast } from "sonner";
 import type { HostSettings } from "@/contracts";
-import { useCheckIn, useHostBookings } from "@/lib/api/host-hooks";
+import { useCheckIn, useHostBookings, useMarkPaid } from "@/lib/api/host-hooks";
 import { BookingActionsSheet } from "./booking-actions-sheet";
 import { RecordBookingSheet } from "./record-booking-sheet";
 import { Chip } from "@/components/ui/chip";
@@ -29,6 +29,7 @@ export function HostBookings({ isOwner, settings }: { isOwner: boolean; settings
   const [target, setTarget] = useState(sp.get("target") ?? "");
   const [source, setSource] = useState(sp.get("source") ?? "");
   const [due, setDue] = useState(sp.get("due") === "1");
+  const [pay, setPay] = useState(sp.get("pay") ?? "");
   const [open, setOpen] = useState<string | null>(null);
   const [record, setRecord] = useState(false);
   const canRecord = settings.hostBookings.enabled && (isOwner || settings.hostBookings.editBy === "all");
@@ -38,7 +39,7 @@ export function HostBookings({ isOwner, settings }: { isOwner: boolean; settings
     const t = setTimeout(() => setQ(qInput), 250);
     return () => clearTimeout(t);
   }, [qInput]);
-  const { data, error, isPending, isFetching, refetch } = useHostBookings({ when, target: target || undefined, q: q || undefined, source: source || undefined, due: due ? "1" : undefined });
+  const { data, error, isPending, isFetching, refetch } = useHostBookings({ when, target: target || undefined, q: q || undefined, source: source || undefined, due: due ? "1" : undefined, pay: pay || undefined });
   const checkIn = useCheckIn();
 
   const exportCsv = () => {
@@ -87,6 +88,7 @@ export function HostBookings({ isOwner, settings }: { isOwner: boolean; settings
         <Chip active={source === ""} onClick={() => setSource("")} className="h-8 text-[13px]">All sources</Chip>
         <Chip active={source === "online"} onClick={() => setSource("online")} className="h-8 text-[13px]">Online</Chip>
         <Chip active={source === "host"} onClick={() => setSource("host")} className="h-8 text-[13px]">Recorded at venue</Chip>
+        <Chip active={pay === "venue"} onClick={() => setPay(pay === "venue" ? "" : "venue")} className="h-8 text-[13px]">Pay at venue</Chip>
         {isOwner && (
           <Chip active={due} onClick={() => setDue(!due)} className="h-8 text-[13px]">Amount due</Chip>
         )}
@@ -109,14 +111,18 @@ export function HostBookings({ isOwner, settings }: { isOwner: boolean; settings
         <div className="overflow-hidden rounded-[20px] border border-line bg-surface">
           <ul className="divide-y divide-line">
             {data.items.map((b) => (
-              <li key={b.id} className={cn("grid cursor-pointer grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 px-4 py-3 hover:bg-field/40 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.4fr)_140px_90px_110px_120px] md:px-5")} onClick={() => setOpen(b.id)}>
+              <li key={b.id} className={cn("grid cursor-pointer grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 px-4 py-3 hover:bg-field/40 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.4fr)_140px_90px_110px_minmax(120px,auto)] md:px-5")} onClick={() => setOpen(b.id)}>
                 <div className="min-w-0">
-                  <p className="truncate font-semibold">
-                    {b.customer}
-                    {b.source === "host" && <span className="ml-1.5 rounded bg-field px-1 align-middle text-[10px] font-bold text-muted">DESK</span>}
-                    {b.amountDue !== null && b.amountDue > 0 && <span className="ml-1.5 rounded bg-warn-tint px-1 align-middle text-[10px] font-bold text-warn">DUE {formatINR(b.amountDue)}</span>}
-                    {b.rescheduledCount > 0 && <span className="ml-1.5 rounded bg-field px-1 align-middle text-[10px] font-bold text-muted">MOVED</span>}
-                  </p>
+                  <p className="truncate font-semibold">{b.customer}</p>
+                  {(b.source === "host" || b.payAtVenue || (b.amountDue ?? 0) > 0 || b.rescheduledCount > 0) && (
+                    <p className="flex flex-wrap gap-1 py-0.5 text-[10px] font-bold leading-4 [&>span]:whitespace-nowrap [&>span]:rounded [&>span]:px-1">
+                      {b.source === "host" && <span className="bg-field text-muted">DESK</span>}
+                      {b.dueAtVenue && <span className="bg-urgent-tint text-urgent">CASH AT VENUE{b.amountDue !== null ? ` ${formatINR(b.amountDue)}` : ""}</span>}
+                      {b.payAtVenue && !b.dueAtVenue && b.status !== "no_show" && <span className="bg-free-tint text-free">PAID AT VENUE</span>}
+                      {!b.payAtVenue && b.amountDue !== null && b.amountDue > 0 && <span className="bg-warn-tint text-warn">DUE {formatINR(b.amountDue)}</span>}
+                      {b.rescheduledCount > 0 && <span className="bg-field text-muted">MOVED</span>}
+                    </p>
+                  )}
                   <p className="truncate text-xs text-muted">
                     {maskPhone(b.phone) || "No number"} · <span className="font-mono">{b.code}</span>
                   </p>
@@ -133,7 +139,8 @@ export function HostBookings({ isOwner, settings }: { isOwner: boolean; settings
                 <span className="justify-self-end md:justify-self-start">
                   <BookingStatusPill status={b.status} />
                 </span>
-                <span className="max-md:col-span-2 md:justify-self-end">
+                <span className="flex flex-wrap items-center gap-1.5 max-md:col-span-2 md:justify-end md:justify-self-end">
+                  {b.dueAtVenue && (b.status === "confirmed" || b.status === "checked_in") && <MarkPaidButton id={b.id} customer={b.customer} />}
                   {b.status === "confirmed" && when !== "past" ? (
                     <Button
                       size="sm"
@@ -161,5 +168,23 @@ export function HostBookings({ isOwner, settings }: { isOwner: boolean; settings
       <BookingActionsSheet id={open} onClose={() => setOpen(null)} />
       <RecordBookingSheet open={record} onOpenChange={setRecord} settings={settings} isOwner={isOwner} />
     </div>
+  );
+}
+
+/** One tap at the desk: the guest handed over the cash. */
+function MarkPaidButton({ id, customer }: { id: string; customer: string }) {
+  const m = useMarkPaid(id);
+  return (
+    <Button
+      size="sm"
+      variant="secondary"
+      loading={m.isPending}
+      onClick={(e) => {
+        e.stopPropagation();
+        m.mutate("cash", { onSuccess: (r) => toast.success(`${formatINR(r.amount)} collected from ${customer}`), onError: (e) => toast.error(e.message) });
+      }}
+    >
+      Mark paid
+    </Button>
   );
 }

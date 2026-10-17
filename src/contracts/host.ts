@@ -2,7 +2,7 @@ import { z } from "zod";
 import { HOST_SLUG_HINT, HOST_SLUG_RE } from "@/lib/slug";
 import { FormFieldSchema } from "./listing";
 import { PhoneSchema } from "./user";
-import { PaymentMethodSchema } from "./booking";
+import { OFFLINE_METHODS, PaymentMethodSchema } from "./booking";
 
 export const HostRoleSchema = z.enum(["owner", "manager"]);
 export type HostRole = z.infer<typeof HostRoleSchema>;
@@ -276,6 +276,15 @@ export const HostSettingsSchema = z.object({
     })
     .prefault({}),
   extras: z.array(HostExtraSchema).max(30).default([]),
+  payAtVenue: z
+    .object({
+      /**
+       * Let guests book online and pay in cash when they arrive. The platform collects nothing for
+       * these bookings and takes no responsibility if the guest doesn't pay or doesn't turn up.
+       */
+      enabled: z.boolean().default(false),
+    })
+    .prefault({}),
   cancellation: z
     .object({
       /** Refund of the ticket value when the host cancels an online booking (always at least what the guest's own policy would give). */
@@ -385,5 +394,8 @@ export const HostRescheduleSchema = z.object({
   to: z.union([z.object({ date: ymdSchema, startMins: minsOfDay, resourceId: z.string().max(60).optional() }), z.object({ sessionId: z.string().max(60) })]),
   notify: z.boolean().default(true),
 });
+
+/** POST /api/host/bookings/[id]/paid — a pay-at-venue booking settled at the desk. */
+export const MarkPaidSchema = z.object({ method: z.enum(OFFLINE_METHODS).default("cash") });
 
 export const BookingNotesSchema = z.object({ notes: z.string().trim().max(300) });

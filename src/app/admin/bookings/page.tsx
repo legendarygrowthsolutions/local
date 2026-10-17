@@ -14,6 +14,7 @@ const STATUSES = [
   ["", "All statuses"],
   ["confirmed", "Confirmed"],
   ["checked_in", "Checked in"],
+  ["no_show", "No-show"],
   ["requested", "Requested"],
   ["cancelled", "Cancelled"],
   ["refunded", "Refunded"],

@@ -18,6 +18,11 @@ export function effectiveReschedule(host: Pick<Host, "settings">, tpl: Pick<Jour
   return base;
 }
 
+/** Whether guests may book this host's events and courts online and pay in cash on arrival. */
+export function acceptsPayAtVenue(host: Pick<Host, "settings">) {
+  return hostSettings(host).payAtVenue.enabled;
+}
+
 /** Whether this member may do a given operation under the host's permission settings. */
 export function canEditBookings(ctx: HostContext, s = hostSettings(ctx.host)) {
   return ctx.isOwner || s.hostBookings.editBy === "all";

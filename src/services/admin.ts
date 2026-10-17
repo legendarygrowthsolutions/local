@@ -614,7 +614,7 @@ export async function adminRefund(id: string, refundPct: 0 | 50 | 100) {
 // ---------------------------------------------------------------------------
 
 export async function adminUsers(q?: string) {
-  const [users, counts, cities] = await Promise.all([repo.users.list(), repo.bookings.countByUser(UNPAID), repo.cities.listAll()]);
+  const [users, counts, noShows, cities] = await Promise.all([repo.users.list(), repo.bookings.countByUser(UNPAID), repo.bookings.noShowCounts(null), repo.cities.listAll()]);
   const needle = q?.trim().toLowerCase();
   const rows = await Promise.all(
     users
@@ -630,6 +630,7 @@ export async function adminUsers(q?: string) {
           city: cities.find((c) => c.id === u.cityId)?.name ?? "-",
           createdAt: u.createdAt,
           bookings: counts.get(u.id) ?? 0,
+          noShows: noShows.get(u.id) ?? 0,
           hostRoles: ms.map((m, i) => `${hosts[i]?.brandName ?? "?"} (${m.role})`),
         };
       }),

@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { formatINR } from "@/lib/pricing";
 import { cn } from "@/lib/utils";
 import { useCountdown } from "./hold-timer";
+import { PayAtVenueOption } from "./pay-at-venue";
 
 const METHODS = [
   { id: "upi", label: "UPI", icon: Smartphone, hint: "Pay with any UPI app or ID" },
@@ -168,6 +169,7 @@ export function DummyGateway({ initial }: { initial: BookingView }) {
               </button>
             </div>
             {pay.error && <p className="text-center text-sm text-danger">{pay.error.message}</p>}
+            <PayAtVenueOption booking={booking} disabled={pay.isPending} />
           </>
         )}
         <p className="text-center text-xs text-muted">Test mode: no money moves.</p>

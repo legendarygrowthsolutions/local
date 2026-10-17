@@ -13,6 +13,7 @@ const BOOKING: Record<string, { label: string; cls: string }> = {
   checked_in: { label: "Checked in", cls: "bg-free-tint text-free" },
   cancelled: { label: "Cancelled", cls: "bg-field text-subtle" },
   refunded: { label: "Refunded", cls: "bg-field text-subtle" },
+  no_show: { label: "No-show", cls: "bg-danger-tint text-danger" },
 };
 
 export function ListingStatus({ status }: { status: string }) {

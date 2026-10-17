@@ -4,6 +4,7 @@ import { adminUsers } from "@/services/admin";
 import { AdminPage } from "@/components/admin/page-bits";
 import { RoleToggle } from "@/components/admin/role-toggle";
 import { formatDate, fromISO } from "@/lib/time";
+import { NO_SHOW_LIMIT } from "@/contracts";
 
 export const metadata = { title: "Users" };
 
@@ -26,6 +27,7 @@ export default async function UsersPage({ searchParams }: { searchParams: Promis
               <th className="px-4 py-3 font-semibold">User</th>
               <th className="px-3 py-3 font-semibold">City</th>
               <th className="px-3 py-3 font-semibold">Bookings</th>
+              <th className="px-3 py-3 font-semibold">No-shows</th>
               <th className="px-3 py-3 font-semibold">Host teams</th>
               <th className="px-3 py-3 font-semibold">Joined</th>
               <th className="px-4 py-3 font-semibold">Superadmin</th>
@@ -40,6 +42,10 @@ export default async function UsersPage({ searchParams }: { searchParams: Promis
                 </td>
                 <td className="px-3 py-3">{u.city}</td>
                 <td className="px-3 py-3 tabular-nums">{u.bookings}</td>
+                <td className="px-3 py-3 tabular-nums">
+                  {u.noShows}
+                  {u.noShows >= NO_SHOW_LIMIT && <span className="ml-1.5 rounded bg-danger-tint px-1 text-[10px] font-bold text-danger">NO CASH</span>}
+                </td>
                 <td className="px-3 py-3 text-ink-2">{u.hostRoles.join(", ") || "None"}</td>
                 <td className="px-3 py-3 text-muted">{formatDate(fromISO(u.createdAt).ymd, true)}</td>
                 <td className="px-4 py-3">

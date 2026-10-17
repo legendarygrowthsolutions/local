@@ -60,7 +60,7 @@ export interface PayoutRecord {
 export interface BookingEvent {
   id: string;
   bookingId: string;
-  kind: "created" | "extended" | "charge_added" | "charge_removed" | "settled" | "rescheduled" | "cancelled" | "notes";
+  kind: "created" | "extended" | "charge_added" | "charge_removed" | "settled" | "rescheduled" | "cancelled" | "notes" | "pay_at_venue" | "no_show" | "no_show_undone";
   actorUserId: string | null;
   actorRole: "guest" | "host" | "admin" | "system";
   data: Record<string, unknown>;
@@ -194,6 +194,8 @@ export interface Repository {
     countStartingOn(ymd: string, statuses: Booking["status"][]): Promise<number>;
     /** Booking count per user, excluding the given statuses. */
     countByUser(excludeStatuses: Booking["status"][]): Promise<Map<string, number>>;
+    /** Lifetime no-shows per user (every host), for the given users or everyone when null. */
+    noShowCounts(userIds: string[] | null): Promise<Map<string, number>>;
     /** Filtered, paged search (newest first). `q` matches code, title, venue, attendee and customer name/phone. */
     search(opts: { q?: string; statuses?: Booking["status"][]; excludeStatuses?: Booking["status"][]; cityId?: string; offset: number; limit: number }): Promise<{ total: number; items: Booking[] }>;
     /** This user's bookings that used `couponCode` and count as redemptions (held, paid or attended), excluding `exceptId`. */

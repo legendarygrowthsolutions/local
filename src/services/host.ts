@@ -1,13 +1,15 @@
 import "server-only";
 import { storeDocument, storeImages } from "./media";
 import { newId } from "@/lib/crypto";
-import type {
-  Booking, EventListingInput, Host, HostApplicationInput, HostMember, JourneyTemplate, Listing, ListingInput, Resource,
-  Session, SlotRule, TicketType, User, Venue, VenueInput,
+import {
+  isPayAtVenue,
+  type Booking, type EventListingInput, type Host, type HostApplicationInput, type HostMember, type JourneyTemplate, type Listing, type ListingInput, type Resource,
+  type Session, type SlotRule, type TicketType, type User, type Venue, type VenueInput,
 } from "@/contracts";
 import { repo } from "@/repositories";
 import { generateSlots } from "@/lib/slots/engine";
 import { addDays, formatDate, formatMins, formatWhen, fromISO, istParts, toISO, todayIST } from "@/lib/time";
+import { formatINR } from "@/lib/pricing";
 import { hostPayouts } from "./payouts";
 import { ServiceError, badRequest, conflict, notFound } from "./errors";
 import { hostSlugFrom, slugify, uniqueSlug } from "@/lib/slug";
@@ -160,6 +162,10 @@ export interface HostBookingRow {
   amountDue: number | null;
   rescheduledCount: number;
   hasNotes: boolean;
+  /** Booked online, paying in cash at the venue (the platform collected nothing). */
+  payAtVenue: boolean;
+  /** A pay-at-venue booking the desk hasn't collected yet. Visible to managers too, so they can collect. */
+  dueAtVenue: boolean;
 }
 
 const targets = hostTargets;
@@ -185,6 +191,8 @@ export function bookingRow(ctx: HostContext, b: Booking, now: Date): HostBooking
     amountDue: money(ctx, b.amountDue ?? 0),
     rescheduledCount: b.rescheduledCount ?? 0,
     hasNotes: !!b.notes,
+    payAtVenue: isPayAtVenue(b),
+    dueAtVenue: isPayAtVenue(b) && (b.amountDue ?? 0) > 0,
   };
 }
 
@@ -696,7 +704,7 @@ export async function getListingInput(ctx: HostContext, id: string): Promise<{ i
 
 export async function hostBookings(
   ctx: HostContext,
-  opts: { when?: "today" | "upcoming" | "past"; target?: string; q?: string; limit?: number; source?: "online" | "host"; due?: boolean },
+  opts: { when?: "today" | "upcoming" | "past"; target?: string; q?: string; limit?: number; source?: "online" | "host"; due?: boolean; pay?: "venue" | "online" },
   now = new Date(),
 ) {
   assertApproved(ctx);
@@ -711,6 +719,7 @@ export async function hostBookings(
     .filter((b) => !opts.target || b.listingId === opts.target || b.venueId === opts.target)
     .filter((b) => !opts.source || (b.source ?? "online") === opts.source)
     .filter((b) => !opts.due || (b.amountDue ?? 0) > 0)
+    .filter((b) => !opts.pay || (opts.pay === "venue" ? isPayAtVenue(b) : !isPayAtVenue(b)))
     .filter((b) => {
       const ymd = fromISO(b.startsAt).ymd;
       if (when === "today") return ymd === today || (fromISO(b.endsAt).ymd >= today && ymd <= today);
@@ -737,13 +746,17 @@ export async function checkIn(ctx: HostContext, code: string, now = new Date()) 
   const row = () => bookingRow(ctx, b, now);
   if (b.status === "checked_in") return { result: "already" as const, booking: row(), message: `Already checked in${b.checkedInAt ? ` at ${formatMins(fromISO(b.checkedInAt).mins)}` : ""}` };
   if (b.status === "cancelled" || b.status === "refunded") return { result: "invalid" as const, booking: row(), message: "This booking was cancelled" };
+  if (b.status === "no_show") return { result: "invalid" as const, booking: row(), message: "This booking was marked as a no-show. Undo that from the booking first." };
   if (b.status !== "confirmed" && b.status !== "requested") return { result: "invalid" as const, booking: row(), message: "This booking isn't confirmed" };
   const start = new Date(b.startsAt).getTime();
   const end = new Date(b.endsAt).getTime();
   if (now.getTime() < start - 3 * 3_600_000) return { result: "early" as const, booking: row(), message: `This booking is for ${formatDate(fromISO(b.startsAt).ymd)}, ${formatMins(fromISO(b.startsAt).mins, { compact: true })}` };
   if (now.getTime() > end) return { result: "invalid" as const, booking: row(), message: "This booking has already ended" };
   await repo.bookings.update(b.id, { status: "checked_in", checkedInAt: now.toISOString() });
-  return { result: "ok" as const, booking: { ...row(), status: "checked_in" as const }, message: `${b.items.reduce((s, i) => s + i.qty, 0)} admitted` };
+  const admitted = `${b.items.reduce((s, i) => s + i.qty, 0)} admitted`;
+  // Pay at venue: entry is on payment. The desk collects, then marks the booking paid.
+  if (isPayAtVenue(b) && (b.amountDue ?? 0) > 0) return { result: "ok" as const, booking: { ...row(), status: "checked_in" as const }, message: `${admitted} · collect ${formatINR(b.amountDue!)} in cash first, then mark paid` };
+  return { result: "ok" as const, booking: { ...row(), status: "checked_in" as const }, message: admitted };
 }
 
 // ---------------------------------------------------------------------------

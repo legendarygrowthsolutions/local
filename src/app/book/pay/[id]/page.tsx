@@ -8,6 +8,7 @@ import { RazorpayCheckout } from "@/features/booking/razorpay-checkout";
 import { config } from "@/lib/config";
 import { checkoutScriptUrl } from "@/lib/providers/razorpay";
 import { EmptyState } from "@/components/ui/states";
+import { PayAtVenueOption } from "@/features/booking/pay-at-venue";
 
 export const metadata: Metadata = { title: "Payment" };
 
@@ -21,8 +22,9 @@ export default async function PayPage({ params }: { params: Promise<{ id: string
   if (provider === "razorpay") return <RazorpayCheckout initial={booking} scriptSrc={checkoutScriptUrl()} />;
   if (provider === "test") return <DummyGateway initial={booking} />;
   return (
-    <main className="mx-auto max-w-lg px-5 pt-16">
-      <EmptyState title="Payments are unavailable" body="We can't take payments right now. Your spot is held for a few minutes; please try again shortly." />
+    <main className="mx-auto flex max-w-lg flex-col gap-4 px-5 pt-16">
+      <EmptyState title="Online payments are unavailable" body={booking.payAtVenue.allowed ? "We can't take payments online right now, but this host accepts cash at the venue." : "We can't take payments right now. Your spot is held for a few minutes; please try again shortly."} />
+      <PayAtVenueOption booking={booking} />
     </main>
   );
 }

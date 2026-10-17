@@ -1,5 +1,5 @@
 import "server-only";
-import type { Booking } from "@/contracts";
+import { isPayAtVenue, type Booking } from "@/contracts";
 import { repo } from "@/repositories";
 import { addDays, daysBetween, fromISO, istParts, weekdayOf } from "@/lib/time";
 import { assertApproved, hostTargets, type HostContext } from "./host";
@@ -12,7 +12,7 @@ import { assertApproved, hostTargets, type HostContext } from "./host";
 
 const r2 = (n: number) => Math.round(n * 100) / 100;
 const COUNTED: Booking["status"][] = ["confirmed", "checked_in", "requested"];
-const SETTLED: Booking["status"][] = ["confirmed", "checked_in", "requested", "cancelled", "refunded"];
+const SETTLED: Booking["status"][] = ["confirmed", "checked_in", "requested", "cancelled", "refunded", "no_show"];
 
 export type ReportRange = "7d" | "30d" | "90d" | "custom";
 
@@ -27,6 +27,11 @@ export interface HostReport {
     cancelRate: number;
     checkedIn: number;
     checkInRate: number;
+    /** Guests marked as never having turned up. */
+    noShows: number;
+    /** Pay-at-venue bookings in the period and how much of that is still uncollected (owner only). */
+    payAtVenue: number;
+    payAtVenueDue: number | null;
     courtHours: number;
     tickets: number;
     uniqueGuests: number;
@@ -147,8 +152,11 @@ export async function hostReport(ctx: HostContext, range: ReportRange, custom: {
     owner: ctx.isOwner,
     summary: {
       bookings: counted.length,
-      cancelled: settled.length - counted.length,
-      cancelRate: settled.length ? Math.round(((settled.length - counted.length) / settled.length) * 100) : 0,
+      cancelled: settled.filter((b) => b.status === "cancelled" || b.status === "refunded").length,
+      cancelRate: settled.length ? Math.round((settled.filter((b) => b.status === "cancelled" || b.status === "refunded").length / settled.length) * 100) : 0,
+      noShows: settled.filter((b) => b.status === "no_show").length,
+      payAtVenue: counted.filter(isPayAtVenue).length,
+      payAtVenueDue: money(counted.filter(isPayAtVenue).reduce((s, b) => s + (b.amountDue ?? 0), 0)),
       checkedIn: counted.filter((b) => b.status === "checked_in").length,
       checkInRate: counted.length ? Math.round((counted.filter((b) => b.status === "checked_in").length / counted.filter((b) => new Date(b.endsAt).getTime() < now.getTime()).length || 0) * 100) : 0,
       courtHours: r2(counted.reduce((s, b) => s + hours(b), 0)),

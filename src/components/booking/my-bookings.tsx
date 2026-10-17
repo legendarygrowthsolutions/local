@@ -84,7 +84,8 @@ function BookingRow({ b, next }: { b: BookingView; next?: boolean }) {
   const qty = b.items.reduce((s, i) => s + i.qty, 0);
   const when = b.status === "requested" ? "AWAITING HOST" : days === 0 ? "TODAY" : days === 1 ? "TOMORROW" : days > 1 && days <= 6 ? `IN ${days} DAYS` : null;
   const extra = b.kind === "venue" ? when : free ? null : `${qty} ${qty === 1 ? "TICKET" : "TICKETS"}`;
-  const inactive = b.status === "cancelled" || b.status === "refunded";
+  const inactive = b.status === "cancelled" || b.status === "refunded" || b.status === "no_show";
+  const payAtVenue = b.dueAtVenue && (b.amountDue ?? 0) > 0 && !inactive;
   return (
     <Link
       href={`/me/bookings/${b.id}`}
@@ -106,7 +107,8 @@ function BookingRow({ b, next }: { b: BookingView; next?: boolean }) {
           ) : extra ? (
             ` · ${extra}`
           ) : null}
-          {inactive && <span className="text-muted"> · {b.status.toUpperCase()}</span>}
+          {payAtVenue && <span className="text-urgent"> · PAY AT VENUE</span>}
+          {inactive && <span className="text-muted"> · {b.status === "no_show" ? "NO-SHOW" : b.status.toUpperCase()}</span>}
         </span>
         <span className="truncate text-[15px] font-bold">{b.heading}</span>
         <span className="truncate text-[13px] text-muted">

@@ -32,7 +32,7 @@ export function useHostListings(initial?: HostListingRow[]) {
   return useQuery({ queryKey: hostKeys.listings, queryFn: () => api<{ items: HostListingRow[] }>("/api/host/listings").then((r) => r.items), initialData: initial });
 }
 
-export function useHostBookings(p: { when: string; target?: string; q?: string; source?: string; due?: string }) {
+export function useHostBookings(p: { when: string; target?: string; q?: string; source?: string; due?: string; pay?: string }) {
   return useQuery({
     queryKey: hostKeys.bookings(p),
     queryFn: ({ signal }) => api<{ total: number; items: HostBookingRow[]; targets: { id: string; title: string }[] }>(`/api/host/bookings${qs(p)}`, { signal }),
@@ -195,6 +195,22 @@ export function useRemoveCharge(id: string) {
 export function useSettleDue(id: string) {
   const qc = useQueryClient();
   return useMutation({ mutationFn: (v: { method: Exclude<PaymentMethod, "online" | "pay_later">; amount?: number }) => api<{ amount: number }>(`/api/host/bookings/${id}/settle`, { body: v }), onSuccess: () => invalidateBookings(qc, id) });
+}
+
+/** Pay-at-venue: the guest paid at the desk (full amount). */
+export function useMarkPaid(id: string) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: (method: "cash" | "upi" | "card") => api<{ amount: number }>(`/api/host/bookings/${id}/paid`, { body: { method } }), onSuccess: () => invalidateBookings(qc, id) });
+}
+
+export function useMarkNoShow(id: string) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: () => api<{ noShows: number }>(`/api/host/bookings/${id}/no-show`, { method: "POST" }), onSuccess: () => invalidateBookings(qc, id) });
+}
+
+export function useUndoNoShow(id: string) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: () => api<{ noShows: number }>(`/api/host/bookings/${id}/no-show`, { method: "DELETE" }), onSuccess: () => invalidateBookings(qc, id) });
 }
 
 export function useHostCancel(id: string) {

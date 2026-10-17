@@ -1,5 +1,5 @@
 import "server-only";
-import type { AddChargeInput, Booking, BookingItem, BulkScheduleInput, ExtendBookingInput, HostBookingInput, HostRescheduleSchema, Listing, PaymentMethod, PriceBreakdown, Venue } from "@/contracts";
+import { isPayAtVenue, NO_SHOW_LIMIT, type AddChargeInput, type Booking, type BookingItem, type BulkScheduleInput, type ExtendBookingInput, type HostBookingInput, type HostRescheduleSchema, type Listing, type PaymentMethod, type PriceBreakdown, type Venue } from "@/contracts";
 import type { z } from "zod";
 import { repo } from "@/repositories";
 import type { BookingEvent, NotificationRecord } from "@/repositories/types";
@@ -367,18 +367,78 @@ export async function removeCharge(ctx: HostContext, id: string, line: number, n
 }
 
 export async function settleDue(ctx: HostContext, id: string, input: { method: Exclude<PaymentMethod, "online" | "pay_later">; amount?: number }, now = new Date()) {
-  assertCanEdit(ctx);
-  assertMethodAllowed(ctx, input.method);
+  assertApproved(ctx);
   return repo.transaction(async () => {
     const b = await ownBooking(ctx, id);
+    // Pay-at-venue money is collected by whoever is at the desk, whatever the console-booking permissions say.
+    if (!isPayAtVenue(b)) {
+      assertCanEdit(ctx);
+      assertMethodAllowed(ctx, input.method);
+    }
     const due = b.amountDue ?? 0;
     if (due <= 0) throw conflict("Nothing is due on this booking");
     const amount = r2(input.amount ?? due);
     if (amount <= 0 || amount > due + 0.005) throw badRequest(`Enter an amount up to ${due}`);
     await recordOfflinePayment(b.id, input.method, amount, now);
-    const updated = (await repo.bookings.update(b.id, { amountDue: r2(due - amount), paymentMethod: b.paymentMethod === "pay_later" && amount >= due - 0.005 ? input.method : b.paymentMethod }))!;
+    // Once fully collected, the booking records how the money actually came in (pay-later and pay-at-venue start as a promise).
+    const settledInFull = amount >= due - 0.005 && (b.paymentMethod === "pay_later" || isPayAtVenue(b));
+    const updated = (await repo.bookings.update(b.id, { amountDue: r2(due - amount), paymentMethod: settledInFull ? input.method : b.paymentMethod }))!;
     await event(b.id, "settled", ctx, { method: input.method, amount, remaining: updated.amountDue }, now);
     return { booking: updated, amount };
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Pay at the venue: collect, or record that the guest never came
+// ---------------------------------------------------------------------------
+
+/** The guest paid at the desk: the whole amount due, in one go. Any team member can do this. */
+export async function markPaidAtVenue(ctx: HostContext, id: string, method: (typeof import("@/contracts").OFFLINE_METHODS)[number] = "cash", now = new Date()) {
+  assertApproved(ctx);
+  const b = await ownBooking(ctx, id);
+  if (!isPayAtVenue(b)) throw badRequest("This booking wasn't a pay-at-venue booking");
+  if (!["confirmed", "checked_in"].includes(b.status)) throw conflict("This booking can't be marked as paid");
+  return settleDue(ctx, id, { method }, now);
+}
+
+/** Lifetime no-shows for the guest who holds this booking (across every host). */
+async function guestNoShows(b: Booking) {
+  return (await repo.bookings.noShowCounts([b.userId])).get(b.userId) ?? 0;
+}
+
+/**
+ * The guest never turned up. Allowed once the booking has started, so it can't be used to drop a
+ * guest in advance. Anything still due is written off; the guest is told, and after NO_SHOW_LIMIT
+ * no-shows they can no longer choose to pay at the venue.
+ */
+export async function markNoShow(ctx: HostContext, id: string, now = new Date()) {
+  assertApproved(ctx);
+  const result = await repo.transaction(async () => {
+    const b = await ownBooking(ctx, id);
+    if (b.status === "no_show") throw conflict("Already marked as a no-show");
+    if (b.status !== "confirmed") throw conflict(b.status === "checked_in" ? "This guest was checked in" : "Only confirmed bookings can be marked as a no-show");
+    if (new Date(b.startsAt).getTime() > now.getTime()) throw badRequest("You can mark a no-show once the booking has started");
+    const unpaid = b.amountDue ?? 0;
+    const updated = (await repo.bookings.update(b.id, { status: "no_show", amountDue: 0 }))!;
+    await event(b.id, "no_show", ctx, { unpaid, payAtVenue: isPayAtVenue(b) }, now);
+    return { booking: updated, noShows: await guestNoShows(updated) };
+  });
+  queueNotification(id, "no_show", { actor: "host", host: false });
+  return result;
+}
+
+/** Marked by mistake: back to confirmed, with whatever was due restored. */
+export async function undoNoShow(ctx: HostContext, id: string, now = new Date()) {
+  assertApproved(ctx);
+  return repo.transaction(async () => {
+    const b = await ownBooking(ctx, id);
+    if (b.status !== "no_show") throw conflict("This booking isn't marked as a no-show");
+    const events = await repo.bookingEvents.listByBooking(b.id);
+    const last = [...events].reverse().find((e) => e.kind === "no_show");
+    const unpaid = Number(last?.data.unpaid ?? 0);
+    const updated = (await repo.bookings.update(b.id, { status: "confirmed", amountDue: unpaid }))!;
+    await event(b.id, "no_show_undone", ctx, { restoredDue: unpaid }, now);
+    return { booking: updated, noShows: await guestNoShows(updated) };
   });
 }
 
@@ -434,7 +494,12 @@ export interface HostBookingDetail {
   rescheduledCount: number;
   events: { kind: BookingEvent["kind"]; at: string; by: string; summary: string }[];
   messages: { at: string; audience: NotificationRecord["audience"]; channel: string; status: string; to: string }[];
-  can: { edit: boolean; price: boolean; extend: boolean; reschedule: boolean; cancel: boolean; settle: boolean };
+  can: { edit: boolean; price: boolean; extend: boolean; reschedule: boolean; cancel: boolean; settle: boolean; markPaid: boolean; noShow: boolean; undoNoShow: boolean };
+  /** Booked online, paying in cash at the venue. */
+  payAtVenue: boolean;
+  /** The guest's lifetime no-shows (every host) and the limit after which they must pay online. */
+  guestNoShows: number;
+  noShowLimit: number;
   /** End times the booking can be extended to right now (free, contiguous slots after it). Empty = nothing free. */
   extendOptions: { endMins: number; price: number | null }[];
   extras: { id: string; name: string; price: number; per: "booking" | "hour" }[];
@@ -461,6 +526,12 @@ const summarise = (e: BookingEvent, now: Date): string => {
       return d.refundAmount ? `Cancelled, ₹${d.refundAmount} refunded` : "Cancelled";
     case "notes":
       return "Notes updated";
+    case "pay_at_venue":
+      return `Chose to pay ₹${d.amount} at the venue${d.couponDropped ? ` (coupon ${d.couponDropped} dropped)` : ""}`;
+    case "no_show":
+      return d.unpaid ? `Marked as a no-show, ₹${d.unpaid} never collected` : "Marked as a no-show";
+    case "no_show_undone":
+      return "No-show undone";
   }
 };
 
@@ -472,6 +543,8 @@ export async function hostBookingDetail(ctx: HostContext, id: string, now = new 
   const money = (v: number) => (ctx.isOwner ? r2(v) : null);
   const who = (e: BookingEvent) => (e.actorRole === "guest" ? "Guest" : e.actorRole === "admin" ? "local. support" : e.actorRole === "system" ? "System" : (members.find((m) => m.userId === e.actorUserId)?.name ?? (e.actorUserId === ctx.user.id ? "You" : "Team")));
   const editable = EDITABLE.includes(b.status) && canEditBookings(ctx);
+  const payAtVenue = isPayAtVenue(b);
+  const guestNoShowCount = await guestNoShows(b);
   const extendOptions: HostBookingDetail["extendOptions"] = [];
   const court = courtItem(b);
   if (editable && b.kind === "venue" && court && b.venueId) {
@@ -507,8 +580,14 @@ export async function hostBookingDetail(ctx: HostContext, id: string, now = new 
       extend: editable && b.kind === "venue",
       reschedule: ["confirmed", "requested"].includes(b.status) && canEditBookings(ctx) && new Date(b.endsAt).getTime() > now.getTime(),
       cancel: CANCELLABLE.includes(b.status) && canEditBookings(ctx),
-      settle: (b.amountDue ?? 0) > 0 && canEditBookings(ctx),
+      settle: (b.amountDue ?? 0) > 0 && (payAtVenue || canEditBookings(ctx)),
+      markPaid: payAtVenue && (b.amountDue ?? 0) > 0 && ["confirmed", "checked_in"].includes(b.status),
+      noShow: b.status === "confirmed" && new Date(b.startsAt).getTime() <= now.getTime(),
+      undoNoShow: b.status === "no_show",
     },
+    payAtVenue,
+    guestNoShows: guestNoShowCount,
+    noShowLimit: NO_SHOW_LIMIT,
     extendOptions,
     extras: s.extras.filter((x) => x.active).map(({ id, name, price, per }) => ({ id, name, price, per })),
     methods: s.hostBookings.methods,

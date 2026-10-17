@@ -1,5 +1,6 @@
 import "server-only";
 import { ServiceError } from "@/services/errors";
+import { NO_SHOW_LIMIT } from "@/contracts";
 import { smsProvider, type OtpChannel, type SmsProvider } from "./sms";
 
 /**
@@ -16,6 +17,7 @@ export type MessageKind =
   | "guest_cancelled"
   | "guest_rescheduled"
   | "guest_updated"
+  | "guest_no_show"
   | "host_new_booking"
   | "host_cancelled"
   | "host_rescheduled";
@@ -40,6 +42,7 @@ export const TEMPLATE_VARS: Record<MessageKind, (keyof MessageVars)[]> = {
   guest_cancelled: ["title", "when", "code", "refund"],
   guest_rescheduled: ["title", "when", "venue", "code"],
   guest_updated: ["title", "when", "code", "change", "due"],
+  guest_no_show: ["title", "when", "code"],
   host_new_booking: ["venue", "customer", "title", "when", "amount", "code", "count"],
   host_cancelled: ["venue", "customer", "title", "when", "code"],
   host_rescheduled: ["venue", "customer", "title", "when", "oldWhen", "code"],
@@ -59,6 +62,8 @@ export function renderMessage(kind: MessageKind, v: MessageVars): string {
       return `Your booking ${v.code} (${v.title}) has moved to ${v.when} at ${v.venue}. Same code, see you there.${SIGN}`;
     case "guest_updated":
       return `Update to booking ${v.code} (${v.title}, ${v.when}): ${v.change ?? "details changed"}.${due}${SIGN}`;
+    case "guest_no_show":
+      return `You were marked as a no-show for ${v.title} on ${v.when} (booking ${v.code}). After ${NO_SHOW_LIMIT} no-shows, pay at venue is switched off for your account. Contact the host if this is a mistake.${SIGN}`;
     case "host_new_booking":
       return `New booking at ${v.venue}${multi}: ${v.customer ?? "Guest"}, ${v.title}, ${v.when}${v.amount ? `, ${v.amount}` : ""}. Code ${v.code}.${SIGN}`;
     case "host_cancelled":

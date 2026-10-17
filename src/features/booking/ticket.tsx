@@ -1,9 +1,10 @@
 "use client";
 
 import { QRCodeSVG } from "qrcode.react";
-import { CalendarPlus, Download, MapPin, Share2 } from "lucide-react";
+import { Banknote, CalendarPlus, Download, MapPin, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import type { BookingView } from "@/services/bookings";
+import { formatINR } from "@/lib/pricing";
 import { formatDate, formatMins, formatRange, fromISO } from "@/lib/time";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +14,7 @@ const STATUS: Record<string, { label: string; cls: string }> = {
   checked_in: { label: "Checked in", cls: "bg-field text-muted" },
   cancelled: { label: "Cancelled", cls: "bg-field text-muted" },
   refunded: { label: "Refunded", cls: "bg-field text-muted" },
+  no_show: { label: "No-show", cls: "bg-danger-tint text-danger" },
 };
 
 function icsFor(b: BookingView) {
@@ -37,7 +39,8 @@ function icsFor(b: BookingView) {
 /** Wireframe 14 ticket: dark title band, key facts, perforation, QR with booking ID. */
 export function TicketCard({ booking, className }: { booking: BookingView; className?: string }) {
   const s = STATUS[booking.status] ?? STATUS.confirmed;
-  const inactive = booking.status === "cancelled" || booking.status === "refunded";
+  const inactive = booking.status === "cancelled" || booking.status === "refunded" || booking.status === "no_show";
+  const unpaidAtVenue = booking.dueAtVenue && (booking.amountDue ?? 0) > 0 && !inactive;
   const endYmd = fromISO(booking.endsAt).ymd;
   const multiDay = endYmd !== booking.dateYmd;
   const venue = booking.kind === "venue";
@@ -53,6 +56,15 @@ export function TicketCard({ booking, className }: { booking: BookingView; class
         <Kv label={venue ? "Court" : "Tickets"} value={booking.items.map((i) => `${i.qty > 1 ? `${i.qty} × ` : ""}${i.label}`).join(", ")} />
         <Kv label="Venue" value={booking.venueName} />
       </dl>
+      {unpaidAtVenue && (
+        <p className="mx-[18px] mb-3 flex items-start gap-2 rounded-xl bg-urgent-tint px-3 py-2.5 text-[13px] font-semibold text-urgent">
+          <Banknote className="mt-px size-4 shrink-0" aria-hidden />
+          <span>
+            Pay {formatINR(booking.amountDue!)} in cash at the venue. Entry only after payment.
+          </span>
+        </p>
+      )}
+      {booking.dueAtVenue && !unpaidAtVenue && !inactive && <p className="mx-[18px] mb-3 rounded-xl bg-free-tint px-3 py-2 text-[13px] font-semibold text-free">Paid at the venue</p>}
       <div className="flex h-5 items-center" aria-hidden>
         <span className="-ml-[11px] size-[22px] flex-none rounded-full border border-line bg-ground" />
         <span className="flex-1 border-t-2 border-dashed border-line-strong" />

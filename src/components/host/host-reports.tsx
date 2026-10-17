@@ -70,14 +70,14 @@ export function HostReports({ isOwner }: { isOwner: boolean }) {
             <Kpi label="Bookings" value={r.summary.bookings} trend={r.summary.trend.bookings} trendSuffix=" vs previous period" />
             {isOwner ? <Kpi dark label="Ticket value" value={inr(r.summary.gross, "₹0")} trend={r.summary.trend.gross} sub={`${inr(r.summary.onlineGross, "₹0")} online · ${inr(r.summary.offlineGross, "₹0")} at the venue`} /> : <Kpi label="Court hours" value={r.summary.courtHours} />}
             <Kpi label="Guests" value={r.summary.uniqueGuests} sub={`${r.summary.repeatRate}% came back (${r.summary.repeatGuests})`} />
-            <Kpi label="Cancelled" value={`${r.summary.cancelRate}%`} sub={`${r.summary.cancelled} of ${r.summary.bookings + r.summary.cancelled}${isOwner && r.summary.refunds ? ` · ${inr(r.summary.refunds)} refunded` : ""}`} />
+            <Kpi label="Cancelled" value={`${r.summary.cancelRate}%`} sub={`${r.summary.cancelled} of ${r.summary.bookings + r.summary.cancelled}${isOwner && r.summary.refunds ? ` · ${inr(r.summary.refunds)} refunded` : ""}${r.summary.noShows ? ` · ${r.summary.noShows} no-show${r.summary.noShows === 1 ? "" : "s"}` : ""}`} />
           </div>
           {isOwner && (
             <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
               <Kpi label="Court hours" value={r.summary.courtHours} sub={r.summary.tickets ? `${r.summary.tickets} tickets` : undefined} />
               <Kpi label="Average per booking" value={inr(r.summary.avgTicket, "₹0")} />
               <Kpi label="Extras sold" value={inr(r.summary.extras, "₹0")} sub="Rentals, lights, coaching" />
-              <Kpi label="Still due at the venue" value={inr(r.summary.due, "₹0")} sub={r.summary.due ? "Pay-later and added charges" : "All collected"} />
+              <Kpi label="Still due at the venue" value={inr(r.summary.due, "₹0")} sub={r.summary.due ? `Pay-later, added charges${r.summary.payAtVenueDue ? ` and ${inr(r.summary.payAtVenueDue)} cash at venue` : ""}` : "All collected"} />
             </div>
           )}
 
