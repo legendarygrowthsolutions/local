@@ -15,6 +15,8 @@ import { cn } from "@/lib/utils";
 export interface ShellProps {
   host: { id: string; brandName: string; type: string; kycStatus: string };
   role: "owner" | "manager";
+  /** A manager limited to some of the host's venues and events. */
+  scoped?: boolean;
   hasVenues: boolean;
   memberships: { id: string; brandName: string; role: string }[];
   userName: string;
@@ -35,7 +37,7 @@ const NAV: NavItem[] = [
   { href: "/host/settings", label: "Settings", icon: Settings, owner: true },
 ];
 
-export function HostShell({ host, role, hasVenues, memberships, userName, citySlug, children }: ShellProps) {
+export function HostShell({ host, role, scoped, hasVenues, memberships, userName, citySlug, children }: ShellProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [more, setMore] = useState(false);
@@ -55,7 +57,9 @@ export function HostShell({ host, role, hasVenues, memberships, userName, citySl
         <span className={cn("rounded-md px-2 py-0.5 text-[11px] font-extrabold", role === "owner" ? "bg-brand text-white" : "bg-ink text-white")}>{role.toUpperCase()}</span>
         <span className="truncate text-xs text-brand-ink">{userName}</span>
       </span>
-      <span className="text-[11px] leading-[1.35] text-brand-ink">Managers see bookings &amp; check-in only, not revenue or payouts.</span>
+      <span className="text-[11px] leading-[1.35] text-brand-ink">
+        {role === "owner" ? "Managers see bookings & check-in only, not revenue or payouts." : scoped ? "You see the venues and events you've been given access to." : "You see bookings & check-in, not revenue or payouts."}
+      </span>
     </div>
   );
 

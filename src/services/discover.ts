@@ -1,6 +1,6 @@
 import "server-only";
 import { isPublic } from "./visibility";
-import type { CardKind, City, HomePayload, HomeRail, ListingCard, ListingDetail, Paginated, User, VenueDetail } from "@/contracts";
+import type { CardKind, City, HomePayload, HomeRail, HostProfile, ListingCard, ListingDetail, Paginated, User, VenueDetail } from "@/contracts";
 import { repo } from "@/repositories";
 import { addDays, fromISO, todayIST, weekdayOf } from "@/lib/time";
 import { listingCard, venueCard, type CardContext } from "./cards";
@@ -357,6 +357,47 @@ async function buildVenueDetail(city: City, id: string, now: Date): Promise<Venu
   };
 }
 
+/**
+ * A host's public page: every live listing and venue they run, across cities, as cards.
+ * Only approved hosts have a page; a host with nothing on sale still gets one (bio + follow).
+ */
+export async function getHostProfile(slug: string, now = new Date()): Promise<HostProfile> {
+  const host = await repo.hosts.bySlug(slug);
+  if (!host || host.status !== "approved") throw notFound("Host not found");
+  const [allListings, allVenues, cities, followers] = await Promise.all([
+    repo.listings.listByHost(host.id),
+    repo.venues.listByHost(host.id),
+    repo.cities.list(),
+    repo.hosts.followerCounts([host.id]),
+  ]);
+  const live = new Set(cities.map((c) => c.id));
+  const listings = allListings.filter((l) => l.status === "live" && live.has(l.cityId));
+  const venues = allVenues.filter((v) => v.status === "live" && live.has(v.cityId));
+
+  const events: ListingCard[] = [];
+  const venueCards: ListingCard[] = [];
+  const cityIds = [...new Set([...listings.map((l) => l.cityId), ...venues.map((v) => v.cityId)])];
+  for (const cityId of cityIds) {
+    const city = cities.find((c) => c.id === cityId)!;
+    const ctx = await cardContext(city);
+    const cityListings = listings.filter((l) => l.cityId === cityId);
+    const inv = await loadInventory(cityListings, now);
+    for (const l of cityListings) {
+      const card = listingCard(l, inv.get(l.id)!, ctx, now);
+      if (card) events.push(card);
+    }
+    const cityVenues = venues.filter((v) => v.cityId === cityId);
+    const resources = await repo.venues.resources(cityVenues.map((v) => v.id));
+    const rules = await repo.venues.slotRules(resources.map((r) => r.id));
+    for (const v of cityVenues) venueCards.push(venueCard(v, resources, rules, ctx, now));
+  }
+  events.sort((a, b) => (a.startsAt ?? "").localeCompare(b.startsAt ?? ""));
+  venueCards.sort((a, b) => a.title.localeCompare(b.title));
+  const seen = new Set([...events, ...venueCards].map((c) => c.href.split("/")[1]));
+  const profileCities = cities.filter((c) => seen.has(c.slug)).sort((a, b) => Number(b.id === host.cityId) - Number(a.id === host.cityId));
+  return { host, cities: profileCities, events, venues: venueCards, followers: followers.get(host.id) ?? 0 };
+}
+
 /** For sitemap.ts */
 export async function allIndexablePaths() {
   const cities = await repo.cities.list();
@@ -371,6 +412,7 @@ export async function allIndexablePaths() {
     for (const l of await repo.listings.listLive(c.id)) out.push({ path: `/${c.slug}/e/${l.slug}`, priority: 0.7 });
     for (const v of await repo.venues.listLive(c.id)) out.push({ path: `/${c.slug}/v/${v.slug}`, priority: 0.7 });
   }
+  for (const h of await repo.hosts.list()) if (h.status === "approved") out.push({ path: `/h/${h.slug}`, priority: 0.5 });
   return out;
 }
 

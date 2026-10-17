@@ -1,4 +1,4 @@
-import type { ListingDetail, VenueDetail } from "@/contracts";
+import type { HostProfile, ListingDetail, VenueDetail } from "@/contracts";
 import { SITE_NAME, SITE_URL } from "@/lib/utils";
 
 export function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {
@@ -63,5 +63,18 @@ export function venueJsonLd(d: VenueDetail) {
     priceRange: `₹${d.priceFrom}+ per hour`,
     amenityFeature: d.venue.amenities.map((a) => ({ "@type": "LocationFeatureSpecification", name: a, value: true })),
     url: abs(d.card.href),
+  };
+}
+
+export function hostJsonLd(p: HostProfile) {
+  const sameAs = [p.host.instagram ? `https://www.instagram.com/${p.host.instagram.replace(/^@/, "")}` : null, p.host.website].filter((x): x is string => !!x);
+  return {
+    "@context": "https://schema.org",
+    "@type": p.host.type === "venue" ? "SportsActivityLocation" : "Organization",
+    name: p.host.brandName,
+    description: p.host.bio,
+    url: abs(`/h/${p.host.slug}`),
+    ...(sameAs.length ? { sameAs } : {}),
+    ...(p.cities[0] ? { address: { "@type": "PostalAddress", addressLocality: p.cities[0].name, addressRegion: p.cities[0].state, addressCountry: "IN" } } : {}),
   };
 }

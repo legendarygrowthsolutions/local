@@ -103,6 +103,7 @@ describe("hosts & members", () => {
     id: "h_test_rt",
     userId: null,
     type: "organiser",
+    slug: "rt-host",
     brandName: "RT Host",
     cityId: "c_mumbai",
     bio: "bio",
@@ -140,12 +141,14 @@ describe("hosts & members", () => {
   });
 
   it("members: listByUser only returns active memberships; invites resolve by phone", async () => {
-    const m = await repo.members.insert({ id: "hm_rt", hostId: "h_mumbai_2", userId: null, phone: "9000000777", name: null, role: "manager", status: "invited", invitedBy: "u_host", createdAt: new Date().toISOString() });
+    const m = await repo.members.insert({ id: "hm_rt", hostId: "h_mumbai_2", userId: null, phone: "9000000777", name: null, role: "manager", status: "invited", invitedBy: "u_host", createdAt: new Date().toISOString(), scope: null });
     expect(await repo.members.invitesForPhone("9000000777")).toEqual([m]);
     const u = await makeUser({ phone: "9000000777" });
     expect(await repo.members.listByUser(u.id)).toEqual([]);
-    const upd = await repo.members.update(m.id, { userId: u.id, status: "active" });
-    expect(upd).toEqual({ ...m, userId: u.id, status: "active" });
+    const upd = await repo.members.update(m.id, { userId: u.id, status: "active", scope: ["l_x", "v_y"] });
+    expect(upd).toEqual({ ...m, userId: u.id, status: "active", scope: ["l_x", "v_y"] });
+    expect((await repo.members.update(m.id, { scope: null }))?.scope).toBeNull();
+    expect((await repo.members.update(m.id, { scope: ["l_x", "v_y"] }))?.scope).toEqual(["l_x", "v_y"]);
     expect(await repo.members.listByUser(u.id)).toEqual([upd]);
     await repo.members.remove(m.id);
     expect(await repo.members.listByHost("h_mumbai_2")).not.toContainEqual(expect.objectContaining({ id: m.id }));

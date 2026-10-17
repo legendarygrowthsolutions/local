@@ -14,13 +14,15 @@ CREATE TABLE "categories" ("id" varchar(255) primary key, "slug" varchar(255) no
 
 CREATE TABLE "cities" ("id" varchar(255) primary key, "slug" varchar(255) not null unique, "name" varchar(255) not null, "state" varchar(255) not null, "lat" double precision not null, "lng" double precision not null, "active" integer default 1 not null, "tagline" text not null);
 
-CREATE TABLE "coupons" ("id" varchar(255) primary key, "code" varchar(255) not null unique, "type" varchar(255) not null, "value" double precision not null, "max_discount" double precision not null, "description" varchar(255) not null, "per_user_limit" integer, "first_booking_only" integer default 0 not null, "min_subtotal" integer default 0 not null, "valid_until" varchar(255), "active" integer default 1 not null);
+CREATE TABLE "coupons" ("id" varchar(255) primary key, "code" varchar(255) not null unique, "type" varchar(255) not null, "value" double precision not null, "max_discount" double precision not null, "description" varchar(255) not null, "per_user_limit" integer, "first_booking_only" integer default 0 not null, "min_subtotal" integer default 0 not null, "valid_until" varchar(255), "active" integer default 1 not null, "valid_from" varchar(255), "total_limit" integer, "city_id" varchar(255), "created_at" varchar(255), "updated_at" varchar(255));
 
 CREATE TABLE "host_documents" ("id" varchar(255) primary key, "host_id" varchar(255) not null, "kind" varchar(255) not null, "file_name" varchar(255) not null, "media_id" varchar(255), "status" varchar(255) not null, "sort" integer default 0 not null, constraint "host_documents_host_id_fk" foreign key ("host_id") references "hosts" ("id") on delete cascade);
 
-CREATE TABLE "host_members" ("id" varchar(255) primary key, "host_id" varchar(255) not null, "user_id" varchar(255), "phone" varchar(255) not null, "name" varchar(255), "role" varchar(255) not null, "status" varchar(255) not null, "invited_by" varchar(255), "created_at" varchar(255) not null, constraint "host_members_host_id_fk" foreign key ("host_id") references "hosts" ("id") on delete cascade);
+CREATE TABLE "host_members" ("id" varchar(255) primary key, "host_id" varchar(255) not null, "user_id" varchar(255), "phone" varchar(255) not null, "name" varchar(255), "role" varchar(255) not null, "status" varchar(255) not null, "invited_by" varchar(255), "created_at" varchar(255) not null, "scope" text, constraint "host_members_host_id_fk" foreign key ("host_id") references "hosts" ("id") on delete cascade);
 
-CREATE TABLE "hosts" ("id" varchar(255) primary key, "user_id" varchar(255), "type" varchar(255) not null, "brand_name" varchar(255) not null, "city_id" varchar(255) not null, "bio" text not null, "instagram" varchar(255), "kyc_status" varchar(255) not null, "status" varchar(255) not null, "since" varchar(255) not null, "contact_name" varchar(255) not null, "contact_phone" varchar(255) not null, "email" varchar(255), "website" varchar(255), "gstin" varchar(255), "expected_per_month" varchar(255) not null, "wants_paid" integer default 0 not null, "review_note" text, "submitted_at" varchar(255) not null);
+CREATE TABLE "host_payout_accounts" ("host_id" varchar(255) primary key, "method" varchar(255) not null, "holder_name" varchar(255) not null, "account_number" varchar(255), "ifsc" varchar(255), "bank_name" varchar(255), "upi_id" varchar(255), "updated_at" varchar(255) not null, "updated_by" varchar(255), constraint "host_payout_accounts_host_fk" foreign key ("host_id") references "hosts" ("id") on delete cascade);
+
+CREATE TABLE "hosts" ("id" varchar(255) primary key, "user_id" varchar(255), "type" varchar(255) not null, "brand_name" varchar(255) not null, "city_id" varchar(255) not null, "bio" text not null, "instagram" varchar(255), "kyc_status" varchar(255) not null, "status" varchar(255) not null, "since" varchar(255) not null, "contact_name" varchar(255) not null, "contact_phone" varchar(255) not null, "email" varchar(255), "website" varchar(255), "gstin" varchar(255), "expected_per_month" varchar(255) not null, "wants_paid" integer default 0 not null, "review_note" text, "submitted_at" varchar(255) not null, "slug" varchar(255));
 
 CREATE TABLE "journey_templates" ("id" varchar(255) primary key, "name" varchar(255) not null, "description" text not null, "allowed_categories" text not null, "booking_mode" varchar(255) not null, "schedule" varchar(255) not null, "pricing" varchar(255) not null, "ticket_scope" varchar(255), "steps" text not null, "rules" text not null, "fees" text not null, "cancellation" text not null, "cta_label" varchar(255) not null, "sort" integer default 0 not null, "active" integer default 1 not null);
 
@@ -37,6 +39,8 @@ CREATE TABLE "media" ("id" varchar(255) primary key, "owner_id" varchar(255) not
 CREATE TABLE "otp_codes" ("phone" varchar(255) primary key, "code_hash" varchar(255) not null, "expires_at" varchar(255) not null, "attempts" integer default 0 not null, "sent_at" varchar(255) not null);
 
 CREATE TABLE "payments" ("id" varchar(255) primary key, "booking_id" varchar(255) not null, "provider" varchar(255) not null, "method" varchar(255) not null, "status" varchar(255) not null, "amount" integer not null, "ref" varchar(255) not null, "order_id" varchar(255), "created_at" varchar(255) not null, constraint "payments_booking_id_fk" foreign key ("booking_id") references "bookings" ("id") on delete cascade);
+
+CREATE TABLE "payouts" ("id" varchar(255) primary key, "host_id" varchar(255) not null, "cycle_from" varchar(255) not null, "cycle_to" varchar(255) not null, "bookings" integer not null, "gross" integer not null, "refunds" integer not null, "deductions" integer default 0 not null, "adjustment" integer default 0 not null, "amount" integer not null, "method" varchar(255) not null, "reference" varchar(255) not null, "paid_on" varchar(255) not null, "paid_to" varchar(255) not null, "notes" text, "recorded_by" varchar(255) not null, "created_at" varchar(255) not null, "voided_at" varchar(255), "voided_by" varchar(255), "void_reason" text, constraint "payouts_host_fk" foreign key ("host_id") references "hosts" ("id"));
 
 CREATE TABLE "rate_limits" ("key" varchar(255) primary key, "count" integer not null, "reset_at" varchar(255) not null);
 
@@ -88,6 +92,8 @@ CREATE INDEX "host_members_phone_idx" on "host_members" ("phone");
 
 CREATE INDEX "host_members_user_idx" on "host_members" ("user_id");
 
+CREATE UNIQUE INDEX "hosts_slug_uq" on "hosts" ("slug");
+
 CREATE INDEX "hosts_user_idx" on "hosts" ("user_id");
 
 CREATE INDEX "listing_revisions_target_idx" on "listing_revisions" ("target_id", "status");
@@ -99,6 +105,8 @@ CREATE INDEX "listings_city_status_idx" on "listings" ("city_id", "status");
 CREATE INDEX "listings_host_idx" on "listings" ("host_id");
 
 CREATE INDEX "payments_booking_idx" on "payments" ("booking_id");
+
+CREATE INDEX "payouts_host_cycle_idx" on "payouts" ("host_id", "cycle_from");
 
 CREATE INDEX "resources_venue_idx" on "resources" ("venue_id");
 

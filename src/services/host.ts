@@ -10,6 +10,7 @@ import { generateSlots } from "@/lib/slots/engine";
 import { addDays, formatDate, formatMins, formatWhen, fromISO, istParts, toISO, todayIST } from "@/lib/time";
 import { hostPayouts } from "./payouts";
 import { ServiceError, badRequest, conflict, notFound } from "./errors";
+import { hostSlugFrom, slugify, uniqueSlug } from "@/lib/slug";
 
 // ---------------------------------------------------------------------------
 // Context & roles (PLAN §11.1). Money is stripped here, server-side, for managers.
@@ -20,6 +21,8 @@ export interface HostContext {
   host: Host;
   member: HostMember;
   isOwner: boolean;
+  /** Listing / venue ids this member may see and run; null = the whole host (owners always). */
+  scope: string[] | null;
   memberships: { host: Host; member: HostMember }[];
 }
 
@@ -40,7 +43,17 @@ export async function resolveHostContext(user: User, preferredHostId?: string | 
   const all = await memberships(user.id);
   if (!all.length) return null;
   const pick = all.find((x) => x.host.id === preferredHostId) ?? all[0];
-  return { user, host: pick.host, member: pick.member, isOwner: pick.member.role === "owner", memberships: all };
+  const isOwner = pick.member.role === "owner";
+  return { user, host: pick.host, member: pick.member, isOwner, scope: isOwner ? null : pick.member.scope, memberships: all };
+}
+
+/** Whether this member may see and run the given listing or venue. */
+export const inScope = (ctx: HostContext, targetId: string) => ctx.scope === null || ctx.scope.includes(targetId);
+
+/** The host's listings and venues this member has access to (PLAN §11.1: scoped managers see only theirs). */
+export async function hostTargets(ctx: HostContext) {
+  const [listings, venues] = await Promise.all([repo.listings.listByHost(ctx.host.id), repo.venues.listByHost(ctx.host.id)]);
+  return { listings: listings.filter((l) => inScope(ctx, l.id)), venues: venues.filter((v) => inScope(ctx, v.id)) };
 }
 
 export function assertApproved(ctx: HostContext) {
@@ -52,7 +65,6 @@ export function assertOwner(ctx: HostContext) {
 const money = (ctx: HostContext, v: number) => (ctx.isOwner ? Math.round(v * 100) / 100 : null);
 
 const rid = newId;
-const slugify = (s: string) => s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 const COUNTED: Booking["status"][] = ["confirmed", "checked_in", "requested"];
 
 // ---------------------------------------------------------------------------
@@ -98,8 +110,9 @@ export async function applyAsHost(user: User, input: HostApplicationInput) {
     if (mine.host.status === "pending") throw conflict("Your application is already in review");
     return repo.hosts.update(mine.host.id, fields);
   }
-  const host = await repo.hosts.insert({ id: rid("h"), userId: user.id, since: todayIST().slice(0, 7) + "-01", ...fields });
-  await repo.members.insert({ id: rid("hm"), hostId: host.id, userId: user.id, phone: user.phone, name: user.name, role: "owner", status: "active", invitedBy: null, createdAt: new Date().toISOString() });
+  const slug = await freeHostSlug(hostSlugFrom(input.brandName));
+  const host = await repo.hosts.insert({ id: rid("h"), userId: user.id, slug, since: todayIST().slice(0, 7) + "-01", ...fields });
+  await repo.members.insert({ id: rid("hm"), hostId: host.id, userId: user.id, phone: user.phone, name: user.name, role: "owner", status: "active", invitedBy: null, createdAt: new Date().toISOString(), scope: null });
   return host;
 }
 
@@ -142,10 +155,7 @@ export interface HostBookingRow {
   checkedInAt: string | null;
 }
 
-async function targets(ctx: HostContext) {
-  const [listings, venues] = await Promise.all([repo.listings.listByHost(ctx.host.id), repo.venues.listByHost(ctx.host.id)]);
-  return { listings, venues };
-}
+const targets = hostTargets;
 
 function bookingRow(ctx: HostContext, b: Booking, now: Date): HostBookingRow {
   return {
@@ -392,6 +402,7 @@ class DryRun extends Error {}
  */
 export async function saveListing(ctx: HostContext, input: ListingInput, submit: boolean, id?: string) {
   assertApproved(ctx);
+  if (id && !inScope(ctx, id)) throw notFound("Listing not found");
   const live = id ? ((await repo.listings.byId(id)) ?? (await repo.venues.byId(id))) : null;
   if (id && live && live.hostId === ctx.host.id && live.status === "live") {
     input = { ...input, media: await storeImages(ctx.user.id, input.media) } as ListingInput;
@@ -421,7 +432,15 @@ export async function saveListing(ctx: HostContext, input: ListingInput, submit:
       return { id, status: "live" as const, pendingReview: true };
     }
   }
-  return { ...(await applyListing(ctx, input, submit, id)), pendingReview: false };
+  const saved = await applyListing(ctx, input, submit, id);
+  // A scoped manager keeps access to what they just created.
+  if (!id && ctx.scope !== null) {
+    const scope = [...ctx.scope, saved.id];
+    await repo.members.update(ctx.member.id, { scope });
+    ctx.scope = scope;
+    ctx.member.scope = scope;
+  }
+  return { ...saved, pendingReview: false };
 }
 
 /** Write a listing/venue as given (no revision routing). Also used when a revision is approved. */
@@ -444,6 +463,7 @@ function materialFingerprint(i: ListingInput) {
 
 /** The host's pending edit for a live item, if any (shown in the editor and listings table). */
 export async function pendingRevision(ctx: HostContext, id: string) {
+  if (!inScope(ctx, id)) return null;
   const r = await repo.revisions.pendingFor(id);
   return r && r.hostId === ctx.host.id ? r : null;
 }
@@ -651,6 +671,7 @@ export async function listingInputFor(id: string, hostId: string): Promise<{ inp
 
 /** Load a listing back into the wizard. A pending edit to a live listing is what the host keeps editing. */
 export async function getListingInput(ctx: HostContext, id: string): Promise<{ input: ListingInput; status: string; pendingReview: boolean; revisionNote: string | null }> {
+  if (!inScope(ctx, id)) throw notFound("Listing not found");
   const cur = await listingInputFor(id, ctx.host.id);
   const pending = await pendingRevision(ctx, id);
   const last = pending ? null : await repo.revisions.lastDecided(id);
@@ -717,7 +738,7 @@ export async function checkIn(ctx: HostContext, code: string, now = new Date()) 
 
 export async function venueSchedule(ctx: HostContext, venueId: string | undefined, date: string | undefined, now = new Date()) {
   assertApproved(ctx);
-  const venues = await repo.venues.listByHost(ctx.host.id);
+  const { venues } = await targets(ctx);
   if (!venues.length) return null;
   const venue = venues.find((v) => v.id === venueId) ?? venues[0];
   const day = date && /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : istParts(now).ymd;
@@ -762,7 +783,7 @@ export async function venueSchedule(ctx: HostContext, venueId: string | undefine
 
 export async function addBlock(ctx: HostContext, input: { resourceId: string; date: string; startMins: number; endMins: number; reason: string }) {
   assertApproved(ctx);
-  const venues = await repo.venues.listByHost(ctx.host.id);
+  const { venues } = await targets(ctx);
   const res = (await repo.venues.resources(venues.map((v) => v.id))).find((r) => r.id === input.resourceId);
   if (!res) throw notFound("Court not found");
   const sched = await venueSchedule(ctx, res.venueId, input.date);
@@ -774,7 +795,7 @@ export async function addBlock(ctx: HostContext, input: { resourceId: string; da
 
 export async function removeBlock(ctx: HostContext, id: string) {
   assertApproved(ctx);
-  const venues = await repo.venues.listByHost(ctx.host.id);
+  const { venues } = await targets(ctx);
   const resources = await repo.venues.resources(venues.map((v) => v.id));
   const blocks = await repo.venues.blocks(resources.map((r) => r.id));
   if (!blocks.some((b) => b.id === id)) throw notFound("Block not found");
@@ -794,7 +815,33 @@ export async function listTeam(ctx: HostContext) {
   return repo.members.listByHost(ctx.host.id);
 }
 
-export async function inviteMember(ctx: HostContext, phone: string, name?: string) {
+export interface TeamTarget {
+  id: string;
+  kind: "event" | "venue";
+  title: string;
+  status: string;
+}
+
+/** Everything a member could be given access to: the host's venues and events (drafts included). */
+export async function teamTargets(ctx: HostContext): Promise<TeamTarget[]> {
+  assertOwner(ctx);
+  const [listings, venues] = await Promise.all([repo.listings.listByHost(ctx.host.id), repo.venues.listByHost(ctx.host.id)]);
+  return [
+    ...venues.map((v) => ({ id: v.id, kind: "venue" as const, title: v.name, status: v.status })),
+    ...listings.map((l) => ({ id: l.id, kind: "event" as const, title: l.title, status: l.status })),
+  ].sort((a, b) => a.kind.localeCompare(b.kind) || a.title.localeCompare(b.title));
+}
+
+/** Normalise a requested scope: null = everything; otherwise only ids that belong to this host, deduplicated. */
+async function validScope(ctx: HostContext, scope: string[] | null | undefined): Promise<string[] | null> {
+  if (scope === null || scope === undefined) return null;
+  const own = new Set((await teamTargets(ctx)).map((t) => t.id));
+  const ids = [...new Set(scope)];
+  for (const id of ids) if (!own.has(id)) throw badRequest("Pick venues and events from your own host");
+  return ids;
+}
+
+export async function inviteMember(ctx: HostContext, phone: string, name?: string, scope?: string[] | null) {
   assertApproved(ctx);
   assertOwner(ctx);
   const team = await repo.members.listByHost(ctx.host.id);
@@ -810,7 +857,18 @@ export async function inviteMember(ctx: HostContext, phone: string, name?: strin
     status: user ? "active" : "invited",
     invitedBy: ctx.user.id,
     createdAt: new Date().toISOString(),
+    scope: await validScope(ctx, scope),
   });
+}
+
+/** Change which venues and events a manager can access. Owners always have everything. */
+export async function setMemberScope(ctx: HostContext, memberId: string, scope: string[] | null) {
+  assertApproved(ctx);
+  assertOwner(ctx);
+  const m = (await repo.members.listByHost(ctx.host.id)).find((x) => x.id === memberId);
+  if (!m) throw notFound("Member not found");
+  if (m.role === "owner") throw badRequest("The owner always has access to everything");
+  return (await repo.members.update(memberId, { scope: await validScope(ctx, scope) }))!;
 }
 
 export async function removeMember(ctx: HostContext, memberId: string) {
@@ -822,9 +880,16 @@ export async function removeMember(ctx: HostContext, memberId: string) {
   await repo.members.remove(memberId);
 }
 
-export async function updateHostProfile(ctx: HostContext, patch: Partial<Pick<Host, "brandName" | "bio" | "instagram" | "email">>) {
+/** The host's public handle, with a numeric suffix if another host already has it. */
+const freeHostSlug = (base: string, exceptId?: string) => uniqueSlug(base, async (s) => ((await repo.hosts.bySlug(s))?.id ?? exceptId) !== exceptId);
+
+export async function updateHostProfile(ctx: HostContext, patch: Partial<Pick<Host, "brandName" | "bio" | "instagram" | "email" | "slug">>) {
   assertApproved(ctx);
   assertOwner(ctx);
+  if (patch.slug !== undefined && patch.slug !== ctx.host.slug) {
+    const other = await repo.hosts.bySlug(patch.slug);
+    if (other && other.id !== ctx.host.id) throw conflict("That link is already taken. Try another one.");
+  }
   return repo.hosts.update(ctx.host.id, { ...patch, email: patch.email === "" ? null : patch.email ?? ctx.host.email });
 }
 

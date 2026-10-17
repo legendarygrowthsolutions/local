@@ -19,14 +19,14 @@ export interface UsersTable {
 export interface UserSavedTable { userId: string; itemId: string; createdAt: string }
 export interface UserFollowingTable { userId: string; hostId: string; createdAt: string }
 export interface HostsTable {
-  id: string; userId: string | null; type: string; brandName: string; cityId: string; bio: string; instagram: string | null;
+  id: string; userId: string | null; type: string; slug: string; brandName: string; cityId: string; bio: string; instagram: string | null;
   kycStatus: string; status: string; since: string; contactName: string; contactPhone: string; email: string | null;
   website: string | null; gstin: string | null; expectedPerMonth: string; wantsPaid: Bool; reviewNote: string | null; submittedAt: string;
 }
 export interface HostDocumentsTable { id: string; hostId: string; kind: string; fileName: string; mediaId: string | null; status: string; sort: number }
 export interface HostMembersTable {
   id: string; hostId: string; userId: string | null; phone: string; name: string | null; role: string; status: string;
-  invitedBy: string | null; createdAt: string;
+  invitedBy: string | null; createdAt: string; scope: Json | null;
 }
 export interface ListingsTable {
   id: string; hostId: string; cityId: string; areaId: string; categoryId: string; subcategoryId: string | null; templateId: string;

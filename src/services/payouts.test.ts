@@ -27,12 +27,12 @@ async function freshHost() {
   n++;
   const owner = await makeUser({ name: `Owner ${n}` });
   const host: Host = {
-    id: `h_pay_${n}_${Date.now()}`, userId: owner.id, type: "organiser", brandName: `Payout Host ${n}`, cityId: "c_mumbai", bio: "", instagram: null,
+    id: `h_pay_${n}_${Date.now()}`, userId: owner.id, type: "organiser", slug: `payout-host-${n}-${Date.now()}`, brandName: `Payout Host ${n}`, cityId: "c_mumbai", bio: "", instagram: null,
     kycStatus: "verified", status: "approved", since: "2026", contactName: "Owner", contactPhone: owner.phone, email: null, website: null, gstin: null,
     expectedPerMonth: "", wantsPaid: true, documents: [], reviewNote: null, submittedAt: new Date().toISOString(),
   };
   await repo.hosts.insert(host);
-  await repo.members.insert({ id: `hm_pay_${n}`, hostId: host.id, userId: owner.id, phone: owner.phone, name: owner.name, role: "owner", status: "active", invitedBy: null, createdAt: new Date().toISOString() });
+  await repo.members.insert({ id: `hm_pay_${n}`, hostId: host.id, userId: owner.id, phone: owner.phone, name: owner.name, role: "owner", status: "active", invitedBy: null, createdAt: new Date().toISOString(), scope: null });
   const { listing } = await makeListing({ listing: { hostId: host.id } });
   const ctx = (await resolveHostContext((await repo.users.byId(owner.id)) as User, host.id))!;
   return { host, owner, listing, ctx };
@@ -66,7 +66,7 @@ describe("payout statements", () => {
   it("is owner only", async () => {
     const { host } = await freshHost();
     const manager = await makeUser();
-    await repo.members.insert({ id: `hm_mgr_${n}`, hostId: host.id, userId: manager.id, phone: manager.phone, name: null, role: "manager", status: "active", invitedBy: null, createdAt: new Date().toISOString() });
+    await repo.members.insert({ id: `hm_mgr_${n}`, hostId: host.id, userId: manager.id, phone: manager.phone, name: null, role: "manager", status: "active", invitedBy: null, createdAt: new Date().toISOString(), scope: null });
     const mctx = (await resolveHostContext(manager, host.id))!;
     expect(await err(hostPayouts(mctx))).toMatchObject({ status: 403 });
     expect(await err(savePayoutAccount(mctx, PayoutAccountInputSchema.parse({ method: "upi", holderName: "X Y", upiId: "xy@okbank" })))).toMatchObject({ status: 403 });

@@ -145,6 +145,7 @@ The dummy gateway screen offers **Pay**, **Simulate success** and **Simulate fai
 /{city}/{category}/{sub}        e.g. /mumbai/sports/pickleball              [indexable]
 /{city}/e/{slug}                Event / workshop / meetup detail            [indexable, JSON-LD Event]
 /{city}/v/{slug}                Venue detail                                [indexable, JSON-LD SportsActivityLocation]
+/h/{slug}                       Host page: everything a host runs, any city [indexable, JSON-LD Organization]
 /{city}/search?q=               Search                                      [noindex]
 /book/{listingId}/[step]        Booking flow                                [noindex]
 /login, /onboarding             OTP → profile → city                        [noindex]
@@ -191,6 +192,7 @@ Upcoming / Past / Cancelled bookings, booking detail (QR, cancel per policy), sa
 - **Dashboard**: KPIs, listings table with sold/capacity and status (*Draft / In review / Live / Ended*).
 - **Create listing wizard**: Basics → Location & media → **Booking setup (pick a journey template; configure courts and slot rules or ticket tiers)** → Pricing → Policies & custom form → Review & submit (goes to admin moderation).
 - Also: bookings list, slot calendar (block or unblock), check-in scanner (camera QR, mocked), payouts (mocked, owner only), and team management (invite managers by phone; see §11.1).
+- **Public page (added 2026-10-17)**: `/h/{slug}`, the one link for a bio. Every host gets a unique handle (`hosts.slug`, defaulted from the brand name on approval and backfilled by migration 0004); the owner can change it in Settings (3–40 lower-case letters, digits, dashes; taken handles are refused). The page is not city-scoped: it lists the host's live events (soonest first) and bookable venues across cities, with follow, share and Instagram / website links, and 404s for unapproved hosts. The dashboard shows the link with copy / share buttons; "Hosted by" on detail pages links to it; approved hosts are in the sitemap.
 
 ### 6.6 Superadmin (21–22)
 - Host applications queue with a detail panel, documents and Approve / Request changes / Reject.
@@ -312,15 +314,17 @@ The user side (M1–M4) gets the most design attention, as you asked. Host and a
 ### 11.1 Host team roles
 | Capability | Owner | Manager |
 |---|---|---|
-| Create / edit listings, courts, slot rules | ✓ | ✓ |
-| View bookings & attendee lists | ✓ | ✓ |
-| Check-in scanner | ✓ | ✓ |
-| Block / unblock slots | ✓ | ✓ |
+| Create / edit listings, courts, slot rules | ✓ | ✓ (within their scope) |
+| View bookings & attendee lists | ✓ | ✓ (within their scope) |
+| Check-in scanner | ✓ | ✓ (within their scope) |
+| Block / unblock slots | ✓ | ✓ (within their scope) |
 | Revenue, gross sales, payouts, bank/KYC | ✓ | ✗ (hidden: money columns and KPI tiles are not rendered) |
-| Invite / remove team members | ✓ | ✗ |
+| Invite / remove team members, set their scope | ✓ | ✗ |
 | Host profile & settings | ✓ | ✗ |
 
-Data model: `host_members(id, host_id, user_id, role[owner|manager], invited_by, status)`. The mock session carries `hostRole`, and the API strips monetary fields for managers (enforced server-side, not just hidden in the UI). Managers are invited by phone number and log in with OTP like any other user.
+Data model: `host_members(id, host_id, user_id, role[owner|manager], invited_by, status, scope)`. The API strips monetary fields for managers (enforced server-side, not just hidden in the UI). Managers are invited by phone number and log in with OTP like any other user.
+
+**Scope (added 2026-10-17).** One host (brand) can run several venues and events, and a manager can be limited to some of them. `scope` is NULL for the whole host (owners are always NULL) or a JSON array of listing / venue ids. The owner sets it when inviting and can change it later on the Team page. Everything a manager does is filtered server-side by scope: the dashboard, listings table, bookings and filters, the court calendar and blocks, the listing editor (an out-of-scope id is a 404, like another host's) and check-in (a code from an out-of-scope venue is refused). A scoped manager who creates a listing gets it added to their scope. A person can still belong to several hosts and switch between them in the console.
 
 ---
 

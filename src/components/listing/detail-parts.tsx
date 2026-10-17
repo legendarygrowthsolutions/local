@@ -53,10 +53,10 @@ export function HostCard({ host }: { host: Host }) {
       </span>
       <div className="min-w-0 flex-1">
         <p className="text-xs text-muted">Hosted by</p>
-        <p className="flex items-center gap-1 truncate text-sm font-bold">
+        <Link href={`/h/${host.slug}`} className="flex items-center gap-1 truncate text-sm font-bold hover:text-brand-ink hover:underline">
           {host.brandName}
           {host.kycStatus === "verified" && <BadgeCheck className="size-4 shrink-0 text-brand" aria-label="Verified host" />}
-        </p>
+        </Link>
       </div>
       <FollowButton hostId={host.id} hostName={host.brandName} />
     </div>

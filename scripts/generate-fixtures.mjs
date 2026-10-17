@@ -482,10 +482,10 @@ const users = [
 
 // Host teams (PLAN §11.1): owners see money; managers run bookings and check-in.
 const hostMembers = [
-  { id: "hm_1", hostId: "h_mumbai_1", userId: "u_host", phone: "9000000002", name: "Riya Kapoor", role: "owner", status: "active", invitedBy: null, createdAt: iso(addDays(ANCHOR, -300), 600) },
-  { id: "hm_2", hostId: "h_mumbai_5", userId: "u_venue", phone: "9000000003", name: "Kabir Shah", role: "owner", status: "active", invitedBy: null, createdAt: iso(addDays(ANCHOR, -500), 600) },
-  { id: "hm_3", hostId: "h_mumbai_5", userId: "u_manager", phone: "9000000004", name: "Neha Joshi", role: "manager", status: "active", invitedBy: "u_venue", createdAt: iso(addDays(ANCHOR, -90), 600) },
-  { id: "hm_4", hostId: "h_mumbai_5", userId: null, phone: "9000000005", name: null, role: "manager", status: "invited", invitedBy: "u_venue", createdAt: iso(addDays(ANCHOR, -2), 600) },
+  { id: "hm_1", hostId: "h_mumbai_1", userId: "u_host", phone: "9000000002", name: "Riya Kapoor", role: "owner", status: "active", invitedBy: null, createdAt: iso(addDays(ANCHOR, -300), 600), scope: null },
+  { id: "hm_2", hostId: "h_mumbai_5", userId: "u_venue", phone: "9000000003", name: "Kabir Shah", role: "owner", status: "active", invitedBy: null, createdAt: iso(addDays(ANCHOR, -500), 600), scope: null },
+  { id: "hm_3", hostId: "h_mumbai_5", userId: "u_manager", phone: "9000000004", name: "Neha Joshi", role: "manager", status: "active", invitedBy: "u_venue", createdAt: iso(addDays(ANCHOR, -90), 600), scope: null },
+  { id: "hm_4", hostId: "h_mumbai_5", userId: null, phone: "9000000005", name: null, role: "manager", status: "invited", invitedBy: "u_venue", createdAt: iso(addDays(ANCHOR, -2), 600), scope: null },
 ];
 
 function price(subtotal, tpl) {

@@ -202,6 +202,12 @@ export const sqlRepository: Repository = {
 
   hosts: {
     byId: async (id) => first(await loadHosts((q) => q.where("id", "=", id))),
+    bySlug: async (slug) => first(await loadHosts((q) => q.where("slug", "=", slug))),
+    followerCounts: async (hostIds) => {
+      if (!hostIds.length) return new Map();
+      const rows = await db().selectFrom("userFollowing").select(["hostId", (eb) => eb.fn.countAll<number>().as("n")]).where("hostId", "in", hostIds).groupBy("hostId").execute();
+      return new Map(rows.map((r) => [r.hostId, Number(r.n)]));
+    },
     hostIdForDocumentMedia: async (mediaId) =>
       (await db().selectFrom("hostDocuments").select("hostId").where("mediaId", "=", mediaId).executeTakeFirst())?.hostId ?? null,
     list: () => loadHosts((q) => q.orderBy("submittedAt", "desc")),
@@ -237,9 +243,10 @@ export const sqlRepository: Repository = {
       return m;
     },
     update: async (id, patch) => {
-      const { id: _id, ...rest } = patch;
+      const { id: _id, scope, ...rest } = patch;
       void _id;
-      if (Object.keys(rest).length) await db().updateTable("hostMembers").set(rest).where("id", "=", id).execute();
+      const set = { ...rest, ...(scope !== undefined ? { scope: scope ? JSON.stringify(scope) : null } : {}) };
+      if (Object.keys(set).length) await db().updateTable("hostMembers").set(set).where("id", "=", id).execute();
       const row = await db().selectFrom("hostMembers").selectAll().where("id", "=", id).executeTakeFirst();
       return row ? M.memberFromRow(row) : null;
     },

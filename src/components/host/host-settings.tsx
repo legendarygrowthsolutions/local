@@ -2,24 +2,30 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FileText, ShieldCheck } from "lucide-react";
+import { ExternalLink, FileText, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import { useUpdateHostProfile } from "@/lib/api/host-hooks";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { HOST_SLUG_HINT, HOST_SLUG_RE } from "@/lib/slug";
 
 const DOC_LABEL: Record<string, string> = { pan: "PAN card", bank: "Bank proof", gst: "GST certificate", id_proof: "ID proof" };
 const input = "h-12 w-full rounded-xl border border-line-strong bg-surface px-3.5 text-[15px] outline-none focus:border-brand focus:shadow-[0_0_0_4px_var(--color-tint)]";
 
 export function HostSettings({
   host,
+  linkBase,
 }: {
-  host: { brandName: string; bio: string; instagram: string; email: string; kycStatus: string; gstin: string | null; documents: { kind: string; fileName: string; status: string; mediaId?: string | null }[] };
+  host: { slug: string; brandName: string; bio: string; instagram: string; email: string; kycStatus: string; gstin: string | null; documents: { kind: string; fileName: string; status: string; mediaId?: string | null }[] };
+  /** Absolute prefix of the public page, e.g. https://local.in/h/ */
+  linkBase: string;
 }) {
-  const [v, setV] = useState({ brandName: host.brandName, bio: host.bio, instagram: host.instagram, email: host.email });
+  const initial = { slug: host.slug, brandName: host.brandName, bio: host.bio, instagram: host.instagram, email: host.email };
+  const [v, setV] = useState(initial);
   const save = useUpdateHostProfile();
   const router = useRouter();
-  const dirty = JSON.stringify(v) !== JSON.stringify({ brandName: host.brandName, bio: host.bio, instagram: host.instagram, email: host.email });
+  const dirty = JSON.stringify(v) !== JSON.stringify(initial);
+  const slugOk = HOST_SLUG_RE.test(v.slug);
   return (
     <div className="flex flex-col gap-6">
       <form
@@ -48,7 +54,40 @@ export function HostSettings({
             <input className={input} type="email" value={v.email} onChange={(e) => setV({ ...v, email: e.target.value })} />
           </label>
         </div>
-        <Button type="submit" className="w-fit" disabled={!dirty} loading={save.isPending}>
+        <div id="link" className="flex scroll-mt-24 flex-col gap-1.5">
+          <label htmlFor="host-slug" className="text-sm font-semibold">
+            Page link
+          </label>
+          <div className={cn("flex h-12 items-center overflow-hidden rounded-xl border bg-surface focus-within:border-brand focus-within:shadow-[0_0_0_4px_var(--color-tint)]", slugOk ? "border-line-strong" : "border-danger")}>
+            <span className="hidden h-full items-center border-r border-line bg-field px-3 text-sm text-muted sm:flex">{linkBase.replace(/^https?:\/\//, "")}</span>
+            <input
+              id="host-slug"
+              className="h-full min-w-0 flex-1 bg-transparent px-3.5 text-[15px] outline-none"
+              value={v.slug}
+              autoCapitalize="none"
+              autoCorrect="off"
+              spellCheck={false}
+              aria-invalid={!slugOk}
+              aria-describedby="host-slug-hint"
+              onChange={(e) => setV({ ...v, slug: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, "") })}
+            />
+          </div>
+          <p id="host-slug-hint" className={cn("flex flex-wrap items-center gap-x-2 text-[13px]", slugOk ? "text-muted" : "text-danger")}>
+            {slugOk ? (
+              <>
+                Share this link in your bio:
+                <a href={`${linkBase}${host.slug}`} target="_blank" rel="noopener" className="inline-flex items-center gap-1 font-semibold text-brand underline-offset-2 hover:underline">
+                  {linkBase.replace(/^https?:\/\//, "")}
+                  {host.slug} <ExternalLink className="size-3" aria-hidden />
+                </a>
+                {v.slug !== host.slug && <span>Changing it breaks the old link.</span>}
+              </>
+            ) : (
+              `Use ${HOST_SLUG_HINT}.`
+            )}
+          </p>
+        </div>
+        <Button type="submit" className="w-fit" disabled={!dirty || !slugOk} loading={save.isPending}>
           Save profile
         </Button>
       </form>

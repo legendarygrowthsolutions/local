@@ -160,12 +160,17 @@ export const hostPatch = (p: Partial<Host>) => {
   return pick(hostToRow({ ...EMPTY_HOST, ...rest }), rest);
 };
 const EMPTY_HOST = {
-  id: "", userId: null, type: "organiser", brandName: "", cityId: "", bio: "", instagram: null, kycStatus: "none", status: "pending", since: "",
+  id: "", userId: null, type: "organiser", slug: "", brandName: "", cityId: "", bio: "", instagram: null, kycStatus: "none", status: "pending", since: "",
   contactName: "", contactPhone: "", email: null, website: null, gstin: null, expectedPerMonth: "", wantsPaid: false, documents: [], reviewNote: null, submittedAt: "",
 } as Host;
 
-export const memberToRow = (m: HostMember): T.HostMembersTable => ({ ...m, createdAt: utc(m.createdAt) });
-export const memberFromRow = (r: T.HostMembersTable): HostMember => ({ ...r, role: r.role as HostMember["role"], status: r.status as HostMember["status"] });
+export const memberToRow = (m: HostMember): T.HostMembersTable => ({ ...m, createdAt: utc(m.createdAt), scope: m.scope ? JSON.stringify(m.scope) : null });
+export const memberFromRow = (r: T.HostMembersTable): HostMember => ({
+  ...r,
+  role: r.role as HostMember["role"],
+  status: r.status as HostMember["status"],
+  scope: r.scope ? (JSON.parse(r.scope) as string[]) : null,
+});
 
 // ---------- listings ----------
 export const listingToRow = (l: Listing): T.ListingsTable => ({

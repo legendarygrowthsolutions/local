@@ -2,7 +2,7 @@
 
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { HostApplicationInput, HostMember, ListingInput } from "@/contracts";
-import type { HostBookingRow, HostListingRow } from "@/services/host";
+import type { HostBookingRow, HostListingRow, TeamTarget } from "@/services/host";
 import { api, qs } from "./client";
 
 export const hostKeys = {
@@ -94,14 +94,28 @@ export function useRemoveBlock() {
   });
 }
 
-export function useTeam(initial?: HostMember[]) {
-  return useQuery({ queryKey: hostKeys.team, queryFn: () => api<{ items: HostMember[] }>("/api/host/team").then((r) => r.items), initialData: initial });
+export interface Team {
+  items: HostMember[];
+  /** The host's venues and events a member can be scoped to. */
+  targets: TeamTarget[];
+}
+
+export function useTeam(initial?: Team) {
+  return useQuery({ queryKey: hostKeys.team, queryFn: () => api<Team>("/api/host/team"), initialData: initial });
 }
 
 export function useInvite() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: (v: { phone: string; name?: string }) => api("/api/host/team", { body: v }),
+    mutationFn: (v: { phone: string; name?: string; scope?: string[] | null }) => api("/api/host/team", { body: v }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: hostKeys.team }),
+  });
+}
+
+export function useSetMemberScope() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (v: { id: string; scope: string[] | null }) => api(`/api/host/team/${v.id}`, { method: "PATCH", body: { scope: v.scope } }),
     onSuccess: () => qc.invalidateQueries({ queryKey: hostKeys.team }),
   });
 }

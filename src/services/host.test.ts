@@ -11,6 +11,7 @@ import { ServiceError } from "./errors";
 import { hostPayouts } from "./payouts";
 import {
   addBlock, applyAsHost, checkIn, getListingInput, hostBookings, hostDashboard, inviteMember, listHostListings, removeBlock, removeMember, resolveHostContext, saveListing,
+  setMemberScope, teamTargets, venueSchedule,
 } from "./host";
 
 setupTestDb();
@@ -69,6 +70,87 @@ describe("host context & roles", () => {
     expect(m).toMatchObject({ status: "invited", role: "manager", userId: null });
     expect(await err(inviteMember(owner, "9000000088"))).toMatchObject({ status: 409 });
     expect(await err(removeMember(owner, owner.member.id))).toMatchObject({ status: 400 });
+    await removeMember(owner, m.id);
+  });
+});
+
+describe("venue / event scoping", () => {
+  it("a manager scoped to some venues sees, books, schedules and checks in only those", async () => {
+    const owner = await ctxFor("u_venue"); // h_mumbai_5 runs several venues
+    const all = await teamTargets(owner);
+    const venues = all.filter((t) => t.kind === "venue");
+    expect(venues.length).toBeGreaterThan(1);
+    const [mine, theirs] = venues;
+
+    const staff = await makeUser({ name: "Scoped Staff" });
+    const m = await inviteMember(owner, staff.phone, undefined, [mine.id]);
+    expect(m).toMatchObject({ status: "active", scope: [mine.id] });
+    const ctx = await ctxFor(staff.id);
+    expect(ctx.scope).toEqual([mine.id]);
+    expect(owner.scope).toBeNull();
+
+    // Listings and bookings are filtered.
+    const rows = await listHostListings(ctx);
+    expect(rows.map((r) => r.id)).toEqual([mine.id]);
+    const b = await hostBookings(ctx, { when: "upcoming" });
+    expect(b.targets.map((t) => t.id)).toEqual([mine.id]);
+    const ownerB = await hostBookings(owner, { when: "upcoming" });
+    expect(ownerB.total).toBeGreaterThan(b.total);
+    expect(b.total).toBe((await hostBookings(owner, { when: "upcoming", target: mine.id })).total);
+    // Asking for the other venue by id yields nothing.
+    expect((await hostBookings(ctx, { when: "upcoming", target: theirs.id })).total).toBe(0);
+    expect((await hostDashboard(ctx)).listings.map((r) => r.id)).toEqual([mine.id]);
+
+    // The court calendar never shows the other venue, even when asked for it.
+    const sched = await venueSchedule(ctx, theirs.id, undefined);
+    expect(sched?.venueId).toBe(mine.id);
+    expect(sched?.venues.map((v) => v.id)).toEqual([mine.id]);
+    const otherRes = (await repo.venues.resources([theirs.id]))[0];
+    expect(await err(addBlock(ctx, { resourceId: otherRes.id, date: addDays(todayIST(), 2), startMins: 600, endMins: 660, reason: "Nope" }))).toMatchObject({ status: 404 });
+
+    // Editing the other venue is a 404, like a listing from another host.
+    expect(await err(getListingInput(ctx, theirs.id))).toMatchObject({ status: 404 });
+    await expect(getListingInput(ctx, mine.id)).resolves.toMatchObject({ status: expect.any(String) });
+    const { input } = await getListingInput(owner, theirs.id);
+    expect(await err(saveListing(ctx, input, false, theirs.id))).toMatchObject({ status: 404 });
+
+    // Check-in at the other venue is refused.
+    const guest = await makeUser();
+    const starts = toISO(addDays(todayIST(), 1), 600);
+    const booking = bookingRow({
+      userId: guest.id, kind: "venue", listingId: null, venueId: theirs.id, status: "confirmed", startsAt: starts, endsAt: toISO(addDays(todayIST(), 1), 660), attendee: attendee("Other Guest"),
+      items: [{ ticketTypeId: null, sessionId: null, resourceId: otherRes.id, startsAt: starts, endsAt: toISO(addDays(todayIST(), 1), 660), label: "Court", qty: 1, unitPrice: 800 }],
+    });
+    await repo.bookings.insert(booking);
+    expect(await err(checkIn(ctx, booking.code, new Date(starts)))).toMatchObject({ status: 404 });
+    expect((await checkIn(owner, booking.code, new Date(starts))).result).toBe("ok");
+
+    // The owner widens access; the member sees both. Then back to everything.
+    await setMemberScope(owner, m.id, [mine.id, theirs.id]);
+    expect((await listHostListings(await ctxFor(staff.id))).map((r) => r.id).sort()).toEqual([mine.id, theirs.id].sort());
+    await setMemberScope(owner, m.id, null);
+    expect((await ctxFor(staff.id)).scope).toBeNull();
+    expect((await listHostListings(await ctxFor(staff.id))).length).toBe((await listHostListings(owner)).length);
+
+    // Guard rails: ids must be the host's own; the owner can't be scoped; managers can't change scopes.
+    expect(await err(setMemberScope(owner, m.id, ["l_not_ours"]))).toMatchObject({ status: 400 });
+    expect(await err(setMemberScope(owner, owner.member.id, [mine.id]))).toMatchObject({ status: 400 });
+    expect(await err(setMemberScope(await ctxFor("u_manager"), m.id, null))).toMatchObject({ status: 403 });
+    await removeMember(owner, m.id);
+  });
+
+  it("a scoped manager keeps access to a listing they create", async () => {
+    const owner = await ctxFor("u_host"); // Tidewater Collective (organiser)
+    const targetsBefore = await teamTargets(owner);
+    const staff = await makeUser({ name: "Event Staff" });
+    const m = await inviteMember(owner, staff.phone, undefined, [targetsBefore[0].id]);
+    const ctx = await ctxFor(staff.id);
+    const { input } = await getListingInput(owner, targetsBefore.find((t) => t.kind === "event")!.id);
+    const saved = await saveListing(ctx, { ...(input as EventListingInput), title: "Scoped staff draft" }, false);
+    expect(ctx.scope).toContain(saved.id);
+    const again = await ctxFor(staff.id);
+    expect(again.scope).toEqual([targetsBefore[0].id, saved.id]);
+    expect((await listHostListings(again)).map((r) => r.id).sort()).toEqual([targetsBefore[0].id, saved.id].sort());
     await removeMember(owner, m.id);
   });
 });

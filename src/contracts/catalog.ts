@@ -38,6 +38,8 @@ export const HostSchema = z.object({
   id: z.string(),
   userId: z.string().nullable(),
   type: z.enum(["organiser", "venue", "instructor", "community"]),
+  /** Public handle: the host's page is /h/<slug>. Unique. */
+  slug: z.string(),
   brandName: z.string(),
   cityId: z.string(),
   bio: z.string(),

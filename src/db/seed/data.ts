@@ -3,6 +3,7 @@ import type {
 } from "@/contracts";
 import type { Coupon } from "@/lib/pricing";
 import { daysBetween, todayIST } from "@/lib/time";
+import { hostSlugFrom } from "@/lib/slug";
 
 import meta from "./fixtures/meta.json";
 import cities from "./fixtures/cities.json";
@@ -96,7 +97,7 @@ export function loadSeedData(now = new Date()): SeedData {
   const demoResources = c<Resource[]>(resources).filter((r) => venueIds.has(r.venueId));
   const resourceIds = new Set(demoResources.map((r) => r.id));
   // Approved demo hosts there go too; pending applications stay so the admin queue has something in it.
-  const demoHosts = c<Host[]>(hosts).filter((h) => !IMPORTED_CITIES.has(h.cityId) || h.status !== "approved");
+  const demoHosts = withSlugs(c<Host[]>(hosts).filter((h) => !IMPORTED_CITIES.has(h.cityId) || h.status !== "approved"));
   const hostIds = new Set(demoHosts.map((h) => h.id));
 
   return {
@@ -121,5 +122,19 @@ export function loadSeedData(now = new Date()): SeedData {
 
 /** Imported listings keep their real, absolute dates (never re-anchored). */
 export function loadImportedData(): ImportedData {
-  return structuredClone(nagpur) as unknown as ImportedData;
+  const im = structuredClone(nagpur) as unknown as ImportedData;
+  // Imported hosts are numbered after the generated demo hosts so the two sets never collide.
+  im.hosts = withSlugs(im.hosts, new Set(loadSeedData().hosts.map((h) => h.slug)));
+  return im;
+}
+
+/** Public handles for fixture hosts that predate the slug column (generated from the brand name, de-duplicated). */
+function withSlugs(hosts: Host[], used = new Set<string>()): Host[] {
+  return hosts.map((h) => {
+    const base = h.slug || hostSlugFrom(h.brandName);
+    let slug = base;
+    for (let i = 2; used.has(slug); i++) slug = `${base.slice(0, 40 - String(i).length - 1)}-${i}`;
+    used.add(slug);
+    return { ...h, slug };
+  });
 }

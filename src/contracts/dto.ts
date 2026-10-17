@@ -85,6 +85,18 @@ export interface VenueDetail {
   similar: ListingCard[];
 }
 
+/** A host's public page (/h/<slug>): everything they have on sale, across cities. */
+export interface HostProfile {
+  host: Host;
+  /** Cities the host currently has something live in (home city first). */
+  cities: City[];
+  /** Upcoming events, soonest first. */
+  events: ListingCard[];
+  /** Bookable courts and venues. */
+  venues: ListingCard[];
+  followers: number;
+}
+
 export type SlotStatus = "available" | "booked" | "held" | "blocked" | "past";
 
 export interface Slot {

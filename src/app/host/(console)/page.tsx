@@ -3,6 +3,8 @@ import { Plus, ShieldAlert } from "lucide-react";
 import { requireHostPage } from "@/lib/host-session";
 import { hostDashboard } from "@/services/host";
 import { Kpi, ListingStatus } from "@/components/host/bits";
+import { PublicLinkCard } from "@/components/host/public-link";
+import { abs } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { CountUp } from "@/components/ui/count-up";
 import { formatDate, istParts } from "@/lib/time";
@@ -49,6 +51,8 @@ export default async function HostOverview({ searchParams }: { searchParams: Pro
           )}
         </div>
       )}
+
+      <PublicLinkCard url={abs(`/h/${ctx.host.slug}`)} brandName={ctx.host.brandName} canEdit={ctx.isOwner} />
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <Kpi label="Bookings (7 days)" value={<CountUp value={d.week.bookings} />} trend={d.week.bookingsTrend} trendSuffix=" vs last week" />

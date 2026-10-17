@@ -106,6 +106,9 @@ export interface Repository {
   };
   hosts: {
     byId(id: string): Promise<Host | null>;
+    bySlug(slug: string): Promise<Host | null>;
+    /** How many users follow each host (missing = 0). */
+    followerCounts(hostIds: string[]): Promise<Map<string, number>>;
     /** The host whose verification documents include this upload. */
     hostIdForDocumentMedia(mediaId: string): Promise<string | null>;
     list(): Promise<Host[]>;

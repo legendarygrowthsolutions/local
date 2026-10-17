@@ -8,7 +8,8 @@
   "role": "owner",
   "status": "active",
   "invitedBy": null,
-  "createdAt": "2025-12-15T10:00:00+05:30"
+  "createdAt": "2025-12-15T10:00:00+05:30",
+  "scope": null
  },
  {
   "id": "hm_2",
@@ -19,7 +20,8 @@
   "role": "owner",
   "status": "active",
   "invitedBy": null,
-  "createdAt": "2025-05-29T10:00:00+05:30"
+  "createdAt": "2025-05-29T10:00:00+05:30",
+  "scope": null
  },
  {
   "id": "hm_3",
@@ -30,7 +32,8 @@
   "role": "manager",
   "status": "active",
   "invitedBy": "u_venue",
-  "createdAt": "2026-07-13T10:00:00+05:30"
+  "createdAt": "2026-07-13T10:00:00+05:30",
+  "scope": null
  },
  {
   "id": "hm_4",
@@ -41,6 +44,7 @@
   "role": "manager",
   "status": "invited",
   "invitedBy": "u_venue",
-  "createdAt": "2026-10-09T10:00:00+05:30"
+  "createdAt": "2026-10-09T10:00:00+05:30",
+  "scope": null
  }
 ]

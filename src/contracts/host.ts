@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { HOST_SLUG_HINT, HOST_SLUG_RE } from "@/lib/slug";
 import { FormFieldSchema } from "./listing";
 import { PhoneSchema } from "./user";
 
@@ -15,6 +16,8 @@ export const HostMemberSchema = z.object({
   status: z.enum(["active", "invited"]),
   invitedBy: z.string().nullable(),
   createdAt: z.string(),
+  /** Listing / venue ids this member can see and run; null = the whole host. Owners are always null. */
+  scope: z.array(z.string()).nullable(),
 });
 export type HostMember = z.infer<typeof HostMemberSchema>;
 
@@ -58,13 +61,18 @@ export const HostApplicationSchema = z
   });
 export type HostApplicationInput = z.infer<typeof HostApplicationSchema>;
 
-export const InviteSchema = z.object({ phone: PhoneSchema, name: z.string().trim().max(60).optional() });
+/** Which of the host's venues and events a member can access; null = everything. */
+export const MemberScopeSchema = z.array(z.string().max(60)).max(200).nullable();
+export const InviteSchema = z.object({ phone: PhoneSchema, name: z.string().trim().max(60).optional(), scope: MemberScopeSchema.optional() });
+export const MemberPatchSchema = z.object({ scope: MemberScopeSchema });
 
 export const HostProfilePatchSchema = z.object({
   brandName: z.string().trim().min(2).max(60).optional(),
   bio: z.string().trim().min(20).max(500).optional(),
   instagram: z.string().trim().max(40).optional(),
   email: z.string().trim().email().or(z.literal("")).optional(),
+  /** Public page handle (/h/<slug>). */
+  slug: z.string().trim().toLowerCase().regex(HOST_SLUG_RE, `Use ${HOST_SLUG_HINT}`).optional(),
 });
 
 /** Where a host's payouts are sent. Kept apart from the public host profile. */
